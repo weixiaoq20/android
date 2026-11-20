@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 批发订单详情</title>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#2A2420;--ink2:#5C5C5F;--muted:#8A8A8E;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;min-height:0;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.topbar{position:relative;flex:0 0 46px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.topbar h1{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;font-size:16px;font-weight:800;letter-spacing:-.3px;white-space:nowrap}
+.iconbtn{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;box-shadow:0 3px 9px rgba(160,110,80,.08);flex:0 0 30px}
+.scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;width:100%;min-width:0;scrollbar-width:none;padding-bottom:12px}
+.scroll::-webkit-scrollbar{display:none}
+.hero{margin:0 14px;border-radius:18px;background:linear-gradient(135deg,#FB7C5B 0%,#F1503A 54%,#E23629 100%);padding:14px 15px 13px;position:relative;overflow:hidden;color:#fff;box-shadow:0 10px 24px rgba(232,70,45,.24)}
+.hero:before{content:"";position:absolute;width:140px;height:140px;border-radius:50%;right:-44px;top:-62px;background:rgba(255,255,255,.14)}
+.hero .pill{display:inline-flex;align-items:center;gap:4px;font-size:8.5px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:3px 8px;position:relative;z-index:1}
+.hero h2{margin:8px 0 0;font-size:21px;font-weight:800;letter-spacing:-.4px;position:relative;z-index:1;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.hero h2 .cd{font-size:11px;font-weight:700;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.34);border-radius:999px;padding:2px 8px;letter-spacing:0;font-variant-numeric:tabular-nums}
+.hero p{margin:6px 0 0;font-size:10.5px;opacity:.94;line-height:1.55;max-width:270px;position:relative;z-index:1}
+.hero .no{margin-top:9px;font-size:9px;opacity:.8;position:relative;z-index:1}
+.hero .ico{position:absolute;right:13px;top:44px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center;border:1px solid rgba(255,255,255,.28);z-index:1}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#fff;border-radius:16px;border:1px solid #FBF1EA;box-shadow:var(--shadow);padding:12px 6px 10px;margin:10px 14px 0}
+.step{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0}
+.step .dot{width:17px;height:17px;border-radius:50%;background:#F2E9E2;color:#B3A69C;font-size:9px;display:grid;place-items:center;font-weight:700;position:relative;z-index:1;border:2px solid #fff;box-shadow:0 0 0 1px #EFE3DA}
+.step.done .dot{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;box-shadow:0 0 0 1px #F7C7B8}
+.step.now .dot{background:#fff;color:#E23A2E;box-shadow:0 0 0 2px #F1503A}
+.step .lb{font-size:9px;color:#A79A91;white-space:nowrap;letter-spacing:-.2px}
+.step.done .lb{color:#B4674B}
+.step.now .lb{color:#E23A2E;font-weight:700}
+.step:not(:first-child):before{content:"";position:absolute;top:8px;left:-50%;width:100%;height:2px;background:#F2E9E2;z-index:0}
+.step.done:before{background:linear-gradient(90deg,#F7C7B8,#FB6E4E)}
+.card{background:#fff;border-radius:18px;border:1px solid #FBF1EA;box-shadow:var(--shadow);margin:10px 14px 0;padding:12px 13px;min-width:0}
+.ctitle{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;font-weight:700;color:#3E332B;letter-spacing:-.2px;margin-bottom:8px}
+.ctitle span{font-size:9px;color:#B3A69C;font-weight:500;white-space:nowrap}
+.ctip{display:flex;align-items:flex-start;gap:6px;background:#FFF6F3;border:1px dashed #F6DCCD;border-radius:10px;padding:7px 9px;font-size:9.5px;color:#B4674B;line-height:1.55;margin-bottom:9px}
+.ctip svg{flex:0 0 auto;margin-top:1px}
+.ctip b{color:#E23A2E;font-variant-numeric:tabular-nums}
+.pkg{border:1px solid #F4E8E0;border-radius:13px;padding:9px 10px;margin-top:8px;min-width:0}
+.pkg:first-of-type{margin-top:0}
+.ph{display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;color:#3E332B;min-width:0}
+.ph span{font-size:9px;font-weight:500;color:#A99C92}
+.ph .st{margin-left:auto;font-size:9px;font-weight:700;color:#3E7BB6;background:#EDF3FC;border-radius:999px;padding:2px 7px;flex:0 0 auto}
+.ph .st.ok{color:#2C7A5B;background:#EAF7F0}
+.pl{font-size:9.5px;color:#9C8E83;line-height:1.55;margin-top:5px}
+.pl b{color:#4A3F37;font-weight:600}
+.pacts{display:flex;justify-content:flex-end;gap:6px;margin-top:8px}
+.pacts a,.pacts button{height:27px;padding:0 11px;border-radius:999px;font-size:9.5px;font-weight:700;display:inline-flex;align-items:center;white-space:nowrap}
+.pacts .g{background:#fff;border:1px solid #F0E1D6;color:#6E6057}
+.pacts .m{background:#FFF3EE;border:1px solid #F7C7B8;color:#D0411F}
+.item{display:flex;gap:9px;padding:8px 0;border-bottom:1px solid #F7F1EC}
+.item:last-of-type{border-bottom:0;padding-bottom:2px}
+.thumb{width:46px;height:46px;border-radius:10px;flex:0 0 46px;display:grid;place-items:center;overflow:hidden}
+.thumb svg{width:36px;height:36px;display:block}
+.thumb.a{background:linear-gradient(150deg,#FFE8D7,#F7C29C)}
+.thumb.b{background:linear-gradient(150deg,#EAF3FE,#BEDAF3)}
+.ii{flex:1;min-width:0}
+.ii h3{margin:0;font-size:10.5px;line-height:1.42;font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ii .sub{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:4px;font-size:9.5px;color:#A99C92}
+.ii .sub b{font-size:11.5px;color:#E23A2E;font-weight:800}
+.arow{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:10.5px;color:#8E8076;padding:3.5px 0}
+.arow b{color:#3E332B;font-weight:600}
+.arow .cut{color:#E23A2E;font-weight:600}
+.atotal{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:5px;padding-top:9px;border-top:1px dashed #F2E7DF}
+.atotal .lb{font-size:11px;color:#3E332B;font-weight:700}
+.atotal b{font-size:19px;color:#E23A2E;font-weight:800;letter-spacing:-.5px}
+.atotal b small{font-size:10.5px}
+.ir{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;font-size:10.5px;color:#8E8076;padding:4px 0}
+.ir .k{flex:0 0 auto}
+.ir .v{color:#4A3F37;font-weight:500;text-align:right;min-width:0;line-height:1.5}
+.tl{padding-left:2px}
+.tli{display:flex;gap:9px;position:relative;padding-bottom:12px}
+.tli:last-child{padding-bottom:0}
+.tli:before{content:"";position:absolute;left:5px;top:12px;bottom:0;width:1px;background:#F2E7DF}
+.tli:last-child:before{display:none}
+.tdot{width:11px;height:11px;border-radius:50%;background:#F2E7DF;flex:0 0 11px;margin-top:2px;position:relative;z-index:1;border:2px solid #fff;box-shadow:0 0 0 1px #F2E7DF}
+.tli.done .tdot{background:linear-gradient(135deg,#FB6E4E,#F03A2C);box-shadow:0 0 0 1px #F7A392}
+.tli .tt b{display:block;font-size:10px;font-weight:600;color:#5C5C5F}
+.tli.done .tt b{color:#2C2C2F}
+.tli .tt span{display:block;font-size:8.5px;color:#B2A69C;margin-top:2px}
+.dock{flex:0 0 auto;background:#fff;border-top:1px solid #F3EBE5;display:flex;align-items:center;gap:7px;padding:9px 12px 12px;box-shadow:0 -6px 18px rgba(150,110,88,.05)}
+.dbtn{flex:1 1 0;min-width:0;height:42px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;white-space:nowrap}
+.dbtn.ghost{flex:0 0 96px;background:#fff;border:1px solid #F0E1D6;color:#6E6057}
+.dbtn.main{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;box-shadow:0 6px 16px rgba(232,70,45,.26)}
+.dbtn.done{background:#F3EDE8;color:#9C8E83;box-shadow:none}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+.toast{position:absolute;left:50%;bottom:92px;transform:translate(-50%,10px);background:rgba(38,28,22,.9);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap;max-width:calc(100% - 32px);text-align:center;overflow:hidden;text-overflow:ellipsis}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="topbar">
+<a aria-label="返回批发订单" class="iconbtn" href="wholesale-orders.html">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+<h1>订单详情</h1>
+<a aria-label="联系商家" class="iconbtn" href="chat-shop.html">
+<svg fill="none" height="15" viewbox="0 0 24 24" width="15"><path d="M20.5 11.5A8.2 8.2 0 0 1 8 18.7L4 20l1.3-3.9A8.2 8.2 0 1 1 20.5 11.5z" stroke="#4A3F37" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+</a>
+</div>
+<div class="scroll">
+<div class="hero">
+<span class="pill">
+<svg fill="none" height="9" viewbox="0 0 24 24" width="9"><path d="M3.5 7.5h9v9h-9z" stroke="#fff" stroke-linejoin="round" stroke-width="1.8"></path><path d="M12.5 10.5h4l3 3v3h-7z" stroke="#fff" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+        微信担保 · 已发货
+      </span>
+<h2>待收货 <span class="cd" id="cdRecv">剩 6 天 12 小时自动确认</span></h2>
+<p>包裹 1 派送中、包裹 2 运输中。可整单确认收货，也可按包裹分别确认；自动确认前均可申请售后。</p>
+<div class="no">订单号 202611110008 · 2026-11-10 15:22</div>
+<span class="ico">
+<svg fill="none" height="23" viewbox="0 0 24 24" width="23"><path d="M3.5 7.5h9v9h-9z" stroke="#fff" stroke-linejoin="round" stroke-width="1.6"></path><path d="M12.5 10.5h4l3 3v3h-7z" stroke="#fff" stroke-linejoin="round" stroke-width="1.6"></path><circle cx="7" cy="17.6" r="1.8" stroke="#fff" stroke-width="1.6"></circle><circle cx="16.5" cy="17.6" r="1.8" stroke="#fff" stroke-width="1.6"></circle></svg>
+</span>
+</div>
+<div class="steps">
+<div class="step done"><span class="dot">✓</span><span class="lb">待付款</span></div>
+<div class="step done"><span class="dot">✓</span><span class="lb">待发货</span></div>
+<div class="step now"><span class="dot">3</span><span class="lb">待收货</span></div>
+<div class="step"><span class="dot">4</span><span class="lb">已完成</span></div>
+</div>
+<div class="card">
+<div class="ctitle">分包裹配送<span>共 2 个包裹</span></div>
+<div class="ctip">
+<svg fill="none" height="11" viewbox="0 0 24 24" width="11"><circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.9"></circle><path d="M12 7.6V12l3 1.8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"></path></svg>
+<span>剩 <b id="cdInline">6 天 12 小时</b> 自动确认收货，签收前可在本页申请售后。</span>
+</div>
+<div class="pkg">
+<div class="ph">包裹 1 · 2 件<span>顺丰速运</span><span class="st" id="st1">派送中</span></div>
+<div class="pl">蒲江红心猕猴桃 5斤大果 ×2 · <b>SF1428391220337</b></div>
+<div class="pacts">
+<a class="g" href="logistics.html?from=wholesale">查看物流</a>
+<button class="m" onclick="confirmPkg(1)" type="button">确认本包裹收货</button>
+</div>
+</div>
+<div class="pkg">
+<div class="ph">包裹 2 · 1 件<span>中通快递</span><span class="st" id="st2">运输中</span></div>
+<div class="pl">金堂脐橙 10斤装 ×1 · <b>ZT7830114662098</b></div>
+<div class="pacts">
+<a class="g" href="logistics.html?from=wholesale">查看物流</a>
+<button class="m" onclick="confirmPkg(2)" type="button">确认本包裹收货</button>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="ctitle">收货地址<span>青羊日用品批发</span></div>
+<div class="ir"><span class="k">收件人</span><span class="v">王敏 · 138****2345</span></div>
+<div class="ir"><span class="k">地址</span><span class="v">四川省成都市青羊区草市街 12 号 3 栋 2 单元</span></div>
+</div>
+<div class="card">
+<div class="ctitle">商品清单<span>共 2 种 · 3 件</span></div>
+<div class="item">
+<span class="thumb a"><svg fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" fill="#fff" opacity=".5" r="23"></circle><path d="M23 16v11a4.6 4.6 0 0 0 9.2 0V16" stroke="#8A4B2A" stroke-linecap="round" stroke-width="2.4"></path><path d="M27.6 16v27" stroke="#8A4B2A" stroke-linecap="round" stroke-width="2.4"></path><path d="M39 16c3 4 2 9-1 12v15" stroke="#8A4B2A" stroke-linecap="round" stroke-width="2.4"></path></svg></span>
+<div class="ii"><h3>蒲江红心猕猴桃 5斤大果 现摘现发</h3><div class="sub"><span>¥39.90 ×2</span><b>¥79.80</b></div></div>
+</div>
+<div class="item">
+<span class="thumb b"><svg fill="none" viewbox="0 0 60 60"><rect fill="#fff" height="21" rx="5" stroke="#5B7EA6" stroke-width="2.1" width="34" x="13" y="25"></rect><path d="M23 25v-4c0-3.4 4-3.4 4-6.2 0-2.6 3-3.4 4.6-.8 1.7 2.7 3.4 3 3.4 7v4" stroke="#5B7EA6" stroke-linejoin="round" stroke-width="2.1"></path></svg></span>
+<div class="ii"><h3>金堂脐橙 10斤装 酸甜爆汁 产地直发</h3><div class="sub"><span>¥29.90 ×1</span><b>¥29.90</b></div></div>
+</div>
+<div class="arow"><span>商品总额</span><b>¥109.70</b></div>
+<div class="arow"><span>运费</span><b>¥0.00</b></div>
+<div class="arow"><span>平台红包</span><span class="cut">-¥10.00</span></div>
+<div class="atotal"><span class="lb">实付金额（微信担保支付）</span><b><small>¥</small>99.70</b></div>
+</div>
+<div class="card">
+<div class="ctitle">资金托管<span>平台担保</span></div>
+<div class="ir"><span class="k">货款状态</span><span class="v" id="fundTxt">货款待结算 · 确认收货后分账给商家</span></div>
+<div class="ir"><span class="k">当前托管金额</span><span class="v" style="color:#E23A2E;font-weight:700">¥99.70</span></div>
+<div class="ir"><span class="k">担保说明</span><span class="v">确认收货后 24 小时内结算，售后期间分账冻结</span></div>
+<div class="ir"><span class="k">支付口径</span><span class="v">批发链路仅微信担保支付，无线下扫码档</span></div>
+</div>
+<div class="card tl">
+<div class="tli done"><span class="tdot"></span><div class="tt"><b>支付成功 · 资金进入平台托管</b><span>2026-11-10 15:22:40</span></div></div>
+<div class="tli done"><span class="tdot"></span><div class="tt"><b>商家已发货（分 2 个包裹）</b><span>2026-11-12 16:34 · 顺丰速运 / 中通快递</span></div></div>
+<div class="tli done" id="tl1"><span class="tdot"></span><div class="tt"><b id="tl1t">包裹 1 派送中</b><span id="tl1s">2026-11-13 08:42 · 成都青羊分部</span></div></div>
+<div class="tli" id="tl2"><span class="tdot"></span><div class="tt"><b id="tl2t">包裹 2 运输中</b><span id="tl2s">2026-11-13 05:20 · 成都双流集散中心</span></div></div>
+</div>
+<div style="height:8px"></div>
+</div>
+<div class="dock">
+<a class="dbtn ghost" href="aftersale-apply.html">申请售后</a>
+<a class="dbtn ghost" href="logistics.html?from=wholesale">查看物流</a>
+<button class="dbtn main" id="allBtn" onclick="confirmAll()" type="button">确认收货</button>
+</div>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast">提示</div>
+</div>
+<script>
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__wt);
+    window.__wt = setTimeout(function () { t.classList.remove('show'); }, 1800);
+  }
+
+  var done = { 1: false, 2: false };
+
+  function confirmPkg(n) {
+    if (done[n]) { showToast('该包裹已确认收货'); return; }
+    done[n] = true;
+    var st = document.getElementById('st' + n);
+    if (st) { st.textContent = '已签收'; st.classList.add('ok'); }
+    var tl = document.getElementById('tl' + n);
+    if (tl) {
+      tl.classList.add('done');
+      document.getElementById('tl' + n + 't').textContent = '包裹 ' + n + ' 已确认收货';
+      document.getElementById('tl' + n + 's').textContent = '刚刚 · 由买家确认';
+    }
+    showToast('包裹 ' + n + ' 已确认收货');
+    if (done[1] && done[2]) { finishAll(); }
+  }
+
+  function confirmAll() {
+    if (done[1] && done[2]) { showToast('订单已全部确认收货'); return; }
+    confirmPkg(1);
+    confirmPkg(2);
+  }
+
+  function finishAll() {
+    var btn = document.getElementById('allBtn');
+    btn.textContent = '已全部确认收货';
+    btn.classList.add('done');
+    document.getElementById('fundTxt').textContent = '货款已分账给商家 · 2026-11-13 结算';
+    showToast('已全部确认收货，货款已分账给商家');
+  }
+
+  (function () {
+    var left = 6 * 86400 + 12 * 3600;
+    var a = document.getElementById('cdRecv');
+    var b = document.getElementById('cdInline');
+    function render() {
+      var d = Math.floor(left / 86400);
+      var h = Math.floor((left % 86400) / 3600);
+      var txt = '剩 ' + d + ' 天 ' + h + ' 小时自动确认';
+      if (a) { a.textContent = txt; }
+      if (b) { b.textContent = d + ' 天 ' + h + ' 小时'; }
+    }
+    render();
+    setInterval(function () {
+      if (left > 0) { left--; render(); }
+    }, 1000);
+  })();
+</script>
+</body>
+</html>

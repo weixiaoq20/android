@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 平台红包</title>
+<style>
+:root{--brand:#E23A2E;--brand2:#EE4A2F;--ink:#2A2420;--ink2:#5C5C5F;--muted:#8A8A8E;--muted2:#9A9A9E;--line:#F2E6E0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;position:relative;background:linear-gradient(180deg,#FDE2DD 0%,#FCEAE5 16%,#FDF6F2 33%,#FFFCFA 47%,#FFFCFA 100%)}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding:0 12px 18px}
+/* 页头 */
+.head{padding:0 16px 0}
+.hrow{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:34px;padding:4px 0 12px}
+.hrow .back{flex:0 0 auto;width:24px;height:24px;display:flex;align-items:center;color:#2A2420}
+.hrow h1{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);margin:0;font-size:19px;font-weight:600;letter-spacing:-.3px;color:#231C18;white-space:nowrap;pointer-events:none}
+.hrow .rule{margin-left:auto;flex:0 0 auto;font-size:11.5px;line-height:1;color:#E23A2E;background:#fff;border:1px solid #F6CDC0;border-radius:999px;padding:7px 10px;white-space:nowrap;box-shadow:0 2px 8px rgba(226,58,46,.06)}
+/* 数据区 */
+.hero{position:relative;display:flex;align-items:center;padding:2px 0 6px}
+.hero .hl{flex:0 0 auto}
+.hero .hl .lb{font-size:11.5px;color:#8A7C74;letter-spacing:.2px;white-space:nowrap}
+.hero .hl .amt{display:flex;align-items:flex-start;gap:2px;margin-top:1px;color:#231C18}
+.hero .hl .amt i{font-style:normal;font-size:14px;font-weight:700;line-height:1.2;margin-top:4px}
+.hero .hl .amt b{font-size:36px;font-weight:800;line-height:1;letter-spacing:-1px}
+.hero .vd{flex:0 0 1px;width:1px;height:34px;background:#E9D8CF;margin:0 13px 2px}
+.hero .hr{flex:1;min-width:0;display:flex;align-items:center;gap:2px;font-size:11.5px;color:#5C5C5F;white-space:nowrap;padding-bottom:3px}
+.hero .hr b{font-size:13px;font-weight:800;color:#E23A2E;margin:0 1px}
+.hero .hr .arw{color:#B9A9A0;margin-left:1px}
+.hero .illus{flex:0 0 auto;width:104px;height:104px;margin:-16px -6px -14px 0;align-self:center}
+/* 筛选 */
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 11px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:0 0 auto;font-size:11px;line-height:1;padding:8px 9px;border-radius:999px;color:#3A322D;background:#fff;border:1px solid #F0E1D9;white-space:nowrap;font-weight:600}
+.tabs button.on{background:#E23A2E;color:#fff;border-color:#E23A2E;font-weight:700;box-shadow:0 5px 14px rgba(226,58,46,.24)}
+/* 说明条 */
+.tips{display:flex;align-items:center;gap:8px;background:#fff;border-radius:12px;padding:10px 12px;margin-bottom:11px;box-shadow:0 4px 14px rgba(120,60,50,.05);font-size:11px;color:#5C5049}
+.tips .sp{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tips svg{flex:0 0 auto}
+/* 活动卡 */
+.card{display:flex;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:10px;margin-bottom:10px;box-shadow:0 5px 16px rgba(120,60,50,.07)}
+.cov{position:relative;flex:0 0 auto;width:92px;height:92px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.cov .bg{position:absolute;inset:0;width:100%;height:100%}
+.cov .ic{position:relative;z-index:1;margin-bottom:7px;display:block}
+.cov .bar{position:absolute;left:0;right:0;bottom:0;z-index:2;height:19px;line-height:19px;text-align:center;background:rgba(32,16,12,.58);color:#fff;font-size:10px;font-weight:600;white-space:nowrap;overflow:hidden}
+.cd{flex:1;min-width:0}
+.cr1{display:flex;align-items:center;gap:6px;min-width:0}
+.tag{flex:0 0 auto;font-size:10px;font-weight:700;line-height:1.5;color:#E23A2E;background:#FFF1EC;border-radius:4px;padding:1px 5px;white-space:nowrap}
+.am{min-width:0;display:flex;align-items:baseline;font-size:13.5px;font-weight:700;color:#231C18;white-space:nowrap;letter-spacing:-.2px}
+.am .cut{font-size:16.5px;font-weight:800;color:#E23A2E;letter-spacing:-.5px}
+.am .yuan{font-size:12px;font-weight:700;color:#E23A2E}
+.cr2{display:flex;align-items:center;gap:5px;margin-top:8px;font-size:9.5px;color:#9A9A9E;white-space:nowrap;min-width:0;font-variant-numeric:tabular-nums}
+.cr2 .ft{display:flex;align-items:center;gap:3px;flex:0 0 auto}
+.cr2 .ft b{font-weight:400;color:#9A9A9E}
+.cr2 .dv{flex:0 0 1px;width:1px;height:9px;background:#EFE5DE}
+.cr2 svg{flex:0 0 auto}
+.card .btn{flex:0 0 auto;font-size:10px;font-weight:700;line-height:1;color:#E23A2E;background:#fff;border:1px solid #F5A79A;border-radius:999px;padding:6px 10px;white-space:nowrap}
+.card .btn.done{color:#8A8A8E;background:#F4F1EF;border-color:#E6DFDA;cursor:default}
+/* 空态 */
+.empty{display:none;text-align:center;font-size:11.5px;color:#B0A49B;padding:30px 0}
+.empty.show{display:block}
+/* 规则浮层 */
+.mask{position:absolute;inset:0;background:rgba(30,20,16,.42);display:none;align-items:center;justify-content:center;padding:26px;z-index:80}
+.mask.show{display:flex}
+.sheet{width:100%;max-width:320px;background:#fff;border-radius:18px;padding:16px 16px 14px;box-shadow:0 16px 40px rgba(60,30,24,.22)}
+.sheet h3{margin:0 0 8px;font-size:15px;font-weight:800;color:#241C18}
+.sheet ol{margin:0;padding-left:16px;font-size:11px;line-height:1.85;color:#6E6157}
+.sheet button{display:block;width:100%;margin-top:12px;height:38px;border-radius:12px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:13px;font-weight:700}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="scroll">
+<div class="head">
+<div class="hrow">
+<a aria-label="返回" class="back" href="home.html" id="backBtn"><svg fill="none" height="22" viewbox="0 0 24 24" width="22"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"></path></svg></a>
+<h1>平台红包</h1>
+<button class="rule" id="ruleBtn" type="button">使用规则</button>
+</div>
+<div class="hero">
+<div class="hl">
+<div class="lb">可享平台红包（元）</div>
+<div class="amt"><i>¥</i><b>20</b></div>
+</div>
+<span class="vd"></span>
+<div class="hr">平台活动<b>4</b>个<svg class="arw" fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="m9.5 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg></div>
+<div aria-hidden="true" class="illus">
+<svg fill="none" height="104" viewbox="0 0 104 104" width="104">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="phero" x1="30" x2="70" y1="24" y2="86"><stop stop-color="#F4604A"></stop><stop offset="1" stop-color="#D92E22"></stop></lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="phero2" x1="30" x2="56" y1="24" y2="52"><stop stop-color="#FF8A72" stop-opacity=".75"></stop><stop offset="1" stop-color="#FF8A72" stop-opacity="0"></stop></lineargradient>
+<radialgradient cx=".5" cy=".5" id="pglow" r=".5"><stop stop-color="#FFB4A2" stop-opacity=".55"></stop><stop offset="1" stop-color="#FFB4A2" stop-opacity="0"></stop></radialgradient>
+</defs>
+<circle cx="52" cy="60" fill="url(#pglow)" r="38"></circle>
+<path d="M86 44c8 0 12 5 12 11s-5 10-12 10" opacity=".7" stroke="#F4B7A6" stroke-linecap="round" stroke-width="3"></path>
+<path d="M14 58c-5 1-8 5-8 9" opacity=".6" stroke="#F4B7A6" stroke-linecap="round" stroke-width="3"></path>
+<g transform="rotate(-8 52 52)">
+<rect fill="url(#phero)" height="52" rx="9" width="52" x="26" y="30"></rect>
+<path d="M26 42h52" stroke="#B4241A" stroke-opacity=".25" stroke-width="2"></path>
+<rect fill="url(#phero2)" height="22" rx="8" width="26" x="26" y="30"></rect>
+<circle cx="52" cy="58" fill="#FFE6B8" r="12"></circle>
+<circle cx="52" cy="58" r="12" stroke="#F2C271" stroke-width="1.4"></circle>
+<text fill="#D9452C" font-family="-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" text-anchor="middle" x="52" y="63.5">¥</text>
+</g>
+<path d="M18 26c3-4 8-5 11-2" opacity=".75" stroke="#F7B7A4" stroke-linecap="round" stroke-width="3"></path>
+<path d="M88 78c4 3 7 8 6 12" opacity=".6" stroke="#F7B7A4" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="pad">
+<div class="tabs" id="tabs">
+<button class="on" data-key="all" type="button">全部活动 (4)</button>
+<button data-key="99-5" type="button">满99减5 (1)</button>
+<button data-key="199-12" type="button">满199减12 (1)</button>
+<button data-key="299-20" type="button">满299减20 (2)</button>
+</div>
+<div class="tips">
+<svg fill="none" height="15" viewbox="0 0 24 24" width="15"><path d="M4 9.5v5l4 .8 9 4V4.7l-9 4z" fill="#EE4A2F"></path><path d="M8 15.2 7.2 20" stroke="#EE4A2F" stroke-linecap="round" stroke-width="1.8"></path><path d="M19.4 9c.9.7 1.4 1.8 1.4 3s-.5 2.3-1.4 3" stroke="#EE4A2F" stroke-linecap="round" stroke-width="1.6"></path></svg>
+<span class="sp">先领后用：领取后的平台红包在结算时自动匹配，满足门槛自动抵扣</span>
+<svg fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="m9.5 5 7 7-7 7" stroke="#E23A2E" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</div>
+<div class="card" data-key="299-20">
+<div class="cov">
+<svg aria-hidden="true" class="bg" preserveaspectratio="none" viewbox="0 0 92 92">
+<defs>
+<lineargradient id="pc1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F5604A"></stop><stop offset="1" stop-color="#D62B1F"></stop></lineargradient>
+<radialgradient cx=".28" cy=".18" id="pc1g" r=".75"><stop stop-color="#FFB6A4" stop-opacity=".55"></stop><stop offset="1" stop-color="#FFB6A4" stop-opacity="0"></stop></radialgradient>
+</defs>
+<rect fill="url(#pc1)" height="92" width="92"></rect>
+<rect fill="url(#pc1g)" height="92" width="92"></rect>
+<circle cx="72" cy="22" fill="#FF9C86" opacity=".28" r="16"></circle>
+</svg>
+<svg aria-hidden="true" class="ic" fill="none" height="44" viewbox="0 0 48 48" width="44">
+<path d="M12.5 15.5h23a2 2 0 0 1 2 2.2l-1.6 21a3.4 3.4 0 0 1-3.4 3.1H15.5a3.4 3.4 0 0 1-3.4-3.1l-1.6-21a2 2 0 0 1 2-2.2z" fill="#fff" fill-opacity=".95"></path>
+<path d="M17.6 19.4v-4.2a6.4 6.4 0 0 1 12.8 0v4.2" stroke="#fff" stroke-linecap="round" stroke-width="3.2"></path>
+<path d="M16.5 26.5h15" stroke="#E23A2E" stroke-linecap="round" stroke-opacity=".5" stroke-width="2.2"></path>
+<path d="M16.5 31.5h10" stroke="#E23A2E" stroke-linecap="round" stroke-opacity=".3" stroke-width="2.2"></path>
+</svg>
+<span class="bar">全平台商品</span>
+</div>
+<div class="cd">
+<div class="cr1"><span class="tag">平台通用</span><span class="am">满299<span class="cut">减20</span><span class="yuan">元</span></span></div>
+<div class="cr2">
+<span class="ft"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><rect height="16" rx="3" stroke="#B0A49B" stroke-width="2" width="17" x="3.5" y="5"></rect><path d="M8 3v4M16 3v4M3.5 10h17" stroke="#B0A49B" stroke-linecap="round" stroke-width="2"></path></svg>有效期至 12-31</span>
+<span class="dv"></span>
+<span class="ft"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M12 3.2 21 8 12 12.8 3 8z" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path><path d="M3 12.4 12 17.2l9-4.8M3 16.4 12 21.2l9-4.8" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path></svg>剩余 <b>3,520</b> 张</span>
+</div>
+</div>
+<button class="btn" data-claim="" type="button">立即领取</button>
+</div>
+<div class="card" data-key="199-12">
+<div class="cov">
+<svg aria-hidden="true" class="bg" preserveaspectratio="none" viewbox="0 0 92 92">
+<defs>
+<lineargradient id="pc2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F37C3C"></stop><stop offset="1" stop-color="#DE4423"></stop></lineargradient>
+<radialgradient cx=".3" cy=".16" id="pc2g" r=".75"><stop stop-color="#FFD0A8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FFD0A8" stop-opacity="0"></stop></radialgradient>
+</defs>
+<rect fill="url(#pc2)" height="92" width="92"></rect>
+<rect fill="url(#pc2g)" height="92" width="92"></rect>
+<circle cx="74" cy="24" fill="#FFC49A" opacity=".3" r="15"></circle>
+</svg>
+<svg aria-hidden="true" class="ic" fill="none" height="46" viewbox="0 0 48 48" width="46">
+<path d="M10 19.5h28v17.8a2.6 2.6 0 0 1-2.6 2.6H12.6A2.6 2.6 0 0 1 10 37.3V19.5z" fill="#fff" fill-opacity=".95"></path>
+<path d="M8.6 14.6h30.8l-2.4-5.4a1.8 1.8 0 0 0-1.7-1.1H12.7a1.8 1.8 0 0 0-1.7 1.1l-2.4 5.4z" fill="#fff" fill-opacity=".92"></path>
+<path d="M8.6 14.6c0 2.6 1.9 4.5 4.3 4.5s4.3-1.9 4.3-4.5c0 2.6 1.9 4.5 4.3 4.5s4.3-1.9 4.3-4.5c0 2.6 1.9 4.5 4.3 4.5s4.3-1.9 4.3-4.5c0 2.6 1.9 4.5 4.3 4.5s4.3-1.9 4.3-4.5" stroke="#fff" stroke-width="1.6"></path>
+<rect fill="#E23A2E" fill-opacity=".45" height="15" rx="1.4" width="8" x="20" y="25"></rect>
+<rect fill="#E23A2E" fill-opacity=".22" height="6" rx="1" width="5.5" x="14" y="24"></rect>
+<rect fill="#E23A2E" fill-opacity=".22" height="6" rx="1" width="5.5" x="28.5" y="24"></rect>
+</svg>
+<span class="bar">指定店铺</span>
+</div>
+<div class="cd">
+<div class="cr1"><span class="tag">平台通用</span><span class="am">满199<span class="cut">减12</span><span class="yuan">元</span></span></div>
+<div class="cr2">
+<span class="ft"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><rect height="16" rx="3" stroke="#B0A49B" stroke-width="2" width="17" x="3.5" y="5"></rect><path d="M8 3v4M16 3v4M3.5 10h17" stroke="#B0A49B" stroke-linecap="round" stroke-width="2"></path></svg>有效期至 12-20</span>
+<span class="dv"></span>
+<span class="ft"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M12 3.2 21 8 12 12.8 3 8z" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path><path d="M3 12.4 12 17.2l9-4.8M3 16.4 12 21.2l9-4.8" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path></svg>剩余 <b>1,286</b> 张</span>
+</div>
+</div>
+<button class="btn" data-claim="" type="button">立即领取</button>
+</div>
+<div class="card" data-key="99-5">
+<div class="cov">
+<svg aria-hidden="true" class="bg" preserveaspectratio="none" viewbox="0 0 92 92">
+<defs>
+<lineargradient id="pc3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#E8613F"></stop><stop offset="1" stop-color="#C23C22"></stop></lineargradient>
+<radialgradient cx=".3" cy=".16" id="pc3g" r=".75"><stop stop-color="#FFC7B0" stop-opacity=".5"></stop><stop offset="1" stop-color="#FFC7B0" stop-opacity="0"></stop></radialgradient>
+</defs>
+<rect fill="url(#pc3)" height="92" width="92"></rect>
+<rect fill="url(#pc3g)" height="92" width="92"></rect>
+<circle cx="72" cy="22" fill="#FFB999" opacity=".28" r="15"></circle>
+</svg>
+<svg aria-hidden="true" class="ic" fill="none" height="42" viewbox="0 0 48 48" width="42">
+<rect fill="#fff" fill-opacity=".95" height="14.5" rx="4" width="14.5" x="8" y="8"></rect>
+<rect fill="#fff" fill-opacity=".78" height="14.5" rx="4" width="14.5" x="25.5" y="8"></rect>
+<rect fill="#fff" fill-opacity=".78" height="14.5" rx="4" width="14.5" x="8" y="25.5"></rect>
+<rect fill="#fff" fill-opacity=".95" height="14.5" rx="4" width="14.5" x="25.5" y="25.5"></rect>
+</svg>
+<span class="bar">指定类目</span>
+</div>
+<div class="cd">
+<div class="cr1"><span class="tag">平台通用</span><span class="am">满99<span class="cut">减5</span><span class="yuan">元</span></span></div>
+<div class="cr2">
+<span class="ft"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><rect height="16" rx="3" stroke="#B0A49B" stroke-width="2" width="17" x="3.5" y="5"></rect><path d="M8 3v4M16 3v4M3.5 10h17" stroke="#B0A49B" stroke-linecap="round" stroke-width="2"></path></svg>有效期至 12-15</span>
+<span class="dv"></span>
+<span class="ft"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M12 3.2 21 8 12 12.8 3 8z" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path><path d="M3 12.4 12 17.2l9-4.8M3 16.4 12 21.2l9-4.8" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path></svg>剩余 <b>8,935</b> 张</span>
+</div>
+</div>
+<button class="btn" data-claim="" type="button">立即领取</button>
+</div>
+<div class="card" data-key="299-20">
+<div class="cov">
+<svg aria-hidden="true" class="bg" preserveaspectratio="none" viewbox="0 0 92 92">
+<defs>
+<lineargradient id="pc4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F2764C"></stop><stop offset="1" stop-color="#D8401F"></stop></lineargradient>
+<radialgradient cx=".3" cy=".16" id="pc4g" r=".75"><stop stop-color="#FFCEB4" stop-opacity=".55"></stop><stop offset="1" stop-color="#FFCEB4" stop-opacity="0"></stop></radialgradient>
+</defs>
+<rect fill="url(#pc4)" height="92" width="92"></rect>
+<rect fill="url(#pc4g)" height="92" width="92"></rect>
+<circle cx="73" cy="24" fill="#FFC7A2" opacity=".3" r="15"></circle>
+</svg>
+<svg aria-hidden="true" class="ic" fill="none" height="44" viewbox="0 0 48 48" width="44">
+<rect fill="#fff" fill-opacity=".95" height="20" rx="3" width="26" x="11" y="21"></rect>
+<rect fill="#fff" fill-opacity=".9" height="7.5" rx="3" width="33" x="7.5" y="15.5"></rect>
+<rect fill="#E23A2E" fill-opacity=".35" height="25.5" width="5" x="21.5" y="15.5"></rect>
+<path d="M24 14c-2.6-6.2-10.4-6.6-10.4-1.4 0 2.6 4.2 3.6 10.4 1.4 6.2 2.2 10.4 1.2 10.4-1.4 0-5.2-7.8-4.8-10.4 1.4z" fill="#fff" fill-opacity=".92"></path>
+<circle cx="24" cy="13.6" fill="#E23A2E" fill-opacity=".4" r="2.4"></circle>
+</svg>
+<span class="bar">指定商品</span>
+</div>
+<div class="cd">
+<div class="cr1"><span class="tag">平台通用</span><span class="am">满299<span class="cut">减20</span><span class="yuan">元</span></span></div>
+<div class="cr2">
+<span class="ft"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><rect height="16" rx="3" stroke="#B0A49B" stroke-width="2" width="17" x="3.5" y="5"></rect><path d="M8 3v4M16 3v4M3.5 10h17" stroke="#B0A49B" stroke-linecap="round" stroke-width="2"></path></svg>有效期至 12-25</span>
+<span class="dv"></span>
+<span class="ft"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M12 3.2 21 8 12 12.8 3 8z" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path><path d="M3 12.4 12 17.2l9-4.8M3 16.4 12 21.2l9-4.8" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path></svg>剩余 <b>2,408</b> 张</span>
+</div>
+</div>
+<button class="btn" data-claim="" type="button">立即领取</button>
+</div>
+<div class="empty" id="empty">暂无符合条件的平台红包</div>
+</div>
+</div>
+<div class="homebar"><i></i></div>
+<div class="mask" id="ruleMask">
+<div class="sheet">
+<h3>平台红包使用规则</h3>
+<ol>
+<li>平台红包需先在「平台红包」页点击「立即领取」，领取后在结算时按门槛自动匹配抵扣。</li>
+<li>每笔订单限用一张平台红包，可与店铺礼金叠加使用。</li>
+<li>平台通用红包全平台店铺可用；指定店铺、类目、商品红包仅限对应范围。</li>
+<li>订单需满足红包满减门槛，抵扣金额不超过订单商品金额。</li>
+<li>红包在有效期内可用，逾期自动失效，数量以活动剩余为准。</li>
+</ol>
+<button id="ruleClose" type="button">我知道了</button>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    var tabs = document.getElementById('tabs');
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+    var empty = document.getElementById('empty');
+    tabs.addEventListener('click', function (e) {
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      Array.prototype.forEach.call(tabs.querySelectorAll('button'), function (x) { x.classList.remove('on'); });
+      btn.classList.add('on');
+      var key = btn.getAttribute('data-key');
+      var shown = 0;
+      cards.forEach(function (c) {
+        var ok = key === 'all' || c.getAttribute('data-key') === key;
+        c.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      empty.classList.toggle('show', shown === 0);
+    });
+
+    document.querySelectorAll('[data-claim]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (b.classList.contains('done')) return;
+        b.textContent = '已领取';
+        b.classList.add('done');
+        b.disabled = true;
+        b.setAttribute('aria-disabled', 'true');
+      });
+    });
+
+    var mask = document.getElementById('ruleMask');
+    document.getElementById('ruleBtn').addEventListener('click', function () { mask.classList.add('show'); });
+    document.getElementById('ruleClose').addEventListener('click', function () { mask.classList.remove('show'); });
+    mask.addEventListener('click', function (e) { if (e.target === mask) mask.classList.remove('show'); });
+
+    var backBtn = document.getElementById('backBtn');
+    if (backBtn) {
+      var fromParam = '';
+      try {
+        fromParam = (new URLSearchParams(location.search).get('from') || '').split('#')[0].split('?')[0];
+      } catch (err) { fromParam = ''; }
+      var fromPage = /^[A-Za-z0-9_-]+\.html$/.test(fromParam) ? fromParam : '';
+      if (fromPage) backBtn.setAttribute('href', fromPage);
+      backBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (fromPage) {
+          location.href = fromPage;
+        } else if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          location.href = 'home.html';
+        }
+      });
+    }
+  })();
+</script>
+</body>
+</html>

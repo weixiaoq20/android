@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 新增收货地址</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#2A2420;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F3E9E2;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 15%,#FDF7F4 30%,#FFFDFC 46%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.topbar{flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.topbar h1{margin:0;font-size:16px;font-weight:700;letter-spacing:-.2px}
+.back{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;box-shadow:0 3px 9px rgba(160,110,80,.08)}
+.bsave{font-size:12.5px;font-weight:700;color:#EE4A2F;padding:5px 6px;min-width:38px;text-align:right}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding:0 14px}
+.card{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:14px 13px 12px;margin-top:4px}
+.frow{display:flex;gap:9px}
+.frow .field{flex:1}
+.field{margin-bottom:11px}
+.field:last-child{margin-bottom:0}
+.field label{font-size:10.5px;color:#8E8076;display:block;margin-bottom:5px}
+.wrap{display:flex;align-items:center;height:40px;border-radius:10px;border:1px solid #F3E9E2;background:#FFFBF9;padding:0 11px;transition:border-color .15s,background .15s}
+.wrap:focus-within{border-color:#F7A392;background:#fff}
+.wrap input{flex:1;width:100%;min-width:0;border:0;outline:none;background:transparent;font-size:12px;font-family:inherit;color:var(--ink)}
+.wrap input::placeholder{color:#B3A79F}
+.wrap .chev{flex:0 0 auto;margin-left:6px;display:grid;place-items:center}
+.map{height:122px;border-radius:12px;position:relative;overflow:hidden;background:#F2EFE7;margin-bottom:6px;cursor:crosshair;border:1px solid #EDE4DB}
+.map .blk{position:absolute;background:#E4EAD9;border-radius:3px}
+.map .rd{position:absolute;background:#fff}
+.map .pin{position:absolute;left:50%;top:44%;transform:translate(-50%,-100%);z-index:3;transition:left .15s,top .15s}
+.map .lbl{position:absolute;left:6px;bottom:5px;background:rgba(255,255,255,.92);border-radius:999px;padding:2px 7px;font-size:8px;color:#7B6D63;z-index:3}
+.map .re{position:absolute;right:6px;top:6px;background:#fff;border-radius:999px;padding:4px 8px;font-size:8.5px;color:#EE4A2F;font-weight:700;z-index:3;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.maplabel{font-size:9px;color:#A99C92;padding:0 2px 11px}
+.swrow{display:flex;align-items:center;justify-content:space-between;padding:11px 1px 1px;border-top:1px dashed #F3E9E1;margin-top:2px}
+.swrow span{font-size:11.5px;color:#4A3F37}
+.sw{width:38px;height:21px;border-radius:999px;background:#E9DFD8;position:relative;transition:background .18s;flex:0 0 38px}
+.sw:after{content:"";position:absolute;width:17px;height:17px;border-radius:50%;background:#fff;top:2px;left:2px;box-shadow:0 1px 3px rgba(0,0,0,.15);transition:left .18s}
+.sw.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C)}
+.sw.on:after{left:19px}
+.tip{font-size:9px;color:#A99C92;line-height:1.6;padding:12px 4px 16px}
+.dock{flex:0 0 auto;background:#fff;border-top:1px solid #F3EBE5;padding:10px 14px 13px;box-shadow:0 -4px 14px rgba(120,80,60,.04)}
+.dock .main{width:100%;height:44px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:13.5px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(232,70,45,.24)}
+.toast{position:absolute;left:50%;bottom:84px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast.warn{background:rgba(226,58,46,.92)}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:2}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app" id="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="topbar">
+<a aria-label="返回收货地址" class="back" href="address.html">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+<h1 id="pageTitle">新增收货地址</h1>
+<button class="bsave" id="topSave" onclick="saveAddr()">保存</button>
+</div>
+<div class="scroll">
+<div class="pad">
+<div class="card">
+<div class="frow">
+<div class="field">
+<label for="fName">收货人</label>
+<div class="wrap"><input autocomplete="name" id="fName" placeholder="请输入姓名"/></div>
+</div>
+<div class="field">
+<label for="fPhone">手机号</label>
+<div class="wrap"><input autocomplete="tel" id="fPhone" inputmode="numeric" maxlength="11" placeholder="11 位手机号"/></div>
+</div>
+</div>
+<div class="field">
+<label for="fRegion">所在地区</label>
+<div class="wrap">
+<input id="fRegion" placeholder="省 / 市 / 区" value="四川省 成都市 青羊区"/>
+<span aria-hidden="true" class="chev">
+<svg fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="m6 9 6 6 6-6" stroke="#B3A79F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+</div>
+</div>
+<div class="map" id="map" onclick="pickMap(event)">
+<span class="blk" style="width:70px;height:34px;left:8px;top:10px"></span>
+<span class="blk" style="width:52px;height:42px;left:96px;top:8px"></span>
+<span class="blk" style="width:64px;height:30px;left:168px;top:56px"></span>
+<span class="blk" style="width:56px;height:38px;left:16px;top:64px"></span>
+<span class="blk" style="width:42px;height:30px;left:250px;top:12px"></span>
+<span class="rd" style="width:100%;height:7px;left:0;top:46px"></span>
+<span class="rd" style="width:7px;height:100%;left:88px;top:0"></span>
+<span class="rd" style="width:7px;height:100%;left:230px;top:0"></span>
+<span class="rd" style="width:100%;height:6px;left:0;top:98px"></span>
+<span class="pin" id="pin">
+<svg height="31" viewbox="0 0 24 30" width="24"><path d="M12 29C12 29 22 19 22 11A10 10 0 1 0 2 11c0 8 10 18 10 18z" fill="url(#pinGrad)"></path><circle cx="12" cy="11" fill="#fff" r="3.6"></circle><defs><lineargradient id="pinGrad" x1="2" x2="22" y1="1" y2="29"><stop offset="0" stop-color="#FB6E4E"></stop><stop offset="1" stop-color="#E23A2E"></stop></lineargradient></defs></svg>
+</span>
+<span class="lbl" id="mapLbl">青羊区 · 少城街道</span>
+<span class="re" onclick="relocate(event)">重新定位</span>
+</div>
+<div class="maplabel" id="mapSub">四川省成都市青羊区 · 经纬度已记录</div>
+<div class="field">
+<label for="fDetail">详细地址</label>
+<div class="wrap"><input autocomplete="street-address" id="fDetail" placeholder="街道、门牌号、楼栋单元"/></div>
+</div>
+<div class="swrow">
+<span>设为默认收货地址</span>
+<button aria-label="设为默认收货地址" aria-pressed="false" class="sw" id="defSw" onclick="this.classList.toggle('on')"></button>
+</div>
+</div>
+<div class="tip">地址仅用于本单同城配送履约，同步给商家后不可修改；如需更新请联系商家客服。</div>
+</div>
+</div>
+<div class="dock"><button class="main" onclick="saveAddr()">保存地址</button></div>
+<div class="toast" id="toast">地址已保存</div>
+<div class="homebar"><i></i></div>
+</div>
+<script>
+  var editingName = '';
+  var editingPhone = '';
+
+  function toast(msg, warn) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.toggle('warn', !!warn);
+    t.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1600);
+  }
+
+  function params() {
+    var q = window.location.search.replace(/^\?/, '');
+    var out = {};
+    q.split('&').forEach(function (kv) {
+      if (!kv) { return; }
+      var p = kv.split('=');
+      out[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || '');
+    });
+    return out;
+  }
+
+  function prefill() {
+    var q = params();
+    if (q.mode !== 'edit' || !q.name) { return; }
+    editingName = q.name;
+    editingPhone = q.phone || '';
+    document.getElementById('pageTitle').textContent = '编辑收货地址';
+    document.title = '福聚贡翔 · 编辑收货地址';
+    document.getElementById('fName').value = q.name;
+    document.getElementById('fPhone').value = q.phone || '';
+    if (q.region) { document.getElementById('fRegion').value = q.region; }
+    document.getElementById('fDetail').value = q.detail || '';
+    if (q.def === '1') {
+      var sw = document.getElementById('defSw');
+      sw.classList.add('on');
+      sw.setAttribute('aria-pressed', 'true');
+    }
+  }
+
+  function pickMap(e) {
+    if (e.target.closest('.re')) { return; }
+    var map = document.getElementById('map');
+    var r = map.getBoundingClientRect();
+    var x = Math.min(Math.max(e.clientX - r.left, 12), r.width - 12);
+    var y = Math.min(Math.max(e.clientY - r.top, 20), r.height - 12);
+    var pin = document.getElementById('pin');
+    pin.style.left = x + 'px';
+    pin.style.top = y + 'px';
+    document.getElementById('mapLbl').textContent = '地图选点 · 已选位置';
+    document.getElementById('mapSub').textContent = '已记录所选经纬度 · 青羊区';
+    toast('已选点，可补充门牌号');
+  }
+
+  function relocate(e) {
+    e.stopPropagation();
+    document.getElementById('pin').style.left = '50%';
+    document.getElementById('pin').style.top = '44%';
+    document.getElementById('mapLbl').textContent = '青羊区 · 少城街道';
+    document.getElementById('mapSub').textContent = '四川省成都市青羊区 · 经纬度已记录';
+    document.getElementById('fRegion').value = '四川省 成都市 青羊区';
+    toast('已定位到青羊区少城街道');
+  }
+
+  function saveAddr() {
+    var name = document.getElementById('fName').value.trim();
+    var phone = document.getElementById('fPhone').value.trim();
+    var region = document.getElementById('fRegion').value.trim();
+    var detail = document.getElementById('fDetail').value.trim();
+
+    if (!name) { toast('请填写收货人姓名', true); document.getElementById('fName').focus(); return; }
+    if (!/^1\d{10}$/.test(phone) && !/^1\d{2}\*{4}\d{4}$/.test(phone)) {
+      toast('请填写正确的手机号', true);
+      document.getElementById('fPhone').focus();
+      return;
+    }
+    if (!detail) { toast('请填写详细地址', true); document.getElementById('fDetail').focus(); return; }
+
+    var isDef = document.getElementById('defSw').classList.contains('on');
+    var full = region.replace(/\s+/g, '') + ' ' + detail;
+    var q = params();
+    var back = 'address.html?' + [
+      'saved=1',
+      'name=' + encodeURIComponent(name),
+      'phone=' + encodeURIComponent(phone),
+      'detail=' + encodeURIComponent(full),
+      'region=' + encodeURIComponent(region),
+      'def=' + (isDef ? '1' : '0'),
+      'id=' + encodeURIComponent(q.id || ''),
+      'mode=' + (q.mode === 'edit' ? 'edit' : 'add')
+    ].join('&');
+
+    toast(editingName ? '地址已更新' : '地址已保存');
+    setTimeout(function () { window.location.href = back; }, 620);
+  }
+
+  prefill();
+  var sw = document.getElementById('defSw');
+  sw.addEventListener('click', function () {
+    sw.setAttribute('aria-pressed', sw.classList.contains('on') ? 'true' : 'false');
+  });
+</script>
+</body>
+</html>

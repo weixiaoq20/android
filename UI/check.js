@@ -1,0 +1,14218 @@
+const DATA={
+  "source": "京东商品类目（一级/二级，整理版）",
+  "note": "参考京东联盟/规则中心常见类目结构，实际开店挂品以商家后台经营类目为准；平台可能调整。",
+  "updated": "2026-11-19",
+  "categories": [
+    {
+      "level1": "手机通讯",
+      "level2": [
+        {
+          "key": "cat_001_001",
+          "name": "手机",
+          "products": [
+            {
+              "key": "cat_001_001_p01",
+              "title": "手机精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_001"
+            },
+            {
+              "key": "cat_001_001_p02",
+              "title": "手机精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_001"
+            },
+            {
+              "key": "cat_001_001_p03",
+              "title": "手机精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_001"
+            },
+            {
+              "key": "cat_001_001_p04",
+              "title": "手机精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_001_002",
+          "name": "手机配件",
+          "products": [
+            {
+              "key": "cat_001_002_p01",
+              "title": "手机配件精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_002"
+            },
+            {
+              "key": "cat_001_002_p02",
+              "title": "手机配件精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_002"
+            },
+            {
+              "key": "cat_001_002_p03",
+              "title": "手机配件精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_002"
+            },
+            {
+              "key": "cat_001_002_p04",
+              "title": "手机配件精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_001_003",
+          "name": "运营商",
+          "products": [
+            {
+              "key": "cat_001_003_p01",
+              "title": "运营商精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_003"
+            },
+            {
+              "key": "cat_001_003_p02",
+              "title": "运营商精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_003"
+            },
+            {
+              "key": "cat_001_003_p03",
+              "title": "运营商精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_003"
+            },
+            {
+              "key": "cat_001_003_p04",
+              "title": "运营商精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_001_004",
+          "name": "对讲机",
+          "products": [
+            {
+              "key": "cat_001_004_p01",
+              "title": "对讲机精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_004"
+            },
+            {
+              "key": "cat_001_004_p02",
+              "title": "对讲机精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_004"
+            },
+            {
+              "key": "cat_001_004_p03",
+              "title": "对讲机精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_004"
+            },
+            {
+              "key": "cat_001_004_p04",
+              "title": "对讲机精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_001_005",
+          "name": "手机服务",
+          "products": [
+            {
+              "key": "cat_001_005_p01",
+              "title": "手机服务精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_005"
+            },
+            {
+              "key": "cat_001_005_p02",
+              "title": "手机服务精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_005"
+            },
+            {
+              "key": "cat_001_005_p03",
+              "title": "手机服务精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_005"
+            },
+            {
+              "key": "cat_001_005_p04",
+              "title": "手机服务精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_001",
+              "subcategoryKey": "cat_001_005"
+            }
+          ]
+        }
+      ],
+      "key": "cat_001"
+    },
+    {
+      "level1": "数码",
+      "level2": [
+        {
+          "key": "cat_002_001",
+          "name": "摄影摄像",
+          "products": [
+            {
+              "key": "cat_002_001_p01",
+              "title": "摄影摄像精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_001"
+            },
+            {
+              "key": "cat_002_001_p02",
+              "title": "摄影摄像精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_001"
+            },
+            {
+              "key": "cat_002_001_p03",
+              "title": "摄影摄像精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_001"
+            },
+            {
+              "key": "cat_002_001_p04",
+              "title": "摄影摄像精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_002_002",
+          "name": "数码配件",
+          "products": [
+            {
+              "key": "cat_002_002_p01",
+              "title": "数码配件精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_002"
+            },
+            {
+              "key": "cat_002_002_p02",
+              "title": "数码配件精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_002"
+            },
+            {
+              "key": "cat_002_002_p03",
+              "title": "数码配件精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_002"
+            },
+            {
+              "key": "cat_002_002_p04",
+              "title": "数码配件精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_002_003",
+          "name": "智能设备",
+          "products": [
+            {
+              "key": "cat_002_003_p01",
+              "title": "智能设备精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_003"
+            },
+            {
+              "key": "cat_002_003_p02",
+              "title": "智能设备精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_003"
+            },
+            {
+              "key": "cat_002_003_p03",
+              "title": "智能设备精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_003"
+            },
+            {
+              "key": "cat_002_003_p04",
+              "title": "智能设备精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_002_004",
+          "name": "影音娱乐",
+          "products": [
+            {
+              "key": "cat_002_004_p01",
+              "title": "影音娱乐精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_004"
+            },
+            {
+              "key": "cat_002_004_p02",
+              "title": "影音娱乐精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_004"
+            },
+            {
+              "key": "cat_002_004_p03",
+              "title": "影音娱乐精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_004"
+            },
+            {
+              "key": "cat_002_004_p04",
+              "title": "影音娱乐精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_002_005",
+          "name": "电子教育",
+          "products": [
+            {
+              "key": "cat_002_005_p01",
+              "title": "电子教育精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_005"
+            },
+            {
+              "key": "cat_002_005_p02",
+              "title": "电子教育精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_005"
+            },
+            {
+              "key": "cat_002_005_p03",
+              "title": "电子教育精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_005"
+            },
+            {
+              "key": "cat_002_005_p04",
+              "title": "电子教育精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_002_006",
+          "name": "虚拟商品",
+          "products": [
+            {
+              "key": "cat_002_006_p01",
+              "title": "虚拟商品精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_006"
+            },
+            {
+              "key": "cat_002_006_p02",
+              "title": "虚拟商品精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_006"
+            },
+            {
+              "key": "cat_002_006_p03",
+              "title": "虚拟商品精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_006"
+            },
+            {
+              "key": "cat_002_006_p04",
+              "title": "虚拟商品精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_002_007",
+          "name": "数码维修",
+          "products": [
+            {
+              "key": "cat_002_007_p01",
+              "title": "数码维修精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_007"
+            },
+            {
+              "key": "cat_002_007_p02",
+              "title": "数码维修精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_007"
+            },
+            {
+              "key": "cat_002_007_p03",
+              "title": "数码维修精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_007"
+            },
+            {
+              "key": "cat_002_007_p04",
+              "title": "数码维修精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_002",
+              "subcategoryKey": "cat_002_007"
+            }
+          ]
+        }
+      ],
+      "key": "cat_002"
+    },
+    {
+      "level1": "电脑、办公",
+      "level2": [
+        {
+          "key": "cat_003_001",
+          "name": "电脑整机",
+          "products": [
+            {
+              "key": "cat_003_001_p01",
+              "title": "电脑整机精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_001"
+            },
+            {
+              "key": "cat_003_001_p02",
+              "title": "电脑整机精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_001"
+            },
+            {
+              "key": "cat_003_001_p03",
+              "title": "电脑整机精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_001"
+            },
+            {
+              "key": "cat_003_001_p04",
+              "title": "电脑整机精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_003_002",
+          "name": "电脑组件",
+          "products": [
+            {
+              "key": "cat_003_002_p01",
+              "title": "电脑组件精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_002"
+            },
+            {
+              "key": "cat_003_002_p02",
+              "title": "电脑组件精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_002"
+            },
+            {
+              "key": "cat_003_002_p03",
+              "title": "电脑组件精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_002"
+            },
+            {
+              "key": "cat_003_002_p04",
+              "title": "电脑组件精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_003_003",
+          "name": "外设产品",
+          "products": [
+            {
+              "key": "cat_003_003_p01",
+              "title": "外设产品精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_003"
+            },
+            {
+              "key": "cat_003_003_p02",
+              "title": "外设产品精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_003"
+            },
+            {
+              "key": "cat_003_003_p03",
+              "title": "外设产品精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_003"
+            },
+            {
+              "key": "cat_003_003_p04",
+              "title": "外设产品精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_003_004",
+          "name": "网络产品",
+          "products": [
+            {
+              "key": "cat_003_004_p01",
+              "title": "网络产品精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_004"
+            },
+            {
+              "key": "cat_003_004_p02",
+              "title": "网络产品精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_004"
+            },
+            {
+              "key": "cat_003_004_p03",
+              "title": "网络产品精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_004"
+            },
+            {
+              "key": "cat_003_004_p04",
+              "title": "网络产品精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_003_005",
+          "name": "办公设备",
+          "products": [
+            {
+              "key": "cat_003_005_p01",
+              "title": "办公设备精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_005"
+            },
+            {
+              "key": "cat_003_005_p02",
+              "title": "办公设备精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_005"
+            },
+            {
+              "key": "cat_003_005_p03",
+              "title": "办公设备精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_005"
+            },
+            {
+              "key": "cat_003_005_p04",
+              "title": "办公设备精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_003_006",
+          "name": "办公耗材",
+          "products": [
+            {
+              "key": "cat_003_006_p01",
+              "title": "办公耗材精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_006"
+            },
+            {
+              "key": "cat_003_006_p02",
+              "title": "办公耗材精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_006"
+            },
+            {
+              "key": "cat_003_006_p03",
+              "title": "办公耗材精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_006"
+            },
+            {
+              "key": "cat_003_006_p04",
+              "title": "办公耗材精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_003_007",
+          "name": "文具",
+          "products": [
+            {
+              "key": "cat_003_007_p01",
+              "title": "文具精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_007"
+            },
+            {
+              "key": "cat_003_007_p02",
+              "title": "文具精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_007"
+            },
+            {
+              "key": "cat_003_007_p03",
+              "title": "文具精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_007"
+            },
+            {
+              "key": "cat_003_007_p04",
+              "title": "文具精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_007"
+            }
+          ]
+        },
+        {
+          "key": "cat_003_008",
+          "name": "服务产品",
+          "products": [
+            {
+              "key": "cat_003_008_p01",
+              "title": "服务产品精选商品 1",
+              "price": 27.3,
+              "originalPrice": 45.7,
+              "sold": 2840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_008"
+            },
+            {
+              "key": "cat_003_008_p02",
+              "title": "服务产品精选商品 2",
+              "price": 34.3,
+              "originalPrice": 54.7,
+              "sold": 3840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_008"
+            },
+            {
+              "key": "cat_003_008_p03",
+              "title": "服务产品精选商品 3",
+              "price": 41.3,
+              "originalPrice": 63.7,
+              "sold": 4840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_008"
+            },
+            {
+              "key": "cat_003_008_p04",
+              "title": "服务产品精选商品 4",
+              "price": 48.3,
+              "originalPrice": 72.7,
+              "sold": 5840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_008"
+            }
+          ]
+        },
+        {
+          "key": "cat_003_009",
+          "name": "电脑办公安装",
+          "products": [
+            {
+              "key": "cat_003_009_p01",
+              "title": "电脑办公安装精选商品 1",
+              "price": 28.6,
+              "originalPrice": 47.8,
+              "sold": 3070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_009"
+            },
+            {
+              "key": "cat_003_009_p02",
+              "title": "电脑办公安装精选商品 2",
+              "price": 35.6,
+              "originalPrice": 56.8,
+              "sold": 4070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_009"
+            },
+            {
+              "key": "cat_003_009_p03",
+              "title": "电脑办公安装精选商品 3",
+              "price": 42.6,
+              "originalPrice": 65.8,
+              "sold": 5070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_009"
+            },
+            {
+              "key": "cat_003_009_p04",
+              "title": "电脑办公安装精选商品 4",
+              "price": 49.6,
+              "originalPrice": 74.8,
+              "sold": 6070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_009"
+            }
+          ]
+        },
+        {
+          "key": "cat_003_010",
+          "name": "电脑办公维修",
+          "products": [
+            {
+              "key": "cat_003_010_p01",
+              "title": "电脑办公维修精选商品 1",
+              "price": 29.9,
+              "originalPrice": 49.9,
+              "sold": 3300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_010"
+            },
+            {
+              "key": "cat_003_010_p02",
+              "title": "电脑办公维修精选商品 2",
+              "price": 36.9,
+              "originalPrice": 58.9,
+              "sold": 4300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_010"
+            },
+            {
+              "key": "cat_003_010_p03",
+              "title": "电脑办公维修精选商品 3",
+              "price": 43.9,
+              "originalPrice": 67.9,
+              "sold": 5300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_010"
+            },
+            {
+              "key": "cat_003_010_p04",
+              "title": "电脑办公维修精选商品 4",
+              "price": 50.9,
+              "originalPrice": 76.9,
+              "sold": 6300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_003",
+              "subcategoryKey": "cat_003_010"
+            }
+          ]
+        }
+      ],
+      "key": "cat_003"
+    },
+    {
+      "level1": "家用电器",
+      "level2": [
+        {
+          "key": "cat_004_001",
+          "name": "大家电",
+          "products": [
+            {
+              "key": "cat_004_001_p01",
+              "title": "大家电精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_001"
+            },
+            {
+              "key": "cat_004_001_p02",
+              "title": "大家电精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_001"
+            },
+            {
+              "key": "cat_004_001_p03",
+              "title": "大家电精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_001"
+            },
+            {
+              "key": "cat_004_001_p04",
+              "title": "大家电精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_004_002",
+          "name": "厨卫大电",
+          "products": [
+            {
+              "key": "cat_004_002_p01",
+              "title": "厨卫大电精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_002"
+            },
+            {
+              "key": "cat_004_002_p02",
+              "title": "厨卫大电精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_002"
+            },
+            {
+              "key": "cat_004_002_p03",
+              "title": "厨卫大电精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_002"
+            },
+            {
+              "key": "cat_004_002_p04",
+              "title": "厨卫大电精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_004_003",
+          "name": "厨房小电",
+          "products": [
+            {
+              "key": "cat_004_003_p01",
+              "title": "厨房小电精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_003"
+            },
+            {
+              "key": "cat_004_003_p02",
+              "title": "厨房小电精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_003"
+            },
+            {
+              "key": "cat_004_003_p03",
+              "title": "厨房小电精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_003"
+            },
+            {
+              "key": "cat_004_003_p04",
+              "title": "厨房小电精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_004_004",
+          "name": "生活电器",
+          "products": [
+            {
+              "key": "cat_004_004_p01",
+              "title": "生活电器精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_004"
+            },
+            {
+              "key": "cat_004_004_p02",
+              "title": "生活电器精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_004"
+            },
+            {
+              "key": "cat_004_004_p03",
+              "title": "生活电器精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_004"
+            },
+            {
+              "key": "cat_004_004_p04",
+              "title": "生活电器精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_004_005",
+          "name": "个护健康",
+          "products": [
+            {
+              "key": "cat_004_005_p01",
+              "title": "个护健康精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_005"
+            },
+            {
+              "key": "cat_004_005_p02",
+              "title": "个护健康精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_005"
+            },
+            {
+              "key": "cat_004_005_p03",
+              "title": "个护健康精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_005"
+            },
+            {
+              "key": "cat_004_005_p04",
+              "title": "个护健康精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_004_006",
+          "name": "环境电器",
+          "products": [
+            {
+              "key": "cat_004_006_p01",
+              "title": "环境电器精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_006"
+            },
+            {
+              "key": "cat_004_006_p02",
+              "title": "环境电器精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_006"
+            },
+            {
+              "key": "cat_004_006_p03",
+              "title": "环境电器精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_006"
+            },
+            {
+              "key": "cat_004_006_p04",
+              "title": "环境电器精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_004_007",
+          "name": "清洁电器",
+          "products": [
+            {
+              "key": "cat_004_007_p01",
+              "title": "清洁电器精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_007"
+            },
+            {
+              "key": "cat_004_007_p02",
+              "title": "清洁电器精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_007"
+            },
+            {
+              "key": "cat_004_007_p03",
+              "title": "清洁电器精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_007"
+            },
+            {
+              "key": "cat_004_007_p04",
+              "title": "清洁电器精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_007"
+            }
+          ]
+        },
+        {
+          "key": "cat_004_008",
+          "name": "商用电器",
+          "products": [
+            {
+              "key": "cat_004_008_p01",
+              "title": "商用电器精选商品 1",
+              "price": 27.3,
+              "originalPrice": 45.7,
+              "sold": 2840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_008"
+            },
+            {
+              "key": "cat_004_008_p02",
+              "title": "商用电器精选商品 2",
+              "price": 34.3,
+              "originalPrice": 54.7,
+              "sold": 3840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_008"
+            },
+            {
+              "key": "cat_004_008_p03",
+              "title": "商用电器精选商品 3",
+              "price": 41.3,
+              "originalPrice": 63.7,
+              "sold": 4840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_008"
+            },
+            {
+              "key": "cat_004_008_p04",
+              "title": "商用电器精选商品 4",
+              "price": 48.3,
+              "originalPrice": 72.7,
+              "sold": 5840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_008"
+            }
+          ]
+        },
+        {
+          "key": "cat_004_009",
+          "name": "家电配件",
+          "products": [
+            {
+              "key": "cat_004_009_p01",
+              "title": "家电配件精选商品 1",
+              "price": 28.6,
+              "originalPrice": 47.8,
+              "sold": 3070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_009"
+            },
+            {
+              "key": "cat_004_009_p02",
+              "title": "家电配件精选商品 2",
+              "price": 35.6,
+              "originalPrice": 56.8,
+              "sold": 4070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_009"
+            },
+            {
+              "key": "cat_004_009_p03",
+              "title": "家电配件精选商品 3",
+              "price": 42.6,
+              "originalPrice": 65.8,
+              "sold": 5070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_009"
+            },
+            {
+              "key": "cat_004_009_p04",
+              "title": "家电配件精选商品 4",
+              "price": 49.6,
+              "originalPrice": 74.8,
+              "sold": 6070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_009"
+            }
+          ]
+        },
+        {
+          "key": "cat_004_010",
+          "name": "家电服务",
+          "products": [
+            {
+              "key": "cat_004_010_p01",
+              "title": "家电服务精选商品 1",
+              "price": 29.9,
+              "originalPrice": 49.9,
+              "sold": 3300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_010"
+            },
+            {
+              "key": "cat_004_010_p02",
+              "title": "家电服务精选商品 2",
+              "price": 36.9,
+              "originalPrice": 58.9,
+              "sold": 4300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_010"
+            },
+            {
+              "key": "cat_004_010_p03",
+              "title": "家电服务精选商品 3",
+              "price": 43.9,
+              "originalPrice": 67.9,
+              "sold": 5300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_010"
+            },
+            {
+              "key": "cat_004_010_p04",
+              "title": "家电服务精选商品 4",
+              "price": 50.9,
+              "originalPrice": 76.9,
+              "sold": 6300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_004",
+              "subcategoryKey": "cat_004_010"
+            }
+          ]
+        }
+      ],
+      "key": "cat_004"
+    },
+    {
+      "level1": "服饰内衣",
+      "level2": [
+        {
+          "key": "cat_005_001",
+          "name": "女装",
+          "products": [
+            {
+              "key": "cat_005_001_p01",
+              "title": "女装精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_001"
+            },
+            {
+              "key": "cat_005_001_p02",
+              "title": "女装精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_001"
+            },
+            {
+              "key": "cat_005_001_p03",
+              "title": "女装精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_001"
+            },
+            {
+              "key": "cat_005_001_p04",
+              "title": "女装精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_005_002",
+          "name": "男装",
+          "products": [
+            {
+              "key": "cat_005_002_p01",
+              "title": "男装精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_002"
+            },
+            {
+              "key": "cat_005_002_p02",
+              "title": "男装精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_002"
+            },
+            {
+              "key": "cat_005_002_p03",
+              "title": "男装精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_002"
+            },
+            {
+              "key": "cat_005_002_p04",
+              "title": "男装精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_005_003",
+          "name": "内衣",
+          "products": [
+            {
+              "key": "cat_005_003_p01",
+              "title": "内衣精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_003"
+            },
+            {
+              "key": "cat_005_003_p02",
+              "title": "内衣精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_003"
+            },
+            {
+              "key": "cat_005_003_p03",
+              "title": "内衣精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_003"
+            },
+            {
+              "key": "cat_005_003_p04",
+              "title": "内衣精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_005_004",
+          "name": "服饰配件",
+          "products": [
+            {
+              "key": "cat_005_004_p01",
+              "title": "服饰配件精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_004"
+            },
+            {
+              "key": "cat_005_004_p02",
+              "title": "服饰配件精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_004"
+            },
+            {
+              "key": "cat_005_004_p03",
+              "title": "服饰配件精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_004"
+            },
+            {
+              "key": "cat_005_004_p04",
+              "title": "服饰配件精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_005_005",
+          "name": "洗衣服务",
+          "products": [
+            {
+              "key": "cat_005_005_p01",
+              "title": "洗衣服务精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_005"
+            },
+            {
+              "key": "cat_005_005_p02",
+              "title": "洗衣服务精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_005"
+            },
+            {
+              "key": "cat_005_005_p03",
+              "title": "洗衣服务精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_005"
+            },
+            {
+              "key": "cat_005_005_p04",
+              "title": "洗衣服务精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_005",
+              "subcategoryKey": "cat_005_005"
+            }
+          ]
+        }
+      ],
+      "key": "cat_005"
+    },
+    {
+      "level1": "鞋靴",
+      "level2": [
+        {
+          "key": "cat_006_001",
+          "name": "女鞋",
+          "products": [
+            {
+              "key": "cat_006_001_p01",
+              "title": "女鞋精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_001"
+            },
+            {
+              "key": "cat_006_001_p02",
+              "title": "女鞋精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_001"
+            },
+            {
+              "key": "cat_006_001_p03",
+              "title": "女鞋精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_001"
+            },
+            {
+              "key": "cat_006_001_p04",
+              "title": "女鞋精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_006_002",
+          "name": "男鞋",
+          "products": [
+            {
+              "key": "cat_006_002_p01",
+              "title": "男鞋精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_002"
+            },
+            {
+              "key": "cat_006_002_p02",
+              "title": "男鞋精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_002"
+            },
+            {
+              "key": "cat_006_002_p03",
+              "title": "男鞋精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_002"
+            },
+            {
+              "key": "cat_006_002_p04",
+              "title": "男鞋精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_006_003",
+          "name": "时尚鞋靴",
+          "products": [
+            {
+              "key": "cat_006_003_p01",
+              "title": "时尚鞋靴精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_003"
+            },
+            {
+              "key": "cat_006_003_p02",
+              "title": "时尚鞋靴精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_003"
+            },
+            {
+              "key": "cat_006_003_p03",
+              "title": "时尚鞋靴精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_003"
+            },
+            {
+              "key": "cat_006_003_p04",
+              "title": "时尚鞋靴精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_006_004",
+          "name": "运动鞋靴",
+          "products": [
+            {
+              "key": "cat_006_004_p01",
+              "title": "运动鞋靴精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_004"
+            },
+            {
+              "key": "cat_006_004_p02",
+              "title": "运动鞋靴精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_004"
+            },
+            {
+              "key": "cat_006_004_p03",
+              "title": "运动鞋靴精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_004"
+            },
+            {
+              "key": "cat_006_004_p04",
+              "title": "运动鞋靴精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_006",
+              "subcategoryKey": "cat_006_004"
+            }
+          ]
+        }
+      ],
+      "key": "cat_006"
+    },
+    {
+      "level1": "箱包皮具",
+      "level2": [
+        {
+          "key": "cat_007_001",
+          "name": "潮流女包",
+          "products": [
+            {
+              "key": "cat_007_001_p01",
+              "title": "潮流女包精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_001"
+            },
+            {
+              "key": "cat_007_001_p02",
+              "title": "潮流女包精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_001"
+            },
+            {
+              "key": "cat_007_001_p03",
+              "title": "潮流女包精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_001"
+            },
+            {
+              "key": "cat_007_001_p04",
+              "title": "潮流女包精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_007_002",
+          "name": "精品男包",
+          "products": [
+            {
+              "key": "cat_007_002_p01",
+              "title": "精品男包精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_002"
+            },
+            {
+              "key": "cat_007_002_p02",
+              "title": "精品男包精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_002"
+            },
+            {
+              "key": "cat_007_002_p03",
+              "title": "精品男包精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_002"
+            },
+            {
+              "key": "cat_007_002_p04",
+              "title": "精品男包精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_007_003",
+          "name": "功能箱包",
+          "products": [
+            {
+              "key": "cat_007_003_p01",
+              "title": "功能箱包精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_003"
+            },
+            {
+              "key": "cat_007_003_p02",
+              "title": "功能箱包精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_003"
+            },
+            {
+              "key": "cat_007_003_p03",
+              "title": "功能箱包精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_003"
+            },
+            {
+              "key": "cat_007_003_p04",
+              "title": "功能箱包精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_007_004",
+          "name": "钱包/卡套",
+          "products": [
+            {
+              "key": "cat_007_004_p01",
+              "title": "钱包/卡套精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_004"
+            },
+            {
+              "key": "cat_007_004_p02",
+              "title": "钱包/卡套精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_004"
+            },
+            {
+              "key": "cat_007_004_p03",
+              "title": "钱包/卡套精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_004"
+            },
+            {
+              "key": "cat_007_004_p04",
+              "title": "钱包/卡套精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_007",
+              "subcategoryKey": "cat_007_004"
+            }
+          ]
+        }
+      ],
+      "key": "cat_007"
+    },
+    {
+      "level1": "钟表",
+      "level2": [
+        {
+          "key": "cat_008_001",
+          "name": "钟表",
+          "products": [
+            {
+              "key": "cat_008_001_p01",
+              "title": "钟表精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_008",
+              "subcategoryKey": "cat_008_001"
+            },
+            {
+              "key": "cat_008_001_p02",
+              "title": "钟表精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_008",
+              "subcategoryKey": "cat_008_001"
+            },
+            {
+              "key": "cat_008_001_p03",
+              "title": "钟表精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_008",
+              "subcategoryKey": "cat_008_001"
+            },
+            {
+              "key": "cat_008_001_p04",
+              "title": "钟表精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_008",
+              "subcategoryKey": "cat_008_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_008_002",
+          "name": "腕表",
+          "products": [
+            {
+              "key": "cat_008_002_p01",
+              "title": "腕表精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_008",
+              "subcategoryKey": "cat_008_002"
+            },
+            {
+              "key": "cat_008_002_p02",
+              "title": "腕表精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_008",
+              "subcategoryKey": "cat_008_002"
+            },
+            {
+              "key": "cat_008_002_p03",
+              "title": "腕表精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_008",
+              "subcategoryKey": "cat_008_002"
+            },
+            {
+              "key": "cat_008_002_p04",
+              "title": "腕表精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_008",
+              "subcategoryKey": "cat_008_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_008_003",
+          "name": "钟表服务",
+          "products": [
+            {
+              "key": "cat_008_003_p01",
+              "title": "钟表服务精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_008",
+              "subcategoryKey": "cat_008_003"
+            },
+            {
+              "key": "cat_008_003_p02",
+              "title": "钟表服务精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_008",
+              "subcategoryKey": "cat_008_003"
+            },
+            {
+              "key": "cat_008_003_p03",
+              "title": "钟表服务精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_008",
+              "subcategoryKey": "cat_008_003"
+            },
+            {
+              "key": "cat_008_003_p04",
+              "title": "钟表服务精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_008",
+              "subcategoryKey": "cat_008_003"
+            }
+          ]
+        }
+      ],
+      "key": "cat_008"
+    },
+    {
+      "level1": "珠宝首饰",
+      "level2": [
+        {
+          "key": "cat_009_001",
+          "name": "黄金",
+          "products": [
+            {
+              "key": "cat_009_001_p01",
+              "title": "黄金精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_001"
+            },
+            {
+              "key": "cat_009_001_p02",
+              "title": "黄金精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_001"
+            },
+            {
+              "key": "cat_009_001_p03",
+              "title": "黄金精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_001"
+            },
+            {
+              "key": "cat_009_001_p04",
+              "title": "黄金精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_009_002",
+          "name": "K金",
+          "products": [
+            {
+              "key": "cat_009_002_p01",
+              "title": "K金精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_002"
+            },
+            {
+              "key": "cat_009_002_p02",
+              "title": "K金精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_002"
+            },
+            {
+              "key": "cat_009_002_p03",
+              "title": "K金精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_002"
+            },
+            {
+              "key": "cat_009_002_p04",
+              "title": "K金精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_009_003",
+          "name": "金银投资",
+          "products": [
+            {
+              "key": "cat_009_003_p01",
+              "title": "金银投资精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_003"
+            },
+            {
+              "key": "cat_009_003_p02",
+              "title": "金银投资精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_003"
+            },
+            {
+              "key": "cat_009_003_p03",
+              "title": "金银投资精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_003"
+            },
+            {
+              "key": "cat_009_003_p04",
+              "title": "金银投资精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_009_004",
+          "name": "翡翠玉石",
+          "products": [
+            {
+              "key": "cat_009_004_p01",
+              "title": "翡翠玉石精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_004"
+            },
+            {
+              "key": "cat_009_004_p02",
+              "title": "翡翠玉石精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_004"
+            },
+            {
+              "key": "cat_009_004_p03",
+              "title": "翡翠玉石精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_004"
+            },
+            {
+              "key": "cat_009_004_p04",
+              "title": "翡翠玉石精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_009_005",
+          "name": "钻石",
+          "products": [
+            {
+              "key": "cat_009_005_p01",
+              "title": "钻石精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_005"
+            },
+            {
+              "key": "cat_009_005_p02",
+              "title": "钻石精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_005"
+            },
+            {
+              "key": "cat_009_005_p03",
+              "title": "钻石精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_005"
+            },
+            {
+              "key": "cat_009_005_p04",
+              "title": "钻石精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_009_006",
+          "name": "彩色宝石",
+          "products": [
+            {
+              "key": "cat_009_006_p01",
+              "title": "彩色宝石精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_006"
+            },
+            {
+              "key": "cat_009_006_p02",
+              "title": "彩色宝石精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_006"
+            },
+            {
+              "key": "cat_009_006_p03",
+              "title": "彩色宝石精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_006"
+            },
+            {
+              "key": "cat_009_006_p04",
+              "title": "彩色宝石精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_009_007",
+          "name": "珍珠",
+          "products": [
+            {
+              "key": "cat_009_007_p01",
+              "title": "珍珠精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_007"
+            },
+            {
+              "key": "cat_009_007_p02",
+              "title": "珍珠精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_007"
+            },
+            {
+              "key": "cat_009_007_p03",
+              "title": "珍珠精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_007"
+            },
+            {
+              "key": "cat_009_007_p04",
+              "title": "珍珠精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_007"
+            }
+          ]
+        },
+        {
+          "key": "cat_009_008",
+          "name": "水晶玛瑙",
+          "products": [
+            {
+              "key": "cat_009_008_p01",
+              "title": "水晶玛瑙精选商品 1",
+              "price": 27.3,
+              "originalPrice": 45.7,
+              "sold": 2840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_008"
+            },
+            {
+              "key": "cat_009_008_p02",
+              "title": "水晶玛瑙精选商品 2",
+              "price": 34.3,
+              "originalPrice": 54.7,
+              "sold": 3840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_008"
+            },
+            {
+              "key": "cat_009_008_p03",
+              "title": "水晶玛瑙精选商品 3",
+              "price": 41.3,
+              "originalPrice": 63.7,
+              "sold": 4840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_008"
+            },
+            {
+              "key": "cat_009_008_p04",
+              "title": "水晶玛瑙精选商品 4",
+              "price": 48.3,
+              "originalPrice": 72.7,
+              "sold": 5840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_008"
+            }
+          ]
+        },
+        {
+          "key": "cat_009_009",
+          "name": "时尚饰品",
+          "products": [
+            {
+              "key": "cat_009_009_p01",
+              "title": "时尚饰品精选商品 1",
+              "price": 28.6,
+              "originalPrice": 47.8,
+              "sold": 3070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_009"
+            },
+            {
+              "key": "cat_009_009_p02",
+              "title": "时尚饰品精选商品 2",
+              "price": 35.6,
+              "originalPrice": 56.8,
+              "sold": 4070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_009"
+            },
+            {
+              "key": "cat_009_009_p03",
+              "title": "时尚饰品精选商品 3",
+              "price": 42.6,
+              "originalPrice": 65.8,
+              "sold": 5070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_009"
+            },
+            {
+              "key": "cat_009_009_p04",
+              "title": "时尚饰品精选商品 4",
+              "price": 49.6,
+              "originalPrice": 74.8,
+              "sold": 6070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_009",
+              "subcategoryKey": "cat_009_009"
+            }
+          ]
+        }
+      ],
+      "key": "cat_009"
+    },
+    {
+      "level1": "运动户外",
+      "level2": [
+        {
+          "key": "cat_010_001",
+          "name": "运动鞋服",
+          "products": [
+            {
+              "key": "cat_010_001_p01",
+              "title": "运动鞋服精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_001"
+            },
+            {
+              "key": "cat_010_001_p02",
+              "title": "运动鞋服精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_001"
+            },
+            {
+              "key": "cat_010_001_p03",
+              "title": "运动鞋服精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_001"
+            },
+            {
+              "key": "cat_010_001_p04",
+              "title": "运动鞋服精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_010_002",
+          "name": "健身训练",
+          "products": [
+            {
+              "key": "cat_010_002_p01",
+              "title": "健身训练精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_002"
+            },
+            {
+              "key": "cat_010_002_p02",
+              "title": "健身训练精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_002"
+            },
+            {
+              "key": "cat_010_002_p03",
+              "title": "健身训练精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_002"
+            },
+            {
+              "key": "cat_010_002_p04",
+              "title": "健身训练精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_010_003",
+          "name": "骑行运动",
+          "products": [
+            {
+              "key": "cat_010_003_p01",
+              "title": "骑行运动精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_003"
+            },
+            {
+              "key": "cat_010_003_p02",
+              "title": "骑行运动精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_003"
+            },
+            {
+              "key": "cat_010_003_p03",
+              "title": "骑行运动精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_003"
+            },
+            {
+              "key": "cat_010_003_p04",
+              "title": "骑行运动精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_010_004",
+          "name": "户外鞋服",
+          "products": [
+            {
+              "key": "cat_010_004_p01",
+              "title": "户外鞋服精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_004"
+            },
+            {
+              "key": "cat_010_004_p02",
+              "title": "户外鞋服精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_004"
+            },
+            {
+              "key": "cat_010_004_p03",
+              "title": "户外鞋服精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_004"
+            },
+            {
+              "key": "cat_010_004_p04",
+              "title": "户外鞋服精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_010_005",
+          "name": "户外装备",
+          "products": [
+            {
+              "key": "cat_010_005_p01",
+              "title": "户外装备精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_005"
+            },
+            {
+              "key": "cat_010_005_p02",
+              "title": "户外装备精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_005"
+            },
+            {
+              "key": "cat_010_005_p03",
+              "title": "户外装备精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_005"
+            },
+            {
+              "key": "cat_010_005_p04",
+              "title": "户外装备精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_010_006",
+          "name": "垂钓用品",
+          "products": [
+            {
+              "key": "cat_010_006_p01",
+              "title": "垂钓用品精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_006"
+            },
+            {
+              "key": "cat_010_006_p02",
+              "title": "垂钓用品精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_006"
+            },
+            {
+              "key": "cat_010_006_p03",
+              "title": "垂钓用品精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_006"
+            },
+            {
+              "key": "cat_010_006_p04",
+              "title": "垂钓用品精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_010_007",
+          "name": "游泳用品",
+          "products": [
+            {
+              "key": "cat_010_007_p01",
+              "title": "游泳用品精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_007"
+            },
+            {
+              "key": "cat_010_007_p02",
+              "title": "游泳用品精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_007"
+            },
+            {
+              "key": "cat_010_007_p03",
+              "title": "游泳用品精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_007"
+            },
+            {
+              "key": "cat_010_007_p04",
+              "title": "游泳用品精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_007"
+            }
+          ]
+        },
+        {
+          "key": "cat_010_008",
+          "name": "体育用品",
+          "products": [
+            {
+              "key": "cat_010_008_p01",
+              "title": "体育用品精选商品 1",
+              "price": 27.3,
+              "originalPrice": 45.7,
+              "sold": 2840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_008"
+            },
+            {
+              "key": "cat_010_008_p02",
+              "title": "体育用品精选商品 2",
+              "price": 34.3,
+              "originalPrice": 54.7,
+              "sold": 3840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_008"
+            },
+            {
+              "key": "cat_010_008_p03",
+              "title": "体育用品精选商品 3",
+              "price": 41.3,
+              "originalPrice": 63.7,
+              "sold": 4840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_008"
+            },
+            {
+              "key": "cat_010_008_p04",
+              "title": "体育用品精选商品 4",
+              "price": 48.3,
+              "originalPrice": 72.7,
+              "sold": 5840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_008"
+            }
+          ]
+        },
+        {
+          "key": "cat_010_009",
+          "name": "冰上运动",
+          "products": [
+            {
+              "key": "cat_010_009_p01",
+              "title": "冰上运动精选商品 1",
+              "price": 28.6,
+              "originalPrice": 47.8,
+              "sold": 3070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_009"
+            },
+            {
+              "key": "cat_010_009_p02",
+              "title": "冰上运动精选商品 2",
+              "price": 35.6,
+              "originalPrice": 56.8,
+              "sold": 4070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_009"
+            },
+            {
+              "key": "cat_010_009_p03",
+              "title": "冰上运动精选商品 3",
+              "price": 42.6,
+              "originalPrice": 65.8,
+              "sold": 5070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_009"
+            },
+            {
+              "key": "cat_010_009_p04",
+              "title": "冰上运动精选商品 4",
+              "price": 49.6,
+              "originalPrice": 74.8,
+              "sold": 6070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_009"
+            }
+          ]
+        },
+        {
+          "key": "cat_010_010",
+          "name": "滑雪运动",
+          "products": [
+            {
+              "key": "cat_010_010_p01",
+              "title": "滑雪运动精选商品 1",
+              "price": 29.9,
+              "originalPrice": 49.9,
+              "sold": 3300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_010"
+            },
+            {
+              "key": "cat_010_010_p02",
+              "title": "滑雪运动精选商品 2",
+              "price": 36.9,
+              "originalPrice": 58.9,
+              "sold": 4300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_010"
+            },
+            {
+              "key": "cat_010_010_p03",
+              "title": "滑雪运动精选商品 3",
+              "price": 43.9,
+              "originalPrice": 67.9,
+              "sold": 5300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_010"
+            },
+            {
+              "key": "cat_010_010_p04",
+              "title": "滑雪运动精选商品 4",
+              "price": 50.9,
+              "originalPrice": 76.9,
+              "sold": 6300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_010"
+            }
+          ]
+        },
+        {
+          "key": "cat_010_011",
+          "name": "体育服务",
+          "products": [
+            {
+              "key": "cat_010_011_p01",
+              "title": "体育服务精选商品 1",
+              "price": 31.2,
+              "originalPrice": 52.0,
+              "sold": 3530,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_011"
+            },
+            {
+              "key": "cat_010_011_p02",
+              "title": "体育服务精选商品 2",
+              "price": 38.2,
+              "originalPrice": 61.0,
+              "sold": 4530,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_011"
+            },
+            {
+              "key": "cat_010_011_p03",
+              "title": "体育服务精选商品 3",
+              "price": 45.2,
+              "originalPrice": 70.0,
+              "sold": 5530,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_011"
+            },
+            {
+              "key": "cat_010_011_p04",
+              "title": "体育服务精选商品 4",
+              "price": 52.2,
+              "originalPrice": 79.0,
+              "sold": 6530,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_010",
+              "subcategoryKey": "cat_010_011"
+            }
+          ]
+        }
+      ],
+      "key": "cat_010"
+    },
+    {
+      "level1": "母婴",
+      "level2": [
+        {
+          "key": "cat_011_001",
+          "name": "奶粉",
+          "products": [
+            {
+              "key": "cat_011_001_p01",
+              "title": "奶粉精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_001"
+            },
+            {
+              "key": "cat_011_001_p02",
+              "title": "奶粉精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_001"
+            },
+            {
+              "key": "cat_011_001_p03",
+              "title": "奶粉精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_001"
+            },
+            {
+              "key": "cat_011_001_p04",
+              "title": "奶粉精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_011_002",
+          "name": "营养辅食",
+          "products": [
+            {
+              "key": "cat_011_002_p01",
+              "title": "营养辅食精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_002"
+            },
+            {
+              "key": "cat_011_002_p02",
+              "title": "营养辅食精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_002"
+            },
+            {
+              "key": "cat_011_002_p03",
+              "title": "营养辅食精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_002"
+            },
+            {
+              "key": "cat_011_002_p04",
+              "title": "营养辅食精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_011_003",
+          "name": "尿裤湿巾",
+          "products": [
+            {
+              "key": "cat_011_003_p01",
+              "title": "尿裤湿巾精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_003"
+            },
+            {
+              "key": "cat_011_003_p02",
+              "title": "尿裤湿巾精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_003"
+            },
+            {
+              "key": "cat_011_003_p03",
+              "title": "尿裤湿巾精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_003"
+            },
+            {
+              "key": "cat_011_003_p04",
+              "title": "尿裤湿巾精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_011_004",
+          "name": "喂养用品",
+          "products": [
+            {
+              "key": "cat_011_004_p01",
+              "title": "喂养用品精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_004"
+            },
+            {
+              "key": "cat_011_004_p02",
+              "title": "喂养用品精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_004"
+            },
+            {
+              "key": "cat_011_004_p03",
+              "title": "喂养用品精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_004"
+            },
+            {
+              "key": "cat_011_004_p04",
+              "title": "喂养用品精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_011_005",
+          "name": "洗护用品",
+          "products": [
+            {
+              "key": "cat_011_005_p01",
+              "title": "洗护用品精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_005"
+            },
+            {
+              "key": "cat_011_005_p02",
+              "title": "洗护用品精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_005"
+            },
+            {
+              "key": "cat_011_005_p03",
+              "title": "洗护用品精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_005"
+            },
+            {
+              "key": "cat_011_005_p04",
+              "title": "洗护用品精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_011_006",
+          "name": "童车童床",
+          "products": [
+            {
+              "key": "cat_011_006_p01",
+              "title": "童车童床精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_006"
+            },
+            {
+              "key": "cat_011_006_p02",
+              "title": "童车童床精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_006"
+            },
+            {
+              "key": "cat_011_006_p03",
+              "title": "童车童床精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_006"
+            },
+            {
+              "key": "cat_011_006_p04",
+              "title": "童车童床精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_011_007",
+          "name": "安全座椅",
+          "products": [
+            {
+              "key": "cat_011_007_p01",
+              "title": "安全座椅精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_007"
+            },
+            {
+              "key": "cat_011_007_p02",
+              "title": "安全座椅精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_007"
+            },
+            {
+              "key": "cat_011_007_p03",
+              "title": "安全座椅精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_007"
+            },
+            {
+              "key": "cat_011_007_p04",
+              "title": "安全座椅精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_007"
+            }
+          ]
+        },
+        {
+          "key": "cat_011_008",
+          "name": "妈妈专区",
+          "products": [
+            {
+              "key": "cat_011_008_p01",
+              "title": "妈妈专区精选商品 1",
+              "price": 27.3,
+              "originalPrice": 45.7,
+              "sold": 2840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_008"
+            },
+            {
+              "key": "cat_011_008_p02",
+              "title": "妈妈专区精选商品 2",
+              "price": 34.3,
+              "originalPrice": 54.7,
+              "sold": 3840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_008"
+            },
+            {
+              "key": "cat_011_008_p03",
+              "title": "妈妈专区精选商品 3",
+              "price": 41.3,
+              "originalPrice": 63.7,
+              "sold": 4840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_008"
+            },
+            {
+              "key": "cat_011_008_p04",
+              "title": "妈妈专区精选商品 4",
+              "price": 48.3,
+              "originalPrice": 72.7,
+              "sold": 5840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_008"
+            }
+          ]
+        },
+        {
+          "key": "cat_011_009",
+          "name": "寝居用品",
+          "products": [
+            {
+              "key": "cat_011_009_p01",
+              "title": "寝居用品精选商品 1",
+              "price": 28.6,
+              "originalPrice": 47.8,
+              "sold": 3070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_009"
+            },
+            {
+              "key": "cat_011_009_p02",
+              "title": "寝居用品精选商品 2",
+              "price": 35.6,
+              "originalPrice": 56.8,
+              "sold": 4070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_009"
+            },
+            {
+              "key": "cat_011_009_p03",
+              "title": "寝居用品精选商品 3",
+              "price": 42.6,
+              "originalPrice": 65.8,
+              "sold": 5070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_009"
+            },
+            {
+              "key": "cat_011_009_p04",
+              "title": "寝居用品精选商品 4",
+              "price": 49.6,
+              "originalPrice": 74.8,
+              "sold": 6070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_011",
+              "subcategoryKey": "cat_011_009"
+            }
+          ]
+        }
+      ],
+      "key": "cat_011"
+    },
+    {
+      "level1": "玩具乐器",
+      "level2": [
+        {
+          "key": "cat_012_001",
+          "name": "遥控/电动",
+          "products": [
+            {
+              "key": "cat_012_001_p01",
+              "title": "遥控/电动精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_001"
+            },
+            {
+              "key": "cat_012_001_p02",
+              "title": "遥控/电动精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_001"
+            },
+            {
+              "key": "cat_012_001_p03",
+              "title": "遥控/电动精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_001"
+            },
+            {
+              "key": "cat_012_001_p04",
+              "title": "遥控/电动精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_012_002",
+          "name": "益智玩具",
+          "products": [
+            {
+              "key": "cat_012_002_p01",
+              "title": "益智玩具精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_002"
+            },
+            {
+              "key": "cat_012_002_p02",
+              "title": "益智玩具精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_002"
+            },
+            {
+              "key": "cat_012_002_p03",
+              "title": "益智玩具精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_002"
+            },
+            {
+              "key": "cat_012_002_p04",
+              "title": "益智玩具精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_012_003",
+          "name": "积木拼插",
+          "products": [
+            {
+              "key": "cat_012_003_p01",
+              "title": "积木拼插精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_003"
+            },
+            {
+              "key": "cat_012_003_p02",
+              "title": "积木拼插精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_003"
+            },
+            {
+              "key": "cat_012_003_p03",
+              "title": "积木拼插精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_003"
+            },
+            {
+              "key": "cat_012_003_p04",
+              "title": "积木拼插精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_012_004",
+          "name": "娃娃公仔",
+          "products": [
+            {
+              "key": "cat_012_004_p01",
+              "title": "娃娃公仔精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_004"
+            },
+            {
+              "key": "cat_012_004_p02",
+              "title": "娃娃公仔精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_004"
+            },
+            {
+              "key": "cat_012_004_p03",
+              "title": "娃娃公仔精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_004"
+            },
+            {
+              "key": "cat_012_004_p04",
+              "title": "娃娃公仔精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_012_005",
+          "name": "模型玩具",
+          "products": [
+            {
+              "key": "cat_012_005_p01",
+              "title": "模型玩具精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_005"
+            },
+            {
+              "key": "cat_012_005_p02",
+              "title": "模型玩具精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_005"
+            },
+            {
+              "key": "cat_012_005_p03",
+              "title": "模型玩具精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_005"
+            },
+            {
+              "key": "cat_012_005_p04",
+              "title": "模型玩具精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_012_006",
+          "name": "户外玩具",
+          "products": [
+            {
+              "key": "cat_012_006_p01",
+              "title": "户外玩具精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_006"
+            },
+            {
+              "key": "cat_012_006_p02",
+              "title": "户外玩具精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_006"
+            },
+            {
+              "key": "cat_012_006_p03",
+              "title": "户外玩具精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_006"
+            },
+            {
+              "key": "cat_012_006_p04",
+              "title": "户外玩具精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_012_007",
+          "name": "乐器",
+          "products": [
+            {
+              "key": "cat_012_007_p01",
+              "title": "乐器精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_007"
+            },
+            {
+              "key": "cat_012_007_p02",
+              "title": "乐器精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_007"
+            },
+            {
+              "key": "cat_012_007_p03",
+              "title": "乐器精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_007"
+            },
+            {
+              "key": "cat_012_007_p04",
+              "title": "乐器精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_007"
+            }
+          ]
+        },
+        {
+          "key": "cat_012_008",
+          "name": "乐器配件",
+          "products": [
+            {
+              "key": "cat_012_008_p01",
+              "title": "乐器配件精选商品 1",
+              "price": 27.3,
+              "originalPrice": 45.7,
+              "sold": 2840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_008"
+            },
+            {
+              "key": "cat_012_008_p02",
+              "title": "乐器配件精选商品 2",
+              "price": 34.3,
+              "originalPrice": 54.7,
+              "sold": 3840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_008"
+            },
+            {
+              "key": "cat_012_008_p03",
+              "title": "乐器配件精选商品 3",
+              "price": 41.3,
+              "originalPrice": 63.7,
+              "sold": 4840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_008"
+            },
+            {
+              "key": "cat_012_008_p04",
+              "title": "乐器配件精选商品 4",
+              "price": 48.3,
+              "originalPrice": 72.7,
+              "sold": 5840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_012",
+              "subcategoryKey": "cat_012_008"
+            }
+          ]
+        }
+      ],
+      "key": "cat_012"
+    },
+    {
+      "level1": "美妆护肤",
+      "level2": [
+        {
+          "key": "cat_013_001",
+          "name": "面部护肤",
+          "products": [
+            {
+              "key": "cat_013_001_p01",
+              "title": "面部护肤精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_001"
+            },
+            {
+              "key": "cat_013_001_p02",
+              "title": "面部护肤精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_001"
+            },
+            {
+              "key": "cat_013_001_p03",
+              "title": "面部护肤精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_001"
+            },
+            {
+              "key": "cat_013_001_p04",
+              "title": "面部护肤精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_013_002",
+          "name": "香水彩妆",
+          "products": [
+            {
+              "key": "cat_013_002_p01",
+              "title": "香水彩妆精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_002"
+            },
+            {
+              "key": "cat_013_002_p02",
+              "title": "香水彩妆精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_002"
+            },
+            {
+              "key": "cat_013_002_p03",
+              "title": "香水彩妆精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_002"
+            },
+            {
+              "key": "cat_013_002_p04",
+              "title": "香水彩妆精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_013_003",
+          "name": "男士护肤",
+          "products": [
+            {
+              "key": "cat_013_003_p01",
+              "title": "男士护肤精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_003"
+            },
+            {
+              "key": "cat_013_003_p02",
+              "title": "男士护肤精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_003"
+            },
+            {
+              "key": "cat_013_003_p03",
+              "title": "男士护肤精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_003"
+            },
+            {
+              "key": "cat_013_003_p04",
+              "title": "男士护肤精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_013_004",
+          "name": "美妆工具",
+          "products": [
+            {
+              "key": "cat_013_004_p01",
+              "title": "美妆工具精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_004"
+            },
+            {
+              "key": "cat_013_004_p02",
+              "title": "美妆工具精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_004"
+            },
+            {
+              "key": "cat_013_004_p03",
+              "title": "美妆工具精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_004"
+            },
+            {
+              "key": "cat_013_004_p04",
+              "title": "美妆工具精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_013_005",
+          "name": "套装礼盒",
+          "products": [
+            {
+              "key": "cat_013_005_p01",
+              "title": "套装礼盒精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_005"
+            },
+            {
+              "key": "cat_013_005_p02",
+              "title": "套装礼盒精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_005"
+            },
+            {
+              "key": "cat_013_005_p03",
+              "title": "套装礼盒精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_005"
+            },
+            {
+              "key": "cat_013_005_p04",
+              "title": "套装礼盒精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_013",
+              "subcategoryKey": "cat_013_005"
+            }
+          ]
+        }
+      ],
+      "key": "cat_013"
+    },
+    {
+      "level1": "个人护理",
+      "level2": [
+        {
+          "key": "cat_014_001",
+          "name": "洗发护发",
+          "products": [
+            {
+              "key": "cat_014_001_p01",
+              "title": "洗发护发精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_001"
+            },
+            {
+              "key": "cat_014_001_p02",
+              "title": "洗发护发精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_001"
+            },
+            {
+              "key": "cat_014_001_p03",
+              "title": "洗发护发精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_001"
+            },
+            {
+              "key": "cat_014_001_p04",
+              "title": "洗发护发精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_014_002",
+          "name": "身体护理",
+          "products": [
+            {
+              "key": "cat_014_002_p01",
+              "title": "身体护理精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_002"
+            },
+            {
+              "key": "cat_014_002_p02",
+              "title": "身体护理精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_002"
+            },
+            {
+              "key": "cat_014_002_p03",
+              "title": "身体护理精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_002"
+            },
+            {
+              "key": "cat_014_002_p04",
+              "title": "身体护理精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_014_003",
+          "name": "口腔护理",
+          "products": [
+            {
+              "key": "cat_014_003_p01",
+              "title": "口腔护理精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_003"
+            },
+            {
+              "key": "cat_014_003_p02",
+              "title": "口腔护理精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_003"
+            },
+            {
+              "key": "cat_014_003_p03",
+              "title": "口腔护理精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_003"
+            },
+            {
+              "key": "cat_014_003_p04",
+              "title": "口腔护理精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_014_004",
+          "name": "女性护理",
+          "products": [
+            {
+              "key": "cat_014_004_p01",
+              "title": "女性护理精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_004"
+            },
+            {
+              "key": "cat_014_004_p02",
+              "title": "女性护理精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_004"
+            },
+            {
+              "key": "cat_014_004_p03",
+              "title": "女性护理精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_004"
+            },
+            {
+              "key": "cat_014_004_p04",
+              "title": "女性护理精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_014_005",
+          "name": "美发造型",
+          "products": [
+            {
+              "key": "cat_014_005_p01",
+              "title": "美发造型精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_005"
+            },
+            {
+              "key": "cat_014_005_p02",
+              "title": "美发造型精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_005"
+            },
+            {
+              "key": "cat_014_005_p03",
+              "title": "美发造型精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_005"
+            },
+            {
+              "key": "cat_014_005_p04",
+              "title": "美发造型精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_014_006",
+          "name": "假发",
+          "products": [
+            {
+              "key": "cat_014_006_p01",
+              "title": "假发精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_006"
+            },
+            {
+              "key": "cat_014_006_p02",
+              "title": "假发精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_006"
+            },
+            {
+              "key": "cat_014_006_p03",
+              "title": "假发精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_006"
+            },
+            {
+              "key": "cat_014_006_p04",
+              "title": "假发精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_014",
+              "subcategoryKey": "cat_014_006"
+            }
+          ]
+        }
+      ],
+      "key": "cat_014"
+    },
+    {
+      "level1": "家庭清洁/纸品",
+      "level2": [
+        {
+          "key": "cat_015_001",
+          "name": "纸品湿巾",
+          "products": [
+            {
+              "key": "cat_015_001_p01",
+              "title": "纸品湿巾精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_001"
+            },
+            {
+              "key": "cat_015_001_p02",
+              "title": "纸品湿巾精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_001"
+            },
+            {
+              "key": "cat_015_001_p03",
+              "title": "纸品湿巾精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_001"
+            },
+            {
+              "key": "cat_015_001_p04",
+              "title": "纸品湿巾精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_015_002",
+          "name": "衣物清洁",
+          "products": [
+            {
+              "key": "cat_015_002_p01",
+              "title": "衣物清洁精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_002"
+            },
+            {
+              "key": "cat_015_002_p02",
+              "title": "衣物清洁精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_002"
+            },
+            {
+              "key": "cat_015_002_p03",
+              "title": "衣物清洁精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_002"
+            },
+            {
+              "key": "cat_015_002_p04",
+              "title": "衣物清洁精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_015_003",
+          "name": "家庭环境清洁",
+          "products": [
+            {
+              "key": "cat_015_003_p01",
+              "title": "家庭环境清洁精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_003"
+            },
+            {
+              "key": "cat_015_003_p02",
+              "title": "家庭环境清洁精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_003"
+            },
+            {
+              "key": "cat_015_003_p03",
+              "title": "家庭环境清洁精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_003"
+            },
+            {
+              "key": "cat_015_003_p04",
+              "title": "家庭环境清洁精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_015_004",
+          "name": "清洁用具",
+          "products": [
+            {
+              "key": "cat_015_004_p01",
+              "title": "清洁用具精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_004"
+            },
+            {
+              "key": "cat_015_004_p02",
+              "title": "清洁用具精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_004"
+            },
+            {
+              "key": "cat_015_004_p03",
+              "title": "清洁用具精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_004"
+            },
+            {
+              "key": "cat_015_004_p04",
+              "title": "清洁用具精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_015_005",
+          "name": "驱蚊驱虫",
+          "products": [
+            {
+              "key": "cat_015_005_p01",
+              "title": "驱蚊驱虫精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_005"
+            },
+            {
+              "key": "cat_015_005_p02",
+              "title": "驱蚊驱虫精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_005"
+            },
+            {
+              "key": "cat_015_005_p03",
+              "title": "驱蚊驱虫精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_005"
+            },
+            {
+              "key": "cat_015_005_p04",
+              "title": "驱蚊驱虫精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_015_006",
+          "name": "皮具护理",
+          "products": [
+            {
+              "key": "cat_015_006_p01",
+              "title": "皮具护理精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_006"
+            },
+            {
+              "key": "cat_015_006_p02",
+              "title": "皮具护理精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_006"
+            },
+            {
+              "key": "cat_015_006_p03",
+              "title": "皮具护理精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_006"
+            },
+            {
+              "key": "cat_015_006_p04",
+              "title": "皮具护理精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_015",
+              "subcategoryKey": "cat_015_006"
+            }
+          ]
+        }
+      ],
+      "key": "cat_015"
+    },
+    {
+      "level1": "食品饮料",
+      "level2": [
+        {
+          "key": "cat_016_001",
+          "name": "休闲食品",
+          "products": [
+            {
+              "key": "cat_016_001_p01",
+              "title": "休闲食品精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_001"
+            },
+            {
+              "key": "cat_016_001_p02",
+              "title": "休闲食品精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_001"
+            },
+            {
+              "key": "cat_016_001_p03",
+              "title": "休闲食品精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_001"
+            },
+            {
+              "key": "cat_016_001_p04",
+              "title": "休闲食品精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_016_002",
+          "name": "粮油调味",
+          "products": [
+            {
+              "key": "cat_016_002_p01",
+              "title": "粮油调味精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_002"
+            },
+            {
+              "key": "cat_016_002_p02",
+              "title": "粮油调味精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_002"
+            },
+            {
+              "key": "cat_016_002_p03",
+              "title": "粮油调味精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_002"
+            },
+            {
+              "key": "cat_016_002_p04",
+              "title": "粮油调味精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_016_003",
+          "name": "饮料冲调",
+          "products": [
+            {
+              "key": "cat_016_003_p01",
+              "title": "饮料冲调精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_003"
+            },
+            {
+              "key": "cat_016_003_p02",
+              "title": "饮料冲调精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_003"
+            },
+            {
+              "key": "cat_016_003_p03",
+              "title": "饮料冲调精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_003"
+            },
+            {
+              "key": "cat_016_003_p04",
+              "title": "饮料冲调精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_016_004",
+          "name": "茗茶",
+          "products": [
+            {
+              "key": "cat_016_004_p01",
+              "title": "茗茶精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_004"
+            },
+            {
+              "key": "cat_016_004_p02",
+              "title": "茗茶精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_004"
+            },
+            {
+              "key": "cat_016_004_p03",
+              "title": "茗茶精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_004"
+            },
+            {
+              "key": "cat_016_004_p04",
+              "title": "茗茶精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_016_005",
+          "name": "进口食品",
+          "products": [
+            {
+              "key": "cat_016_005_p01",
+              "title": "进口食品精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_005"
+            },
+            {
+              "key": "cat_016_005_p02",
+              "title": "进口食品精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_005"
+            },
+            {
+              "key": "cat_016_005_p03",
+              "title": "进口食品精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_005"
+            },
+            {
+              "key": "cat_016_005_p04",
+              "title": "进口食品精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_016_006",
+          "name": "地方特产",
+          "products": [
+            {
+              "key": "cat_016_006_p01",
+              "title": "地方特产精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_006"
+            },
+            {
+              "key": "cat_016_006_p02",
+              "title": "地方特产精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_006"
+            },
+            {
+              "key": "cat_016_006_p03",
+              "title": "地方特产精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_006"
+            },
+            {
+              "key": "cat_016_006_p04",
+              "title": "地方特产精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_016_007",
+          "name": "节庆礼券",
+          "products": [
+            {
+              "key": "cat_016_007_p01",
+              "title": "节庆礼券精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_007"
+            },
+            {
+              "key": "cat_016_007_p02",
+              "title": "节庆礼券精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_007"
+            },
+            {
+              "key": "cat_016_007_p03",
+              "title": "节庆礼券精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_007"
+            },
+            {
+              "key": "cat_016_007_p04",
+              "title": "节庆礼券精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_016",
+              "subcategoryKey": "cat_016_007"
+            }
+          ]
+        }
+      ],
+      "key": "cat_016"
+    },
+    {
+      "level1": "生鲜",
+      "level2": [
+        {
+          "key": "cat_017_001",
+          "name": "水果",
+          "products": [
+            {
+              "key": "cat_017_001_p01",
+              "title": "水果精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_001"
+            },
+            {
+              "key": "cat_017_001_p02",
+              "title": "水果精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_001"
+            },
+            {
+              "key": "cat_017_001_p03",
+              "title": "水果精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_001"
+            },
+            {
+              "key": "cat_017_001_p04",
+              "title": "水果精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_017_002",
+          "name": "蔬菜",
+          "products": [
+            {
+              "key": "cat_017_002_p01",
+              "title": "蔬菜精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_002"
+            },
+            {
+              "key": "cat_017_002_p02",
+              "title": "蔬菜精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_002"
+            },
+            {
+              "key": "cat_017_002_p03",
+              "title": "蔬菜精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_002"
+            },
+            {
+              "key": "cat_017_002_p04",
+              "title": "蔬菜精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_017_003",
+          "name": "海鲜水产",
+          "products": [
+            {
+              "key": "cat_017_003_p01",
+              "title": "海鲜水产精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_003"
+            },
+            {
+              "key": "cat_017_003_p02",
+              "title": "海鲜水产精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_003"
+            },
+            {
+              "key": "cat_017_003_p03",
+              "title": "海鲜水产精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_003"
+            },
+            {
+              "key": "cat_017_003_p04",
+              "title": "海鲜水产精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_017_004",
+          "name": "猪牛羊肉",
+          "products": [
+            {
+              "key": "cat_017_004_p01",
+              "title": "猪牛羊肉精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_004"
+            },
+            {
+              "key": "cat_017_004_p02",
+              "title": "猪牛羊肉精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_004"
+            },
+            {
+              "key": "cat_017_004_p03",
+              "title": "猪牛羊肉精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_004"
+            },
+            {
+              "key": "cat_017_004_p04",
+              "title": "猪牛羊肉精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_017_005",
+          "name": "禽肉蛋品",
+          "products": [
+            {
+              "key": "cat_017_005_p01",
+              "title": "禽肉蛋品精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_005"
+            },
+            {
+              "key": "cat_017_005_p02",
+              "title": "禽肉蛋品精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_005"
+            },
+            {
+              "key": "cat_017_005_p03",
+              "title": "禽肉蛋品精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_005"
+            },
+            {
+              "key": "cat_017_005_p04",
+              "title": "禽肉蛋品精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_017_006",
+          "name": "冷冻食品",
+          "products": [
+            {
+              "key": "cat_017_006_p01",
+              "title": "冷冻食品精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_006"
+            },
+            {
+              "key": "cat_017_006_p02",
+              "title": "冷冻食品精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_006"
+            },
+            {
+              "key": "cat_017_006_p03",
+              "title": "冷冻食品精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_006"
+            },
+            {
+              "key": "cat_017_006_p04",
+              "title": "冷冻食品精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_017_007",
+          "name": "饮品甜品",
+          "products": [
+            {
+              "key": "cat_017_007_p01",
+              "title": "饮品甜品精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_007"
+            },
+            {
+              "key": "cat_017_007_p02",
+              "title": "饮品甜品精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_007"
+            },
+            {
+              "key": "cat_017_007_p03",
+              "title": "饮品甜品精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_007"
+            },
+            {
+              "key": "cat_017_007_p04",
+              "title": "饮品甜品精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_017",
+              "subcategoryKey": "cat_017_007"
+            }
+          ]
+        }
+      ],
+      "key": "cat_017"
+    },
+    {
+      "level1": "酒类",
+      "level2": [
+        {
+          "key": "cat_018_001",
+          "name": "白酒",
+          "products": [
+            {
+              "key": "cat_018_001_p01",
+              "title": "白酒精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_001"
+            },
+            {
+              "key": "cat_018_001_p02",
+              "title": "白酒精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_001"
+            },
+            {
+              "key": "cat_018_001_p03",
+              "title": "白酒精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_001"
+            },
+            {
+              "key": "cat_018_001_p04",
+              "title": "白酒精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_018_002",
+          "name": "葡萄酒",
+          "products": [
+            {
+              "key": "cat_018_002_p01",
+              "title": "葡萄酒精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_002"
+            },
+            {
+              "key": "cat_018_002_p02",
+              "title": "葡萄酒精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_002"
+            },
+            {
+              "key": "cat_018_002_p03",
+              "title": "葡萄酒精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_002"
+            },
+            {
+              "key": "cat_018_002_p04",
+              "title": "葡萄酒精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_018_003",
+          "name": "洋酒",
+          "products": [
+            {
+              "key": "cat_018_003_p01",
+              "title": "洋酒精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_003"
+            },
+            {
+              "key": "cat_018_003_p02",
+              "title": "洋酒精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_003"
+            },
+            {
+              "key": "cat_018_003_p03",
+              "title": "洋酒精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_003"
+            },
+            {
+              "key": "cat_018_003_p04",
+              "title": "洋酒精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_018_004",
+          "name": "啤酒",
+          "products": [
+            {
+              "key": "cat_018_004_p01",
+              "title": "啤酒精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_004"
+            },
+            {
+              "key": "cat_018_004_p02",
+              "title": "啤酒精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_004"
+            },
+            {
+              "key": "cat_018_004_p03",
+              "title": "啤酒精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_004"
+            },
+            {
+              "key": "cat_018_004_p04",
+              "title": "啤酒精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_018_005",
+          "name": "黄酒/养生酒",
+          "products": [
+            {
+              "key": "cat_018_005_p01",
+              "title": "黄酒/养生酒精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_005"
+            },
+            {
+              "key": "cat_018_005_p02",
+              "title": "黄酒/养生酒精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_005"
+            },
+            {
+              "key": "cat_018_005_p03",
+              "title": "黄酒/养生酒精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_005"
+            },
+            {
+              "key": "cat_018_005_p04",
+              "title": "黄酒/养生酒精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_018_006",
+          "name": "预调酒",
+          "products": [
+            {
+              "key": "cat_018_006_p01",
+              "title": "预调酒精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_006"
+            },
+            {
+              "key": "cat_018_006_p02",
+              "title": "预调酒精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_006"
+            },
+            {
+              "key": "cat_018_006_p03",
+              "title": "预调酒精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_006"
+            },
+            {
+              "key": "cat_018_006_p04",
+              "title": "预调酒精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_018_007",
+          "name": "果酒",
+          "products": [
+            {
+              "key": "cat_018_007_p01",
+              "title": "果酒精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_007"
+            },
+            {
+              "key": "cat_018_007_p02",
+              "title": "果酒精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_007"
+            },
+            {
+              "key": "cat_018_007_p03",
+              "title": "果酒精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_007"
+            },
+            {
+              "key": "cat_018_007_p04",
+              "title": "果酒精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_018",
+              "subcategoryKey": "cat_018_007"
+            }
+          ]
+        }
+      ],
+      "key": "cat_018"
+    },
+    {
+      "level1": "医药保健",
+      "level2": [
+        {
+          "key": "cat_019_001",
+          "name": "营养健康",
+          "products": [
+            {
+              "key": "cat_019_001_p01",
+              "title": "营养健康精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_001"
+            },
+            {
+              "key": "cat_019_001_p02",
+              "title": "营养健康精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_001"
+            },
+            {
+              "key": "cat_019_001_p03",
+              "title": "营养健康精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_001"
+            },
+            {
+              "key": "cat_019_001_p04",
+              "title": "营养健康精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_019_002",
+          "name": "传统滋补",
+          "products": [
+            {
+              "key": "cat_019_002_p01",
+              "title": "传统滋补精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_002"
+            },
+            {
+              "key": "cat_019_002_p02",
+              "title": "传统滋补精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_002"
+            },
+            {
+              "key": "cat_019_002_p03",
+              "title": "传统滋补精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_002"
+            },
+            {
+              "key": "cat_019_002_p04",
+              "title": "传统滋补精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_019_003",
+          "name": "医药",
+          "products": [
+            {
+              "key": "cat_019_003_p01",
+              "title": "医药精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_003"
+            },
+            {
+              "key": "cat_019_003_p02",
+              "title": "医药精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_003"
+            },
+            {
+              "key": "cat_019_003_p03",
+              "title": "医药精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_003"
+            },
+            {
+              "key": "cat_019_003_p04",
+              "title": "医药精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_019_004",
+          "name": "医疗器械",
+          "products": [
+            {
+              "key": "cat_019_004_p01",
+              "title": "医疗器械精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_004"
+            },
+            {
+              "key": "cat_019_004_p02",
+              "title": "医疗器械精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_004"
+            },
+            {
+              "key": "cat_019_004_p03",
+              "title": "医疗器械精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_004"
+            },
+            {
+              "key": "cat_019_004_p04",
+              "title": "医疗器械精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_019_005",
+          "name": "隐形眼镜",
+          "products": [
+            {
+              "key": "cat_019_005_p01",
+              "title": "隐形眼镜精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_005"
+            },
+            {
+              "key": "cat_019_005_p02",
+              "title": "隐形眼镜精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_005"
+            },
+            {
+              "key": "cat_019_005_p03",
+              "title": "隐形眼镜精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_005"
+            },
+            {
+              "key": "cat_019_005_p04",
+              "title": "隐形眼镜精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_019_006",
+          "name": "健康服务",
+          "products": [
+            {
+              "key": "cat_019_006_p01",
+              "title": "健康服务精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_006"
+            },
+            {
+              "key": "cat_019_006_p02",
+              "title": "健康服务精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_006"
+            },
+            {
+              "key": "cat_019_006_p03",
+              "title": "健康服务精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_006"
+            },
+            {
+              "key": "cat_019_006_p04",
+              "title": "健康服务精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_019",
+              "subcategoryKey": "cat_019_006"
+            }
+          ]
+        }
+      ],
+      "key": "cat_019"
+    },
+    {
+      "level1": "家居日用",
+      "level2": [
+        {
+          "key": "cat_020_001",
+          "name": "收纳用品",
+          "products": [
+            {
+              "key": "cat_020_001_p01",
+              "title": "收纳用品精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_001"
+            },
+            {
+              "key": "cat_020_001_p02",
+              "title": "收纳用品精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_001"
+            },
+            {
+              "key": "cat_020_001_p03",
+              "title": "收纳用品精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_001"
+            },
+            {
+              "key": "cat_020_001_p04",
+              "title": "收纳用品精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_020_002",
+          "name": "生活日用",
+          "products": [
+            {
+              "key": "cat_020_002_p01",
+              "title": "生活日用精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_002"
+            },
+            {
+              "key": "cat_020_002_p02",
+              "title": "生活日用精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_002"
+            },
+            {
+              "key": "cat_020_002_p03",
+              "title": "生活日用精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_002"
+            },
+            {
+              "key": "cat_020_002_p04",
+              "title": "生活日用精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_020_003",
+          "name": "家装软饰",
+          "products": [
+            {
+              "key": "cat_020_003_p01",
+              "title": "家装软饰精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_003"
+            },
+            {
+              "key": "cat_020_003_p02",
+              "title": "家装软饰精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_003"
+            },
+            {
+              "key": "cat_020_003_p03",
+              "title": "家装软饰精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_003"
+            },
+            {
+              "key": "cat_020_003_p04",
+              "title": "家装软饰精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_020_004",
+          "name": "火机烟具",
+          "products": [
+            {
+              "key": "cat_020_004_p01",
+              "title": "火机烟具精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_004"
+            },
+            {
+              "key": "cat_020_004_p02",
+              "title": "火机烟具精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_004"
+            },
+            {
+              "key": "cat_020_004_p03",
+              "title": "火机烟具精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_004"
+            },
+            {
+              "key": "cat_020_004_p04",
+              "title": "火机烟具精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_020_005",
+          "name": "婚庆节庆",
+          "products": [
+            {
+              "key": "cat_020_005_p01",
+              "title": "婚庆节庆精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_005"
+            },
+            {
+              "key": "cat_020_005_p02",
+              "title": "婚庆节庆精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_005"
+            },
+            {
+              "key": "cat_020_005_p03",
+              "title": "婚庆节庆精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_005"
+            },
+            {
+              "key": "cat_020_005_p04",
+              "title": "婚庆节庆精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_020",
+              "subcategoryKey": "cat_020_005"
+            }
+          ]
+        }
+      ],
+      "key": "cat_020"
+    },
+    {
+      "level1": "厨具",
+      "level2": [
+        {
+          "key": "cat_021_001",
+          "name": "烹饪锅具",
+          "products": [
+            {
+              "key": "cat_021_001_p01",
+              "title": "烹饪锅具精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_001"
+            },
+            {
+              "key": "cat_021_001_p02",
+              "title": "烹饪锅具精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_001"
+            },
+            {
+              "key": "cat_021_001_p03",
+              "title": "烹饪锅具精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_001"
+            },
+            {
+              "key": "cat_021_001_p04",
+              "title": "烹饪锅具精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_021_002",
+          "name": "刀剪菜板",
+          "products": [
+            {
+              "key": "cat_021_002_p01",
+              "title": "刀剪菜板精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_002"
+            },
+            {
+              "key": "cat_021_002_p02",
+              "title": "刀剪菜板精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_002"
+            },
+            {
+              "key": "cat_021_002_p03",
+              "title": "刀剪菜板精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_002"
+            },
+            {
+              "key": "cat_021_002_p04",
+              "title": "刀剪菜板精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_021_003",
+          "name": "厨房配件",
+          "products": [
+            {
+              "key": "cat_021_003_p01",
+              "title": "厨房配件精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_003"
+            },
+            {
+              "key": "cat_021_003_p02",
+              "title": "厨房配件精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_003"
+            },
+            {
+              "key": "cat_021_003_p03",
+              "title": "厨房配件精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_003"
+            },
+            {
+              "key": "cat_021_003_p04",
+              "title": "厨房配件精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_021_004",
+          "name": "水具酒具",
+          "products": [
+            {
+              "key": "cat_021_004_p01",
+              "title": "水具酒具精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_004"
+            },
+            {
+              "key": "cat_021_004_p02",
+              "title": "水具酒具精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_004"
+            },
+            {
+              "key": "cat_021_004_p03",
+              "title": "水具酒具精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_004"
+            },
+            {
+              "key": "cat_021_004_p04",
+              "title": "水具酒具精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_021_005",
+          "name": "餐具",
+          "products": [
+            {
+              "key": "cat_021_005_p01",
+              "title": "餐具精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_005"
+            },
+            {
+              "key": "cat_021_005_p02",
+              "title": "餐具精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_005"
+            },
+            {
+              "key": "cat_021_005_p03",
+              "title": "餐具精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_005"
+            },
+            {
+              "key": "cat_021_005_p04",
+              "title": "餐具精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_021_006",
+          "name": "茶具",
+          "products": [
+            {
+              "key": "cat_021_006_p01",
+              "title": "茶具精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_006"
+            },
+            {
+              "key": "cat_021_006_p02",
+              "title": "茶具精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_006"
+            },
+            {
+              "key": "cat_021_006_p03",
+              "title": "茶具精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_006"
+            },
+            {
+              "key": "cat_021_006_p04",
+              "title": "茶具精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_021_007",
+          "name": "烘焙用具",
+          "products": [
+            {
+              "key": "cat_021_007_p01",
+              "title": "烘焙用具精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_007"
+            },
+            {
+              "key": "cat_021_007_p02",
+              "title": "烘焙用具精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_007"
+            },
+            {
+              "key": "cat_021_007_p03",
+              "title": "烘焙用具精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_007"
+            },
+            {
+              "key": "cat_021_007_p04",
+              "title": "烘焙用具精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_007"
+            }
+          ]
+        },
+        {
+          "key": "cat_021_008",
+          "name": "厨房小工具",
+          "products": [
+            {
+              "key": "cat_021_008_p01",
+              "title": "厨房小工具精选商品 1",
+              "price": 27.3,
+              "originalPrice": 45.7,
+              "sold": 2840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_008"
+            },
+            {
+              "key": "cat_021_008_p02",
+              "title": "厨房小工具精选商品 2",
+              "price": 34.3,
+              "originalPrice": 54.7,
+              "sold": 3840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_008"
+            },
+            {
+              "key": "cat_021_008_p03",
+              "title": "厨房小工具精选商品 3",
+              "price": 41.3,
+              "originalPrice": 63.7,
+              "sold": 4840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_008"
+            },
+            {
+              "key": "cat_021_008_p04",
+              "title": "厨房小工具精选商品 4",
+              "price": 48.3,
+              "originalPrice": 72.7,
+              "sold": 5840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_008"
+            }
+          ]
+        },
+        {
+          "key": "cat_021_009",
+          "name": "厨房置物架",
+          "products": [
+            {
+              "key": "cat_021_009_p01",
+              "title": "厨房置物架精选商品 1",
+              "price": 28.6,
+              "originalPrice": 47.8,
+              "sold": 3070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_009"
+            },
+            {
+              "key": "cat_021_009_p02",
+              "title": "厨房置物架精选商品 2",
+              "price": 35.6,
+              "originalPrice": 56.8,
+              "sold": 4070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_009"
+            },
+            {
+              "key": "cat_021_009_p03",
+              "title": "厨房置物架精选商品 3",
+              "price": 42.6,
+              "originalPrice": 65.8,
+              "sold": 5070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_009"
+            },
+            {
+              "key": "cat_021_009_p04",
+              "title": "厨房置物架精选商品 4",
+              "price": 49.6,
+              "originalPrice": 74.8,
+              "sold": 6070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_021",
+              "subcategoryKey": "cat_021_009"
+            }
+          ]
+        }
+      ],
+      "key": "cat_021"
+    },
+    {
+      "level1": "家纺",
+      "level2": [
+        {
+          "key": "cat_022_001",
+          "name": "床上用品",
+          "products": [
+            {
+              "key": "cat_022_001_p01",
+              "title": "床上用品精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_001"
+            },
+            {
+              "key": "cat_022_001_p02",
+              "title": "床上用品精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_001"
+            },
+            {
+              "key": "cat_022_001_p03",
+              "title": "床上用品精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_001"
+            },
+            {
+              "key": "cat_022_001_p04",
+              "title": "床上用品精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_022_002",
+          "name": "毛巾浴巾",
+          "products": [
+            {
+              "key": "cat_022_002_p01",
+              "title": "毛巾浴巾精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_002"
+            },
+            {
+              "key": "cat_022_002_p02",
+              "title": "毛巾浴巾精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_002"
+            },
+            {
+              "key": "cat_022_002_p03",
+              "title": "毛巾浴巾精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_002"
+            },
+            {
+              "key": "cat_022_002_p04",
+              "title": "毛巾浴巾精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_022_003",
+          "name": "窗帘/窗纱",
+          "products": [
+            {
+              "key": "cat_022_003_p01",
+              "title": "窗帘/窗纱精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_003"
+            },
+            {
+              "key": "cat_022_003_p02",
+              "title": "窗帘/窗纱精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_003"
+            },
+            {
+              "key": "cat_022_003_p03",
+              "title": "窗帘/窗纱精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_003"
+            },
+            {
+              "key": "cat_022_003_p04",
+              "title": "窗帘/窗纱精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_022_004",
+          "name": "地毯地垫",
+          "products": [
+            {
+              "key": "cat_022_004_p01",
+              "title": "地毯地垫精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_004"
+            },
+            {
+              "key": "cat_022_004_p02",
+              "title": "地毯地垫精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_004"
+            },
+            {
+              "key": "cat_022_004_p03",
+              "title": "地毯地垫精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_004"
+            },
+            {
+              "key": "cat_022_004_p04",
+              "title": "地毯地垫精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_022_005",
+          "name": "抱枕靠垫",
+          "products": [
+            {
+              "key": "cat_022_005_p01",
+              "title": "抱枕靠垫精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_005"
+            },
+            {
+              "key": "cat_022_005_p02",
+              "title": "抱枕靠垫精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_005"
+            },
+            {
+              "key": "cat_022_005_p03",
+              "title": "抱枕靠垫精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_005"
+            },
+            {
+              "key": "cat_022_005_p04",
+              "title": "抱枕靠垫精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_022_006",
+          "name": "家纺服务",
+          "products": [
+            {
+              "key": "cat_022_006_p01",
+              "title": "家纺服务精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_006"
+            },
+            {
+              "key": "cat_022_006_p02",
+              "title": "家纺服务精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_006"
+            },
+            {
+              "key": "cat_022_006_p03",
+              "title": "家纺服务精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_006"
+            },
+            {
+              "key": "cat_022_006_p04",
+              "title": "家纺服务精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_022",
+              "subcategoryKey": "cat_022_006"
+            }
+          ]
+        }
+      ],
+      "key": "cat_022"
+    },
+    {
+      "level1": "家具",
+      "level2": [
+        {
+          "key": "cat_023_001",
+          "name": "客厅家具",
+          "products": [
+            {
+              "key": "cat_023_001_p01",
+              "title": "客厅家具精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_001"
+            },
+            {
+              "key": "cat_023_001_p02",
+              "title": "客厅家具精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_001"
+            },
+            {
+              "key": "cat_023_001_p03",
+              "title": "客厅家具精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_001"
+            },
+            {
+              "key": "cat_023_001_p04",
+              "title": "客厅家具精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_002",
+          "name": "卧室家具",
+          "products": [
+            {
+              "key": "cat_023_002_p01",
+              "title": "卧室家具精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_002"
+            },
+            {
+              "key": "cat_023_002_p02",
+              "title": "卧室家具精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_002"
+            },
+            {
+              "key": "cat_023_002_p03",
+              "title": "卧室家具精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_002"
+            },
+            {
+              "key": "cat_023_002_p04",
+              "title": "卧室家具精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_003",
+          "name": "餐厅家具",
+          "products": [
+            {
+              "key": "cat_023_003_p01",
+              "title": "餐厅家具精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_003"
+            },
+            {
+              "key": "cat_023_003_p02",
+              "title": "餐厅家具精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_003"
+            },
+            {
+              "key": "cat_023_003_p03",
+              "title": "餐厅家具精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_003"
+            },
+            {
+              "key": "cat_023_003_p04",
+              "title": "餐厅家具精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_004",
+          "name": "书房家具",
+          "products": [
+            {
+              "key": "cat_023_004_p01",
+              "title": "书房家具精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_004"
+            },
+            {
+              "key": "cat_023_004_p02",
+              "title": "书房家具精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_004"
+            },
+            {
+              "key": "cat_023_004_p03",
+              "title": "书房家具精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_004"
+            },
+            {
+              "key": "cat_023_004_p04",
+              "title": "书房家具精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_005",
+          "name": "储物家具",
+          "products": [
+            {
+              "key": "cat_023_005_p01",
+              "title": "储物家具精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_005"
+            },
+            {
+              "key": "cat_023_005_p02",
+              "title": "储物家具精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_005"
+            },
+            {
+              "key": "cat_023_005_p03",
+              "title": "储物家具精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_005"
+            },
+            {
+              "key": "cat_023_005_p04",
+              "title": "储物家具精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_006",
+          "name": "儿童家具",
+          "products": [
+            {
+              "key": "cat_023_006_p01",
+              "title": "儿童家具精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_006"
+            },
+            {
+              "key": "cat_023_006_p02",
+              "title": "儿童家具精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_006"
+            },
+            {
+              "key": "cat_023_006_p03",
+              "title": "儿童家具精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_006"
+            },
+            {
+              "key": "cat_023_006_p04",
+              "title": "儿童家具精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_007",
+          "name": "户外家具",
+          "products": [
+            {
+              "key": "cat_023_007_p01",
+              "title": "户外家具精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_007"
+            },
+            {
+              "key": "cat_023_007_p02",
+              "title": "户外家具精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_007"
+            },
+            {
+              "key": "cat_023_007_p03",
+              "title": "户外家具精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_007"
+            },
+            {
+              "key": "cat_023_007_p04",
+              "title": "户外家具精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_007"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_008",
+          "name": "红木家具",
+          "products": [
+            {
+              "key": "cat_023_008_p01",
+              "title": "红木家具精选商品 1",
+              "price": 27.3,
+              "originalPrice": 45.7,
+              "sold": 2840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_008"
+            },
+            {
+              "key": "cat_023_008_p02",
+              "title": "红木家具精选商品 2",
+              "price": 34.3,
+              "originalPrice": 54.7,
+              "sold": 3840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_008"
+            },
+            {
+              "key": "cat_023_008_p03",
+              "title": "红木家具精选商品 3",
+              "price": 41.3,
+              "originalPrice": 63.7,
+              "sold": 4840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_008"
+            },
+            {
+              "key": "cat_023_008_p04",
+              "title": "红木家具精选商品 4",
+              "price": 48.3,
+              "originalPrice": 72.7,
+              "sold": 5840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_008"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_009",
+          "name": "定制家具",
+          "products": [
+            {
+              "key": "cat_023_009_p01",
+              "title": "定制家具精选商品 1",
+              "price": 28.6,
+              "originalPrice": 47.8,
+              "sold": 3070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_009"
+            },
+            {
+              "key": "cat_023_009_p02",
+              "title": "定制家具精选商品 2",
+              "price": 35.6,
+              "originalPrice": 56.8,
+              "sold": 4070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_009"
+            },
+            {
+              "key": "cat_023_009_p03",
+              "title": "定制家具精选商品 3",
+              "price": 42.6,
+              "originalPrice": 65.8,
+              "sold": 5070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_009"
+            },
+            {
+              "key": "cat_023_009_p04",
+              "title": "定制家具精选商品 4",
+              "price": 49.6,
+              "originalPrice": 74.8,
+              "sold": 6070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_009"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_010",
+          "name": "床垫",
+          "products": [
+            {
+              "key": "cat_023_010_p01",
+              "title": "床垫精选商品 1",
+              "price": 29.9,
+              "originalPrice": 49.9,
+              "sold": 3300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_010"
+            },
+            {
+              "key": "cat_023_010_p02",
+              "title": "床垫精选商品 2",
+              "price": 36.9,
+              "originalPrice": 58.9,
+              "sold": 4300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_010"
+            },
+            {
+              "key": "cat_023_010_p03",
+              "title": "床垫精选商品 3",
+              "price": 43.9,
+              "originalPrice": 67.9,
+              "sold": 5300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_010"
+            },
+            {
+              "key": "cat_023_010_p04",
+              "title": "床垫精选商品 4",
+              "price": 50.9,
+              "originalPrice": 76.9,
+              "sold": 6300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_010"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_011",
+          "name": "柜类",
+          "products": [
+            {
+              "key": "cat_023_011_p01",
+              "title": "柜类精选商品 1",
+              "price": 31.2,
+              "originalPrice": 52.0,
+              "sold": 3530,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_011"
+            },
+            {
+              "key": "cat_023_011_p02",
+              "title": "柜类精选商品 2",
+              "price": 38.2,
+              "originalPrice": 61.0,
+              "sold": 4530,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_011"
+            },
+            {
+              "key": "cat_023_011_p03",
+              "title": "柜类精选商品 3",
+              "price": 45.2,
+              "originalPrice": 70.0,
+              "sold": 5530,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_011"
+            },
+            {
+              "key": "cat_023_011_p04",
+              "title": "柜类精选商品 4",
+              "price": 52.2,
+              "originalPrice": 79.0,
+              "sold": 6530,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_011"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_012",
+          "name": "床类",
+          "products": [
+            {
+              "key": "cat_023_012_p01",
+              "title": "床类精选商品 1",
+              "price": 32.5,
+              "originalPrice": 54.1,
+              "sold": 3760,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_012"
+            },
+            {
+              "key": "cat_023_012_p02",
+              "title": "床类精选商品 2",
+              "price": 39.5,
+              "originalPrice": 63.1,
+              "sold": 4760,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_012"
+            },
+            {
+              "key": "cat_023_012_p03",
+              "title": "床类精选商品 3",
+              "price": 46.5,
+              "originalPrice": 72.1,
+              "sold": 5760,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_012"
+            },
+            {
+              "key": "cat_023_012_p04",
+              "title": "床类精选商品 4",
+              "price": 53.5,
+              "originalPrice": 81.1,
+              "sold": 6760,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_012"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_013",
+          "name": "几类",
+          "products": [
+            {
+              "key": "cat_023_013_p01",
+              "title": "几类精选商品 1",
+              "price": 33.8,
+              "originalPrice": 56.2,
+              "sold": 3990,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_013"
+            },
+            {
+              "key": "cat_023_013_p02",
+              "title": "几类精选商品 2",
+              "price": 40.8,
+              "originalPrice": 65.2,
+              "sold": 4990,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_013"
+            },
+            {
+              "key": "cat_023_013_p03",
+              "title": "几类精选商品 3",
+              "price": 47.8,
+              "originalPrice": 74.2,
+              "sold": 5990,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_013"
+            },
+            {
+              "key": "cat_023_013_p04",
+              "title": "几类精选商品 4",
+              "price": 54.8,
+              "originalPrice": 83.2,
+              "sold": 6990,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_013"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_014",
+          "name": "凳类",
+          "products": [
+            {
+              "key": "cat_023_014_p01",
+              "title": "凳类精选商品 1",
+              "price": 35.1,
+              "originalPrice": 58.3,
+              "sold": 4220,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_014"
+            },
+            {
+              "key": "cat_023_014_p02",
+              "title": "凳类精选商品 2",
+              "price": 42.1,
+              "originalPrice": 67.3,
+              "sold": 5220,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_014"
+            },
+            {
+              "key": "cat_023_014_p03",
+              "title": "凳类精选商品 3",
+              "price": 49.1,
+              "originalPrice": 76.3,
+              "sold": 6220,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_014"
+            },
+            {
+              "key": "cat_023_014_p04",
+              "title": "凳类精选商品 4",
+              "price": 56.1,
+              "originalPrice": 85.3,
+              "sold": 7220,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_014"
+            }
+          ]
+        },
+        {
+          "key": "cat_023_015",
+          "name": "架类",
+          "products": [
+            {
+              "key": "cat_023_015_p01",
+              "title": "架类精选商品 1",
+              "price": 36.4,
+              "originalPrice": 60.4,
+              "sold": 4450,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_015"
+            },
+            {
+              "key": "cat_023_015_p02",
+              "title": "架类精选商品 2",
+              "price": 43.4,
+              "originalPrice": 69.4,
+              "sold": 5450,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_015"
+            },
+            {
+              "key": "cat_023_015_p03",
+              "title": "架类精选商品 3",
+              "price": 50.4,
+              "originalPrice": 78.4,
+              "sold": 6450,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_015"
+            },
+            {
+              "key": "cat_023_015_p04",
+              "title": "架类精选商品 4",
+              "price": 57.4,
+              "originalPrice": 87.4,
+              "sold": 7450,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_023",
+              "subcategoryKey": "cat_023_015"
+            }
+          ]
+        }
+      ],
+      "key": "cat_023"
+    },
+    {
+      "level1": "家装建材",
+      "level2": [
+        {
+          "key": "cat_024_001",
+          "name": "灯饰照明",
+          "products": [
+            {
+              "key": "cat_024_001_p01",
+              "title": "灯饰照明精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_001"
+            },
+            {
+              "key": "cat_024_001_p02",
+              "title": "灯饰照明精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_001"
+            },
+            {
+              "key": "cat_024_001_p03",
+              "title": "灯饰照明精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_001"
+            },
+            {
+              "key": "cat_024_001_p04",
+              "title": "灯饰照明精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_024_002",
+          "name": "厨房卫浴",
+          "products": [
+            {
+              "key": "cat_024_002_p01",
+              "title": "厨房卫浴精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_002"
+            },
+            {
+              "key": "cat_024_002_p02",
+              "title": "厨房卫浴精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_002"
+            },
+            {
+              "key": "cat_024_002_p03",
+              "title": "厨房卫浴精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_002"
+            },
+            {
+              "key": "cat_024_002_p04",
+              "title": "厨房卫浴精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_024_003",
+          "name": "电工电料",
+          "products": [
+            {
+              "key": "cat_024_003_p01",
+              "title": "电工电料精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_003"
+            },
+            {
+              "key": "cat_024_003_p02",
+              "title": "电工电料精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_003"
+            },
+            {
+              "key": "cat_024_003_p03",
+              "title": "电工电料精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_003"
+            },
+            {
+              "key": "cat_024_003_p04",
+              "title": "电工电料精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_024_004",
+          "name": "墙地面材料",
+          "products": [
+            {
+              "key": "cat_024_004_p01",
+              "title": "墙地面材料精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_004"
+            },
+            {
+              "key": "cat_024_004_p02",
+              "title": "墙地面材料精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_004"
+            },
+            {
+              "key": "cat_024_004_p03",
+              "title": "墙地面材料精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_004"
+            },
+            {
+              "key": "cat_024_004_p04",
+              "title": "墙地面材料精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_024_005",
+          "name": "五金工具",
+          "products": [
+            {
+              "key": "cat_024_005_p01",
+              "title": "五金工具精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_005"
+            },
+            {
+              "key": "cat_024_005_p02",
+              "title": "五金工具精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_005"
+            },
+            {
+              "key": "cat_024_005_p03",
+              "title": "五金工具精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_005"
+            },
+            {
+              "key": "cat_024_005_p04",
+              "title": "五金工具精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_024_006",
+          "name": "装修服务",
+          "products": [
+            {
+              "key": "cat_024_006_p01",
+              "title": "装修服务精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_006"
+            },
+            {
+              "key": "cat_024_006_p02",
+              "title": "装修服务精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_006"
+            },
+            {
+              "key": "cat_024_006_p03",
+              "title": "装修服务精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_006"
+            },
+            {
+              "key": "cat_024_006_p04",
+              "title": "装修服务精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_024_007",
+          "name": "基建材料",
+          "products": [
+            {
+              "key": "cat_024_007_p01",
+              "title": "基建材料精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_007"
+            },
+            {
+              "key": "cat_024_007_p02",
+              "title": "基建材料精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_007"
+            },
+            {
+              "key": "cat_024_007_p03",
+              "title": "基建材料精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_007"
+            },
+            {
+              "key": "cat_024_007_p04",
+              "title": "基建材料精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_007"
+            }
+          ]
+        },
+        {
+          "key": "cat_024_008",
+          "name": "基建辅助设施",
+          "products": [
+            {
+              "key": "cat_024_008_p01",
+              "title": "基建辅助设施精选商品 1",
+              "price": 27.3,
+              "originalPrice": 45.7,
+              "sold": 2840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_008"
+            },
+            {
+              "key": "cat_024_008_p02",
+              "title": "基建辅助设施精选商品 2",
+              "price": 34.3,
+              "originalPrice": 54.7,
+              "sold": 3840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_008"
+            },
+            {
+              "key": "cat_024_008_p03",
+              "title": "基建辅助设施精选商品 3",
+              "price": 41.3,
+              "originalPrice": 63.7,
+              "sold": 4840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_008"
+            },
+            {
+              "key": "cat_024_008_p04",
+              "title": "基建辅助设施精选商品 4",
+              "price": 48.3,
+              "originalPrice": 72.7,
+              "sold": 5840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_008"
+            }
+          ]
+        },
+        {
+          "key": "cat_024_009",
+          "name": "家装建材服务",
+          "products": [
+            {
+              "key": "cat_024_009_p01",
+              "title": "家装建材服务精选商品 1",
+              "price": 28.6,
+              "originalPrice": 47.8,
+              "sold": 3070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_009"
+            },
+            {
+              "key": "cat_024_009_p02",
+              "title": "家装建材服务精选商品 2",
+              "price": 35.6,
+              "originalPrice": 56.8,
+              "sold": 4070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_009"
+            },
+            {
+              "key": "cat_024_009_p03",
+              "title": "家装建材服务精选商品 3",
+              "price": 42.6,
+              "originalPrice": 65.8,
+              "sold": 5070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_009"
+            },
+            {
+              "key": "cat_024_009_p04",
+              "title": "家装建材服务精选商品 4",
+              "price": 49.6,
+              "originalPrice": 74.8,
+              "sold": 6070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_024",
+              "subcategoryKey": "cat_024_009"
+            }
+          ]
+        }
+      ],
+      "key": "cat_024"
+    },
+    {
+      "level1": "汽车用品",
+      "level2": [
+        {
+          "key": "cat_025_001",
+          "name": "维修保养",
+          "products": [
+            {
+              "key": "cat_025_001_p01",
+              "title": "维修保养精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_001"
+            },
+            {
+              "key": "cat_025_001_p02",
+              "title": "维修保养精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_001"
+            },
+            {
+              "key": "cat_025_001_p03",
+              "title": "维修保养精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_001"
+            },
+            {
+              "key": "cat_025_001_p04",
+              "title": "维修保养精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_025_002",
+          "name": "车载电器",
+          "products": [
+            {
+              "key": "cat_025_002_p01",
+              "title": "车载电器精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_002"
+            },
+            {
+              "key": "cat_025_002_p02",
+              "title": "车载电器精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_002"
+            },
+            {
+              "key": "cat_025_002_p03",
+              "title": "车载电器精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_002"
+            },
+            {
+              "key": "cat_025_002_p04",
+              "title": "车载电器精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_025_003",
+          "name": "美容清洗",
+          "products": [
+            {
+              "key": "cat_025_003_p01",
+              "title": "美容清洗精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_003"
+            },
+            {
+              "key": "cat_025_003_p02",
+              "title": "美容清洗精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_003"
+            },
+            {
+              "key": "cat_025_003_p03",
+              "title": "美容清洗精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_003"
+            },
+            {
+              "key": "cat_025_003_p04",
+              "title": "美容清洗精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_025_004",
+          "name": "汽车装饰",
+          "products": [
+            {
+              "key": "cat_025_004_p01",
+              "title": "汽车装饰精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_004"
+            },
+            {
+              "key": "cat_025_004_p02",
+              "title": "汽车装饰精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_004"
+            },
+            {
+              "key": "cat_025_004_p03",
+              "title": "汽车装饰精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_004"
+            },
+            {
+              "key": "cat_025_004_p04",
+              "title": "汽车装饰精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_025_005",
+          "name": "安全自驾",
+          "products": [
+            {
+              "key": "cat_025_005_p01",
+              "title": "安全自驾精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_005"
+            },
+            {
+              "key": "cat_025_005_p02",
+              "title": "安全自驾精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_005"
+            },
+            {
+              "key": "cat_025_005_p03",
+              "title": "安全自驾精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_005"
+            },
+            {
+              "key": "cat_025_005_p04",
+              "title": "安全自驾精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_025_006",
+          "name": "汽车服务",
+          "products": [
+            {
+              "key": "cat_025_006_p01",
+              "title": "汽车服务精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_006"
+            },
+            {
+              "key": "cat_025_006_p02",
+              "title": "汽车服务精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_006"
+            },
+            {
+              "key": "cat_025_006_p03",
+              "title": "汽车服务精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_006"
+            },
+            {
+              "key": "cat_025_006_p04",
+              "title": "汽车服务精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_025",
+              "subcategoryKey": "cat_025_006"
+            }
+          ]
+        }
+      ],
+      "key": "cat_025"
+    },
+    {
+      "level1": "宠物生活",
+      "level2": [
+        {
+          "key": "cat_026_001",
+          "name": "猫狗主粮",
+          "products": [
+            {
+              "key": "cat_026_001_p01",
+              "title": "猫狗主粮精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_001"
+            },
+            {
+              "key": "cat_026_001_p02",
+              "title": "猫狗主粮精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_001"
+            },
+            {
+              "key": "cat_026_001_p03",
+              "title": "猫狗主粮精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_001"
+            },
+            {
+              "key": "cat_026_001_p04",
+              "title": "猫狗主粮精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_026_002",
+          "name": "猫狗零食",
+          "products": [
+            {
+              "key": "cat_026_002_p01",
+              "title": "猫狗零食精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_002"
+            },
+            {
+              "key": "cat_026_002_p02",
+              "title": "猫狗零食精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_002"
+            },
+            {
+              "key": "cat_026_002_p03",
+              "title": "猫狗零食精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_002"
+            },
+            {
+              "key": "cat_026_002_p04",
+              "title": "猫狗零食精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_026_003",
+          "name": "猫狗日用",
+          "products": [
+            {
+              "key": "cat_026_003_p01",
+              "title": "猫狗日用精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_003"
+            },
+            {
+              "key": "cat_026_003_p02",
+              "title": "猫狗日用精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_003"
+            },
+            {
+              "key": "cat_026_003_p03",
+              "title": "猫狗日用精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_003"
+            },
+            {
+              "key": "cat_026_003_p04",
+              "title": "猫狗日用精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_026_004",
+          "name": "猫狗玩具",
+          "products": [
+            {
+              "key": "cat_026_004_p01",
+              "title": "猫狗玩具精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_004"
+            },
+            {
+              "key": "cat_026_004_p02",
+              "title": "猫狗玩具精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_004"
+            },
+            {
+              "key": "cat_026_004_p03",
+              "title": "猫狗玩具精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_004"
+            },
+            {
+              "key": "cat_026_004_p04",
+              "title": "猫狗玩具精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_004"
+            }
+          ]
+        },
+        {
+          "key": "cat_026_005",
+          "name": "猫狗出行",
+          "products": [
+            {
+              "key": "cat_026_005_p01",
+              "title": "猫狗出行精选商品 1",
+              "price": 23.4,
+              "originalPrice": 39.4,
+              "sold": 2150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_005"
+            },
+            {
+              "key": "cat_026_005_p02",
+              "title": "猫狗出行精选商品 2",
+              "price": 30.4,
+              "originalPrice": 48.4,
+              "sold": 3150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_005"
+            },
+            {
+              "key": "cat_026_005_p03",
+              "title": "猫狗出行精选商品 3",
+              "price": 37.4,
+              "originalPrice": 57.4,
+              "sold": 4150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_005"
+            },
+            {
+              "key": "cat_026_005_p04",
+              "title": "猫狗出行精选商品 4",
+              "price": 44.4,
+              "originalPrice": 66.4,
+              "sold": 5150,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_005"
+            }
+          ]
+        },
+        {
+          "key": "cat_026_006",
+          "name": "洗护美容",
+          "products": [
+            {
+              "key": "cat_026_006_p01",
+              "title": "洗护美容精选商品 1",
+              "price": 24.7,
+              "originalPrice": 41.5,
+              "sold": 2380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_006"
+            },
+            {
+              "key": "cat_026_006_p02",
+              "title": "洗护美容精选商品 2",
+              "price": 31.7,
+              "originalPrice": 50.5,
+              "sold": 3380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_006"
+            },
+            {
+              "key": "cat_026_006_p03",
+              "title": "洗护美容精选商品 3",
+              "price": 38.7,
+              "originalPrice": 59.5,
+              "sold": 4380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_006"
+            },
+            {
+              "key": "cat_026_006_p04",
+              "title": "洗护美容精选商品 4",
+              "price": 45.7,
+              "originalPrice": 68.5,
+              "sold": 5380,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_006"
+            }
+          ]
+        },
+        {
+          "key": "cat_026_007",
+          "name": "猫狗医疗保健",
+          "products": [
+            {
+              "key": "cat_026_007_p01",
+              "title": "猫狗医疗保健精选商品 1",
+              "price": 26.0,
+              "originalPrice": 43.6,
+              "sold": 2610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_007"
+            },
+            {
+              "key": "cat_026_007_p02",
+              "title": "猫狗医疗保健精选商品 2",
+              "price": 33.0,
+              "originalPrice": 52.6,
+              "sold": 3610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_007"
+            },
+            {
+              "key": "cat_026_007_p03",
+              "title": "猫狗医疗保健精选商品 3",
+              "price": 40.0,
+              "originalPrice": 61.6,
+              "sold": 4610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_007"
+            },
+            {
+              "key": "cat_026_007_p04",
+              "title": "猫狗医疗保健精选商品 4",
+              "price": 47.0,
+              "originalPrice": 70.6,
+              "sold": 5610,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_007"
+            }
+          ]
+        },
+        {
+          "key": "cat_026_008",
+          "name": "水族",
+          "products": [
+            {
+              "key": "cat_026_008_p01",
+              "title": "水族精选商品 1",
+              "price": 27.3,
+              "originalPrice": 45.7,
+              "sold": 2840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_008"
+            },
+            {
+              "key": "cat_026_008_p02",
+              "title": "水族精选商品 2",
+              "price": 34.3,
+              "originalPrice": 54.7,
+              "sold": 3840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_008"
+            },
+            {
+              "key": "cat_026_008_p03",
+              "title": "水族精选商品 3",
+              "price": 41.3,
+              "originalPrice": 63.7,
+              "sold": 4840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_008"
+            },
+            {
+              "key": "cat_026_008_p04",
+              "title": "水族精选商品 4",
+              "price": 48.3,
+              "originalPrice": 72.7,
+              "sold": 5840,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_008"
+            }
+          ]
+        },
+        {
+          "key": "cat_026_009",
+          "name": "异宠食品/用品",
+          "products": [
+            {
+              "key": "cat_026_009_p01",
+              "title": "异宠食品/用品精选商品 1",
+              "price": 28.6,
+              "originalPrice": 47.8,
+              "sold": 3070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_009"
+            },
+            {
+              "key": "cat_026_009_p02",
+              "title": "异宠食品/用品精选商品 2",
+              "price": 35.6,
+              "originalPrice": 56.8,
+              "sold": 4070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_009"
+            },
+            {
+              "key": "cat_026_009_p03",
+              "title": "异宠食品/用品精选商品 3",
+              "price": 42.6,
+              "originalPrice": 65.8,
+              "sold": 5070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_009"
+            },
+            {
+              "key": "cat_026_009_p04",
+              "title": "异宠食品/用品精选商品 4",
+              "price": 49.6,
+              "originalPrice": 74.8,
+              "sold": 6070,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_009"
+            }
+          ]
+        },
+        {
+          "key": "cat_026_010",
+          "name": "宠物活体",
+          "products": [
+            {
+              "key": "cat_026_010_p01",
+              "title": "宠物活体精选商品 1",
+              "price": 29.9,
+              "originalPrice": 49.9,
+              "sold": 3300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_010"
+            },
+            {
+              "key": "cat_026_010_p02",
+              "title": "宠物活体精选商品 2",
+              "price": 36.9,
+              "originalPrice": 58.9,
+              "sold": 4300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_010"
+            },
+            {
+              "key": "cat_026_010_p03",
+              "title": "宠物活体精选商品 3",
+              "price": 43.9,
+              "originalPrice": 67.9,
+              "sold": 5300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_010"
+            },
+            {
+              "key": "cat_026_010_p04",
+              "title": "宠物活体精选商品 4",
+              "price": 50.9,
+              "originalPrice": 76.9,
+              "sold": 6300,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_010"
+            }
+          ]
+        },
+        {
+          "key": "cat_026_011",
+          "name": "宠物服务",
+          "products": [
+            {
+              "key": "cat_026_011_p01",
+              "title": "宠物服务精选商品 1",
+              "price": 31.2,
+              "originalPrice": 52.0,
+              "sold": 3530,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_011"
+            },
+            {
+              "key": "cat_026_011_p02",
+              "title": "宠物服务精选商品 2",
+              "price": 38.2,
+              "originalPrice": 61.0,
+              "sold": 4530,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_011"
+            },
+            {
+              "key": "cat_026_011_p03",
+              "title": "宠物服务精选商品 3",
+              "price": 45.2,
+              "originalPrice": 70.0,
+              "sold": 5530,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_011"
+            },
+            {
+              "key": "cat_026_011_p04",
+              "title": "宠物服务精选商品 4",
+              "price": 52.2,
+              "originalPrice": 79.0,
+              "sold": 6530,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_026",
+              "subcategoryKey": "cat_026_011"
+            }
+          ]
+        }
+      ],
+      "key": "cat_026"
+    },
+    {
+      "level1": "图书",
+      "level2": [
+        {
+          "key": "cat_027_001",
+          "name": "图书",
+          "products": [
+            {
+              "key": "cat_027_001_p01",
+              "title": "图书精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_027",
+              "subcategoryKey": "cat_027_001"
+            },
+            {
+              "key": "cat_027_001_p02",
+              "title": "图书精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_027",
+              "subcategoryKey": "cat_027_001"
+            },
+            {
+              "key": "cat_027_001_p03",
+              "title": "图书精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_027",
+              "subcategoryKey": "cat_027_001"
+            },
+            {
+              "key": "cat_027_001_p04",
+              "title": "图书精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_027",
+              "subcategoryKey": "cat_027_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_027_002",
+          "name": "音像",
+          "products": [
+            {
+              "key": "cat_027_002_p01",
+              "title": "音像精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_027",
+              "subcategoryKey": "cat_027_002"
+            },
+            {
+              "key": "cat_027_002_p02",
+              "title": "音像精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_027",
+              "subcategoryKey": "cat_027_002"
+            },
+            {
+              "key": "cat_027_002_p03",
+              "title": "音像精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_027",
+              "subcategoryKey": "cat_027_002"
+            },
+            {
+              "key": "cat_027_002_p04",
+              "title": "音像精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_027",
+              "subcategoryKey": "cat_027_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_027_003",
+          "name": "电子书",
+          "products": [
+            {
+              "key": "cat_027_003_p01",
+              "title": "电子书精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_027",
+              "subcategoryKey": "cat_027_003"
+            },
+            {
+              "key": "cat_027_003_p02",
+              "title": "电子书精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_027",
+              "subcategoryKey": "cat_027_003"
+            },
+            {
+              "key": "cat_027_003_p03",
+              "title": "电子书精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_027",
+              "subcategoryKey": "cat_027_003"
+            },
+            {
+              "key": "cat_027_003_p04",
+              "title": "电子书精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_027",
+              "subcategoryKey": "cat_027_003"
+            }
+          ]
+        }
+      ],
+      "key": "cat_027"
+    },
+    {
+      "level1": "文娱",
+      "level2": [
+        {
+          "key": "cat_028_001",
+          "name": "文娱周边",
+          "products": [
+            {
+              "key": "cat_028_001_p01",
+              "title": "文娱周边精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_028",
+              "subcategoryKey": "cat_028_001"
+            },
+            {
+              "key": "cat_028_001_p02",
+              "title": "文娱周边精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_028",
+              "subcategoryKey": "cat_028_001"
+            },
+            {
+              "key": "cat_028_001_p03",
+              "title": "文娱周边精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_028",
+              "subcategoryKey": "cat_028_001"
+            },
+            {
+              "key": "cat_028_001_p04",
+              "title": "文娱周边精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_028",
+              "subcategoryKey": "cat_028_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_028_002",
+          "name": "游戏周边",
+          "products": [
+            {
+              "key": "cat_028_002_p01",
+              "title": "游戏周边精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_028",
+              "subcategoryKey": "cat_028_002"
+            },
+            {
+              "key": "cat_028_002_p02",
+              "title": "游戏周边精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_028",
+              "subcategoryKey": "cat_028_002"
+            },
+            {
+              "key": "cat_028_002_p03",
+              "title": "游戏周边精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_028",
+              "subcategoryKey": "cat_028_002"
+            },
+            {
+              "key": "cat_028_002_p04",
+              "title": "游戏周边精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_028",
+              "subcategoryKey": "cat_028_002"
+            }
+          ]
+        }
+      ],
+      "key": "cat_028"
+    },
+    {
+      "level1": "教育培训",
+      "level2": [
+        {
+          "key": "cat_029_001",
+          "name": "教育培训",
+          "products": [
+            {
+              "key": "cat_029_001_p01",
+              "title": "教育培训精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_029",
+              "subcategoryKey": "cat_029_001"
+            },
+            {
+              "key": "cat_029_001_p02",
+              "title": "教育培训精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_029",
+              "subcategoryKey": "cat_029_001"
+            },
+            {
+              "key": "cat_029_001_p03",
+              "title": "教育培训精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_029",
+              "subcategoryKey": "cat_029_001"
+            },
+            {
+              "key": "cat_029_001_p04",
+              "title": "教育培训精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_029",
+              "subcategoryKey": "cat_029_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_029_002",
+          "name": "在线课程",
+          "products": [
+            {
+              "key": "cat_029_002_p01",
+              "title": "在线课程精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_029",
+              "subcategoryKey": "cat_029_002"
+            },
+            {
+              "key": "cat_029_002_p02",
+              "title": "在线课程精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_029",
+              "subcategoryKey": "cat_029_002"
+            },
+            {
+              "key": "cat_029_002_p03",
+              "title": "在线课程精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_029",
+              "subcategoryKey": "cat_029_002"
+            },
+            {
+              "key": "cat_029_002_p04",
+              "title": "在线课程精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_029",
+              "subcategoryKey": "cat_029_002"
+            }
+          ]
+        }
+      ],
+      "key": "cat_029"
+    },
+    {
+      "level1": "本地生活/旅游出行",
+      "level2": [
+        {
+          "key": "cat_030_001",
+          "name": "机票酒店",
+          "products": [
+            {
+              "key": "cat_030_001_p01",
+              "title": "机票酒店精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_001"
+            },
+            {
+              "key": "cat_030_001_p02",
+              "title": "机票酒店精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_001"
+            },
+            {
+              "key": "cat_030_001_p03",
+              "title": "机票酒店精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_001"
+            },
+            {
+              "key": "cat_030_001_p04",
+              "title": "机票酒店精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_030_002",
+          "name": "旅游度假",
+          "products": [
+            {
+              "key": "cat_030_002_p01",
+              "title": "旅游度假精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_002"
+            },
+            {
+              "key": "cat_030_002_p02",
+              "title": "旅游度假精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_002"
+            },
+            {
+              "key": "cat_030_002_p03",
+              "title": "旅游度假精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_002"
+            },
+            {
+              "key": "cat_030_002_p04",
+              "title": "旅游度假精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_030_003",
+          "name": "生活充值",
+          "products": [
+            {
+              "key": "cat_030_003_p01",
+              "title": "生活充值精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_003"
+            },
+            {
+              "key": "cat_030_003_p02",
+              "title": "生活充值精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_003"
+            },
+            {
+              "key": "cat_030_003_p03",
+              "title": "生活充值精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_003"
+            },
+            {
+              "key": "cat_030_003_p04",
+              "title": "生活充值精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_030_004",
+          "name": "演出赛事",
+          "products": [
+            {
+              "key": "cat_030_004_p01",
+              "title": "演出赛事精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_004"
+            },
+            {
+              "key": "cat_030_004_p02",
+              "title": "演出赛事精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_004"
+            },
+            {
+              "key": "cat_030_004_p03",
+              "title": "演出赛事精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_004"
+            },
+            {
+              "key": "cat_030_004_p04",
+              "title": "演出赛事精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_030",
+              "subcategoryKey": "cat_030_004"
+            }
+          ]
+        }
+      ],
+      "key": "cat_030"
+    },
+    {
+      "level1": "礼品",
+      "level2": [
+        {
+          "key": "cat_031_001",
+          "name": "礼品",
+          "products": [
+            {
+              "key": "cat_031_001_p01",
+              "title": "礼品精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_031",
+              "subcategoryKey": "cat_031_001"
+            },
+            {
+              "key": "cat_031_001_p02",
+              "title": "礼品精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_031",
+              "subcategoryKey": "cat_031_001"
+            },
+            {
+              "key": "cat_031_001_p03",
+              "title": "礼品精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_031",
+              "subcategoryKey": "cat_031_001"
+            },
+            {
+              "key": "cat_031_001_p04",
+              "title": "礼品精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_031",
+              "subcategoryKey": "cat_031_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_031_002",
+          "name": "鲜花速递",
+          "products": [
+            {
+              "key": "cat_031_002_p01",
+              "title": "鲜花速递精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_031",
+              "subcategoryKey": "cat_031_002"
+            },
+            {
+              "key": "cat_031_002_p02",
+              "title": "鲜花速递精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_031",
+              "subcategoryKey": "cat_031_002"
+            },
+            {
+              "key": "cat_031_002_p03",
+              "title": "鲜花速递精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_031",
+              "subcategoryKey": "cat_031_002"
+            },
+            {
+              "key": "cat_031_002_p04",
+              "title": "鲜花速递精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_031",
+              "subcategoryKey": "cat_031_002"
+            }
+          ]
+        }
+      ],
+      "key": "cat_031"
+    },
+    {
+      "level1": "农资园艺",
+      "level2": [
+        {
+          "key": "cat_032_001",
+          "name": "花卉绿植",
+          "products": [
+            {
+              "key": "cat_032_001_p01",
+              "title": "花卉绿植精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_032",
+              "subcategoryKey": "cat_032_001"
+            },
+            {
+              "key": "cat_032_001_p02",
+              "title": "花卉绿植精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_032",
+              "subcategoryKey": "cat_032_001"
+            },
+            {
+              "key": "cat_032_001_p03",
+              "title": "花卉绿植精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_032",
+              "subcategoryKey": "cat_032_001"
+            },
+            {
+              "key": "cat_032_001_p04",
+              "title": "花卉绿植精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_032",
+              "subcategoryKey": "cat_032_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_032_002",
+          "name": "农资园艺",
+          "products": [
+            {
+              "key": "cat_032_002_p01",
+              "title": "农资园艺精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_032",
+              "subcategoryKey": "cat_032_002"
+            },
+            {
+              "key": "cat_032_002_p02",
+              "title": "农资园艺精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_032",
+              "subcategoryKey": "cat_032_002"
+            },
+            {
+              "key": "cat_032_002_p03",
+              "title": "农资园艺精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_032",
+              "subcategoryKey": "cat_032_002"
+            },
+            {
+              "key": "cat_032_002_p04",
+              "title": "农资园艺精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_032",
+              "subcategoryKey": "cat_032_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_032_003",
+          "name": "园艺用品",
+          "products": [
+            {
+              "key": "cat_032_003_p01",
+              "title": "园艺用品精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_032",
+              "subcategoryKey": "cat_032_003"
+            },
+            {
+              "key": "cat_032_003_p02",
+              "title": "园艺用品精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_032",
+              "subcategoryKey": "cat_032_003"
+            },
+            {
+              "key": "cat_032_003_p03",
+              "title": "园艺用品精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_032",
+              "subcategoryKey": "cat_032_003"
+            },
+            {
+              "key": "cat_032_003_p04",
+              "title": "园艺用品精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_032",
+              "subcategoryKey": "cat_032_003"
+            }
+          ]
+        }
+      ],
+      "key": "cat_032"
+    },
+    {
+      "level1": "工业品",
+      "level2": [
+        {
+          "key": "cat_033_001",
+          "name": "五金机电",
+          "products": [
+            {
+              "key": "cat_033_001_p01",
+              "title": "五金机电精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_033",
+              "subcategoryKey": "cat_033_001"
+            },
+            {
+              "key": "cat_033_001_p02",
+              "title": "五金机电精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_033",
+              "subcategoryKey": "cat_033_001"
+            },
+            {
+              "key": "cat_033_001_p03",
+              "title": "五金机电精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_033",
+              "subcategoryKey": "cat_033_001"
+            },
+            {
+              "key": "cat_033_001_p04",
+              "title": "五金机电精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_033",
+              "subcategoryKey": "cat_033_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_033_002",
+          "name": "劳保物资",
+          "products": [
+            {
+              "key": "cat_033_002_p01",
+              "title": "劳保物资精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_033",
+              "subcategoryKey": "cat_033_002"
+            },
+            {
+              "key": "cat_033_002_p02",
+              "title": "劳保物资精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_033",
+              "subcategoryKey": "cat_033_002"
+            },
+            {
+              "key": "cat_033_002_p03",
+              "title": "劳保物资精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_033",
+              "subcategoryKey": "cat_033_002"
+            },
+            {
+              "key": "cat_033_002_p04",
+              "title": "劳保物资精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_033",
+              "subcategoryKey": "cat_033_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_033_003",
+          "name": "元器件",
+          "products": [
+            {
+              "key": "cat_033_003_p01",
+              "title": "元器件精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_033",
+              "subcategoryKey": "cat_033_003"
+            },
+            {
+              "key": "cat_033_003_p02",
+              "title": "元器件精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_033",
+              "subcategoryKey": "cat_033_003"
+            },
+            {
+              "key": "cat_033_003_p03",
+              "title": "元器件精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_033",
+              "subcategoryKey": "cat_033_003"
+            },
+            {
+              "key": "cat_033_003_p04",
+              "title": "元器件精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_033",
+              "subcategoryKey": "cat_033_003"
+            }
+          ]
+        }
+      ],
+      "key": "cat_033"
+    },
+    {
+      "level1": "整车",
+      "level2": [
+        {
+          "key": "cat_034_001",
+          "name": "传统乘用车",
+          "products": [
+            {
+              "key": "cat_034_001_p01",
+              "title": "传统乘用车精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_034",
+              "subcategoryKey": "cat_034_001"
+            },
+            {
+              "key": "cat_034_001_p02",
+              "title": "传统乘用车精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_034",
+              "subcategoryKey": "cat_034_001"
+            },
+            {
+              "key": "cat_034_001_p03",
+              "title": "传统乘用车精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_034",
+              "subcategoryKey": "cat_034_001"
+            },
+            {
+              "key": "cat_034_001_p04",
+              "title": "传统乘用车精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_034",
+              "subcategoryKey": "cat_034_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_034_002",
+          "name": "二手车",
+          "products": [
+            {
+              "key": "cat_034_002_p01",
+              "title": "二手车精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_034",
+              "subcategoryKey": "cat_034_002"
+            },
+            {
+              "key": "cat_034_002_p02",
+              "title": "二手车精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_034",
+              "subcategoryKey": "cat_034_002"
+            },
+            {
+              "key": "cat_034_002_p03",
+              "title": "二手车精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_034",
+              "subcategoryKey": "cat_034_002"
+            },
+            {
+              "key": "cat_034_002_p04",
+              "title": "二手车精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_034",
+              "subcategoryKey": "cat_034_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_034_003",
+          "name": "购车权益",
+          "products": [
+            {
+              "key": "cat_034_003_p01",
+              "title": "购车权益精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_034",
+              "subcategoryKey": "cat_034_003"
+            },
+            {
+              "key": "cat_034_003_p02",
+              "title": "购车权益精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_034",
+              "subcategoryKey": "cat_034_003"
+            },
+            {
+              "key": "cat_034_003_p03",
+              "title": "购车权益精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_034",
+              "subcategoryKey": "cat_034_003"
+            },
+            {
+              "key": "cat_034_003_p04",
+              "title": "购车权益精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_034",
+              "subcategoryKey": "cat_034_003"
+            }
+          ]
+        }
+      ],
+      "key": "cat_034"
+    },
+    {
+      "level1": "二手商品",
+      "level2": [
+        {
+          "key": "cat_035_001",
+          "name": "二手商品",
+          "products": [
+            {
+              "key": "cat_035_001_p01",
+              "title": "二手商品精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_035",
+              "subcategoryKey": "cat_035_001"
+            },
+            {
+              "key": "cat_035_001_p02",
+              "title": "二手商品精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_035",
+              "subcategoryKey": "cat_035_001"
+            },
+            {
+              "key": "cat_035_001_p03",
+              "title": "二手商品精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_035",
+              "subcategoryKey": "cat_035_001"
+            },
+            {
+              "key": "cat_035_001_p04",
+              "title": "二手商品精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_035",
+              "subcategoryKey": "cat_035_001"
+            }
+          ]
+        }
+      ],
+      "key": "cat_035"
+    },
+    {
+      "level1": "京东服务",
+      "level2": [
+        {
+          "key": "cat_036_001",
+          "name": "安装",
+          "products": [
+            {
+              "key": "cat_036_001_p01",
+              "title": "安装精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_001"
+            },
+            {
+              "key": "cat_036_001_p02",
+              "title": "安装精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_001"
+            },
+            {
+              "key": "cat_036_001_p03",
+              "title": "安装精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_001"
+            },
+            {
+              "key": "cat_036_001_p04",
+              "title": "安装精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_036_002",
+          "name": "维修",
+          "products": [
+            {
+              "key": "cat_036_002_p01",
+              "title": "维修精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_002"
+            },
+            {
+              "key": "cat_036_002_p02",
+              "title": "维修精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_002"
+            },
+            {
+              "key": "cat_036_002_p03",
+              "title": "维修精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_002"
+            },
+            {
+              "key": "cat_036_002_p04",
+              "title": "维修精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_002"
+            }
+          ]
+        },
+        {
+          "key": "cat_036_003",
+          "name": "清洗",
+          "products": [
+            {
+              "key": "cat_036_003_p01",
+              "title": "清洗精选商品 1",
+              "price": 20.8,
+              "originalPrice": 35.2,
+              "sold": 1690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_003"
+            },
+            {
+              "key": "cat_036_003_p02",
+              "title": "清洗精选商品 2",
+              "price": 27.8,
+              "originalPrice": 44.2,
+              "sold": 2690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_003"
+            },
+            {
+              "key": "cat_036_003_p03",
+              "title": "清洗精选商品 3",
+              "price": 34.8,
+              "originalPrice": 53.2,
+              "sold": 3690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_003"
+            },
+            {
+              "key": "cat_036_003_p04",
+              "title": "清洗精选商品 4",
+              "price": 41.8,
+              "originalPrice": 62.2,
+              "sold": 4690,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_003"
+            }
+          ]
+        },
+        {
+          "key": "cat_036_004",
+          "name": "其他服务",
+          "products": [
+            {
+              "key": "cat_036_004_p01",
+              "title": "其他服务精选商品 1",
+              "price": 22.1,
+              "originalPrice": 37.3,
+              "sold": 1920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_004"
+            },
+            {
+              "key": "cat_036_004_p02",
+              "title": "其他服务精选商品 2",
+              "price": 29.1,
+              "originalPrice": 46.3,
+              "sold": 2920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_004"
+            },
+            {
+              "key": "cat_036_004_p03",
+              "title": "其他服务精选商品 3",
+              "price": 36.1,
+              "originalPrice": 55.3,
+              "sold": 3920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_004"
+            },
+            {
+              "key": "cat_036_004_p04",
+              "title": "其他服务精选商品 4",
+              "price": 43.1,
+              "originalPrice": 64.3,
+              "sold": 4920,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_036",
+              "subcategoryKey": "cat_036_004"
+            }
+          ]
+        }
+      ],
+      "key": "cat_036"
+    },
+    {
+      "level1": "数字内容",
+      "level2": [
+        {
+          "key": "cat_037_001",
+          "name": "数字内容",
+          "products": [
+            {
+              "key": "cat_037_001_p01",
+              "title": "数字内容精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_037",
+              "subcategoryKey": "cat_037_001"
+            },
+            {
+              "key": "cat_037_001_p02",
+              "title": "数字内容精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_037",
+              "subcategoryKey": "cat_037_001"
+            },
+            {
+              "key": "cat_037_001_p03",
+              "title": "数字内容精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_037",
+              "subcategoryKey": "cat_037_001"
+            },
+            {
+              "key": "cat_037_001_p04",
+              "title": "数字内容精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_037",
+              "subcategoryKey": "cat_037_001"
+            }
+          ]
+        },
+        {
+          "key": "cat_037_002",
+          "name": "虚拟充值",
+          "products": [
+            {
+              "key": "cat_037_002_p01",
+              "title": "虚拟充值精选商品 1",
+              "price": 19.5,
+              "originalPrice": 33.1,
+              "sold": 1460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_037",
+              "subcategoryKey": "cat_037_002"
+            },
+            {
+              "key": "cat_037_002_p02",
+              "title": "虚拟充值精选商品 2",
+              "price": 26.5,
+              "originalPrice": 42.1,
+              "sold": 2460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_037",
+              "subcategoryKey": "cat_037_002"
+            },
+            {
+              "key": "cat_037_002_p03",
+              "title": "虚拟充值精选商品 3",
+              "price": 33.5,
+              "originalPrice": 51.1,
+              "sold": 3460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_037",
+              "subcategoryKey": "cat_037_002"
+            },
+            {
+              "key": "cat_037_002_p04",
+              "title": "虚拟充值精选商品 4",
+              "price": 40.5,
+              "originalPrice": 60.1,
+              "sold": 4460,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_037",
+              "subcategoryKey": "cat_037_002"
+            }
+          ]
+        }
+      ],
+      "key": "cat_037"
+    },
+    {
+      "level1": "非遗",
+      "level2": [
+        {
+          "key": "cat_038_001",
+          "name": "非遗好物",
+          "products": [
+            {
+              "key": "cat_038_001_p01",
+              "title": "非遗好物精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_038",
+              "subcategoryKey": "cat_038_001"
+            },
+            {
+              "key": "cat_038_001_p02",
+              "title": "非遗好物精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_038",
+              "subcategoryKey": "cat_038_001"
+            },
+            {
+              "key": "cat_038_001_p03",
+              "title": "非遗好物精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_038",
+              "subcategoryKey": "cat_038_001"
+            },
+            {
+              "key": "cat_038_001_p04",
+              "title": "非遗好物精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_038",
+              "subcategoryKey": "cat_038_001"
+            }
+          ]
+        }
+      ],
+      "key": "cat_038"
+    },
+    {
+      "level1": "艺术品",
+      "level2": [
+        {
+          "key": "cat_039_001",
+          "name": "艺术品",
+          "products": [
+            {
+              "key": "cat_039_001_p01",
+              "title": "艺术品精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_039",
+              "subcategoryKey": "cat_039_001"
+            },
+            {
+              "key": "cat_039_001_p02",
+              "title": "艺术品精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_039",
+              "subcategoryKey": "cat_039_001"
+            },
+            {
+              "key": "cat_039_001_p03",
+              "title": "艺术品精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_039",
+              "subcategoryKey": "cat_039_001"
+            },
+            {
+              "key": "cat_039_001_p04",
+              "title": "艺术品精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_039",
+              "subcategoryKey": "cat_039_001"
+            }
+          ]
+        }
+      ],
+      "key": "cat_039"
+    },
+    {
+      "level1": "邮币",
+      "level2": [
+        {
+          "key": "cat_040_001",
+          "name": "邮币",
+          "products": [
+            {
+              "key": "cat_040_001_p01",
+              "title": "邮币精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_040",
+              "subcategoryKey": "cat_040_001"
+            },
+            {
+              "key": "cat_040_001_p02",
+              "title": "邮币精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_040",
+              "subcategoryKey": "cat_040_001"
+            },
+            {
+              "key": "cat_040_001_p03",
+              "title": "邮币精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_040",
+              "subcategoryKey": "cat_040_001"
+            },
+            {
+              "key": "cat_040_001_p04",
+              "title": "邮币精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_040",
+              "subcategoryKey": "cat_040_001"
+            }
+          ]
+        }
+      ],
+      "key": "cat_040"
+    },
+    {
+      "level1": "房地产",
+      "level2": [
+        {
+          "key": "cat_041_001",
+          "name": "房地产",
+          "products": [
+            {
+              "key": "cat_041_001_p01",
+              "title": "房地产精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_041",
+              "subcategoryKey": "cat_041_001"
+            },
+            {
+              "key": "cat_041_001_p02",
+              "title": "房地产精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_041",
+              "subcategoryKey": "cat_041_001"
+            },
+            {
+              "key": "cat_041_001_p03",
+              "title": "房地产精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_041",
+              "subcategoryKey": "cat_041_001"
+            },
+            {
+              "key": "cat_041_001_p04",
+              "title": "房地产精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_041",
+              "subcategoryKey": "cat_041_001"
+            }
+          ]
+        }
+      ],
+      "key": "cat_041"
+    },
+    {
+      "level1": "IP",
+      "level2": [
+        {
+          "key": "cat_042_001",
+          "name": "IP周边",
+          "products": [
+            {
+              "key": "cat_042_001_p01",
+              "title": "IP周边精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_042",
+              "subcategoryKey": "cat_042_001"
+            },
+            {
+              "key": "cat_042_001_p02",
+              "title": "IP周边精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_042",
+              "subcategoryKey": "cat_042_001"
+            },
+            {
+              "key": "cat_042_001_p03",
+              "title": "IP周边精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_042",
+              "subcategoryKey": "cat_042_001"
+            },
+            {
+              "key": "cat_042_001_p04",
+              "title": "IP周边精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_042",
+              "subcategoryKey": "cat_042_001"
+            }
+          ]
+        }
+      ],
+      "key": "cat_042"
+    },
+    {
+      "level1": "处方药",
+      "level2": [
+        {
+          "key": "cat_043_001",
+          "name": "处方药",
+          "products": [
+            {
+              "key": "cat_043_001_p01",
+              "title": "处方药精选商品 1",
+              "price": 18.2,
+              "originalPrice": 31.0,
+              "sold": 1230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-1",
+              "categoryKey": "cat_043",
+              "subcategoryKey": "cat_043_001"
+            },
+            {
+              "key": "cat_043_001_p02",
+              "title": "处方药精选商品 2",
+              "price": 25.2,
+              "originalPrice": 40.0,
+              "sold": 2230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-2",
+              "categoryKey": "cat_043",
+              "subcategoryKey": "cat_043_001"
+            },
+            {
+              "key": "cat_043_001_p03",
+              "title": "处方药精选商品 3",
+              "price": 32.2,
+              "originalPrice": 49.0,
+              "sold": 3230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-3",
+              "categoryKey": "cat_043",
+              "subcategoryKey": "cat_043_001"
+            },
+            {
+              "key": "cat_043_001_p04",
+              "title": "处方药精选商品 4",
+              "price": 39.2,
+              "originalPrice": 58.0,
+              "sold": 4230,
+              "tags": [
+                "精选",
+                "包邮"
+              ],
+              "image": "product-4",
+              "categoryKey": "cat_043",
+              "subcategoryKey": "cat_043_001"
+            }
+          ]
+        }
+      ],
+      "key": "cat_043"
+    }
+  ]
+}
+;const side=document.getElementById("side"),title=document.getElementById("title"),subs=document.getElementById("subs"),section=document.getElementById("section"),grid=document.getElementById("grid");
+function show(i,j){var c=DATA.categories[i],s=c.level2[j];side.querySelectorAll("button").forEach(function(b,n){b.classList.toggle("on",n===i)});title.textContent=c.level1;subs.innerHTML="";c.level2.forEach(function(x,n){var b=document.createElement("button");b.textContent=x.name;b.className=n===j?"on":"";b.onclick=function(){show(i,n)};subs.appendChild(b)});section.textContent=s.name+"精选商品";grid.innerHTML=s.products.map(function(p){return "<a class=card href=product-detail.html><div class=pic>🛍️</div><div class=info><div class=name>"+p.title+"</div><div class=price>¥"+Number(p.price).toFixed(2)+"</div><div class=sold>已售 "+p.sold+" · "+p.tags.join(" · ")+"</div></div></a>"}).join("")}
+DATA.categories.forEach(function(c,i){var b=document.createElement("button");b.textContent=c.level1;b.onclick=function(){show(i,0)};side.appendChild(b)});show(0,0);

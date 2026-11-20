@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 发票管理</title>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#2A2420;--ink2:#5C5C5F;--muted:#8A8A8E;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input,select{font-family:inherit}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;min-height:0;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 14%,#FDF7F4 30%,#FFFDFC 44%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.topbar{position:relative;flex:0 0 46px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.topbar h1{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;font-size:16px;font-weight:800;letter-spacing:-.3px;white-space:nowrap}
+.iconbtn{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;box-shadow:0 3px 9px rgba(160,110,80,.08);flex:0 0 30px}
+.scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;width:100%;min-width:0;scrollbar-width:none;padding-bottom:12px}
+.scroll::-webkit-scrollbar{display:none}
+.sum{margin:0 14px;border-radius:18px;background:linear-gradient(135deg,#FB7C5B 0%,#F1503A 54%,#E23629 100%);padding:13px 15px;display:flex;align-items:center;gap:12px;color:#fff;box-shadow:0 10px 24px rgba(232,70,45,.24);position:relative;overflow:hidden}
+.sum:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-40px;top:-58px;background:rgba(255,255,255,.14)}
+.sum .ic{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;flex:0 0 40px;position:relative;z-index:1}
+.sum .tx{flex:1;min-width:0;position:relative;z-index:1}
+.sum .tx b{font-size:13px;font-weight:800;display:block;letter-spacing:-.2px}
+.sum .tx span{display:block;font-size:9.5px;opacity:.92;margin-top:3px;line-height:1.5}
+.sum .cnt{flex:0 0 auto;text-align:right;position:relative;z-index:1}
+.sum .cnt b{font-size:19px;font-weight:800;display:block;line-height:1.1;font-variant-numeric:tabular-nums}
+.sum .cnt span{font-size:8.5px;opacity:.85}
+.tabs{display:flex;gap:6px;padding:10px 14px 0;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:1 0 auto;height:28px;padding:0 12px;border-radius:999px;font-size:10.5px;color:#5E544C;background:#fff;white-space:nowrap;box-shadow:0 2px 7px rgba(150,110,88,.05)}
+.tabs button.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-weight:700}
+.sec{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 16px 0;font-size:11.5px;font-weight:700;color:#3E332B}
+.sec span{font-size:9px;color:#B3A69C;font-weight:500}
+.card{background:#fff;border-radius:16px;border:1px solid #FBF1EA;box-shadow:var(--shadow);margin:8px 14px 0;padding:11px 12px;min-width:0}
+.iv{min-width:0}
+.ih{display:flex;align-items:center;gap:7px;min-width:0}
+.itype{font-size:9px;font-weight:700;color:#C0532F;background:#FFF3EE;border:1px solid #F7D5C7;border-radius:999px;padding:2px 7px;flex:0 0 auto;white-space:nowrap}
+.itype.spec{color:#3E7BB6;background:#EDF3FC;border-color:#D3E2F5}
+.ist{margin-left:auto;font-size:9.5px;font-weight:700;flex:0 0 auto;white-space:nowrap}
+.ist.ing{color:#C07A20}
+.ist.ok{color:#2C9C6A}
+.ist.no{color:#B2402E}
+.ih .ono{font-size:9px;color:#B3A69C;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ititle{font-size:11px;font-weight:700;color:#2E2A27;margin-top:7px;line-height:1.45;word-break:break-all}
+.imeta{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:5px;font-size:9px;color:#9C8E83;line-height:1.5}
+.imeta b{color:#5C4F45;font-weight:600;word-break:break-all}
+.ifoot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px;padding-top:8px;border-top:1px dashed #F2E7DF}
+.iamt{font-size:9px;color:#9C8E83;min-width:0}
+.iamt b{font-size:14px;color:#E23A2E;font-weight:800;margin-left:2px;letter-spacing:-.3px}
+.iamt b small{font-size:9px}
+.iops{display:flex;gap:6px;flex:0 0 auto}
+.iops button,.iops a{height:26px;padding:0 10px;border-radius:999px;font-size:9px;font-weight:700;display:inline-flex;align-items:center;white-space:nowrap}
+.iops .g{background:#fff;border:1px solid #F0E1D6;color:#6E6057}
+.iops .m{background:#FFF3EE;border:1px solid #F7C7B8;color:#D0411F}
+.empty{text-align:center;padding:26px 10px;font-size:9.5px;color:#B7A99D}
+/* form */
+.form{margin-top:9px;min-width:0}
+.seg{display:flex;background:#F8F3EE;border-radius:12px;padding:3px;gap:3px;margin-bottom:10px}
+.seg button{flex:1 1 0;min-width:0;height:30px;border-radius:9px;font-size:10.5px;font-weight:600;color:#8A7C72;white-space:nowrap}
+.seg button.on{background:#fff;color:#E23A2E;box-shadow:0 2px 6px rgba(150,110,88,.1)}
+.frow{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #F8F2ED;min-width:0}
+.frow:last-of-type{border-bottom:0}
+.frow .k{flex:0 0 74px;font-size:10px;color:#8E8076;white-space:nowrap}
+.frow .k i{color:#E23A2E;font-style:normal;margin-right:2px}
+.frow input,.frow select{flex:1 1 auto;min-width:0;height:30px;border:1px solid #F1E5DB;background:#FFFCFA;border-radius:9px;padding:0 9px;font-size:10.5px;color:#3E332B;outline:none}
+.frow input:focus,.frow select:focus{border-color:#F7B9A4;background:#fff}
+.frow input::placeholder{color:#C3B6AC}
+.formtip{display:flex;align-items:flex-start;gap:5px;font-size:8.5px;color:#B7A99D;line-height:1.55;margin-top:8px}
+.formtip svg{flex:0 0 auto;margin-top:1px}
+.subwrap{display:flex;align-items:center;gap:8px;margin-top:10px}
+.sub{flex:1 1 auto;min-width:0;height:38px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:11.5px;font-weight:700;box-shadow:0 5px 14px rgba(232,70,45,.24);white-space:nowrap}
+.formsum{flex:0 0 auto;font-size:9px;color:#9C8E83;white-space:nowrap}
+.formsum b{color:#E23A2E;font-weight:700;font-variant-numeric:tabular-nums}
+.okbox{display:none;align-items:center;gap:8px;margin-top:10px;background:#EDF8F2;border:1px solid #CDEBDF;border-radius:12px;padding:9px 10px;font-size:10px;color:#2C7A5B;line-height:1.5}
+.okbox.show{display:flex}
+.dock{flex:0 0 auto;background:#fff;border-top:1px solid #F3EBE5;display:flex;align-items:center;gap:8px;padding:9px 12px 12px;box-shadow:0 -6px 18px rgba(150,110,88,.05)}
+.dbtn{flex:1 1 0;min-width:0;height:42px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;white-space:nowrap}
+.dbtn.ghost{flex:0 0 108px;background:#fff;border:1px solid #F0E1D6;color:#6E6057}
+.dbtn.main{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;box-shadow:0 6px 16px rgba(232,70,45,.26)}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+.toast{position:absolute;left:50%;bottom:96px;transform:translate(-50%,10px);background:rgba(38,28,22,.9);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap;max-width:calc(100% - 32px);text-align:center;overflow:hidden;text-overflow:ellipsis}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="topbar">
+<a aria-label="返回" class="iconbtn" href="orders.html">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+<h1>发票管理</h1>
+<span style="width:30px"></span>
+</div>
+<div class="scroll">
+<div class="sum">
+<span class="ic">
+<svg fill="none" height="21" viewbox="0 0 24 24" width="21"><path d="M6 3.5h12v17l-2.5-1.6L13 20.5l-2.5-1.6L8 20.5l-2-1.3z" stroke="#fff" stroke-linejoin="round" stroke-width="1.7"></path><path d="M9 8h6M9 11.5h6M9 15h4" stroke="#fff" stroke-linecap="round" stroke-width="1.7"></path></svg>
+</span>
+<div class="tx">
+<b>电子发票 · 开票 1-3 个工作日</b>
+<span>支持已完成订单申请电子普通发票 / 专用发票</span>
+</div>
+<div class="cnt"><b id="invCount">3</b><span>张记录</span></div>
+</div>
+<div class="tabs" id="tabs">
+<button class="on" onclick="filterInv(this,'all')" type="button">全部</button>
+<button onclick="filterInv(this,'ing')" type="button">开票中</button>
+<button onclick="filterInv(this,'ok')" type="button">已开具</button>
+<button onclick="filterInv(this,'no')" type="button">已驳回</button>
+</div>
+<div class="sec">发票记录<span>点击可查看或下载</span></div>
+<div class="card inv" data-st="ok">
+<div class="ih">
+<span class="itype">电子普通发票</span>
+<span class="ono">202610180006</span>
+<span class="ist ok">已开具</span>
+</div>
+<div class="ititle">成都蜀锦绣文化传播有限公司</div>
+<div class="imeta">
+<span>税号 <b>91510105MA6C****XK</b></span>
+<span>申请时间 <b>2026-10-19 10:26</b></span>
+<span>内容 <b>商品明细</b></span>
+</div>
+<div class="ifoot">
+<div class="iamt">价税合计<b><small>¥</small>45.00</b></div>
+<div class="iops">
+<button class="g" onclick="showToast('已开始下载 PDF 电子发票')" type="button">下载</button>
+<a class="m" href="invoice.html">查看</a>
+</div>
+</div>
+</div>
+<div class="card inv" data-st="ing">
+<div class="ih">
+<span class="itype spec">专用发票</span>
+<span class="ono">202611060019</span>
+<span class="ist ing">开票中</span>
+</div>
+<div class="ititle">四川福聚供应链管理有限公司</div>
+<div class="imeta">
+<span>税号 <b>91510100MA6B****7N</b></span>
+<span>申请时间 <b>2026-11-12 16:40</b></span>
+<span>内容 <b>商品明细</b></span>
+</div>
+<div class="ifoot">
+<div class="iamt">价税合计<b><small>¥</small>347.40</b></div>
+<div class="iops">
+<button class="g" onclick="showToast('开票中，预计 1-3 个工作日开具完成')" type="button">开具进度</button>
+</div>
+</div>
+</div>
+<div class="card inv" data-st="no">
+<div class="ih">
+<span class="itype">电子普通发票</span>
+<span class="ono">202610280012</span>
+<span class="ist no">已驳回</span>
+</div>
+<div class="ititle">张*（个人抬头）</div>
+<div class="imeta">
+<span>税号 <b>未填写</b></span>
+<span>申请时间 <b>2026-10-29 09:12</b></span>
+<span>驳回原因 <b>企业抬头需提供税号</b></span>
+</div>
+<div class="ifoot">
+<div class="iamt">价税合计<b><small>¥</small>198.00</b></div>
+<div class="iops">
+<button class="m" onclick="reapply(this)" type="button">重新申请</button>
+</div>
+</div>
+</div>
+<div class="empty hidden" id="emptyInv">该状态下暂无发票记录</div>
+<div class="sec" id="formSec">申请开票<span>已完成订单可申请</span></div>
+<div class="card">
+<div class="form">
+<div class="seg" id="titleSeg">
+<button class="on" onclick="setTitleType('personal',this)" type="button">个人抬头</button>
+<button onclick="setTitleType('company',this)" type="button">企业抬头</button>
+</div>
+<div class="frow"><span class="k">抬头名称<i>*</i></span><input id="fTitle" placeholder="请输入发票抬头" type="text" value="张三"/></div>
+<div class="frow"><span class="k">税号<i>*</i></span><input id="fTax" placeholder="企业抬头必填，个人可留空" type="text" value=""/></div>
+<div class="frow"><span class="k">接收邮箱</span><input id="fMail" placeholder="电子发票发送邮箱" type="text" value="zhangsan@example.com"/></div>
+<div class="frow">
+<span class="k">发票内容</span>
+<select id="fContent"><option>商品明细</option><option>商品类别</option></select>
+</div>
+<div class="frow">
+<span class="k">关联订单</span>
+<select id="fOrder"><option>202610180006 · ¥45.00</option><option>202610280012 · ¥198.00</option></select>
+</div>
+<div class="formtip">
+<svg fill="none" height="10" viewbox="0 0 24 24" width="10"><circle cx="12" cy="12" r="9" stroke="#C7B9AE" stroke-width="1.8"></circle><path d="M12 8h.01M12 11v5" stroke="#C7B9AE" stroke-linecap="round" stroke-width="1.9"></path></svg>
+<span>电子发票开具后可在本页下载；专用发票需企业资质审核，驳回后可修改信息重新提交。</span>
+</div>
+<div class="subwrap">
+<div class="formsum" id="formSum">可开票金额 <b>¥45.00</b></div>
+<button class="sub" onclick="submitInv()" type="button">提交申请</button>
+</div>
+<div class="okbox" id="okBox">
+<svg fill="none" height="13" viewbox="0 0 24 24" width="13"><circle cx="12" cy="12" r="9" stroke="#2C7A5B" stroke-width="1.8"></circle><path d="m7.6 12.2 3 3 5.6-6" stroke="#2C7A5B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"></path></svg>
+<span id="okTxt">发票申请已提交，开票中，预计 1-3 个工作日完成。</span>
+</div>
+</div>
+</div>
+<div style="height:8px"></div>
+</div>
+<div class="dock">
+<a class="dbtn ghost" href="orders.html">返回订单</a>
+<a class="dbtn main" href="#formSec">申请开票</a>
+</div>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast">提示</div>
+</div>
+<script>
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__it);
+    window.__it = setTimeout(function () { t.classList.remove('show'); }, 1800);
+  }
+
+  var titleType = 'personal';
+
+  function filterInv(btn, st) {
+    var btns = document.querySelectorAll('#tabs button');
+    for (var i = 0; i < btns.length; i++) { btns[i].classList.remove('on'); }
+    btn.classList.add('on');
+    var cards = document.querySelectorAll('.inv');
+    var n = 0;
+    for (var j = 0; j < cards.length; j++) {
+      var ok = st === 'all' || cards[j].getAttribute('data-st') === st;
+      cards[j].classList.toggle('hidden', !ok);
+      if (ok) { n++; }
+    }
+    document.getElementById('emptyInv').classList.toggle('hidden', n !== 0);
+  }
+
+  function setTitleType(type, btn) {
+    titleType = type;
+    var btns = document.querySelectorAll('#titleSeg button');
+    for (var i = 0; i < btns.length; i++) { btns[i].classList.remove('on'); }
+    btn.classList.add('on');
+    var title = document.getElementById('fTitle');
+    if (type === 'company') {
+      title.value = '';
+      title.placeholder = '请输入企业全称';
+      document.getElementById('fTax').placeholder = '请输入纳税人识别号';
+    } else {
+      title.value = '张三';
+      title.placeholder = '请输入发票抬头';
+      document.getElementById('fTax').placeholder = '个人抬头可留空';
+    }
+  }
+
+  function reapply(btn) {
+    var card = btn.closest('.inv');
+    var title = card ? card.querySelector('.ititle').textContent : '';
+    document.getElementById('formSec').scrollIntoView({ behavior: 'smooth' });
+    var f = document.getElementById('fTitle');
+    if (f && title) { f.value = title.replace(/\s*（个人抬头）\s*/, ''); }
+    showToast('已带入原申请信息，请修改后重新提交');
+  }
+
+  function submitInv() {
+    var title = document.getElementById('fTitle').value.trim();
+    var tax = document.getElementById('fTax').value.trim();
+    var mail = document.getElementById('fMail').value.trim();
+    var box = document.getElementById('okBox');
+    if (!title) { showToast('请填写发票抬头'); return; }
+    if (titleType === 'company' && !tax) { showToast('企业抬头必须填写税号'); return; }
+    if (mail && mail.indexOf('@') < 1) { showToast('邮箱格式不正确，请重新填写'); return; }
+    box.classList.add('show');
+    document.getElementById('okTxt').textContent = (titleType === 'company' ? '企业' : '个人') + '抬头「' + title + '」发票申请已提交，开票中，预计 1-3 个工作日完成。';
+    showToast('发票申请已提交');
+  }
+</script>
+</body>
+</html>

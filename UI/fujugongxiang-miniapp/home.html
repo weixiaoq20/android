@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 首页</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--red:#E23A2E;--red2:#F5533C;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:6px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.hidden{display:none!important}
+.pad{padding-left:13px;padding-right:13px}
+.row{display:flex;align-items:center}
+.grow{flex:1;min-width:0}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card{background:#fff;border-radius:16px;box-shadow:var(--shadow)}
+.muted{color:var(--muted)}
+.price{color:var(--red);font-weight:800}
+.price small{font-size:13px;font-weight:800;margin-right:1px}
+.btn{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;border-radius:999px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.btn:active{transform:scale(.97)}
+
+/* 类目 Tab */
+.catbar{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;padding:9px 14px 12px}
+.catbar::-webkit-scrollbar{display:none}
+.cat{flex:0 0 auto;font-size:17px;color:#2B2B2E;padding:2px 0;position:relative;font-weight:500;letter-spacing:-.4px}
+.cat.on{font-weight:800;color:#111}
+
+/* 城市 / 搜索 / 购物车 */
+.searchrow{display:flex;align-items:center;gap:7px;margin-top:2px}
+.city{flex:0 0 auto;display:flex;align-items:center;gap:4px;font-size:16.5px;font-weight:700;color:#17171A;letter-spacing:-.4px}
+.city svg{margin-top:2px}
+.searchbox{flex:1;min-width:0;height:40px;background:#fff;border-radius:999px;display:flex;align-items:center;padding:0 3px;position:relative;overflow:hidden}
+.searchbox .ph{flex:1;font-size:14px;color:#B6B6BC;margin-left:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.searchbox .mag{margin-left:13px;flex:0 0 auto;display:flex}
+.sbtn{height:34px;min-width:78px;padding:0 16px;border-radius:999px;background:linear-gradient(100deg,#F7906A 0%,#F2563A 60%,#EC3B2A 100%);color:#fff;font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-right:3px;box-shadow:0 3px 8px rgba(232,70,45,.28)}
+.cart{width:44px;flex:0 0 44px;display:flex;flex-direction:column;align-items:center;gap:0}
+.cartart{position:relative;width:40px;height:32px;display:grid;place-items:center}
+.cartlabel{font-size:10px;font-weight:700;color:#fff;background:linear-gradient(120deg,#F98C5E,#F4452F);border-radius:6px;padding:1px 7px;white-space:nowrap;line-height:1.5;margin-top:-2px}
+
+/* 宫格 */
+.grid{display:grid;grid-template-columns:repeat(5,1fr);row-gap:14px;margin-top:16px}
+.gitem{display:flex;flex-direction:column;align-items:center;gap:6px}
+.gitem:active .gic{transform:scale(.94)}
+.gic{width:49px;height:49px;border-radius:50%;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 50% 42%,#FDE7E4 0%,#FCEBEA 52%,#FDF2F1 78%,rgba(253,242,241,0) 100%);transition:transform .15s}
+.gitem span.lab{font-size:11px;color:#2C2C2F;letter-spacing:-.3px;font-weight:500;white-space:nowrap;padding:0 2px}
+
+/* 平台红包 Banner */
+.banner{display:flex;align-items:center;gap:8px;height:64px;border-radius:16px;padding:0 12px;background:linear-gradient(100deg,#F0745A 0%,#EE5C46 34%,#F2452E 68%,#F8553B 100%);position:relative;overflow:hidden;color:#fff;margin-top:16px;box-shadow:0 6px 16px rgba(232,70,45,.18)}
+.banner:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.2px);background-size:8px 8px;opacity:.55}
+.banner:after{content:"";position:absolute;right:78px;top:-34px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.1)}
+.sbadge{width:26px;height:26px;flex:0 0 26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE9A8,#F2C24E 62%,#D79B22 100%);color:#B3411F;font-size:14px;font-weight:900;display:grid;place-items:center;position:relative;z-index:3;box-shadow:0 0 0 2px rgba(255,236,190,.35)}
+.btext{display:flex;align-items:baseline;gap:4px;position:relative;z-index:3;min-width:0;white-space:nowrap}
+.btext b{font-size:16px;letter-spacing:.2px;font-weight:800;text-shadow:0 1px 3px rgba(140,40,20,.18)}
+.btext em{font-size:12.5px;font-style:normal;opacity:.92;letter-spacing:.2px}
+.gift{position:absolute;right:2px;bottom:-6px;z-index:2;width:82px;height:78px;transform:rotate(-8deg)}
+
+/* 区块标题 */
+.sec{display:flex;align-items:center;justify-content:space-between;padding:18px 2px 10px}
+.sec h2{margin:0;font-size:19px;font-weight:800;display:flex;align-items:center;gap:8px;letter-spacing:-.3px}
+.zhi{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 36% 30%,#FFD9A6,#FBB03B 66%,#F09A22 100%);color:#B3411F;font-size:14px;font-weight:900;display:grid;place-items:center;box-shadow:0 2px 6px rgba(240,154,34,.28);transform:rotate(-6deg)}
+.more{font-size:13px;color:#6E6E73;display:flex;align-items:center;gap:2px}
+
+/* 瀑布流 */
+.wf{display:grid;grid-template-columns:1fr 1fr;gap:9px;align-items:start}
+.wcol{display:flex;flex-direction:column;min-width:0}
+.pcard{display:block;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(120,60,50,.06);margin-bottom:9px}
+.pimg{position:relative;overflow:hidden;background:#eee}
+.plabel{position:absolute;left:10px;bottom:44px;color:#fff;font-size:11px;font-weight:700;letter-spacing:.4px;text-shadow:0 1px 6px rgba(40,20,10,.45);z-index:2}
+.pcorner{position:absolute;right:0;top:0;background:#E23127;color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:0 0 0 6px;z-index:4;letter-spacing:.3px;box-shadow:0 1px 4px rgba(140,30,20,.25)}
+.pstrip{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(124,26,18,.92),rgba(108,20,14,.95));padding:6px 8px 7px;z-index:3;display:flex;align-items:center;gap:6px}
+.psl{flex:0 0 auto;display:flex;flex-direction:column;gap:1px}
+.psl em{font-style:normal;font-size:9px;color:#FBD4CB;letter-spacing:-.2px}
+.psl b{font-size:15px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:-.4px}
+.psl b i{font-size:9px;font-style:normal;font-weight:600;margin-right:1px;opacity:.9}
+.psmid{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;border-top:1px dashed rgba(255,255,255,.22);padding-top:3px}
+.psmid em{font-style:normal;font-size:7.5px;color:#F7C5BA;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.2px}
+.pscols{display:flex;align-items:flex-end;gap:7px}
+.pscols div{display:flex;flex-direction:column;gap:0}
+.pscols span{font-size:7.5px;color:#F3C0B4;white-space:nowrap;letter-spacing:-.3px}
+.pscols b{font-size:11px;color:#fff;font-weight:700;line-height:1.1;letter-spacing:-.3px}
+.psright{flex:0 0 auto;display:flex;flex-direction:column;gap:1px;text-align:center}
+.psright span{font-size:7.5px;color:#F3C0B4}
+.psright b{font-size:11px;color:#fff;font-weight:700}
+.pbody{padding:9px 10px 11px}
+.pbody h3{margin:0;font-size:14.5px;line-height:1.4;font-weight:400;color:#222;height:41px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;letter-spacing:-.3px}
+.brandtag{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(100deg,#4A3B33,#2C2320);color:#F1DFC0;font-size:10.5px;font-weight:600;padding:2px 8px 2px 5px;border-radius:999px;margin-top:6px;letter-spacing:.3px;max-width:100%}
+.ptag{display:inline-flex;align-items:center;gap:3px;border:1px solid #F7A392;color:#EE4A2F;font-size:11px;font-weight:600;padding:2px 7px;border-radius:999px;margin-top:7px;background:#FFF6F3;white-space:nowrap}
+.pbody .sold{font-size:11.5px;color:#A2A2A8;margin:6px 0 3px}
+.pbody .price{font-size:22px;line-height:1.15;letter-spacing:-.8px;font-weight:700}
+.pbody .price small{font-size:14px;font-weight:700}
+.pbody .price i{font-size:14px;font-style:normal;font-weight:800}
+
+/* 双图信息卡（参考图 adidas 样式） */
+.adwrap{position:relative;height:192px;background:linear-gradient(160deg,#F3F1EE 0%,#EDE9E4 100%);overflow:hidden}
+.admain{position:absolute;left:26px;right:0;top:0;bottom:0;overflow:hidden;border-radius:38px 0 0 0}
+.adfig{position:absolute;left:50%;top:12px;transform:translateX(-46%);width:118px;height:150px}
+.adhead{position:absolute;left:36px;top:0;width:32px;height:32px;border-radius:50%;background:radial-gradient(circle at 38% 32%,#F8D7B8,#DDA57C 70%,#B87A52 100%)}
+.adhair{position:absolute;left:26px;top:-6px;width:54px;height:44px;border-radius:50% 50% 44% 44%;background:linear-gradient(160deg,#B03B2B,#8C2418 70%,#6E1A12 100%)}
+.adtorso{position:absolute;left:24px;top:34px;width:64px;height:46px;border-radius:12px 12px 8px 8px;background:linear-gradient(160deg,#F04A3E,#D8281F 62%,#A81C16 100%)}
+.adarm{position:absolute;left:74px;top:44px;width:12px;height:44px;border-radius:8px;background:linear-gradient(180deg,#E23A2E,#B0201A);transform:rotate(18deg)}
+.adlegs{position:absolute;left:30px;top:78px;width:54px;height:74px;border-radius:10px 10px 6px 6px;background:linear-gradient(170deg,#A9B2BC,#7B8794 60%,#5F6A76 100%)}
+.adbike{position:absolute;left:-2px;top:96px;width:132px;height:58px}
+.adfigure2{position:absolute;left:58%;top:28px;width:96px;height:140px;opacity:.92}
+.adfloat{position:absolute;left:6px;top:52px;width:74px;height:74px;background:#fff;border-radius:8px;box-shadow:0 4px 12px rgba(80,50,40,.14);display:grid;place-items:center;z-index:4}
+.adfloat .shoe{width:60px;height:40px;border-radius:14px 16px 8px 8px;background:linear-gradient(150deg,#C8326A,#A5164F 62%,#7E0E3C 100%);position:relative}
+.adfloat .shoe:after{content:"";position:absolute;left:2px;top:26px;width:56px;height:9px;border-radius:5px;background:#F4F1EA;box-shadow:inset 0 -2px 0 #E0DAD0}
+.adfloat .shoe:before{content:"";position:absolute;left:8px;top:6px;width:14px;height:22px;border-left:2px solid #F7E1EA;border-radius:6px;opacity:.8}
+.adcap{position:absolute;left:10px;top:132px;z-index:5;color:#1D1D1F;font-size:11px;line-height:1.35;letter-spacing:-.3px}
+.adcap b{display:block;font-size:12px;font-weight:600}
+.adtip{position:absolute;left:10px;right:8px;bottom:6px;z-index:5;font-size:7px;line-height:1.5;color:#E9E4DE;background:rgba(60,54,50,.55);border-radius:5px;padding:3px 5px;letter-spacing:-.2px}
+.adlogo{position:absolute;left:12px;top:12px;z-index:5;width:30px;height:22px}
+
+/* 白裙信息卡 */
+.dresswrap{position:relative;height:186px;overflow:hidden;background:linear-gradient(170deg,#4C5B44 0%,#3A4735 46%,#2A3327 100%)}
+.dresswrap:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1.4px,transparent 1.6px);background-size:9px 9px;opacity:.5}
+.dressfig{position:absolute;left:50%;top:8px;transform:translateX(-50%);width:100px;height:160px}
+.dhead{position:absolute;left:36px;top:6px;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#F6D6BC,#D89E76 72%,#AE7048 100%)}
+.dhair{position:absolute;left:26px;top:0;width:50px;height:46px;border-radius:50% 50% 40% 40%;background:linear-gradient(160deg,#4A3428,#2E1F17 70%,#1D1410 100%)}
+.dbody{position:absolute;left:20px;top:36px;width:62px;height:120px;background:linear-gradient(170deg,#FBF8F2,#EFE9DE 55%,#DDD5C6 100%);border-radius:16px 16px 26px 26px;box-shadow:inset 0 0 12px rgba(150,130,110,.12)}
+.dbody:after{content:"";position:absolute;left:10px;top:6px;right:10px;height:2px;border-radius:2px;background:#E7DFD1;box-shadow:0 40px 0 #E7DFD1,0 74px 0 #E7DFD1}
+.dshoes{position:absolute;left:36px;top:150px;width:34px;height:8px;border-radius:4px;background:#F0E6D6;opacity:.85}
+.dchair{position:absolute;right:4px;bottom:12px;width:56px;height:56px;border-radius:12px 12px 6px 6px;background:linear-gradient(160deg,#E8C878,#C79A3F);box-shadow:0 6px 14px rgba(0,0,0,.25)}
+.dchair:after{content:"";position:absolute;left:6px;right:6px;top:16px;height:8px;border-radius:4px;background:rgba(120,85,20,.35);box-shadow:0 18px 0 rgba(120,85,20,.28)}
+
+.footnote{text-align:center;font-size:10.5px;color:#C9C4BE;padding:12px 0 20px;letter-spacing:.6px}
+
+/* 佣金标识 / 佣金优先说明 */
+.comm{display:inline-flex;align-items:center;gap:3px;background:#FFF3EE;color:#E2683F;font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 5px;margin-top:5px;letter-spacing:.2px;line-height:1.6;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.secnote{font-size:10.5px;color:#B4806B;margin:-4px 2px 9px;display:flex;align-items:center;gap:4px;letter-spacing:.2px}
+
+/* 底部导航 */
+.tabbar{flex:0 0 58px;background:#fff;border-top:1px solid #F0EDEA;display:flex;padding:6px 3px 0;position:relative;z-index:30}
+.tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;color:#6D7480;font-size:13px;font-weight:500;position:relative;text-decoration:none;letter-spacing:-.2px}
+.tabbar a.on{color:#F2452E;font-weight:700}
+.ti{width:38px;height:28px;display:grid;place-items:center;border-radius:50%;position:relative;transition:background .2s}
+.tabbar a.on .ti{background:radial-gradient(circle at 50% 58%,#FDE0D8 0%,rgba(253,224,216,0) 72%)}
+.badge{position:absolute;top:-5px;right:-3px;min-width:18px;height:18px;border-radius:9px;background:#E8392C;color:#fff;font-size:10px;font-weight:600;display:grid;place-items:center;padding:0 4px;font-style:normal}
+.cmsg{background:#5A6478;border-radius:5px;width:20px;height:16px;display:grid;place-items:center;position:relative;margin-top:-2px}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+
+/* 搜索历史弹层 */
+.sh{position:absolute;inset:0;z-index:60;background:#fff;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.sh.hidden{display:none!important}
+.sh-status{flex:0 0 44px;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-size:15px;font-weight:700;color:#1B1B1D}
+.sh-head{flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:2px 10px 8px}
+.sh-back{width:30px;flex:0 0 30px;height:30px;display:grid;place-items:center;color:#2A2420}
+.sh-title{font-size:18px;font-weight:800;color:#2A2420;letter-spacing:-.3px;white-space:nowrap}
+.sh-title em{font-style:normal;font-weight:600;font-size:15px;color:#8A8A8E;margin-left:2px}
+.sh-tools{margin-left:auto;display:flex;align-items:center;gap:10px;color:#2A2420}
+.sh-tools button{color:#2A2420;font-size:15px;font-weight:500;padding:2px 0;line-height:1}
+.sh-tools button.managing{color:#E23A2E;font-weight:700}
+.sh-tabs{flex:0 0 auto;display:flex;gap:18px;padding:2px 14px 0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #F4EFEB}
+.sh-tabs::-webkit-scrollbar{display:none}
+.sh-tabs button{flex:0 0 auto;font-size:15px;color:#5C5C5F;padding:7px 0 9px;position:relative;font-weight:500;white-space:nowrap}
+.sh-tabs button.on{color:#2A2420;font-weight:800}
+.sh-tabs button.on:after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:20px;height:3px;border-radius:2px;background:#EE4A2F}
+.sh-filter{flex:0 0 auto;padding:10px 14px 2px;position:relative;display:flex;align-items:center}
+.sh-filter-btn{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;color:#5C5C5F;background:#F6F4F2;border-radius:6px;padding:5px 9px}
+.sh-filter-btn.on{color:#E23A2E;background:#FFF1ED}
+.sh-menu{position:absolute;left:14px;top:42px;z-index:5;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(80,45,35,.16);border:1px solid #F2E9E4;padding:4px;min-width:132px}
+.sh-menu.hidden{display:none!important}
+.sh-menu button{display:block;width:100%;text-align:left;font-size:13px;color:#2A2420;padding:9px 12px;border-radius:7px;white-space:nowrap}
+.sh-menu button.on{color:#E23A2E;font-weight:700;background:#FFF3EF}
+.sh-body{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;width:100%;min-width:0;padding:2px 14px 18px;scrollbar-width:none}
+.sh-body::-webkit-scrollbar{display:none}
+.sh-group{padding-top:14px}
+.sh-date{font-size:15px;font-weight:700;color:#2A2420;margin:0 0 10px;letter-spacing:-.2px}
+.sh-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.sh-card{min-width:0;display:flex;flex-direction:column;position:relative}
+.sh-thumb{position:relative;width:100%;aspect-ratio:1/1;border-radius:9px;overflow:hidden;background:linear-gradient(145deg,#F7F3EE,#EFE7E0)}
+.sh-thumb .sh-kw{position:absolute;left:6px;top:6px;max-width:calc(100% - 12px);font-size:9px;line-height:1.4;color:#fff;background:rgba(40,30,26,.42);border-radius:4px;padding:1px 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sh-thumb .sh-cam{position:absolute;right:5px;bottom:5px;width:19px;height:19px;border-radius:6px;background:rgba(255,255,255,.88);display:grid;place-items:center;box-shadow:0 1px 4px rgba(60,40,30,.14)}
+.sh-thumb .sh-cam svg{width:12px;height:12px;display:block}
+.sh-price{font-size:14px;font-weight:700;color:#EE4A2F;margin-top:6px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.sh-price small{font-size:10.5px;font-weight:700;margin-right:1px}
+.sh-promo{font-size:9.5px;color:#E23A2E;background:#FFF3F0;border-radius:3px;padding:1px 4px;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;align-self:flex-start;max-width:100%}
+.sh-card .sh-shop{margin-top:4px;font-size:10px;color:#8A8A8E;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.sh-check{position:absolute;right:6px;top:6px;z-index:4;width:20px;height:20px;border-radius:50%;border:1.5px solid #fff;background:rgba(20,18,16,.35);display:none;place-items:center}
+.sh.manage .sh-check{display:grid}
+.sh-check svg{width:12px;height:12px;display:none}
+.sh-card.picked .sh-check{background:#EE4A2F;border-color:#fff}
+.sh-card.picked .sh-check svg{display:block}
+.sh-card.picked .sh-thumb{outline:2px solid #EE4A2F}
+.sh-empty{display:none;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px 0;text-align:center}
+.sh-empty.show{display:flex}
+.sh-empty .ico{width:64px;height:64px;border-radius:50%;background:linear-gradient(150deg,#FFF3EF,#FDE7E1);display:grid;place-items:center;margin-bottom:14px}
+.sh-empty h4{margin:0;font-size:15px;font-weight:700;color:#2A2420}
+.sh-empty p{margin:6px 0 0;font-size:12.5px;color:#8A8A8E;line-height:1.6}
+.sh-empty p b{color:#E23A2E;font-weight:700}
+.sh-batch{flex:0 0 auto;display:none;align-items:center;gap:10px;padding:9px 14px;background:#fff;border-top:1px solid #F4EFEB}
+.sh.manage .sh-batch{display:flex}
+.sh-batch .cnt{font-size:12px;color:#8A8A8E;margin-right:auto}
+.sh-batch .cnt b{color:#E23A2E;font-weight:700}
+.sh-batch button{height:34px;padding:0 15px;border-radius:999px;font-size:13px;font-weight:700;white-space:nowrap}
+.sh-del{border:1px solid #F5C9BE!important;color:#E23A2E;background:#fff}
+.sh-clear{background:linear-gradient(120deg,#FB6E4E,#EE3A2C);color:#fff}
+.sh-home{flex:0 0 18px;height:18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.sh-home i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="scroll">
+<nav aria-label="首页频道" class="catbar" id="catbar">
+<button class="cat">关注</button>
+<button class="cat on">推荐</button>
+<button class="cat">食品</button>
+<button class="cat">干果粮油</button>
+<button class="cat">电器</button>
+<button class="cat">五金</button>
+<button class="cat">药材</button>
+<button class="cat">干杂</button>
+</nav>
+<div class="pad">
+<div class="searchrow">
+<a class="city" href="nearby.html">成都市
+          <svg fill="none" height="6" viewbox="0 0 10 6" width="10"><path d="m1 1 4 4 4-4" stroke="#3A302A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg>
+</a>
+<a aria-label="搜索商品" class="searchbox" href="search.html" id="searchEntry">
+<span class="mag"><svg fill="none" height="17" viewbox="0 0 24 24" width="17"><circle cx="10.6" cy="10.6" r="6.4" stroke="#8E8E93" stroke-width="2"></circle><path d="m15.6 15.6 4.4 4.4" stroke="#8E8E93" stroke-linecap="round" stroke-width="2"></path></svg></span>
+<span class="ph">输入关键词...</span>
+<span class="sbtn">搜索</span>
+</a>
+<a aria-label="购物车" class="cart" href="order-confirm.html">
+<span class="cartart">
+<svg fill="none" height="32" viewbox="0 0 40 34" width="38">
+<rect fill="#F2683F" height="22" rx="7" width="28" x="6" y="8"></rect>
+<rect fill="#FCE3D4" height="16" rx="5" width="22" x="9" y="11"></rect>
+<path d="M14.5 8.4c0-3.3 2-5.4 5-5.4s5 2.1 5 5.4" stroke="#F2683F" stroke-linecap="round" stroke-width="2.4"></path>
+<rect fill="#5C93D6" height="7" rx="2.2" transform="rotate(-12 16 6)" width="8" x="12" y="2.5"></rect>
+<rect fill="#F5B041" height="7" rx="2.2" transform="rotate(10 24 5.5)" width="8" x="20" y="2"></rect>
+<rect fill="#FBD9C2" height="10" rx="3" width="19" x="10.5" y="14"></rect>
+<circle cx="20" cy="19" fill="#EE7A4E" r="4"></circle>
+<path d="M20 16.4v5.2M17.6 17.8h4.8" stroke="#fff" stroke-linecap="round" stroke-width="1.6"></path>
+</svg>
+</span>
+<span class="cartlabel">购物车</span>
+</a>
+</div>
+<div class="grid">
+<a class="gitem" href="search.html">
+<span class="gic">
+<svg fill="none" height="34" viewbox="0 0 40 40" width="34">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="g99" x1="8" x2="30" y1="10" y2="32"><stop stop-color="#FF7C8F"></stop><stop offset="1" stop-color="#F1264C"></stop></lineargradient>
+</defs>
+<rect fill="url(#g99)" height="18" rx="6" width="24" x="6" y="12"></rect>
+<path d="M6 17h24" stroke="#fff" stroke-opacity=".55" stroke-width="1.6"></path>
+<circle cx="14" cy="10" r="4.6" stroke="url(#g99)" stroke-width="2.6"></circle>
+<circle cx="23" cy="8.6" r="4.2" stroke="url(#g99)" stroke-width="2.6"></circle>
+<text fill="#fff" font-family="Arial" font-size="10" font-weight="800" x="14" y="26.6">99</text>
+</svg>
+</span>
+<span class="lab">今日推荐</span>
+</a>
+<a class="gitem" href="search.html">
+<span class="gic">
+<svg fill="none" height="35" viewbox="0 0 40 40" width="35">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="gbag" x1="8" x2="30" y1="10" y2="32"><stop stop-color="#FFD98A"></stop><stop offset="1" stop-color="#FF8A2B"></stop></lineargradient>
+</defs>
+<path d="M8 14h24l-2.4 17a3 3 0 0 1-3 2.6H13.4a3 3 0 0 1-3-2.6L8 14z" fill="url(#gbag)"></path>
+<path d="M14.4 15c0-4.2 2.4-7 5.6-7s5.6 2.8 5.6 7" stroke="#F0801F" stroke-linecap="round" stroke-width="2.4"></path>
+<circle cx="20" cy="21.5" fill="#fff" fill-opacity=".92" r="4.2"></circle>
+<path d="M17.6 21.6l1.8 1.8 3.2-3.4" stroke="#FF8A2B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+<path d="M12.5 32.5c4-2.4 11-2.4 15 0" stroke="#fff" stroke-opacity=".5" stroke-width="1.6"></path>
+</svg>
+</span>
+<span class="lab">热门榜单</span>
+</a>
+<a class="gitem" href="search.html">
+<span class="gic">
+<svg fill="none" height="34" viewbox="0 0 40 40" width="34">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="ggift" x1="8" x2="32" y1="12" y2="34"><stop stop-color="#FF9A9A"></stop><stop offset="1" stop-color="#F03B4B"></stop></lineargradient>
+</defs>
+<rect fill="url(#ggift)" height="17" rx="3" width="20" x="10" y="17"></rect>
+<rect fill="url(#ggift)" height="6.5" rx="2.4" width="25" x="7.5" y="12.5"></rect>
+<rect fill="#FFE0DC" height="21.5" width="4" x="18" y="12.5"></rect>
+<path d="M20 12.5c-1.6-4.6-8-5.4-8-1.6 0 2.8 5 2.6 8 1.6 3 1 8 1.2 8-1.6 0-3.8-6.4-3-8 1.6z" fill="#FFD3CC"></path>
+<path d="M10 22h20" stroke="#fff" stroke-opacity=".45" stroke-width="1.4"></path>
+</svg>
+</span>
+<span class="lab">首发新品</span>
+</a>
+<a class="gitem" href="seckill.html">
+<span class="gic">
+<svg fill="none" height="35" viewbox="0 0 40 40" width="35">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="gbox" x1="8" x2="32" y1="12" y2="32"><stop stop-color="#FFE07A"></stop><stop offset="1" stop-color="#FFB01F"></stop></lineargradient>
+</defs>
+<path d="M20 8.5 32 14v12L20 32 8 26V14z" fill="url(#gbox)"></path>
+<path d="M8 14l12 5.5L32 14" stroke="#fff" stroke-linejoin="round" stroke-opacity=".6" stroke-width="1.6"></path>
+<path d="M20 19.5V32" stroke="#fff" stroke-opacity=".5" stroke-width="1.4"></path>
+<rect fill="#fff" fill-opacity=".88" height="9" rx="2.6" width="13" x="13.5" y="17"></rect>
+<path d="m17 21.6 1.6 1.6 3-3.2" stroke="#FF9C1A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</span>
+<span class="lab">秒杀商品</span>
+</a>
+<a class="gitem" href="coupons.html">
+<span class="gic">
+<svg fill="none" height="34" viewbox="0 0 40 40" width="34">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="genv" x1="10" x2="30" y1="8" y2="34"><stop stop-color="#FF8F7E"></stop><stop offset="1" stop-color="#EE2A35"></stop></lineargradient>
+</defs>
+<path d="M11 9h18a2 2 0 0 1 2 2v7.5a4.5 4.5 0 0 0 0 9V29a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2v-7.5a4.5 4.5 0 0 0 0-9V11a2 2 0 0 1 2-2z" fill="url(#genv)"></path>
+<path d="M9 19.5h22" stroke="#fff" stroke-dasharray="2 2" stroke-opacity=".35" stroke-width="1.2"></path>
+<circle cx="20" cy="22" fill="#fff" fill-opacity=".9" r="4.6"></circle>
+<path d="M18.2 22h3.6M20 20.2v3.6" stroke="#EE2A35" stroke-linecap="round" stroke-width="1.6"></path>
+</svg>
+</span>
+<span class="lab" style="font-size:10px;letter-spacing:-.6px">优惠红包店铺</span>
+</a>
+<a class="gitem" href="distribution-products.html">
+<span class="gic">
+<svg fill="none" height="34" viewbox="0 0 40 40" width="34">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="gpct" x1="8" x2="32" y1="8" y2="32"><stop stop-color="#FFB08A"></stop><stop offset="1" stop-color="#F2412B"></stop></lineargradient>
+</defs>
+<circle cx="14.5" cy="14.5" r="5.2" stroke="url(#gpct)" stroke-width="3"></circle>
+<circle cx="26" cy="26" r="5.2" stroke="url(#gpct)" stroke-width="3"></circle>
+<path d="M30 10 10 30" stroke="url(#gpct)" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</span>
+<span class="lab">一级分销</span>
+</a>
+<a class="gitem" href="nearby.html?tab=distance">
+<span class="gic">
+<svg fill="none" height="35" viewbox="0 0 40 40" width="35">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="gshop" x1="8" x2="32" y1="10" y2="32"><stop stop-color="#FFD47A"></stop><stop offset="1" stop-color="#FF9E2E"></stop></lineargradient>
+</defs>
+<path d="M8 13h24l-2.6-5H10.6z" fill="#FFB63C"></path>
+<path d="M10 19h20v12a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V19z" fill="url(#gshop)"></path>
+<path d="M8 13c0 2.4 1.6 4 3.6 4S15 15.4 15 13c0 2.4 1.6 4 3.6 4s3.6-1.6 3.6-4c0 2.4 1.6 4 3.6 4s3.6-1.6 3.6-4z" fill="#FFE2A8"></path>
+<path d="M8 13c0 2.4 1.6 4 3.6 4S15 15.4 15 13c0 2.4 1.6 4 3.6 4s3.6-1.6 3.6-4c0 2.4 1.6 4 3.6 4s3.6-1.6 3.6-4" stroke="#FF9E2E" stroke-width="1.6"></path>
+<rect fill="#fff" fill-opacity=".9" height="10" rx="1.4" width="6" x="17" y="23"></rect>
+</svg>
+</span>
+<span class="lab">附近店铺</span>
+</a>
+<a class="gitem" href="history.html">
+<span class="gic">
+<svg fill="none" height="34" viewbox="0 0 40 40" width="34">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="gcal" x1="10" x2="30" y1="10" y2="32"><stop stop-color="#FFDA7A"></stop><stop offset="1" stop-color="#F5A623"></stop></lineargradient>
+</defs>
+<rect fill="url(#gcal)" height="21" rx="4.5" width="24" x="8" y="11"></rect>
+<rect fill="#F7B93C" height="6.4" rx="3" width="24" x="8" y="11"></rect>
+<rect fill="#E89215" height="6" rx="1.5" width="3" x="13" y="7.5"></rect>
+<rect fill="#E89215" height="6" rx="1.5" width="3" x="24" y="7.5"></rect>
+<g fill="#fff" fill-opacity=".92">
+<rect height="3.4" rx="1" width="3.4" x="12.5" y="21"></rect>
+<rect height="3.4" rx="1" width="3.4" x="18.3" y="21"></rect>
+<rect height="3.4" rx="1" width="3.4" x="24.1" y="21"></rect>
+<rect height="3.4" rx="1" width="3.4" x="12.5" y="26.4"></rect>
+<rect height="3.4" rx="1" width="3.4" x="18.3" y="26.4"></rect>
+</g>
+</svg>
+</span>
+<span class="lab">历史记录</span>
+</a>
+<a class="gitem" href="category.html">
+<span class="gic">
+<svg fill="none" height="34" viewbox="0 0 40 40" width="34">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="gbsk" x1="8" x2="32" y1="10" y2="32"><stop stop-color="#FFA08E"></stop><stop offset="1" stop-color="#EF3B2C"></stop></lineargradient>
+</defs>
+<path d="M8 22h24l-2 9a2.6 2.6 0 0 1-2.5 2H12.5A2.6 2.6 0 0 1 10 31l-2-9z" fill="url(#gbsk)"></path>
+<path d="M8 22c0-7 5.4-12 12-12s12 5 12 12" stroke="url(#gbsk)" stroke-linecap="round" stroke-width="2.6"></path>
+<path d="M3.5 22h33" stroke="#EF3B2C" stroke-linecap="round" stroke-width="2.4"></path>
+<path d="M15 22v11M25 22v11" stroke="#fff" stroke-opacity=".45" stroke-width="1.4"></path>
+<path d="M17 5.5c2.4-1.8 4.6.4 3 2.6" stroke="#EF3B2C" stroke-linecap="round" stroke-width="1.6"></path>
+</svg>
+</span>
+<span class="lab">分类</span>
+</a>
+<a class="gitem" href="wholesale-pick-orders.html">
+<span class="gic">
+<svg fill="none" height="35" viewbox="0 0 40 40" width="35">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="gcloth" x1="10" x2="30" y1="8" y2="32"><stop stop-color="#FF9FAE"></stop><stop offset="1" stop-color="#EC2F62"></stop></lineargradient>
+</defs>
+<path d="M15 9h10l-1.6 5H16.6z" fill="#F7C6CF"></path>
+<path d="M10 13.5 15 9l2 1.6L19.5 9l6 4.5L23 17l-1.4-1.6-1.4 14.2h-4.4L14.4 15.4 13 17z" fill="url(#gcloth)"></path>
+<path d="M17.4 15.4h5.2" stroke="#fff" stroke-opacity=".55" stroke-width="1.3"></path>
+</svg>
+</span>
+<span class="lab">选品订单</span>
+</a>
+</div>
+<a class="banner" href="platform-coupons.html">
+<span class="sbadge">省</span>
+<span class="btext"><b>平台红包</b><em>｜更多优惠·抢先入手</em></span>
+<svg aria-hidden="true" class="gift" fill="none" viewbox="0 0 84 80">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="gb1" x1="24" x2="62" y1="30" y2="74"><stop stop-color="#FFD873"></stop><stop offset="1" stop-color="#EFA11B"></stop></lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="gb2" x1="20" x2="66" y1="26" y2="40"><stop stop-color="#FFEAA7"></stop><stop offset="1" stop-color="#F5B937"></stop></lineargradient>
+</defs>
+<ellipse cx="44" cy="74" fill="#B7321C" opacity=".25" rx="24" ry="4"></ellipse>
+<rect fill="url(#gb1)" height="36" rx="4" width="42" x="26" y="34"></rect>
+<rect fill="url(#gb2)" height="12" rx="4" width="52" x="21" y="26"></rect>
+<rect fill="#FFF1C2" height="44" width="10" x="42" y="26"></rect>
+<path d="M47 26c-3-9-15-10-15-1.5S41 29 47 26c6 3 15 2 15-3s-12-7.5-15 3z" fill="#FFF1C2"></path>
+<path d="M26 46h42" opacity=".65" stroke="#E39A1C" stroke-width="1.6"></path>
+<rect fill="#fff" fill-opacity=".35" height="10" rx="2" width="10" x="54" y="52"></rect>
+</svg>
+</a>
+<div class="sec">
+<h2><span class="zhi">值</span>综合推荐</h2>
+<a class="more" href="search.html">更多商品
+          <svg fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+<div class="secnote">
+<svg aria-hidden="true" fill="none" height="9" viewbox="0 0 12 12" width="9"><path d="M6 1l1.6 3.3 3.6.5-2.6 2.5.6 3.6L6 9.2 2.8 10.9l.6-3.6L.8 4.8l3.6-.5z" fill="#E2A98F"></path></svg>
+        佣金优先 · 一级分销佣金越高越靠前
+      </div>
+<div class="wf">
+<div class="wcol" id="wfA">
+<a class="pcard" href="product-detail.html">
+<div class="dresswrap">
+<div class="dressfig">
+<span class="dhair"></span>
+<span class="dhead"></span>
+<span class="dbody"></span>
+<span class="dshoes"></span>
+</div>
+<span class="dchair"></span>
+<span class="pcorner">年货节</span>
+<div class="pstrip">
+<span class="psl"><em>参考到手价</em><b><i>¥</i>354</b></span>
+<span class="psmid">
+<em>补贴券权益会员满1400减280/满2000减340</em>
+<em style="color:#FFD9A0">Thule 00:17:31 券后</em>
+<span class="pscols">
+<div><span>活动价</span><b>414</b></div>
+<div><span>预估直降</span><b>60</b></div>
+<div><span>会员券</span><b>-</b></div>
+</span>
+</span>
+<span class="psright"><span>会员券</span><b>-</b></span>
+</div>
+</div>
+<div class="pbody">
+<h3>UGG【明星同款】冬季新款女士双面筒袜...</h3>
+<div class="brandtag">
+<svg aria-hidden="true" height="10" viewbox="0 0 12 12" width="10"><path d="M6 1l5 9H1z" fill="#E7C98B"></path></svg>
+                品牌
+              </div>
+<div class="sold">已售0件</div>
+<div class="price"><small>¥</small>788<i>.00</i></div>
+<span class="comm">赚 ¥94.56</span>
+</div>
+</a>
+<a class="pcard" href="product-detail.html">
+<div class="pimg" style="height:168px;background:#EDEAE4">
+<svg aria-hidden="true" height="100%" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 168" width="100%">
+<defs>
+<lineargradient id="t1bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F4F2ED"></stop><stop offset="1" stop-color="#CCC6BD"></stop></lineargradient>
+</defs>
+<rect fill="url(#t1bg)" height="168" width="160"></rect>
+<rect fill="#F8F6F2" height="60" opacity=".9" rx="2" width="44" x="8" y="12"></rect>
+<path d="M13 24h30M13 31h26M13 38h28M13 45h18" stroke="#B9B3AA" stroke-width="1.2"></path>
+<text fill="#6C655C" font-family="Georgia" font-size="6.5" x="13" y="20">TEENIE</text>
+<path d="M84 40c-8-8-18-6-20 2s8 18 20 14 22-4 22-12-10-10-22-4z" fill="#C79A6B"></path>
+<ellipse cx="92" cy="48" fill="#E6BE93" rx="12" ry="14"></ellipse>
+<path d="M80 42c6-8 20-8 24 0" stroke="#8E5E35" stroke-linecap="round" stroke-width="7"></path>
+<ellipse cx="86" cy="48" fill="#2C2723" opacity=".85" rx="6" ry="4"></ellipse>
+<ellipse cx="100" cy="48" fill="#2C2723" opacity=".85" rx="6" ry="4"></ellipse>
+<path d="M114 66c16 4 22 16 20 30l-6 34H86l10-34c2-12 8-26 18-30z" fill="#F7F4ED"></path>
+<path d="M98 66h20v20H98z" fill="#232120"></path>
+<path d="M96 70c-8 8-10 22-8 32l-14 22 12 8 18-26z" fill="#F4F0E8"></path>
+<path d="M118 70c8 8 8 22 6 32l14 22-12 8-14-26z" fill="#EFEBE2"></path>
+<path d="M104 100h18l6 26h-30z" fill="#B7B1A6"></path>
+<path d="M106 126l-5 28M120 126l5 28" stroke="#8E877C" stroke-linecap="round" stroke-width="7"></path>
+</svg>
+<span class="pcorner">年货节</span>
+<div class="pstrip">
+<span class="psl"><em>参考到手价</em><b><i>¥</i>349</b></span>
+<span class="psmid">
+<em>补贴券权益会员满1400减280/满2000减340</em>
+<em style="color:#FFD9A0">Thule 00:17:31 券后</em>
+<span class="pscols">
+<div><span>活动价</span><b>409</b></div>
+<div><span>预估直降</span><b>60</b></div>
+<div><span>会员券</span><b>-</b></div>
+</span>
+</span>
+<span class="psright"><span>会员券</span><b>-</b></span>
+</div>
+</div>
+<div class="pbody">
+<h3>Teenie Weenie 小熊POLO连衣裙女藏青色</h3>
+<div class="sold">已售0件</div>
+<div class="price"><small>¥</small>399<i>.00</i></div>
+<span class="comm">赚 ¥47.88</span>
+</div>
+</a>
+</div>
+<div class="wcol" id="wfB">
+<a class="pcard" href="product-detail.html">
+<div class="adwrap">
+<div class="admain">
+<span class="adhair"></span>
+<span class="adhead"></span>
+<span class="adtorso"></span>
+<span class="adarm"></span>
+<span class="adlegs"></span>
+<svg aria-hidden="true" class="adbike" fill="none" viewbox="0 0 132 58">
+<circle cx="18" cy="44" r="13" stroke="#2B2B2E" stroke-width="2"></circle>
+<circle cx="114" cy="44" r="13" stroke="#2B2B2E" stroke-width="2"></circle>
+<path d="M18 44 48 20h34l-8 24z" stroke="#2B2B2E" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M18 44h34l14-24M66 44h48" stroke="#2B2B2E" stroke-width="2"></path>
+<path d="M74 14h16" stroke="#2B2B2E" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+<svg aria-hidden="true" class="adlogo" viewbox="0 0 30 22"><path d="M4 17 15 3l11 14z" fill="#1D1D1F"></path><path d="M9 17l6-8 6 8z" fill="#fff"></path></svg>
+</div>
+<div class="adfloat"><span class="shoe"></span></div>
+<div class="adcap"><b>宋雨琦同款</b>蛇年新春系列</div>
+<div class="adtip">*该商品不可使用店铺优惠券、会员券，商品券，跨店满减，独立店铺优惠</div>
+</div>
+<div class="pbody">
+<h3>Teenie Weenie 小熊POLO连衣裙女藏青色</h3>
+<div class="ptag">
+<svg aria-hidden="true" fill="none" height="10" viewbox="0 0 12 12" width="10"><path d="M2 2h5l3 3-5 5-3-3z" fill="#F3704F"></path><circle cx="4.6" cy="4.6" fill="#fff" r=".9"></circle></svg>
+                无门槛减200
+              </div>
+<div class="sold">已售0件</div>
+<div class="price"><small>¥</small>399<i>.00</i></div>
+<span class="comm">赚 ¥47.88</span>
+</div>
+</a>
+<a class="pcard" href="product-detail.html">
+<div class="pimg" style="height:168px;background:#E7E3DC">
+<svg aria-hidden="true" height="100%" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 168" width="100%">
+<rect fill="#E9E5DE" height="168" width="160"></rect>
+<path d="M96 0h64v168h-52z" fill="#3E3D3A" opacity=".5"></path>
+<path d="M110 26h44v98h-44z" fill="#58554F" opacity=".55"></path>
+<path d="M66 34c14-6 30 2 32 18s-8 28-22 28-24-10-24-22 4-20 14-24z" fill="#D9B48C"></path>
+<path d="M60 26c16-10 40 0 40 18 0 8-4 12-8 12 2-14-8-22-22-20-12 2-14 10-14 20-6-4-6-22 4-30z" fill="#F4F1EA"></path>
+<path d="M56 64c16-6 36 0 40 16l10 42-54 6 2-46c0-8-2-14 2-18z" fill="#F7F4EC"></path>
+<path d="M70 68c8-4 18-2 22 6l6 40-30 4 2-38z" fill="#FBF9F3"></path>
+<path d="M74 116l-4 36M98 116l4 36" stroke="#B08A66" stroke-linecap="round" stroke-width="9"></path>
+<path d="M40 158h30l-2 8H42z" fill="#5A5751"></path>
+<path d="M104 158h28l2 8h-30z" fill="#5A5751"></path>
+<text fill="#F6F3EC" font-family="Arial" font-size="9" font-weight="700" x="116" y="18">UGG</text>
+</svg>
+<span class="pcorner">年货节</span>
+</div>
+<div class="pbody">
+<h3>UGG【明星同款】冬季新款女士双面筒袜...</h3>
+<div class="brandtag">
+<svg aria-hidden="true" height="10" viewbox="0 0 12 12" width="10"><path d="M6 1l5 9H1z" fill="#E7C98B"></path></svg>
+                品牌
+              </div>
+<div class="sold">已售0件</div>
+<div class="price"><small>¥</small>788<i>.00</i></div>
+<span class="comm">赚 ¥78.80</span>
+</div>
+</a>
+</div>
+</div>
+<div class="footnote">成都同城 · 产地直发 · 坏果包赔</div>
+</div>
+</div>
+<nav aria-label="底部导航" class="tabbar">
+<a class="on" href="home.html">
+<span class="ti">
+<svg aria-hidden="true" height="24" viewbox="0 0 24 24" width="24">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="thm" x1="4" x2="20" y1="4" y2="21"><stop stop-color="#FFB59F"></stop><stop offset=".5" stop-color="#FA7154"></stop><stop offset="1" stop-color="#EE3C28"></stop></lineargradient>
+</defs>
+<path d="M3.2 10.9 12 4l8.8 6.9V20a1.2 1.2 0 0 1-1.2 1.2h-4.9v-6.4H9.3v6.4H4.4A1.2 1.2 0 0 1 3.2 20z" fill="url(#thm)"></path>
+<path d="M3.2 10.9 12 4l8.8 6.9" fill="none" stroke="#FFD3C5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"></path>
+</svg>
+</span>
+<span>首页</span>
+</a>
+<a href="nearby.html">
+<span class="ti"><svg height="22" viewbox="0 0 24 24" width="22"><rect fill="currentColor" height="19" rx="5.5" width="19" x="2.5" y="2.5"></rect><text fill="#fff" font-family="PingFang SC" font-size="11.5" font-weight="700" text-anchor="middle" x="12" y="16.8">逛</text></svg></span>
+<span>附近店</span>
+</a>
+<a href="wholesale.html">
+<span class="ti"><svg fill="none" height="22" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24" width="22"><rect height="7.6" rx="1.8" width="7.6" x="2.6" y="2.6"></rect><rect height="7.6" rx="1.8" width="7.6" x="13.8" y="2.6"></rect><circle cx="6.4" cy="17.6" r="3.8"></circle><circle cx="17.6" cy="17.6" r="3.8"></circle></svg></span>
+<span>批发选品</span>
+</a>
+<a href="messages.html">
+<span class="ti">
+<svg height="21" viewbox="0 0 26 22" width="23"><ellipse cx="16.6" cy="9" fill="currentColor" opacity=".55" rx="8.4" ry="7"></ellipse><rect fill="currentColor" height="12.4" rx="6.2" width="19" x="1.6" y="5.2"></rect><path d="M6 17.6l-2.4 3.4 4.6-1.6z" fill="currentColor"></path><circle cx="7.4" cy="11.2" fill="#fff" r="1.2"></circle><circle cx="11.3" cy="11.2" fill="#fff" r="1.2"></circle><circle cx="15.2" cy="11.2" fill="#fff" r="1.2"></circle></svg>
+<i class="badge">22</i>
+</span>
+<span>消息</span>
+</a>
+<a href="profile.html">
+<span class="ti"><svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><circle cx="12" cy="7.6" r="4"></circle><path d="M3.8 21.4c0-4.4 3.7-7 8.2-7s8.2 2.6 8.2 7z"></path></svg></span>
+<span>我的</span>
+</a>
+</nav>
+<div class="homebar"><i></i></div>
+<section aria-hidden="true" aria-label="搜索历史" class="sh hidden" id="shPanel">
+<div class="sh-status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="sh-head">
+<button aria-label="返回首页" class="sh-back" id="shBack">
+<svg fill="none" height="21" viewbox="0 0 24 24" width="21"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"></path></svg>
+</button>
+<h2 class="sh-title">搜索历史<em>(<span id="shCount">10</span>)</em></h2>
+<div class="sh-tools">
+<a aria-label="搜索" href="search.html">
+<svg fill="none" height="20" viewbox="0 0 24 24" width="20"><circle cx="10.6" cy="10.6" r="6.4" stroke="currentColor" stroke-width="2"></circle><path d="m15.6 15.6 4.4 4.4" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+</a>
+<button id="shManage" type="button">管理</button>
+<button aria-label="更多" id="shMore" type="button">
+<svg fill="currentColor" height="19" viewbox="0 0 24 24" width="19"><circle cx="5" cy="12" r="1.9"></circle><circle cx="12" cy="12" r="1.9"></circle><circle cx="19" cy="12" r="1.9"></circle></svg>
+</button>
+</div>
+</div>
+<nav aria-label="搜索历史分类" class="sh-tabs" id="shTabs">
+<button class="on" data-cat="all">全部</button>
+<button data-cat="goods">宝贝</button>
+<button data-cat="shop">店铺</button>
+<button data-cat="wholesale">批发单</button>
+</nav>
+<div class="sh-filter">
+<button class="sh-filter-btn" id="shTimeBtn" type="button">筛选搜索时间
+        <svg fill="none" height="6" viewbox="0 0 10 6" width="9"><path d="m1 1 4 4 4-4" stroke="#8A8A8E" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg>
+</button>
+<div class="sh-menu hidden" id="shTimeMenu">
+<button class="on" data-time="all" type="button">全部时间</button>
+<button data-time="7" type="button">近 7 天</button>
+<button data-time="30" type="button">近 30 天</button>
+<button data-time="older" type="button">更早</button>
+</div>
+<a class="sh-foot" href="history.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:2px;font-size:12.5px;color:#E23A2E">查看浏览足迹
+        <svg fill="none" height="11" viewbox="0 0 24 24" width="11"><path d="m9 5 7 7-7 7" stroke="#E23A2E" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+</div>
+<div class="sh-body" id="shBody">
+<div class="sh-group" data-group="today">
+<h3 class="sh-date">今天</h3>
+<div class="sh-grid">
+<div class="sh-card" data-cat="goods" data-day="0">
+<div class="sh-thumb" style="background:linear-gradient(150deg,#F1F4DE,#DDE6C4 55%,#C2D0A5)">
+<span class="sh-kw">蒲江红心猕猴桃</span>
+<i class="blob" style="width:44%;height:44%;left:16%;top:26%;background:radial-gradient(circle at 34% 30%,#E3D5AE,#BFA478 58%,#95794F)"></i>
+<i class="blob" style="width:28%;height:28%;left:52%;top:44%;background:radial-gradient(circle at 35% 30%,#DCE3B9,#A6BB7C 62%,#7C9358)"></i>
+<span class="sh-cam"><svg fill="none" viewbox="0 0 24 24"><path d="M3 8.6A2.6 2.6 0 0 1 5.6 6h1.6l1.2-1.8h6.2L15.8 6h.6A2.6 2.6 0 0 1 19 8.6v8.8A2.6 2.6 0 0 1 16.4 20H5.6A2.6 2.6 0 0 1 3 17.4z" stroke="#E23A2E" stroke-width="1.8"></path><circle cx="11" cy="13" r="3.4" stroke="#EE4A2F" stroke-width="1.8"></circle></svg></span>
+</div>
+<div class="sh-price"><small>¥</small>39.9</div>
+<span class="sh-promo">官方立减12%</span>
+<span class="sh-check"><svg fill="none" viewbox="0 0 12 12"><path d="m2.2 6.2 2.6 2.6 5-5.4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+</div>
+<div class="sh-card" data-cat="goods" data-day="0">
+<div class="sh-thumb" style="background:linear-gradient(150deg,#FBF1E2,#F3DDC0 55%,#E2C39B)">
+<span class="sh-kw">郫县豆瓣酱</span>
+<i class="blob" style="width:42%;height:46%;left:20%;top:24%;border-radius:22%;background:radial-gradient(circle at 34% 26%,#EED3A9,#D2AC7C 62%,#A9855A)"></i>
+<i class="blob" style="width:26%;height:30%;left:44%;top:38%;border-radius:14%;background:linear-gradient(180deg,#FBF3E2,#EEDCB9)"></i>
+<span class="sh-cam"><svg fill="none" viewbox="0 0 24 24"><path d="M3 8.6A2.6 2.6 0 0 1 5.6 6h1.6l1.2-1.8h6.2L15.8 6h.6A2.6 2.6 0 0 1 19 8.6v8.8A2.6 2.6 0 0 1 16.4 20H5.6A2.6 2.6 0 0 1 3 17.4z" stroke="#E23A2E" stroke-width="1.8"></path><circle cx="11" cy="13" r="3.4" stroke="#EE4A2F" stroke-width="1.8"></circle></svg></span>
+</div>
+<div class="sh-price"><small>¥</small>12.8</div>
+<span class="sh-promo">满2件减¥3</span>
+<span class="sh-check"><svg fill="none" viewbox="0 0 12 12"><path d="m2.2 6.2 2.6 2.6 5-5.4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+</div>
+<div class="sh-card" data-cat="shop" data-day="0">
+<div class="sh-thumb" style="background:linear-gradient(150deg,#FDF1EA,#F7D9C9 55%,#E8B79F)">
+<span class="sh-kw">蒲江猕猴桃旗舰店</span>
+<i class="blob" style="width:38%;height:38%;left:31%;top:20%;border-radius:50%;background:linear-gradient(150deg,#FF8A6A,#EE4A2F)"></i>
+<i class="blob" style="width:46%;height:12%;left:27%;top:64%;border-radius:999px;background:rgba(255,255,255,.85)"></i>
+<i class="blob" style="width:34%;height:9%;left:33%;top:78%;border-radius:999px;background:rgba(255,255,255,.6)"></i>
+<span class="sh-cam"><svg fill="none" viewbox="0 0 24 24"><path d="M3 8.6A2.6 2.6 0 0 1 5.6 6h1.6l1.2-1.8h6.2L15.8 6h.6A2.6 2.6 0 0 1 19 8.6v8.8A2.6 2.6 0 0 1 16.4 20H5.6A2.6 2.6 0 0 1 3 17.4z" stroke="#E23A2E" stroke-width="1.8"></path><circle cx="11" cy="13" r="3.4" stroke="#EE4A2F" stroke-width="1.8"></circle></svg></span>
+</div>
+<div class="sh-price" style="color:#2A2420;font-size:12.5px">成都蒲江 · 旗舰店</div>
+<span class="sh-shop">进店看看 &gt;</span>
+<span class="sh-check"><svg fill="none" viewbox="0 0 12 12"><path d="m2.2 6.2 2.6 2.6 5-5.4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+</div>
+</div>
+</div>
+<div class="sh-group" data-group="yesterday">
+<h3 class="sh-date">昨天</h3>
+<div class="sh-grid">
+<div class="sh-card" data-cat="goods" data-day="1">
+<div class="sh-thumb" style="background:linear-gradient(150deg,#FBF3E2,#F3DAB2 55%,#E0BB88)">
+<span class="sh-kw">金堂脐橙</span>
+<i class="blob" style="width:46%;height:46%;left:14%;top:30%;background:radial-gradient(circle at 34% 28%,#F3DDB5,#E1B87F 58%,#BC8F5A)"></i>
+<i class="blob" style="width:30%;height:30%;left:54%;top:44%;background:radial-gradient(circle at 35% 30%,#F8E7C4,#E7C28E 62%,#BF955F)"></i>
+<span class="sh-cam"><svg fill="none" viewbox="0 0 24 24"><path d="M3 8.6A2.6 2.6 0 0 1 5.6 6h1.6l1.2-1.8h6.2L15.8 6h.6A2.6 2.6 0 0 1 19 8.6v8.8A2.6 2.6 0 0 1 16.4 20H5.6A2.6 2.6 0 0 1 3 17.4z" stroke="#E23A2E" stroke-width="1.8"></path><circle cx="11" cy="13" r="3.4" stroke="#EE4A2F" stroke-width="1.8"></circle></svg></span>
+</div>
+<div class="sh-price"><small>¥</small>29.9</div>
+<span class="sh-promo">产地直发</span>
+<span class="sh-check"><svg fill="none" viewbox="0 0 12 12"><path d="m2.2 6.2 2.6 2.6 5-5.4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+</div>
+<div class="sh-card" data-cat="goods" data-day="1">
+<div class="sh-thumb" style="background:linear-gradient(150deg,#F7F0E6,#EBD7BE 55%,#CBA985)">
+<span class="sh-kw">川味腊肉礼盒</span>
+<i class="blob" style="width:24%;height:58%;left:20%;top:22%;border-radius:12px;background:repeating-linear-gradient(100deg,#B8513C 0 5px,#8E3526 5px 10px)"></i>
+<i class="blob" style="width:24%;height:58%;left:52%;top:22%;border-radius:12px;background:repeating-linear-gradient(100deg,#A64836 0 5px,#7E2E20 5px 10px)"></i>
+<span class="sh-cam"><svg fill="none" viewbox="0 0 24 24"><path d="M3 8.6A2.6 2.6 0 0 1 5.6 6h1.6l1.2-1.8h6.2L15.8 6h.6A2.6 2.6 0 0 1 19 8.6v8.8A2.6 2.6 0 0 1 16.4 20H5.6A2.6 2.6 0 0 1 3 17.4z" stroke="#E23A2E" stroke-width="1.8"></path><circle cx="11" cy="13" r="3.4" stroke="#EE4A2F" stroke-width="1.8"></circle></svg></span>
+</div>
+<div class="sh-price"><small>¥</small>88</div>
+<span class="sh-promo">两件9折</span>
+<span class="sh-check"><svg fill="none" viewbox="0 0 12 12"><path d="m2.2 6.2 2.6 2.6 5-5.4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+</div>
+<div class="sh-card" data-cat="wholesale" data-day="1">
+<div class="sh-thumb" style="background:linear-gradient(150deg,#EEF2E8,#DCE5D0 55%,#B9C8A8)">
+<span class="sh-kw">金堂脐橙 10斤起批</span>
+<i class="blob" style="width:20%;height:34%;left:14%;top:36%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F3DDB5,#D8A96E 62%,#B0813F)"></i>
+<i class="blob" style="width:20%;height:34%;left:40%;top:36%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F6E6C4,#DFB277 62%,#B98A48)"></i>
+<i class="blob" style="width:20%;height:34%;left:66%;top:36%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F1D9AE,#D2A162 62%,#A97A39)"></i>
+<span class="sh-cam"><svg fill="none" viewbox="0 0 24 24"><path d="M3 8.6A2.6 2.6 0 0 1 5.6 6h1.6l1.2-1.8h6.2L15.8 6h.6A2.6 2.6 0 0 1 19 8.6v8.8A2.6 2.6 0 0 1 16.4 20H5.6A2.6 2.6 0 0 1 3 17.4z" stroke="#E23A2E" stroke-width="1.8"></path><circle cx="11" cy="13" r="3.4" stroke="#EE4A2F" stroke-width="1.8"></circle></svg></span>
+</div>
+<div class="sh-price"><small>¥</small>268</div>
+<span class="sh-promo">批发价 · 10斤起</span>
+<span class="sh-check"><svg fill="none" viewbox="0 0 12 12"><path d="m2.2 6.2 2.6 2.6 5-5.4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+</div>
+</div>
+</div>
+<div class="sh-group" data-group="nov12">
+<h3 class="sh-date">11月12日</h3>
+<div class="sh-grid">
+<div class="sh-card" data-cat="goods" data-day="4">
+<div class="sh-thumb" style="background:linear-gradient(150deg,#FAF3E8,#EFE0C7 55%,#D6BE98)">
+<span class="sh-kw">竹叶青 明前春茶</span>
+<i class="blob" style="width:50%;height:34%;left:25%;top:30%;border-radius:10px 10px 6px 6px;background:linear-gradient(160deg,#3E6B4A,#2C5137)"></i>
+<i class="blob" style="width:34%;height:8%;left:33%;top:66%;border-radius:999px;background:#E7D6B2"></i>
+<span class="sh-cam"><svg fill="none" viewbox="0 0 24 24"><path d="M3 8.6A2.6 2.6 0 0 1 5.6 6h1.6l1.2-1.8h6.2L15.8 6h.6A2.6 2.6 0 0 1 19 8.6v8.8A2.6 2.6 0 0 1 16.4 20H5.6A2.6 2.6 0 0 1 3 17.4z" stroke="#E23A2E" stroke-width="1.8"></path><circle cx="11" cy="13" r="3.4" stroke="#EE4A2F" stroke-width="1.8"></circle></svg></span>
+</div>
+<div class="sh-price"><small>¥</small>128</div>
+<span class="sh-promo">买1送茶具</span>
+<span class="sh-check"><svg fill="none" viewbox="0 0 12 12"><path d="m2.2 6.2 2.6 2.6 5-5.4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+</div>
+<div class="sh-card" data-cat="goods" data-day="4">
+<div class="sh-thumb" style="background:linear-gradient(150deg,#F6F1EC,#E6DCD2 55%,#C9B6A6)">
+<span class="sh-kw">抽纸 整箱</span>
+<i class="blob" style="width:56%;height:44%;left:22%;top:30%;border-radius:8px;background:linear-gradient(160deg,#FFFFFF,#F1E9E1)"></i>
+<i class="blob" style="width:56%;height:10%;left:22%;top:52%;border-radius:4px;background:linear-gradient(180deg,#F6C9BC,#EE9C87)"></i>
+<span class="sh-cam"><svg fill="none" viewbox="0 0 24 24"><path d="M3 8.6A2.6 2.6 0 0 1 5.6 6h1.6l1.2-1.8h6.2L15.8 6h.6A2.6 2.6 0 0 1 19 8.6v8.8A2.6 2.6 0 0 1 16.4 20H5.6A2.6 2.6 0 0 1 3 17.4z" stroke="#E23A2E" stroke-width="1.8"></path><circle cx="11" cy="13" r="3.4" stroke="#EE4A2F" stroke-width="1.8"></circle></svg></span>
+</div>
+<div class="sh-price"><small>¥</small>35</div>
+<span class="sh-check"><svg fill="none" viewbox="0 0 12 12"><path d="m2.2 6.2 2.6 2.6 5-5.4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+</div>
+</div>
+</div>
+<div class="sh-group" data-group="nov7">
+<h3 class="sh-date">11月7日</h3>
+<div class="sh-grid">
+<div class="sh-card" data-cat="goods" data-day="9">
+<div class="sh-thumb" style="background:linear-gradient(150deg,#EEF3F6,#DCE5EC 55%,#BCCAD6)">
+<span class="sh-kw">厨房清洁剂</span>
+<i class="blob" style="width:36%;height:52%;left:32%;top:26%;border-radius:10px;background:linear-gradient(160deg,#8FD3E0,#4FA3BC)"></i>
+<i class="blob" style="width:16%;height:14%;left:42%;top:14%;border-radius:4px;background:#3C7E92"></i>
+<span class="sh-cam"><svg fill="none" viewbox="0 0 24 24"><path d="M3 8.6A2.6 2.6 0 0 1 5.6 6h1.6l1.2-1.8h6.2L15.8 6h.6A2.6 2.6 0 0 1 19 8.6v8.8A2.6 2.6 0 0 1 16.4 20H5.6A2.6 2.6 0 0 1 3 17.4z" stroke="#E23A2E" stroke-width="1.8"></path><circle cx="11" cy="13" r="3.4" stroke="#EE4A2F" stroke-width="1.8"></circle></svg></span>
+</div>
+<div class="sh-price"><small>¥</small>19.9</div>
+<span class="sh-promo">官方立减12%</span>
+<span class="sh-check"><svg fill="none" viewbox="0 0 12 12"><path d="m2.2 6.2 2.6 2.6 5-5.4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+</div>
+<div class="sh-card" data-cat="goods" data-day="9">
+<div class="sh-thumb" style="background:linear-gradient(150deg,#F2F4EE,#E1E6D8 55%,#C3CDB6)">
+<span class="sh-kw">加厚保鲜袋</span>
+<i class="blob" style="width:54%;height:40%;left:23%;top:32%;border-radius:6px;background:linear-gradient(160deg,#FFFFFF,#EDF1E6)"></i>
+<i class="blob" style="width:54%;height:4%;left:23%;top:42%;border-radius:2px;background:repeating-linear-gradient(90deg,#B7C4A6 0 4px,transparent 4px 8px)"></i>
+<span class="sh-cam"><svg fill="none" viewbox="0 0 24 24"><path d="M3 8.6A2.6 2.6 0 0 1 5.6 6h1.6l1.2-1.8h6.2L15.8 6h.6A2.6 2.6 0 0 1 19 8.6v8.8A2.6 2.6 0 0 1 16.4 20H5.6A2.6 2.6 0 0 1 3 17.4z" stroke="#E23A2E" stroke-width="1.8"></path><circle cx="11" cy="13" r="3.4" stroke="#EE4A2F" stroke-width="1.8"></circle></svg></span>
+</div>
+<div class="sh-price"><small>¥</small>9.9</div>
+<span class="sh-check"><svg fill="none" viewbox="0 0 12 12"><path d="m2.2 6.2 2.6 2.6 5-5.4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+</div>
+<div class="sh-card" data-cat="goods" data-day="9">
+<div class="sh-thumb" style="background:linear-gradient(150deg,#FBF1E9,#F2D8C5 55%,#D8B098)">
+<span class="sh-kw">火锅底料</span>
+<i class="blob" style="width:44%;height:40%;left:28%;top:32%;border-radius:8px;background:linear-gradient(160deg,#C63A2A,#9A2418)"></i>
+<i class="blob" style="width:32%;height:8%;left:34%;top:56%;border-radius:999px;background:#F6D9A8"></i>
+<span class="sh-cam"><svg fill="none" viewbox="0 0 24 24"><path d="M3 8.6A2.6 2.6 0 0 1 5.6 6h1.6l1.2-1.8h6.2L15.8 6h.6A2.6 2.6 0 0 1 19 8.6v8.8A2.6 2.6 0 0 1 16.4 20H5.6A2.6 2.6 0 0 1 3 17.4z" stroke="#E23A2E" stroke-width="1.8"></path><circle cx="11" cy="13" r="3.4" stroke="#EE4A2F" stroke-width="1.8"></circle></svg></span>
+</div>
+<div class="sh-price"><small>¥</small>16.8</div>
+<span class="sh-promo">第二件半价</span>
+<span class="sh-check"><svg fill="none" viewbox="0 0 12 12"><path d="m2.2 6.2 2.6 2.6 5-5.4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+</div>
+</div>
+</div>
+<div class="sh-empty" id="shEmpty">
+<div class="ico">
+<svg fill="none" height="30" viewbox="0 0 24 24" width="30"><circle cx="10.6" cy="10.6" r="6.2" stroke="#EE4A2F" stroke-width="1.9"></circle><path d="m15.4 15.4 4.4 4.4" stroke="#EE4A2F" stroke-linecap="round" stroke-width="1.9"></path><path d="M8 10.6h5.2" stroke="#F7B4A4" stroke-linecap="round" stroke-width="1.6"></path></svg>
+</div>
+<h4>暂无搜索历史</h4>
+<p>去<b>首页搜索框</b>找找成都的猕猴桃、脐橙和腊味吧</p>
+</div>
+</div>
+<div class="sh-batch">
+<span class="cnt">已选 <b id="shSel">0</b> 项</span>
+<button class="sh-del" id="shDel" type="button">删除选中</button>
+<button class="sh-clear" id="shClear" type="button">清空历史</button>
+</div>
+<div class="sh-home"><i></i></div>
+</section>
+</div>
+<script>
+  const cats = document.querySelectorAll('#catbar .cat');
+  cats.forEach(function (el) {
+    el.addEventListener('click', function () {
+      cats.forEach(function (x) { x.classList.remove('on'); });
+      el.classList.add('on');
+    });
+  });
+
+  (function () {
+    var panel = document.getElementById('shPanel');
+    var body = document.getElementById('shBody');
+    var entry = document.getElementById('searchEntry');
+    var empty = document.getElementById('shEmpty');
+    var manageBtn = document.getElementById('shManage');
+    var selEl = document.getElementById('shSel');
+    var tabs = document.querySelectorAll('#shTabs button');
+    var timeBtn = document.getElementById('shTimeBtn');
+    var timeMenu = document.getElementById('shTimeMenu');
+    var state = { cat: 'all', time: 'all', manage: false };
+
+    function cards() { return Array.prototype.slice.call(body.querySelectorAll('.sh-card')); }
+
+    function matchDay(c, time) {
+      var d = parseInt(c.getAttribute('data-day') || '0', 10);
+      if (time === 'all') return true;
+      if (time === '7') return d <= 6;
+      if (time === '30') return d >= 7 && d <= 29;
+      return d > 29;
+    }
+
+    function render() {
+      var total = 0;
+      cards().forEach(function (c) {
+        var okCat = state.cat === 'all' || c.getAttribute('data-cat') === state.cat;
+        var okTime = matchDay(c, state.time);
+        var show = okCat && okTime;
+        c.classList.toggle('hidden', !show);
+        if (show) total++;
+      });
+      Array.prototype.forEach.call(body.querySelectorAll('.sh-group'), function (g) {
+        var has = g.querySelectorAll('.sh-card:not(.hidden)').length > 0;
+        g.classList.toggle('hidden', !has);
+      });
+      document.getElementById('shCount').textContent = total;
+      empty.classList.toggle('show', total === 0);
+      selEl.textContent = body.querySelectorAll('.sh-card.picked').length;
+    }
+
+    function exitManage() {
+      state.manage = false;
+      panel.classList.remove('manage');
+      manageBtn.classList.remove('managing');
+      manageBtn.textContent = '管理';
+      body.querySelectorAll('.sh-card.picked').forEach(function (c) { c.classList.remove('picked'); });
+      render();
+    }
+
+    entry.addEventListener('click', function (e) {
+      e.preventDefault();
+      panel.classList.remove('hidden');
+      panel.setAttribute('aria-hidden', 'false');
+      body.scrollTop = 0;
+      render();
+    });
+
+    document.getElementById('shBack').addEventListener('click', function () {
+      exitManage();
+      panel.classList.add('hidden');
+      panel.setAttribute('aria-hidden', 'true');
+    });
+
+    manageBtn.addEventListener('click', function () {
+      if (state.manage) { exitManage(); return; }
+      state.manage = true;
+      panel.classList.add('manage');
+      manageBtn.classList.add('managing');
+      manageBtn.textContent = '完成';
+    });
+
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        tabs.forEach(function (x) { x.classList.remove('on'); });
+        t.classList.add('on');
+        state.cat = t.getAttribute('data-cat');
+        body.scrollTop = 0;
+        render();
+      });
+    });
+
+    timeBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      timeMenu.classList.toggle('hidden');
+      timeBtn.classList.toggle('on', !timeMenu.classList.contains('hidden'));
+    });
+
+    timeMenu.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        timeMenu.querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+        state.time = b.getAttribute('data-time');
+        timeBtn.childNodes[0].nodeValue = state.time === 'all' ? '筛选搜索时间' : b.textContent.trim() + ' ';
+        timeMenu.classList.add('hidden');
+        timeBtn.classList.remove('on');
+        body.scrollTop = 0;
+        render();
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!timeMenu.classList.contains('hidden') && !timeMenu.contains(e.target) && !timeBtn.contains(e.target)) {
+        timeMenu.classList.add('hidden');
+        timeBtn.classList.remove('on');
+      }
+    });
+
+    body.addEventListener('click', function (e) {
+      if (!state.manage) return;
+      var card = e.target.closest('.sh-card');
+      if (!card) return;
+      e.preventDefault();
+      card.classList.toggle('picked');
+      render();
+    });
+
+    document.getElementById('shDel').addEventListener('click', function () {
+      var picked = body.querySelectorAll('.sh-card.picked');
+      if (!picked.length) return;
+      picked.forEach(function (c) { c.remove(); });
+      exitManage();
+    });
+
+    document.getElementById('shClear').addEventListener('click', function () {
+      cards().forEach(function (c) { c.remove(); });
+      exitManage();
+    });
+  })();
+</script>
+</body>
+</html>
+

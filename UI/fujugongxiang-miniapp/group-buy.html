@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 拼单专场</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding:0 12px 14px}
+.price{color:var(--brand);font-weight:800}
+.price small{font-size:11px}
+.hidden{display:none!important}
+/* 顶部 */
+.top{position:relative;padding:0 14px 14px;background:linear-gradient(165deg,#FFE9E2 0%,#FDE0D7 52%,rgba(253,247,244,0) 100%);border-radius:0 0 22px 22px}
+.trow{display:flex;align-items:center;gap:8px;padding:2px 0 12px}
+.trow a{color:#2A2420;width:24px}
+.trow h1{margin:0;font-size:16px;font-weight:700;color:#231C18;letter-spacing:-.2px}
+.trow .lnk{margin-left:auto;font-size:10.5px;color:#EE4A2F;background:#fff;border-radius:999px;padding:5px 11px;border:1px solid #F7C7B8}
+.hint{display:flex;align-items:center;gap:6px;font-size:11px;color:#B3411F;background:rgba(255,255,255,.88);border:1px solid #FAD3C6;border-radius:12px;padding:8px 10px;line-height:1.5}
+/* 拼单卡 */
+.gc{background:#fff;border-radius:16px;padding:11px;margin-bottom:10px;box-shadow:var(--shadow)}
+.gtop{display:flex;gap:10px}
+.gth{width:88px;height:88px;border-radius:12px;flex:0 0 88px;position:relative;overflow:hidden}
+.gth i{position:absolute;width:62px;height:62px;border-radius:50%;left:13px;top:13px}
+.gth.a{background:linear-gradient(150deg,#F7F7EC,#E1E5C8)}
+.gth.a i{background:radial-gradient(circle at 34% 30%,#E3D5AE,#C0A57B 55%,#95794F 100%)}
+.gth.b{background:linear-gradient(150deg,#FAEFE6,#EFCDB9)}
+.gth.b i{border-radius:14px;background:radial-gradient(circle at 35% 25%,#C98164,#A15E47 65%,#7A4534 100%)}
+.gth.c{background:linear-gradient(150deg,#FBF2E3,#EFD6B4)}
+.gth.c i{background:radial-gradient(circle at 34% 28%,#F3DDB5,#E1B87F 58%,#BC8F5A 100%)}
+.gnf{flex:1;min-width:0;display:flex;flex-direction:column}
+.gnf h3{margin:0;font-size:13px;line-height:1.45;font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gprice{display:flex;align-items:flex-end;gap:6px;margin-top:5px}
+.gprice .price{font-size:21px;line-height:1;letter-spacing:-.5px}
+.gprice .old{font-size:10px;color:#ABABAF;text-decoration:line-through;padding-bottom:2px}
+.gprice .mini{margin-left:auto;font-size:9.5px;color:#A79A91}
+.gmeta{display:flex;align-items:center;gap:6px;margin-top:7px}
+.gmeta .pin{font-size:9.5px;color:#EE4A2F;background:#FFF6F3;border:1px solid #F7A392;border-radius:999px;padding:1px 7px}
+.gmeta .cond{font-size:9.5px;color:#A79A91}
+/* 拼团进度 */
+.prog{display:flex;align-items:center;gap:8px;margin-top:11px;padding-top:11px;border-top:1px dashed #F1E8E2}
+.avas{display:flex;align-items:center}
+.av{width:24px;height:24px;border-radius:50%;background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff;font-size:9.5px;font-weight:700;display:grid;place-items:center;border:1.5px solid #fff;margin-left:-5px}
+.av:first-child{margin-left:0}
+.av.empty{background:#FFF8F5;color:#D6C0B4;border-style:dashed;border-color:#F1D9CC}
+.pinfo{font-size:10.5px;color:#8A7C72;line-height:1.4}
+.pinfo b{color:#E23A2E}
+.gprog{margin-left:auto;display:flex;align-items:center;gap:7px}
+.tm{font-size:9.5px;color:#EE4A2F;font-weight:600;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:999px;padding:2px 7px;font-variant-numeric:tabular-nums}
+.join{height:30px;padding:0 16px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;box-shadow:0 4px 12px rgba(232,70,45,.24)}
+.li{display:flex;gap:8px;padding:10px 0 0;margin-top:10px;border-top:1px dashed #F1E8E2;align-items:center}
+.li .smth{width:34px;height:34px;border-radius:8px;flex:0 0 34px;background:linear-gradient(150deg,#FBF2E3,#EFD6B4);position:relative;overflow:hidden}
+.li .smth i{position:absolute;width:24px;height:24px;border-radius:50%;left:5px;top:5px;background:radial-gradient(circle at 34% 28%,#F3DDB5,#E1B87F 58%,#BC8F5A 100%)}
+.li .nm{font-size:11px;color:#6E6157;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.li .pr{font-size:11.5px;font-weight:700;color:#E23A2E}
+.li .go{font-size:10px;color:#EE4A2F;padding:4px 10px;border-radius:999px;border:1px solid #F7C7B8}
+.mine{display:flex;align-items:center;gap:8px;background:#fff;border-radius:14px;padding:11px 12px;margin:12px 0 0;font-size:11.5px;color:#5C5C5F;box-shadow:var(--shadow)}
+.mine .ic{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 50% 42%,#FDE7E4,#FCEBEA 70%,#FDF2F1);color:#EE4A2F;display:grid;place-items:center;flex:0 0 28px}
+.mine b{color:#5E5249;font-weight:600}
+.mine .ar{margin-left:auto;color:#C2B5AC}
+.sec{display:flex;align-items:center;justify-content:space-between;padding:14px 2px 9px}
+.sec h2{margin:0;font-size:15px;font-weight:800;display:flex;align-items:center;gap:6px}
+.sec h2:before{content:"";width:3px;height:14px;border-radius:2px;background:linear-gradient(180deg,#FB6E4E,#F03A2C)}
+.sec span{font-size:10.5px;color:#A79A91}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="scroll">
+<div class="top">
+<div class="trow">
+<a aria-label="返回" href="home.html"><svg fill="none" height="21" viewbox="0 0 24 24" width="21"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"></path></svg></a>
+<h1>拼单专场</h1>
+<a class="lnk" href="seckill.html">秒杀 ›</a>
+</div>
+<div class="hint">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-width="1.9" viewbox="0 0 24 24" width="14"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="8.6" r="2.4"></circle><path d="M3.5 19c0-3.1 2.5-5 5.5-5s5.5 1.9 5.5 5M16.5 14.4c2.4.2 4 1.9 4 4.6"></path></svg>
+        2 人成团，成团后 48 小时内同城发出；未成团自动全额退款
+      </div>
+</div>
+<div class="pad">
+<a class="mine" href="orders.html">
+<span class="ic"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24" width="15"><path d="M4 7h16M7 3.5v3M17 3.5v3"></path><rect height="15" rx="2.5" width="17" x="3.5" y="5"></rect><path d="M8 12h8M8 16h5"></path></svg></span>
+<span>我参与的拼单 <b>2 个</b> · 1 个待成团</span>
+<span class="ar"><svg fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></span>
+</a>
+<div class="sec"><h2>正在拼单</h2><span>距结束自动解散</span></div>
+<div class="gc">
+<div class="gtop">
+<span class="gth a"><i></i></span>
+<div class="gnf">
+<h3>蒲江红心猕猴桃 5斤大果 现摘现发 甜度18°</h3>
+<div class="gprice"><span class="price"><small>¥</small>34.90</span><span class="old">¥39.90</span><span class="mini">已拼 1,268 件</span></div>
+<div class="gmeta"><span class="pin">2人团</span><span class="cond">同城包邮 · 坏果包赔</span></div>
+</div>
+</div>
+<div class="prog">
+<span class="avas"><i class="av">李</i><i class="av empty">+</i></span>
+<span class="pinfo">还差 <b>1 人</b> 成团</span>
+<span class="gprog"><span class="tm">23:41:08 后结束</span><a class="join" href="product-detail.html">去拼单</a></span>
+</div>
+<div class="li">
+<span class="smth"><i></i></span>
+<span class="nm">金堂脐橙 10斤装 现摘现发</span>
+<span class="pr">¥24.90</span>
+<a class="go" href="product-detail.html">拼</a>
+</div>
+</div>
+<div class="gc">
+<div class="gtop">
+<span class="gth b"><i></i></span>
+<div class="gnf">
+<h3>郫县豆瓣酱 500g 三年陈酿 川菜灵魂</h3>
+<div class="gprice"><span class="price"><small>¥</small>9.90</span><span class="old">¥12.80</span><span class="mini">已拼 3,510 件</span></div>
+<div class="gmeta"><span class="pin">3人团</span><span class="cond">满 2 件再减 ¥3</span></div>
+</div>
+</div>
+<div class="prog">
+<span class="avas"><i class="av">王</i><i class="av">张</i><i class="av empty">+</i></span>
+<span class="pinfo">还差 <b>1 人</b> 成团</span>
+<span class="gprog"><span class="tm">08:12:37 后结束</span><a class="join" href="product-detail.html">去拼单</a></span>
+</div>
+</div>
+<div class="gc">
+<div class="gtop">
+<span class="gth c"><i></i></span>
+<div class="gnf">
+<h3>竹叶青明前春茶 100g 嫩芽清香 成都伴手礼</h3>
+<div class="gprice"><span class="price"><small>¥</small>108.00</span><span class="old">¥128.00</span><span class="mini">已拼 680 件</span></div>
+<div class="gmeta"><span class="pin">2人团</span><span class="cond">赠茶具一套</span></div>
+</div>
+</div>
+<div class="prog">
+<span class="avas"><i class="av">赵</i><i class="av empty">+</i></span>
+<span class="pinfo">还差 <b>1 人</b> 成团</span>
+<span class="gprog"><span class="tm">46:02:19 后结束</span><a class="join" href="product-detail.html">去拼单</a></span>
+</div>
+</div>
+<div class="sec"><h2>猜你想拼</h2><span>同城热门</span></div>
+<div class="gc">
+<div class="gtop">
+<span class="gth c"><i></i></span>
+<div class="gnf">
+<h3>青城山老腊肉 500g 柴火烟熏 农家自制</h3>
+<div class="gprice"><span class="price"><small>¥</small>39.90</span><span class="old">¥46.00</span><span class="mini">已拼 920 件</span></div>
+<div class="gmeta"><span class="pin">2人团</span><span class="cond">冷链配送</span></div>
+</div>
+</div>
+<div class="prog">
+<span class="avas"><i class="av">陈</i><i class="av empty">+</i></span>
+<span class="pinfo">还差 <b>1 人</b> 成团</span>
+<span class="gprog"><span class="tm">12:36:44 后结束</span><a class="join" href="product-detail.html">去拼单</a></span>
+</div>
+</div>
+<div style="height:8px"></div>
+</div>
+</div>
+<div class="homebar"><i></i></div>
+</div>
+</body>
+</html>
+<style>
+/* 顶部秒杀入口保持横向显示 */
+.trow .lnk{width:auto;flex:0 0 auto;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:30px;padding:0 10px;font-size:12px;line-height:1}
+</style>

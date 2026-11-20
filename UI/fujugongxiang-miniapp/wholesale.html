@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 批发选品</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;flex:0 0 auto;min-width:0;min-height:0;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;min-height:0;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.minav{height:44px;flex:0 0 44px;min-height:0;display:flex;align-items:center;justify-content:center;position:relative;padding:0 12px}
+.minav b{font-size:16px;font-weight:800;color:#2A2420;letter-spacing:-.3px}
+.micap{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:78px;height:30px;border-radius:999px;background:rgba(255,255,255,.62);border:.8px solid rgba(0,0,0,.10);display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 1px 4px rgba(150,110,88,.06)}
+.micap svg{display:block}
+.micap i{display:block;width:.8px;height:14px;background:rgba(0,0,0,.14);border-radius:1px}
+.capsym{position:absolute;left:12px;width:78px;height:30px;pointer-events:none}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1 1 auto;width:100%;min-width:0;min-height:0;overflow-y:auto;overflow-x:hidden;padding-bottom:14px;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.hidden{display:none!important}
+.pad{padding-left:14px;padding-right:14px}
+.row{display:flex;align-items:center}
+.city{flex:0 0 auto;display:flex;align-items:center;gap:3px;font-size:16.5px;font-weight:700;color:#17171A;letter-spacing:-.4px}
+.wsearch{flex:1;min-width:0;height:38px;background:#fff;border-radius:999px;display:flex;align-items:center;padding:0 3px 0 12px;box-shadow:0 4px 12px rgba(190,120,90,.08);margin:0 7px}
+.wsearch .ph{flex:1;font-size:13.5px;color:#B6B6BC;margin-left:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sbtn2{height:32px;padding:0 14px;border-radius:999px;background:linear-gradient(100deg,#F7906A 0%,#F2563A 60%,#EC3B2A 100%);color:#fff;font-size:13.5px;font-weight:600;display:flex;align-items:center;flex:0 0 auto;box-shadow:0 3px 8px rgba(232,70,45,.28)}
+.rdot{width:32px;height:32px;border-radius:50%;background:#fff;border:1px solid #F3E7E0;display:grid;place-items:center;box-shadow:0 3px 8px rgba(170,120,90,.06);flex:0 0 32px}
+.rdot + .rdot{margin-left:5px}
+.catgrid{width:100%;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:43px;column-gap:0;row-gap:7px;padding:9px 0 9px;box-sizing:border-box;overflow:visible}
+.catcell{display:flex;min-width:0;justify-content:center;align-items:center;overflow:visible}
+.catpill{font-size:16px;font-weight:600;color:#3A3330;padding:0 2px;border-radius:999px;white-space:nowrap;letter-spacing:-.4px;display:inline-flex;align-items:center;justify-content:center;height:32px;line-height:1;text-align:center;max-width:100%;overflow:visible;box-sizing:border-box}
+.catcell:nth-child(8) .catpill,.catcell:nth-child(10) .catpill{letter-spacing:-.9px}
+.catpill.on{background:linear-gradient(135deg,#E23A2E,#EE4A2F);color:#fff;font-weight:700;padding:0 11px;box-shadow:0 3px 9px rgba(232,70,45,.22)}
+.frow{width:100%;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:4px;box-sizing:border-box}
+.fitem{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;min-width:0;padding:2px 0 4px;box-sizing:border-box}
+.fico{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;box-shadow:none;transition:transform .15s;position:relative;flex:0 0 44px}
+.fitem:nth-child(1) .fico{background:#FDECE8}
+.fitem:nth-child(2) .fico{background:#FEF0D8}
+.fitem:nth-child(3) .fico{background:#FDE2DF}
+.fitem:nth-child(4) .fico{background:#FCE4EE}
+.fitem:nth-child(5) .fico{background:#FBE0EC}
+.fitem:nth-child(1) .fico svg{width:20px;height:20px;display:block}
+.fitem.on .fico{transform:translateY(-1px)}
+.fitem[data-sort="综合距离"].on .fico{background:linear-gradient(140deg,#F2683B,#E23A2E);box-shadow:0 4px 10px rgba(226,58,46,.28)}
+.fitem[data-sort="热销"].on .fico{background:linear-gradient(140deg,#FBBF4C,#F08A24);box-shadow:0 4px 10px rgba(240,138,36,.28)}
+.fitem[data-sort="价格"].on .fico{background:linear-gradient(140deg,#F0745F,#D83A2B);box-shadow:0 4px 10px rgba(216,58,43,.26)}
+.fitem[data-sort="批发单"].on .fico{background:linear-gradient(140deg,#F79BBE,#E2608F);box-shadow:0 4px 10px rgba(226,96,143,.26)}
+.fitem[data-sort="选品单"].on .fico{background:linear-gradient(140deg,#F17BA8,#D94E86);box-shadow:0 4px 10px rgba(217,78,134,.26)}
+.fitem.on .fico svg{fill:#fff;stroke:#fff}
+.fitem.on .fico svg *{fill:#fff;stroke:#fff}
+.fitem[data-sort="价格"].on .parr path{fill:#fff}
+.fitem>span:last-child{font-size:12px;color:#5C5C5F;font-weight:500;letter-spacing:-.3px;white-space:nowrap;display:flex;align-items:center;line-height:1.3;max-width:100%}
+.fitem.on>span:last-child{font-weight:600}
+.fitem[data-sort="综合距离"].on>span:last-child{color:#E23A2E}
+.fitem[data-sort="热销"].on>span:last-child{color:#E8721F}
+.fitem[data-sort="价格"].on>span:last-child{color:#D6382A}
+.fitem[data-sort="批发单"].on>span:last-child{color:#D2537F}
+.fitem[data-sort="选品单"].on>span:last-child{color:#C94878}
+.ftag{display:inline-flex;align-items:center;margin-left:2px;font-size:7.5px;color:#E23A2E;background:#FDEAE5;border-radius:4px;padding:0 3px;line-height:1.5;font-weight:700;vertical-align:1px}
+.frowgap{height:10px}
+.wcard{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 5px 16px rgba(120,60,50,.06);margin-top:11px;display:block;position:relative;padding:13px 12px 12px}
+.whead{display:flex;align-items:flex-start;gap:8px;position:relative;box-sizing:border-box}
+.wavatar{width:48px;height:48px;border-radius:50%;overflow:hidden;flex:0 0 48px;background:#F6EDE4;border:1.5px solid rgba(255,255,255,.9);box-shadow:0 2px 6px rgba(150,110,88,.08)}
+.wavatar svg{width:100%;height:100%;display:block}
+.wname{flex:1;min-width:0;line-height:1.25;padding-top:2px}
+.wname b{display:block;font-size:16px;font-weight:800;color:#2A2420;letter-spacing:-.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wname span{display:block;font-size:13px;color:#8A8A8E;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.2px}
+.wname span em{font-style:normal;color:#E23A2E;font-weight:700}
+.wmeta{display:flex;flex-direction:column;align-items:flex-end;flex:0 0 auto;min-width:0;max-width:126px;line-height:1}
+.wnavrow{display:flex;align-items:center;justify-content:flex-end;flex:0 0 auto;gap:6px;height:30px;white-space:nowrap}
+.wdist{font-size:13px;color:#8A8A8E;font-weight:400;letter-spacing:-.2px}
+.wnavtxt{font-size:13px;color:#2A2420;font-weight:500;letter-spacing:-.2px}
+.navball{width:30px;height:30px;border-radius:50%;background:linear-gradient(140deg,#F2683B 0%,#E23A2E 65%,#EE4A2F 100%);display:grid;place-items:center;flex:0 0 30px;box-shadow:0 2px 6px rgba(226,58,46,.28)}
+.navball svg{width:14px;height:14px;display:block}
+.waddr{display:block;width:100%;max-width:126px;margin-top:3px;font-size:10.5px;line-height:1.3;font-weight:400;color:#9A9A9E;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wbody{display:flex;gap:11px;margin-top:14px;align-items:stretch;min-width:0;box-sizing:border-box}
+.wthumb{width:106px;height:106px;aspect-ratio:1/1;border-radius:14px;flex:0 0 106px;position:relative;overflow:hidden;background:linear-gradient(140deg,#EAF0D6,#C2D59B 55%,#8FAF68)}
+.wthumb .blob{position:absolute;display:block;border-radius:50%}
+.winfo{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;min-height:106px;align-self:stretch;overflow:hidden}
+.winfo h3{flex:0 0 auto}
+.winfo h3{margin:0;font-size:14px;font-weight:800;line-height:1.36;letter-spacing:-.3px;color:#2A2420;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-height:2.72em}
+.wfoot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;gap:10px;margin:6px 0 0;margin-top:auto;min-width:0;flex:0 0 auto;width:100%;max-width:100%;box-sizing:border-box}
+.wshare{display:flex;align-items:center;justify-content:center;gap:4px;height:34px;padding:0 8px;min-width:0;border-radius:999px;background:#fff;border:1px solid #F2C3AE;color:#B4441F;font-size:12px;font-weight:500;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;flex:1 1 0;box-sizing:border-box;line-height:1}
+.wshare svg{display:block;flex:0 0 13px}
+.wbtn{background:#FBE3D6;color:#B4441F;font-size:12px;font-weight:600;height:34px;display:flex;align-items:center;justify-content:center;padding:0 8px;min-width:0;border-radius:999px;white-space:nowrap;overflow:hidden;letter-spacing:-.2px;flex:1 1 0;box-sizing:border-box;line-height:1}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;margin-top:9px;align-items:start;box-sizing:border-box}
+.goodshead{display:flex;align-items:center;justify-content:space-between;gap:8px;height:30px;margin-top:8px;margin-bottom:1px;white-space:nowrap;min-width:0}
+.goodshead .gt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13.5px;font-weight:600;color:#2A2420;letter-spacing:-.3px}
+.goodshead .gs{flex:0 0 auto;font-size:11.5px;color:#8A8A8E;white-space:nowrap;letter-spacing:-.2px}
+.pcard{display:block;width:100%;min-width:0;box-sizing:border-box;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(120,60,50,.06)}
+.pimg{position:relative;overflow:hidden;background:#eee;width:100%;height:112px}
+.pimg svg{display:block;width:100%;height:100%}
+.pimg .blob{position:absolute;display:block;border-radius:50%}
+.pinfo{display:flex;flex-direction:column;gap:4px;padding:8px 9px 10px;min-width:0}
+.pinfo h3{margin:0;font-size:12.5px;line-height:1.38;font-weight:500;color:#2A2420;letter-spacing:-.3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:34px}
+.psold{font-size:11px;line-height:1.4;color:#A2A2A8;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.psold em{font-style:normal;color:#E8721F;font-weight:600}
+.prow{display:flex;align-items:baseline;gap:2px;min-width:0;white-space:nowrap;letter-spacing:-.5px}
+.prow .price{font-size:15.5px;line-height:1.2;font-weight:800;color:#E23A2E}
+.prow .price small{font-size:10.5px;font-weight:800;margin-right:1px}
+.prow .punits{font-size:10.5px;font-weight:600;color:#E8721F;margin-left:1px}
+.pcard:active{background:#FFFBF9}
+.footnote{text-align:center;font-size:10px;color:#B3A69C;padding:8px 0 4px;letter-spacing:.4px}
+.noend{text-align:center;font-size:11.5px;color:#B7AAA1;letter-spacing:.3px;margin:10px 0 12px;line-height:1.4}
+.toast{position:absolute;left:50%;bottom:92px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap;backdrop-filter:blur(6px);width:max-content;max-width:calc(100% - 32px);overflow:hidden;text-overflow:ellipsis;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.tabbar{flex:0 0 58px;height:58px;min-height:58px;background:#FFFCFA;border-top:1px solid rgba(0,0,0,.05);display:flex;align-items:stretch;padding:0 4px;position:relative;overflow:hidden;box-sizing:border-box}
+.tabbar a{flex:1 1 0;min-width:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#8A8A8E;font-size:11.5px;line-height:1.2;font-weight:400;position:relative;text-decoration:none;letter-spacing:0;white-space:nowrap}
+.tabbar a.on{color:#E23A2E;font-weight:600}
+.tabbar a>span:last-child{display:block;white-space:nowrap;overflow:visible;text-overflow:clip;line-height:1.2;max-width:100%}
+.ti{width:24px;height:24px;display:grid;place-items:center;border-radius:50%;position:relative;transition:background .2s;flex:0 0 auto}
+.ti svg{display:block;width:22px;height:22px;max-width:22px;max-height:22px}
+.tabbar a.on .ti{background:radial-gradient(circle at 50% 58%,#FDE0D8 0%,rgba(253,224,216,0) 72%)}
+.badge{position:absolute;top:-4px;right:-7px;min-width:15px;height:15px;border-radius:8px;background:#E8392C;color:#fff;font-size:9.5px;font-weight:600;display:grid;place-items:center;padding:0 4px;font-style:normal;line-height:1}
+.homebar{height:16px;flex:0 0 16px;min-height:16px;background:#FFFCFA;display:flex;align-items:center;justify-content:center;position:relative}
+.homebar i{width:134px;height:5px;border-radius:3px;background:rgba(42,36,32,.28);display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<svg aria-hidden="true" height="0" style="position:absolute" width="0">
+<defs>
+<lineargradient id="halfstar" x1="0" x2="1">
+<stop offset="50%" stop-color="#D8B07A"></stop>
+<stop offset="50%" stop-color="#EADFD6"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="minav">
+<span class="capsym"></span>
+<b>批发选品</b>
+<div aria-label="小程序菜单" class="micap">
+<svg fill="none" height="10" viewbox="0 0 18 6" width="15"><circle cx="3" cy="3" fill="#1C1C1E" r="1.9"></circle><circle cx="9" cy="3" fill="#1C1C1E" r="1.9"></circle><circle cx="15" cy="3" fill="#1C1C1E" r="1.9"></circle></svg>
+<i></i>
+<svg fill="none" height="17" viewbox="0 0 20 20" width="17"><circle cx="10" cy="10" r="7.4" stroke="#1C1C1E" stroke-width="1.6"></circle><circle cx="10" cy="10" fill="#1C1C1E" r="2"></circle></svg>
+</div>
+</div>
+<div class="scroll" id="mainScroll">
+<div class="pad">
+<div class="row">
+<a class="city" href="nearby.html">成都市
+          <svg fill="none" height="6" viewbox="0 0 10 6" width="10"><path d="m1 1 4 4 4-4" stroke="#3A302A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg>
+</a>
+<a class="wsearch" href="search.html">
+<svg fill="none" height="15" viewbox="0 0 24 24" width="15"><circle cx="10.8" cy="10.8" r="6.6" stroke="#B4A69C" stroke-width="2"></circle><path d="m16 16 4.2 4.2" stroke="#B4A69C" stroke-linecap="round" stroke-width="2"></path></svg>
+<span class="ph">输入关键词...</span>
+<span class="sbtn2">搜索</span>
+</a>
+<button aria-label="刷新" class="rdot" onclick="showToast('已刷新同城批发货源')">
+<svg fill="none" height="15" viewbox="0 0 24 24" width="15"><path d="M20 11a8 8 0 1 0-2.3 6.2M20 4v7h-7" stroke="#4A3F37" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"></path></svg>
+</button>
+<button aria-label="历史" class="rdot" onclick="location.href='history.html'">
+<svg fill="none" height="15" viewbox="0 0 24 24" width="15"><circle cx="12" cy="12" r="8.2" stroke="#4A3F37" stroke-width="1.9"></circle><path d="M12 7.5V12l3 2" stroke="#4A3F37" stroke-linecap="round" stroke-width="1.9"></path></svg>
+</button>
+</div>
+<div class="catgrid" id="catgrid">
+<div class="catcell"><button class="catpill on" data-cat="推荐" onclick="pickCat(this)">推荐</button></div>
+<div class="catcell"><button class="catpill" data-cat="水果" onclick="pickCat(this)">水果</button></div>
+<div class="catcell"><button class="catpill" data-cat="蔬菜" onclick="pickCat(this)">蔬菜</button></div>
+<div class="catcell"><button class="catpill" data-cat="干杂" onclick="pickCat(this)">干杂</button></div>
+<div class="catcell"><button class="catpill" data-cat="食品" onclick="pickCat(this)">食品</button></div>
+<div class="catcell"><button class="catpill" data-cat="药材" onclick="pickCat(this)">药材</button></div>
+<div class="catcell"><button class="catpill" data-cat="五金" onclick="pickCat(this)">五金</button></div>
+<div class="catcell"><button class="catpill" data-cat="酒店用品" onclick="pickCat(this)">酒店用品</button></div>
+<div class="catcell"><button class="catpill" data-cat="服装" onclick="pickCat(this)">服装</button></div>
+<div class="catcell"><button class="catpill" data-cat="床上用品" onclick="pickCat(this)">床上用品</button></div>
+</div>
+<div class="frow">
+<button class="fitem on" data-sort="综合距离" onclick="pickSort(this,'综合距离')">
+<span class="fico">
+<svg fill="none" height="20" viewbox="0 0 24 24" width="20"><ellipse cx="12" cy="10" rx="5.6" ry="5.2" stroke="#EE4A2F" stroke-width="1.8"></ellipse><path d="M12 13.2c-3 0-6.4 1.7-6.4 4.6 0 1.5 1.2 2.4 2.9 2.4h7c1.7 0 2.9-.9 2.9-2.4 0-2.9-3.4-4.6-6.4-4.6z" fill="#EE4A2F"></path><ellipse cx="10.4" cy="9" fill="#FDECE8" rx="1" ry="1.2"></ellipse></svg>
+</span>
+<span>综合距离</span>
+</button>
+<button class="fitem" data-sort="热销" onclick="pickSort(this,'热销')">
+<span class="fico">
+<svg height="20" viewbox="0 0 24 24" width="20"><path d="M13.2 2c.5 4-2.2 5.4-2.2 8 0 1.2.8 2 1.8 2 1.6 0 2.2-1.8 2-3.4 2.4 1.8 4.2 4.3 4.2 7.2A7 7 0 1 1 8 8.6c.2 1.7 1 2.7 2.1 3.4C9.4 8.6 11 5 13.2 2z" fill="#EE4A2F"></path></svg>
+</span>
+<span>热销</span>
+</button>
+<button class="fitem" data-sort="价格" onclick="pickSort(this,'价格')">
+<span class="fico">
+<svg fill="none" height="21" viewbox="0 0 24 24" width="21"><circle cx="12" cy="12" r="8.4" stroke="#EE4A2F" stroke-width="1.7"></circle><path d="M8.5 8.5h2.2l1.6 3 1.6-3h2.1l-2.6 4.6V17h-2.2v-3.9z" fill="#EE4A2F"></path></svg>
+</span>
+<span>价格<svg class="parr hidden" height="8" id="arrowUp" style="vertical-align:1px;margin-left:1px" viewbox="0 0 8 9" width="7"><path d="M4 0 8 5.5H0z" fill="#EE4A2F"></path></svg><svg class="parr hidden" height="8" id="arrowDown" style="vertical-align:1px;margin-left:1px" viewbox="0 0 8 9" width="7"><path d="M4 9 0 3.5h8z" fill="#EE4A2F"></path></svg></span>
+</button>
+<button class="fitem" data-sort="批发单" onclick="pickSort(this,'批发单')">
+<span class="fico">
+<svg fill="none" height="20" viewbox="0 0 24 24" width="20"><path d="M3.5 8 12 3.5 20.5 8 12 12.5z" stroke="#EE4A2F" stroke-linejoin="round" stroke-width="1.7"></path><path d="M3.5 8v8L12 20.5V12.5M20.5 8v8L12 20.5" stroke="#EE4A2F" stroke-linejoin="round" stroke-width="1.7"></path></svg>
+</span>
+<span>批发单</span>
+</button>
+<button class="fitem" data-sort="选品单" onclick="pickSort(this,'选品单')">
+<span class="fico">
+<svg fill="none" height="20" viewbox="0 0 24 24" width="20"><rect height="16" rx="3" stroke="#EE4A2F" stroke-width="1.8" width="14" x="5" y="4.5"></rect><path d="M9 4.5V3.6A1.6 1.6 0 0 1 10.6 2h2.8A1.6 1.6 0 0 1 15 3.6v.9M9 11h6M9 15h4" stroke="#EE4A2F" stroke-linecap="round" stroke-width="1.8"></path></svg>
+</span>
+<span>选品单</span>
+</button>
+</div>
+<div aria-hidden="true" class="frowgap"></div>
+</div>
+<div class="pad" id="shopPanel">
+<div id="shopList">
+<a class="wcard" href="wholesale-shop.html">
+<div class="whead">
+<div class="wavatar">
+<svg viewbox="0 0 42 42"><circle cx="21" cy="21" fill="#EFE0D1" r="21"></circle><ellipse cx="12" cy="18" fill="#6B4A36" rx="5" ry="7" transform="rotate(-24 12 18)"></ellipse><ellipse cx="30" cy="18" fill="#6B4A36" rx="5" ry="7" transform="rotate(24 30 18)"></ellipse><circle cx="21" cy="22" fill="#F8EFE5" r="11"></circle><circle cx="17" cy="20" fill="#3B2A1F" r="1.5"></circle><circle cx="25" cy="20" fill="#3B2A1F" r="1.5"></circle><ellipse cx="21" cy="25" fill="#3B2A1F" rx="2.5" ry="1.8"></ellipse><path d="M21 26.6v2" stroke="#3B2A1F" stroke-width="1"></path></svg>
+</div>
+<div class="wname"><b>福聚贡翔演示店</b><span>已售<em>294</em>件</span></div>
+<div class="wmeta">
+<div class="wnavrow">
+<b class="wdist">1.2km</b>
+<span class="wnavtxt">导航</span>
+<span class="navball">
+<svg fill="#fff" height="14" viewbox="0 0 24 24" width="14"><path d="M21 3 3 10.5l8 2 2 8z"></path></svg>
+</span>
+</div>
+<span class="waddr">蒲江县鹤山街道朝阳大道 128 号</span>
+</div>
+</div>
+<div class="wbody">
+<div class="wthumb">
+<i class="blob" style="width:82px;height:82px;left:18px;top:22px;background:radial-gradient(circle at 34% 30%,#D9C08A,#A47F45 58%,#6E5127)"></i>
+<i class="blob" style="width:50px;height:50px;left:64px;top:56px;background:radial-gradient(circle at 35% 30%,#C6D98B,#7E9B4A 62%,#4F6A2A)"></i>
+</div>
+<div class="winfo">
+<h3>蒲江红心猕猴桃 5斤大果 一件代发</h3>
+<div class="wfoot">
+<span class="wshare" onclick="shareShop(event,'福聚贡翔演示店')" role="button">
+<svg aria-hidden="true" fill="none" height="13" viewbox="0 0 24 24" width="13"><circle cx="18" cy="5" r="2.6" stroke="#B4441F" stroke-width="1.8"></circle><circle cx="6" cy="12" r="2.6" stroke="#B4441F" stroke-width="1.8"></circle><circle cx="18" cy="19" r="2.6" stroke="#B4441F" stroke-width="1.8"></circle><path d="M8.3 10.8 15.7 6.2M8.3 13.2l7.4 4.6" stroke="#B4441F" stroke-linecap="round" stroke-width="1.8"></path></svg>
+<span>分享店铺</span>
+</span>
+<span class="wbtn">进入店铺 ›</span>
+</div>
+</div>
+</div>
+</a>
+<a class="wcard" href="wholesale-shop.html">
+<div class="whead">
+<div class="wavatar">
+<svg viewbox="0 0 42 42"><circle cx="21" cy="21" fill="#E8EFD9" r="21"></circle><circle cx="21" cy="22" fill="#F0C98B" r="12"></circle><path d="M9 18c3-8 21-8 24 0-4-3-20-3-24 0z" fill="#4E7A32"></path><circle cx="17" cy="22" fill="#6B4A36" r="1.4"></circle><circle cx="25" cy="22" fill="#6B4A36" r="1.4"></circle><path d="M18 27c1.8 1.2 4.2 1.2 6 0" fill="none" stroke="#B5705A" stroke-linecap="round" stroke-width="1.1"></path></svg>
+</div>
+<div class="wname"><b>蒲江猕猴桃直供基地</b><span>已售<em>1820</em>件</span></div>
+<div class="wmeta">
+<div class="wnavrow">
+<b class="wdist">2.3km</b>
+<span class="wnavtxt">导航</span>
+<span class="navball"><svg fill="#fff" height="14" viewbox="0 0 24 24" width="14"><path d="M21 3 3 10.5l8 2 2 8z"></path></svg></span>
+</div>
+<span class="waddr">蒲江县寿安街道猕猴桃产业路 9 号</span>
+</div>
+</div>
+<div class="wbody">
+<div class="wthumb" style="background:linear-gradient(140deg,#FBF3E4,#F1DBB9 55%,#DCBB93)">
+<i class="blob" style="width:82px;height:82px;left:20px;top:24px;background:radial-gradient(circle at 34% 28%,#F1DFB8,#DFBE8B 58%,#B08F60)"></i>
+<i class="blob" style="width:48px;height:48px;left:68px;top:62px;background:radial-gradient(circle at 35% 30%,#F6E8C8,#E4C9A0 62%,#B9986C)"></i>
+</div>
+<div class="winfo">
+<h3>金堂脐橙 10斤装 果径75mm 基地直供</h3>
+<div class="wfoot">
+<span class="wshare" onclick="shareShop(event,'蒲江猕猴桃直供基地')" role="button">
+<svg aria-hidden="true" fill="none" height="13" viewbox="0 0 24 24" width="13"><circle cx="18" cy="5" r="2.6" stroke="#B4441F" stroke-width="1.8"></circle><circle cx="6" cy="12" r="2.6" stroke="#B4441F" stroke-width="1.8"></circle><circle cx="18" cy="19" r="2.6" stroke="#B4441F" stroke-width="1.8"></circle><path d="M8.3 10.8 15.7 6.2M8.3 13.2l7.4 4.6" stroke="#B4441F" stroke-linecap="round" stroke-width="1.8"></path></svg>
+<span>分享店铺</span>
+</span>
+<span class="wbtn">进入店铺 ›</span>
+</div>
+</div>
+</div>
+</a>
+<a class="wcard" href="wholesale-shop.html">
+<div class="whead">
+<div class="wavatar">
+<svg viewbox="0 0 42 42"><circle cx="21" cy="21" fill="#F5E2D6" r="21"></circle><circle cx="21" cy="23" fill="#B95037" r="13"></circle><rect fill="#F0D8A8" height="12" rx="3" width="18" x="12" y="22"></rect><circle cx="16" cy="17" fill="#3B2A1F" r="1.5"></circle><circle cx="26" cy="17" fill="#3B2A1F" r="1.5"></circle><path d="M17 20.5c2.4 1.6 5.6 1.6 8 0" fill="none" stroke="#7A2A18" stroke-linecap="round" stroke-width="1.2"></path></svg>
+</div>
+<div class="wname"><b>郫都豆瓣老作坊</b><span>已售<em>860</em>件</span></div>
+<div class="wmeta">
+<div class="wnavrow">
+<b class="wdist">3.8km</b>
+<span class="wnavtxt">导航</span>
+<span class="navball"><svg fill="#fff" height="14" viewbox="0 0 24 24" width="14"><path d="M21 3 3 10.5l8 2 2 8z"></path></svg></span>
+</div>
+<span class="waddr">郫都区郫筒街道望丛中路 66 号</span>
+</div>
+</div>
+<div class="wbody">
+<div class="wthumb" style="background:linear-gradient(140deg,#FCE6D8,#E9A17B 48%,#B95A38)">
+<i class="blob" style="width:76px;height:88px;left:23px;top:17px;border-radius:18px;background:radial-gradient(circle at 35% 25%,#C9512F,#8E2E18 65%,#5C1A0C)"></i>
+<i class="blob" style="width:48px;height:54px;left:37px;top:34px;border-radius:8px;background:linear-gradient(180deg,#FBF5E8,#EFE1C6)"></i>
+</div>
+<div class="winfo">
+<h3>郫县豆瓣酱 500g 三年陈酿 餐饮装</h3>
+<div class="wfoot">
+<span class="wshare" onclick="shareShop(event,'郫都豆瓣老作坊')" role="button">
+<svg aria-hidden="true" fill="none" height="13" viewbox="0 0 24 24" width="13"><circle cx="18" cy="5" r="2.6" stroke="#B4441F" stroke-width="1.8"></circle><circle cx="6" cy="12" r="2.6" stroke="#B4441F" stroke-width="1.8"></circle><circle cx="18" cy="19" r="2.6" stroke="#B4441F" stroke-width="1.8"></circle><path d="M8.3 10.8 15.7 6.2M8.3 13.2l7.4 4.6" stroke="#B4441F" stroke-linecap="round" stroke-width="1.8"></path></svg>
+<span>分享店铺</span>
+</span>
+<span class="wbtn">进入店铺 ›</span>
+</div>
+</div>
+</div>
+</a>
+<div class="noend">没有更多了</div>
+</div>
+</div>
+<div class="pad hidden" id="goodsPanel">
+<div class="goodshead">
+<span class="gt" id="goodsTitle">推荐 · 全部商品</span>
+<span class="gs" id="goodsSub">综合推荐</span>
+</div>
+<div class="grid2" id="goodsGrid">
+<a class="pcard" data-cat="推荐" data-price="34.9" data-sales="27278" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wq1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#EEF3DE"></stop><stop offset="1" stop-color="#C9DCA4"></stop></lineargradient><radialgradient cx=".35" cy=".3" id="wqa"><stop stop-color="#C9A96B"></stop><stop offset=".6" stop-color="#9C7A45"></stop><stop offset="1" stop-color="#6B5228"></stop></radialgradient></defs>
+<rect fill="url(#wq1)" height="160" width="160"></rect>
+<circle cx="62" cy="88" fill="url(#wqa)" r="42"></circle>
+<circle cx="108" cy="98" fill="url(#wqa)" opacity=".92" r="28"></circle>
+<path d="M62 46c12-8 24-5 28 2-12 5-22 4-28-2z" fill="#7E9B4A"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>蒲江红心猕猴桃 5斤大果 一件代发</h3>
+<div class="psold">已售 <em data-sold="">27278</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>34.9</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="推荐" data-price="24.9" data-sales="18620" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wq2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FDF3E2"></stop><stop offset="1" stop-color="#F0D7AC"></stop></lineargradient><radialgradient cx=".34" cy=".28" id="wqb"><stop stop-color="#F7C96E"></stop><stop offset=".62" stop-color="#E09037"></stop><stop offset="1" stop-color="#A45C1A"></stop></radialgradient></defs>
+<rect fill="url(#wq2)" height="160" width="160"></rect>
+<ellipse cx="78" cy="96" fill="url(#wqb)" rx="48" ry="34"></ellipse>
+<ellipse cx="64" cy="88" fill="#FBD48C" opacity=".5" rx="18" ry="11"></ellipse>
+<path d="M78 62c14-10 28-6 32 0-12 7-24 6-32 0z" fill="#5F8C3A"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>金堂脐橙 10斤装 果径75mm 基地直供</h3>
+<div class="psold">已售 <em data-sold="">18620</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>24.9</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="推荐" data-price="12.8" data-sales="35210" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wq3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FCE7D6"></stop><stop offset="1" stop-color="#E6A880"></stop></lineargradient><lineargradient id="wqc" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#D9553A"></stop><stop offset="1" stop-color="#7E2414"></stop></lineargradient></defs>
+<rect fill="url(#wq3)" height="160" width="160"></rect>
+<rect fill="url(#wqc)" height="76" rx="10" width="64" x="48" y="44"></rect>
+<rect fill="#FBF3E2" height="44" rx="3" width="52" x="54" y="62"></rect>
+<text fill="#9C2A14" font-size="14" font-weight="700" text-anchor="middle" x="80" y="90">豆瓣</text>
+</svg>
+</div>
+<div class="pinfo">
+<h3>郫县豆瓣酱 500g 三年陈酿 餐饮装</h3>
+<div class="psold">已售 <em data-sold="">35210</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>12.8</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="推荐" data-price="19.9" data-sales="9680" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wq4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F8ECDC"></stop><stop offset="1" stop-color="#D9AE7B"></stop></lineargradient><radialgradient cx=".36" cy=".3" id="wqd"><stop stop-color="#C4553A"></stop><stop offset=".65" stop-color="#8A2B18"></stop><stop offset="1" stop-color="#521006"></stop></radialgradient></defs>
+<rect fill="url(#wq4)" height="160" width="160"></rect>
+<circle cx="70" cy="92" fill="url(#wqd)" r="32"></circle>
+<circle cx="106" cy="74" fill="url(#wqd)" r="13"></circle>
+<circle cx="104" cy="114" fill="url(#wqd)" r="10"></circle>
+</svg>
+</div>
+<div class="pinfo">
+<h3>汉源花椒 200g 大红袍 麻香浓郁</h3>
+<div class="psold">已售 <em data-sold="">9680</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>19.9</span><span class="punits">/袋</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="推荐" data-price="32" data-sales="9450" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wr1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FDEDE4"></stop><stop offset="1" stop-color="#EDBFA8"></stop></lineargradient><radialgradient cx=".36" cy=".3" id="wra"><stop stop-color="#F6A57E"></stop><stop offset=".65" stop-color="#E0673E"></stop><stop offset="1" stop-color="#A83A19"></stop></radialgradient></defs>
+<rect fill="url(#wr1)" height="160" width="160"></rect>
+<circle cx="66" cy="96" fill="url(#wra)" r="34"></circle>
+<circle cx="106" cy="88" fill="url(#wra)" opacity=".92" r="24"></circle>
+<path d="M66 60c10-10 24-8 28-2-10 6-20 6-28 2z" fill="#5F8C3A"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>龙泉驿水蜜桃 8斤装 大果软糯 现采</h3>
+<div class="psold">已售 <em data-sold="">9450</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>32</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="推荐" data-price="42" data-sales="6830" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wr2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F3F1E4"></stop><stop offset="1" stop-color="#CFD6A6"></stop></lineargradient><radialgradient cx=".36" cy=".3" id="wrb"><stop stop-color="#C6D45F"></stop><stop offset=".68" stop-color="#8DA62E"></stop><stop offset="1" stop-color="#5A7016"></stop></radialgradient></defs>
+<rect fill="url(#wr2)" height="160" width="160"></rect>
+<circle cx="62" cy="92" fill="url(#wrb)" r="22"></circle>
+<circle cx="90" cy="100" fill="url(#wrb)" opacity=".94" r="22"></circle>
+<circle cx="78" cy="70" fill="url(#wrb)" opacity=".88" r="20"></circle>
+</svg>
+</div>
+<div class="pinfo">
+<h3>阳光玫瑰葡萄 5斤装 无籽脆甜 礼盒</h3>
+<div class="psold">已售 <em data-sold="">6830</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>42</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="推荐" data-price="28.5" data-sales="11200" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wr3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FDF1D8"></stop><stop offset="1" stop-color="#EFCB84"></stop></lineargradient><radialgradient cx=".34" cy=".28" id="wrc"><stop stop-color="#F7C963"></stop><stop offset=".66" stop-color="#DE9A2E"></stop><stop offset="1" stop-color="#A0620F"></stop></radialgradient></defs>
+<rect fill="url(#wr3)" height="160" width="160"></rect>
+<ellipse cx="76" cy="98" fill="url(#wrc)" rx="46" ry="32"></ellipse>
+<ellipse cx="62" cy="90" fill="#FCE0A2" opacity=".5" rx="16" ry="10"></ellipse>
+</svg>
+</div>
+<div class="pinfo">
+<h3>攀枝花凯特芒果 10斤装 果大肉厚</h3>
+<div class="psold">已售 <em data-sold="">11200</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>28.5</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="推荐" data-price="15.8" data-sales="23400" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wr4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FDF3DE"></stop><stop offset="1" stop-color="#EFD3A0"></stop></lineargradient><radialgradient cx=".34" cy=".28" id="wrd"><stop stop-color="#F2B951"></stop><stop offset=".66" stop-color="#D88A22"></stop><stop offset="1" stop-color="#98570C"></stop></radialgradient></defs>
+<rect fill="url(#wr4)" height="160" width="160"></rect>
+<ellipse cx="72" cy="98" fill="url(#wrd)" rx="42" ry="30"></ellipse>
+<ellipse cx="104" cy="88" fill="url(#wrd)" opacity=".9" rx="22" ry="18"></ellipse>
+<path d="M72 66c10-8 22-6 26 0-10 6-18 6-26 0z" fill="#5F8C3A"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>蒲江丑橘 10斤装 酸甜多汁 产地直供</h3>
+<div class="psold">已售 <em data-sold="">23400</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>15.8</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="推荐" data-price="4.6" data-sales="42600" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wr5" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F2F6E6"></stop><stop offset="1" stop-color="#C3D79A"></stop></lineargradient><radialgradient cx=".34" cy=".28" id="wre"><stop stop-color="#8CC24E"></stop><stop offset=".68" stop-color="#4E8A28"></stop><stop offset="1" stop-color="#2E5A15"></stop></radialgradient></defs>
+<rect fill="url(#wr5)" height="160" width="160"></rect>
+<ellipse cx="80" cy="96" fill="url(#wre)" rx="48" ry="30"></ellipse>
+<ellipse cx="58" cy="90" fill="#B2D97A" opacity=".5" rx="8" ry="14"></ellipse>
+<ellipse cx="102" cy="102" fill="#B2D97A" opacity=".42" rx="8" ry="13"></ellipse>
+</svg>
+</div>
+<div class="pinfo">
+<h3>郫都青油菜 20斤装 当日采摘 蔬菜批发</h3>
+<div class="psold">已售 <em data-sold="">42600</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>4.6</span><span class="punits">/斤</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="推荐" data-price="68" data-sales="1560" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wr6" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F7F4EE"></stop><stop offset="1" stop-color="#DAD2C2"></stop></lineargradient><lineargradient id="wrf" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#CFC7B7"></stop></lineargradient></defs>
+<rect fill="url(#wr6)" height="160" width="160"></rect>
+<rect fill="url(#wrf)" height="44" rx="11" width="92" x="34" y="74"></rect>
+<path d="M34 88h92" stroke="#E4DCCC" stroke-width="2.4"></path>
+<rect fill="#FAF7F1" height="14" rx="5" width="20" x="58" y="66"></rect>
+<rect fill="#FAF7F1" height="14" rx="5" width="20" x="84" y="66"></rect>
+</svg>
+</div>
+<div class="pinfo">
+<h3>酒店客房电热水壶 1.7L 304内胆</h3>
+<div class="psold">已售 <em data-sold="">1560</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>68</span><span class="punits">/台</span></div>
+</div>
+</a>
+<!-- 食品 -->
+<a class="pcard" data-cat="食品" data-price="12.8" data-sales="35210" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wf1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBEDE2"></stop><stop offset="1" stop-color="#E3B7A0"></stop></lineargradient><lineargradient id="wfa" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#D8482A"></stop><stop offset="1" stop-color="#8A1D0C"></stop></lineargradient></defs>
+<rect fill="url(#wf1)" height="160" width="160"></rect>
+<rect fill="url(#wfa)" height="52" rx="10" width="68" x="46" y="66"></rect>
+<ellipse cx="80" cy="66" fill="#B7341B" rx="34" ry="10"></ellipse>
+</svg>
+</div>
+<div class="pinfo">
+<h3>郫县豆瓣酱 500g 三年陈酿 餐饮装</h3>
+<div class="psold">已售 <em data-sold="">35210</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>12.8</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="食品" data-price="15.6" data-sales="11800" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wf2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBF4E6"></stop><stop offset="1" stop-color="#E5D3B0"></stop></lineargradient><lineargradient id="wfb" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#E8D3A6"></stop><stop offset="1" stop-color="#BFA16A"></stop></lineargradient></defs>
+<rect fill="url(#wf2)" height="160" width="160"></rect>
+<rect fill="url(#wfb)" height="52" rx="8" width="64" x="48" y="62"></rect>
+<path d="M54 76h52M54 90h52M54 104h52" stroke="#F7EBD6" stroke-width="4"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>手工挂面 10斤装 筋道耐煮 餐饮装</h3>
+<div class="psold">已售 <em data-sold="">11800</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>15.6</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="食品" data-price="38" data-sales="7250" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wf3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F7E9DE"></stop><stop offset="1" stop-color="#DDAE96"></stop></lineargradient><lineargradient id="wfc" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#B24A2A"></stop><stop offset="1" stop-color="#6E2410"></stop></lineargradient></defs>
+<rect fill="url(#wf3)" height="160" width="160"></rect>
+<path d="M50 84h60l-8 44H58z" fill="url(#wfc)"></path>
+<path d="M50 84c10-16 50-16 60 0" fill="none" stroke="#8C3A1C" stroke-width="5"></path>
+<path d="M70 96h20M70 108h20" opacity=".7" stroke="#E8B79C" stroke-width="3"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>川味腊肉 1kg 柴火慢熏 真空锁鲜</h3>
+<div class="psold">已售 <em data-sold="">7250</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>38</span><span class="punits">/袋</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="食品" data-price="21.9" data-sales="15400" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wf4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FAF5EA"></stop><stop offset="1" stop-color="#E0D6C0"></stop></lineargradient><radialgradient cx=".38" cy=".3" id="wfd"><stop stop-color="#FDF8EE"></stop><stop offset=".7" stop-color="#E4D4BC"></stop><stop offset="1" stop-color="#C0A98A"></stop></radialgradient></defs>
+<rect fill="url(#wf4)" height="160" width="160"></rect>
+<ellipse cx="64" cy="94" fill="url(#wfd)" rx="24" ry="17"></ellipse>
+<ellipse cx="100" cy="86" fill="url(#wfd)" opacity=".95" rx="21" ry="15"></ellipse>
+<ellipse cx="88" cy="116" fill="url(#wfd)" opacity=".9" rx="19" ry="14"></ellipse>
+</svg>
+</div>
+<div class="pinfo">
+<h3>速冻抄手 2.5kg 鲜肉现包 冷链配送</h3>
+<div class="psold">已售 <em data-sold="">15400</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>21.9</span><span class="punits">/袋</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="食品" data-price="29.8" data-sales="5980" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wf5" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F3F5EA"></stop><stop offset="1" stop-color="#CBD8AF"></stop></lineargradient><lineargradient id="wfe" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7E9B4A"></stop><stop offset="1" stop-color="#3F5A1E"></stop></lineargradient></defs>
+<rect fill="url(#wf5)" height="160" width="160"></rect>
+<rect fill="url(#wfe)" height="56" rx="8" width="64" x="48" y="64"></rect>
+<path d="M64 90c6-8 26-8 32 0" fill="none" stroke="#D6E3B6" stroke-width="3"></path>
+<circle cx="80" cy="76" fill="#E6EFD0" r="5"></circle>
+</svg>
+</div>
+<div class="pinfo">
+<h3>青城山茶叶礼盒 250g 手工炒制</h3>
+<div class="psold">已售 <em data-sold="">5980</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>29.8</span><span class="punits">/盒</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="食品" data-price="8.8" data-sales="26300" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wf6" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBEAE1"></stop><stop offset="1" stop-color="#E2A88E"></stop></lineargradient><lineargradient id="wff" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#D9502C"></stop><stop offset="1" stop-color="#8C2210"></stop></lineargradient></defs>
+<rect fill="url(#wf6)" height="160" width="160"></rect>
+<path d="M48 78h64v42a10 10 0 0 1-10 10H58a10 10 0 0 1-10-10z" fill="url(#wff)"></path>
+<path d="M48 78c12-12 52-12 64 0" fill="none" stroke="#F0B49B" stroke-width="4"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>牛油火锅底料 24袋整箱 麻辣厚重</h3>
+<div class="psold">已售 <em data-sold="">26300</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>8.8</span><span class="punits">/袋</span></div>
+</div>
+</a>
+<!-- 水果 -->
+<a class="pcard" data-cat="水果" data-price="34.9" data-sales="27278" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="ws1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#EEF3DE"></stop><stop offset="1" stop-color="#C9DCA4"></stop></lineargradient><radialgradient cx=".35" cy=".3" id="wsa"><stop stop-color="#C9A96B"></stop><stop offset=".6" stop-color="#9C7A45"></stop><stop offset="1" stop-color="#6B5228"></stop></radialgradient></defs>
+<rect fill="url(#ws1)" height="160" width="160"></rect>
+<circle cx="66" cy="94" fill="url(#wsa)" r="38"></circle>
+<circle cx="106" cy="102" fill="url(#wsa)" opacity=".92" r="25"></circle>
+<path d="M66 56c12-8 24-5 28 2-12 5-22 4-28-2z" fill="#7E9B4A"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>蒲江红心猕猴桃 5斤大果 一件代发</h3>
+<div class="psold">已售 <em data-sold="">27278</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>34.9</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="水果" data-price="24.9" data-sales="18620" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="ws2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FDF3E2"></stop><stop offset="1" stop-color="#F0D7AC"></stop></lineargradient><radialgradient cx=".34" cy=".28" id="wsb"><stop stop-color="#F7C96E"></stop><stop offset=".62" stop-color="#E09037"></stop><stop offset="1" stop-color="#A45C1A"></stop></radialgradient></defs>
+<rect fill="url(#ws2)" height="160" width="160"></rect>
+<ellipse cx="80" cy="104" fill="url(#wsb)" rx="50" ry="32"></ellipse>
+<ellipse cx="64" cy="96" fill="#FBD48C" opacity=".5" rx="18" ry="11"></ellipse>
+<path d="M80 70c14-10 28-6 32 0-12 7-24 6-32 0z" fill="#5F8C3A"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>金堂脐橙 10斤装 果径75mm 基地直供</h3>
+<div class="psold">已售 <em data-sold="">18620</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>24.9</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="水果" data-price="32" data-sales="9450" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="ws3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F7EDE5"></stop><stop offset="1" stop-color="#E2C4AF"></stop></lineargradient><radialgradient cx=".34" cy=".28" id="wsc"><stop stop-color="#EAC7A8"></stop><stop offset=".62" stop-color="#C9905F"></stop><stop offset="1" stop-color="#8C5730"></stop></radialgradient></defs>
+<rect fill="url(#ws3)" height="160" width="160"></rect>
+<circle cx="72" cy="94" fill="url(#wsc)" r="40"></circle>
+<path d="M72 52c10-10 24-8 28 0-10 6-20 6-28 0z" fill="#7E9B4A"></path>
+<circle cx="112" cy="112" fill="url(#wsc)" opacity=".8" r="12"></circle>
+</svg>
+</div>
+<div class="pinfo">
+<h3>龙泉驿水蜜桃 8斤装 大果软糯 现采</h3>
+<div class="psold">已售 <em data-sold="">9450</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>32</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="水果" data-price="42" data-sales="6830" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="ws4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F2F4E8"></stop><stop offset="1" stop-color="#CBD7AE"></stop></lineargradient><radialgradient cx=".36" cy=".3" id="wsd"><stop stop-color="#CBE06A"></stop><stop offset=".64" stop-color="#8EAE3A"></stop><stop offset="1" stop-color="#557021"></stop></radialgradient></defs>
+<rect fill="url(#ws4)" height="160" width="160"></rect>
+<circle cx="70" cy="94" fill="url(#wsd)" r="34"></circle>
+<circle cx="108" cy="106" fill="url(#wsd)" r="21"></circle>
+<path d="M70 62c10-8 20-6 24 0-8 5-16 4-24 0z" fill="#4E7A32"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>阳光玫瑰葡萄 5斤装 无籽脆甜 礼盒</h3>
+<div class="psold">已售 <em data-sold="">6830</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>42</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="水果" data-price="28.5" data-sales="11200" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="ws5" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBEFF0"></stop><stop offset="1" stop-color="#E8B6B6"></stop></lineargradient><radialgradient cx=".34" cy=".3" id="wse"><stop stop-color="#E87B78"></stop><stop offset=".62" stop-color="#B93E3A"></stop><stop offset="1" stop-color="#7C1E1C"></stop></radialgradient></defs>
+<rect fill="url(#ws5)" height="160" width="160"></rect>
+<path d="M80 68c23-15 46 0 46 25 0 21-19 36-46 36s-46-15-46-36c0-25 23-40 46-25z" fill="url(#wse)"></path>
+<path d="M80 66c-6-10 2-18 12-20-2 10-6 16-12 20z" fill="#4E7A32"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>攀枝花凯特芒果 10斤装 果大肉厚</h3>
+<div class="psold">已售 <em data-sold="">11200</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>28.5</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="水果" data-price="15.8" data-sales="23400" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="ws6" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBF2E2"></stop><stop offset="1" stop-color="#E9CFA2"></stop></lineargradient><radialgradient cx=".34" cy=".28" id="wsf"><stop stop-color="#F1D28A"></stop><stop offset=".62" stop-color="#C79A45"></stop><stop offset="1" stop-color="#8C651F"></stop></radialgradient></defs>
+<rect fill="url(#ws6)" height="160" width="160"></rect>
+<circle cx="74" cy="94" fill="url(#wsf)" r="32"></circle>
+<circle cx="106" cy="86" fill="url(#wsf)" r="23"></circle>
+<circle cx="96" cy="118" fill="url(#wsf)" r="17"></circle>
+<path d="M74 62c8-8 18-6 22 0-8 5-15 4-22 0z" fill="#5F8C3A"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>蒲江丑橘 10斤装 酸甜多汁 产地直供</h3>
+<div class="psold">已售 <em data-sold="">23400</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>15.8</span><span class="punits">/件</span></div>
+</div>
+</a>
+<!-- 蔬菜 -->
+<a class="pcard" data-cat="蔬菜" data-price="4.6" data-sales="42600" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wv1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#EFF4E2"></stop><stop offset="1" stop-color="#BBD08E"></stop></lineargradient><radialgradient cx=".34" cy=".28" id="wva"><stop stop-color="#8CC24E"></stop><stop offset=".68" stop-color="#4E8A28"></stop><stop offset="1" stop-color="#2E5A15"></stop></radialgradient></defs>
+<rect fill="url(#wv1)" height="160" width="160"></rect>
+<ellipse cx="80" cy="98" fill="url(#wva)" rx="50" ry="30"></ellipse>
+<ellipse cx="58" cy="92" fill="#A8D46A" opacity=".5" rx="8" ry="15"></ellipse>
+<ellipse cx="100" cy="106" fill="#A8D46A" opacity=".4" rx="8" ry="14"></ellipse>
+</svg>
+</div>
+<div class="pinfo">
+<h3>郫都青油菜 20斤装 当日采摘 批发</h3>
+<div class="psold">已售 <em data-sold="">42600</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>4.6</span><span class="punits">/斤</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="蔬菜" data-price="3.2" data-sales="38900" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wv2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F5F3E6"></stop><stop offset="1" stop-color="#DCD3A9"></stop></lineargradient><radialgradient cx=".34" cy=".3" id="wvb"><stop stop-color="#F4EEDA"></stop><stop offset=".68" stop-color="#D8C99C"></stop><stop offset="1" stop-color="#A99560"></stop></radialgradient></defs>
+<rect fill="url(#wv2)" height="160" width="160"></rect>
+<ellipse cx="80" cy="100" fill="url(#wvb)" rx="48" ry="32"></ellipse>
+<path d="M80 68c-8-12 0-22 10-24-2 12-4 20-10 24z" fill="#7E9B4A"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>大白菜 30斤装 黄芯紧实 食堂配送</h3>
+<div class="psold">已售 <em data-sold="">38900</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>3.2</span><span class="punits">/斤</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="蔬菜" data-price="5.8" data-sales="21700" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wv3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBEDE8"></stop><stop offset="1" stop-color="#E7B7A6"></stop></lineargradient><radialgradient cx=".34" cy=".28" id="wvc"><stop stop-color="#E9937A"></stop><stop offset=".64" stop-color="#C2583C"></stop><stop offset="1" stop-color="#8A3320"></stop></radialgradient></defs>
+<rect fill="url(#wv3)" height="160" width="160"></rect>
+<ellipse cx="76" cy="96" fill="url(#wvc)" rx="36" ry="32"></ellipse>
+<path d="M76 64c-6-12 4-20 12-22-2 10-6 18-12 22z" fill="#5F8C3A"></path>
+<ellipse cx="112" cy="114" fill="url(#wvc)" opacity=".75" rx="15" ry="11"></ellipse>
+</svg>
+</div>
+<div class="pinfo">
+<h3>沙地西红柿 15斤装 沙瓤多汁 餐饮装</h3>
+<div class="psold">已售 <em data-sold="">21700</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>5.8</span><span class="punits">/斤</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="蔬菜" data-price="6.5" data-sales="17400" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wv4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F0F4E6"></stop><stop offset="1" stop-color="#C0D49A"></stop></lineargradient><radialgradient cx=".34" cy=".3" id="wvd"><stop stop-color="#A6CE66"></stop><stop offset=".66" stop-color="#6B9636"></stop><stop offset="1" stop-color="#3D6118"></stop></radialgradient></defs>
+<rect fill="url(#wv4)" height="160" width="160"></rect>
+<path d="M80 122c-17 0-32-15-32-32s15-28 32-28 32 11 32 28-15 32-32 32z" fill="url(#wvd)"></path>
+<path d="M62 98l34-17M70 114l32-19" opacity=".7" stroke="#D7EBB0" stroke-linecap="round" stroke-width="2.4"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>西蓝花 12斤装 紧实花球 冷链直发</h3>
+<div class="psold">已售 <em data-sold="">17400</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>6.5</span><span class="punits">/斤</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="蔬菜" data-price="4.2" data-sales="15800" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wv5" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBF6E6"></stop><stop offset="1" stop-color="#E4D6A4"></stop></lineargradient><lineargradient id="wve" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#F8EEC8"></stop><stop offset="1" stop-color="#C9A958"></stop></lineargradient></defs>
+<rect fill="url(#wv5)" height="160" width="160"></rect>
+<ellipse cx="80" cy="100" fill="url(#wve)" rx="44" ry="28"></ellipse>
+<path d="M80 72c-8-14 2-24 14-26-4 14-8 22-14 26z" fill="#6F9A3E"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>本地土豆 30斤装 黄心大个 净菜批发</h3>
+<div class="psold">已售 <em data-sold="">15800</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>4.2</span><span class="punits">/斤</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="蔬菜" data-price="7.9" data-sales="9200" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wv6" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F3F1FB"></stop><stop offset="1" stop-color="#C9BFE4"></stop></lineargradient><radialgradient cx=".34" cy=".3" id="wvf"><stop stop-color="#B79BD8"></stop><stop offset=".66" stop-color="#7C5BA8"></stop><stop offset="1" stop-color="#4A2F70"></stop></radialgradient></defs>
+<rect fill="url(#wv6)" height="160" width="160"></rect>
+<ellipse cx="72" cy="94" fill="url(#wvf)" rx="27" ry="36"></ellipse>
+<ellipse cx="108" cy="102" fill="url(#wvf)" opacity=".85" rx="19" ry="25"></ellipse>
+<path d="M72 60c-6-12 2-20 12-22-2 10-6 18-12 22z" fill="#5F8C3A"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>农家茄子 20斤装 长茄紫亮 农家直供</h3>
+<div class="psold">已售 <em data-sold="">9200</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>7.9</span><span class="punits">/斤</span></div>
+</div>
+</a>
+<!-- 干杂 -->
+<a class="pcard" data-cat="干杂" data-price="19.9" data-sales="9680" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wg1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F8ECDC"></stop><stop offset="1" stop-color="#D9AE7B"></stop></lineargradient><radialgradient cx=".36" cy=".3" id="wga"><stop stop-color="#C4553A"></stop><stop offset=".65" stop-color="#8A2B18"></stop><stop offset="1" stop-color="#521006"></stop></radialgradient></defs>
+<rect fill="url(#wg1)" height="160" width="160"></rect>
+<circle cx="70" cy="94" fill="url(#wga)" r="32"></circle>
+<circle cx="106" cy="78" fill="url(#wga)" r="13"></circle>
+<circle cx="104" cy="116" fill="url(#wga)" r="10"></circle>
+</svg>
+</div>
+<div class="pinfo">
+<h3>汉源花椒 200g 大红袍 麻香浓郁</h3>
+<div class="psold">已售 <em data-sold="">9680</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>19.9</span><span class="punits">/袋</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="干杂" data-price="18.5" data-sales="8340" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wg2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBF0DA"></stop><stop offset="1" stop-color="#E0C48C"></stop></lineargradient><lineargradient id="wgc" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#E0A83F"></stop><stop offset="1" stop-color="#A86A16"></stop></lineargradient></defs>
+<rect fill="url(#wg2)" height="160" width="160"></rect>
+<path d="M44 88c18-26 54-26 72 0-16 22-56 22-72 0z" fill="url(#wgc)"></path>
+<path d="M56 74l14 30M78 70l4 32M100 74l-10 30" stroke="#C98C24" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>金堂黄花菜 500g 自然晾晒 无硫熏</h3>
+<div class="psold">已售 <em data-sold="">8340</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>18.5</span><span class="punits">/袋</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="干杂" data-price="16.8" data-sales="12900" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wg3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F2EEEA"></stop><stop offset="1" stop-color="#C9BDB3"></stop></lineargradient><radialgradient cx=".36" cy=".3" id="wgd"><stop stop-color="#5B4B42"></stop><stop offset=".7" stop-color="#2E2420"></stop><stop offset="1" stop-color="#15100E"></stop></radialgradient></defs>
+<rect fill="url(#wg3)" height="160" width="160"></rect>
+<ellipse cx="70" cy="96" fill="url(#wgd)" rx="26" ry="18"></ellipse>
+<ellipse cx="102" cy="84" fill="url(#wgd)" opacity=".9" rx="20" ry="14"></ellipse>
+<ellipse cx="96" cy="116" fill="url(#wgd)" opacity=".8" rx="17" ry="12"></ellipse>
+</svg>
+</div>
+<div class="pinfo">
+<h3>东北黑木耳 500g 秋耳厚肉 真空装</h3>
+<div class="psold">已售 <em data-sold="">12900</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>16.8</span><span class="punits">/袋</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="干杂" data-price="22.5" data-sales="5600" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wg4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F7F0E4"></stop><stop offset="1" stop-color="#DACBAE"></stop></lineargradient><lineargradient id="wge" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#8A6A3E"></stop><stop offset="1" stop-color="#553A1C"></stop></lineargradient></defs>
+<rect fill="url(#wg4)" height="160" width="160"></rect>
+<path d="M56 76h48l-6 46H62z" fill="url(#wge)"></path>
+<ellipse cx="80" cy="76" fill="#A07E4E" rx="24" ry="8"></ellipse>
+<rect fill="#F2E4C8" height="8" opacity=".8" rx="3" width="28" x="66" y="94"></rect>
+</svg>
+</div>
+<div class="pinfo">
+<h3>宜宾芽菜 1kg 坛装腌制 脆嫩回甜</h3>
+<div class="psold">已售 <em data-sold="">5600</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>22.5</span><span class="punits">/坛</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="干杂" data-price="9.9" data-sales="14300" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wg5" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FAF3E8"></stop><stop offset="1" stop-color="#DFCFB4"></stop></lineargradient><lineargradient id="wgf" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#C9A87A"></stop><stop offset="1" stop-color="#8F6B3A"></stop></lineargradient></defs>
+<rect fill="url(#wg5)" height="160" width="160"></rect>
+<path d="M40 70c26 8 54 8 80 0M40 90c26 8 54 8 80 0M40 110c26 8 54 8 80 0" fill="none" stroke="url(#wgf)" stroke-linecap="round" stroke-width="7"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>手工红薯粉条 5斤 久煮不断 纯淀粉</h3>
+<div class="psold">已售 <em data-sold="">14300</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>9.9</span><span class="punits">/斤</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="干杂" data-price="26" data-sales="4100" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wg6" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F6EEE1"></stop><stop offset="1" stop-color="#D8C3A4"></stop></lineargradient><radialgradient cx=".38" cy=".3" id="wgg"><stop stop-color="#A8814A"></stop><stop offset=".68" stop-color="#6B4A22"></stop><stop offset="1" stop-color="#3E290F"></stop></radialgradient></defs>
+<rect fill="url(#wg6)" height="160" width="160"></rect>
+<ellipse cx="70" cy="100" fill="url(#wgg)" rx="30" ry="22"></ellipse>
+<ellipse cx="104" cy="86" fill="url(#wgg)" opacity=".9" rx="21" ry="16"></ellipse>
+</svg>
+</div>
+<div class="pinfo">
+<h3>云南干香菇 500g 特级花菇 菇香浓郁</h3>
+<div class="psold">已售 <em data-sold="">4100</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>26</span><span class="punits">/袋</span></div>
+</div>
+</a>
+<!-- 药材 -->
+<a class="pcard" data-cat="药材" data-price="46" data-sales="5320" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wy1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FAF4E8"></stop><stop offset="1" stop-color="#DCCFB6"></stop></lineargradient><lineargradient id="wya" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F2E6CD"></stop><stop offset="1" stop-color="#C8AF86"></stop></lineargradient></defs>
+<rect fill="url(#wy1)" height="160" width="160"></rect>
+<ellipse cx="72" cy="94" fill="url(#wya)" rx="28" ry="20"></ellipse>
+<ellipse cx="102" cy="86" fill="url(#wya)" opacity=".92" rx="22" ry="16"></ellipse>
+<ellipse cx="90" cy="118" fill="url(#wya)" opacity=".85" rx="18" ry="13"></ellipse>
+</svg>
+</div>
+<div class="pinfo">
+<h3>中江白芍 500g 去芯大片 道地药材</h3>
+<div class="psold">已售 <em data-sold="">5320</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>46</span><span class="punits">/斤</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="药材" data-price="32" data-sales="7640" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wy2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F6F0E4"></stop><stop offset="1" stop-color="#D5C4A2"></stop></lineargradient><lineargradient id="wyb" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#C9A97A"></stop><stop offset="1" stop-color="#8C6A3A"></stop></lineargradient></defs>
+<rect fill="url(#wy2)" height="160" width="160"></rect>
+<path d="M46 84h68l-6 34H52z" fill="url(#wyb)"></path>
+<path d="M56 70c14 6 34 6 48 0" fill="none" stroke="#A98A54" stroke-linecap="round" stroke-width="6"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>岷县当归 500g 全归片 香气浓郁</h3>
+<div class="psold">已售 <em data-sold="">7640</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>32</span><span class="punits">/斤</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="药材" data-price="58" data-sales="3960" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wy3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBF1E6"></stop><stop offset="1" stop-color="#E3BE9C"></stop></lineargradient><lineargradient id="wyc" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#E2572E"></stop><stop offset="1" stop-color="#9A2A0C"></stop></lineargradient></defs>
+<rect fill="url(#wy3)" height="160" width="160"></rect>
+<ellipse cx="70" cy="98" fill="url(#wyc)" rx="26" ry="14"></ellipse>
+<ellipse cx="102" cy="88" fill="url(#wyc)" opacity=".92" rx="20" ry="12"></ellipse>
+<ellipse cx="92" cy="116" fill="url(#wyc)" opacity=".86" rx="17" ry="10"></ellipse>
+</svg>
+</div>
+<div class="pinfo">
+<h3>宁夏枸杞 500g 大颗红润 独立小袋</h3>
+<div class="psold">已售 <em data-sold="">3960</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>58</span><span class="punits">/袋</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="药材" data-price="39" data-sales="6180" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wy4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FAF3E6"></stop><stop offset="1" stop-color="#D9C8A6"></stop></lineargradient><lineargradient id="wyd" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#E8D6A8"></stop><stop offset="1" stop-color="#B39257"></stop></lineargradient></defs>
+<rect fill="url(#wy4)" height="160" width="160"></rect>
+<rect fill="url(#wyd)" height="52" rx="8" width="56" x="52" y="66"></rect>
+<path d="M60 82h40M60 96h40" stroke="#F6EBD2" stroke-width="4"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>川黄芪 500g 切片厚实 药食两用</h3>
+<div class="psold">已售 <em data-sold="">6180</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>39</span><span class="punits">/斤</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="药材" data-price="27" data-sales="8240" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wy5" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F7F2E8"></stop><stop offset="1" stop-color="#D6CBB2"></stop></lineargradient><radialgradient cx=".36" cy=".3" id="wye"><stop stop-color="#F6EDD8"></stop><stop offset=".7" stop-color="#DCC9A4"></stop><stop offset="1" stop-color="#B49A6C"></stop></radialgradient></defs>
+<rect fill="url(#wy5)" height="160" width="160"></rect>
+<circle cx="68" cy="96" fill="url(#wye)" r="24"></circle>
+<circle cx="100" cy="86" fill="url(#wye)" opacity=".94" r="20"></circle>
+<circle cx="90" cy="118" fill="url(#wye)" opacity=".88" r="17"></circle>
+</svg>
+</div>
+<div class="pinfo">
+<h3>川贝母 200g 松贝小粒 密封袋装</h3>
+<div class="psold">已售 <em data-sold="">8240</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>27</span><span class="punits">/袋</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="药材" data-price="18" data-sales="10500" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wy6" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F8F6E8"></stop><stop offset="1" stop-color="#D9D3A8"></stop></lineargradient><lineargradient id="wyf" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#E6DFA6"></stop><stop offset="1" stop-color="#A9A05C"></stop></lineargradient></defs>
+<rect fill="url(#wy6)" height="160" width="160"></rect>
+<path d="M70 116c-12-16-8-40 8-48 14 12 16 34 6 48z" fill="url(#wyf)"></path>
+<path d="M104 110c-8-12-4-30 8-36 10 10 10 26 2 36z" fill="url(#wyf)" opacity=".85"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>金银花 200g 干花细选 清香回甘</h3>
+<div class="psold">已售 <em data-sold="">10500</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>18</span><span class="punits">/袋</span></div>
+</div>
+</a>
+<!-- 五金 -->
+<a class="pcard" data-cat="五金" data-price="6.9" data-sales="12400" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wh1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F2F3F4"></stop><stop offset="1" stop-color="#BFC5CB"></stop></lineargradient><lineargradient id="wha" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#DDE3E8"></stop><stop offset="1" stop-color="#8A949E"></stop></lineargradient></defs>
+<rect fill="url(#wh1)" height="160" width="160"></rect>
+<circle cx="80" cy="92" fill="none" r="34" stroke="url(#wha)" stroke-width="14"></circle>
+<circle cx="80" cy="92" fill="#F4F6F8" r="16"></circle>
+</svg>
+</div>
+<div class="pinfo">
+<h3>不锈钢法兰 DN50 304材质 整箱发</h3>
+<div class="psold">已售 <em data-sold="">12400</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>6.9</span><span class="punits">/个</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="五金" data-price="12.5" data-sales="8860" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wh2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F4F4F2"></stop><stop offset="1" stop-color="#C4C2BC"></stop></lineargradient><lineargradient id="whb" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#E3E2DC"></stop><stop offset="1" stop-color="#93908A"></stop></lineargradient></defs>
+<rect fill="url(#wh2)" height="160" width="160"></rect>
+<rect fill="url(#whb)" height="56" rx="5" width="26" x="48" y="64"></rect>
+<rect fill="url(#whb)" height="56" rx="5" width="26" x="86" y="64"></rect>
+<path d="M74 76h12M74 108h12" stroke="#8E8B84" stroke-width="4"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>不锈钢合页 4寸加厚 静音轴承 整箱</h3>
+<div class="psold">已售 <em data-sold="">8860</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>12.5</span><span class="punits">/副</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="五金" data-price="45" data-sales="3420" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wh3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F1F2F0"></stop><stop offset="1" stop-color="#BDBFB8"></stop></lineargradient><lineargradient id="whc" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#D8DBD4"></stop><stop offset="1" stop-color="#8A8E85"></stop></lineargradient></defs>
+<rect fill="url(#wh3)" height="160" width="160"></rect>
+<rect fill="url(#whc)" height="52" rx="9" width="68" x="46" y="66"></rect>
+<circle cx="64" cy="84" fill="#F3F5F0" r="4"></circle><circle cx="96" cy="84" fill="#F3F5F0" r="4"></circle>
+<circle cx="64" cy="102" fill="#F3F5F0" r="4"></circle><circle cx="96" cy="102" fill="#F3F5F0" r="4"></circle>
+</svg>
+</div>
+<div class="pinfo">
+<h3>六角螺栓套装 碳钢镀锌 规格齐全</h3>
+<div class="psold">已售 <em data-sold="">3420</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>45</span><span class="punits">/盒</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="五金" data-price="18" data-sales="10200" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wh4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F6F1E6"></stop><stop offset="1" stop-color="#D3B98F"></stop></lineargradient><lineargradient id="whd" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#E8C07A"></stop><stop offset="1" stop-color="#9E7430"></stop></lineargradient></defs>
+<rect fill="url(#wh4)" height="160" width="160"></rect>
+<rect fill="url(#whd)" height="52" rx="7" width="28" x="66" y="70"></rect>
+<rect fill="#C79A52" height="10" rx="4" width="48" x="56" y="76"></rect>
+</svg>
+</div>
+<div class="pinfo">
+<h3>铜质角阀 4分 电镀亮面 防漏耐用</h3>
+<div class="psold">已售 <em data-sold="">10200</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>18</span><span class="punits">/只</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="五金" data-price="89" data-sales="2150" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wh5" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F1F2F4"></stop><stop offset="1" stop-color="#BCC2C9"></stop></lineargradient><lineargradient id="whe" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#5B6670"></stop><stop offset="1" stop-color="#2C343B"></stop></lineargradient></defs>
+<rect fill="url(#wh5)" height="160" width="160"></rect>
+<rect fill="url(#whe)" height="58" rx="14" width="44" x="58" y="66"></rect>
+<circle cx="80" cy="94" fill="#C9D1D8" r="12"></circle>
+<rect fill="#8A929A" height="14" rx="4" width="12" x="74" y="56"></rect>
+</svg>
+</div>
+<div class="pinfo">
+<h3>角磨机 850W纯铜电机 附赠切割片</h3>
+<div class="psold">已售 <em data-sold="">2150</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>89</span><span class="punits">/台</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="五金" data-price="3.8" data-sales="19800" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wh6" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F3F4F2"></stop><stop offset="1" stop-color="#C2C5BF"></stop></lineargradient></defs>
+<rect fill="url(#wh6)" height="160" width="160"></rect>
+<path d="M34 70l92 0M34 96l92 0M34 122l92 0" stroke="#8D938C" stroke-width="2.4"></path>
+<path d="M44 62v68M66 62v68M88 62v68M110 62v68" stroke="#8D938C" stroke-width="2.4"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>镀锌铁丝网 1米高 10米整卷 热镀锌</h3>
+<div class="psold">已售 <em data-sold="">19800</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>3.8</span><span class="punits">/米</span></div>
+</div>
+</a>
+<!-- 酒店用品 -->
+<a class="pcard" data-cat="酒店用品" data-price="129" data-sales="2180" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wj1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBF7F1"></stop><stop offset="1" stop-color="#DDD3C4"></stop></lineargradient><lineargradient id="wja" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#DCD3C6"></stop></lineargradient></defs>
+<rect fill="url(#wj1)" height="160" width="160"></rect>
+<ellipse cx="80" cy="100" fill="url(#wja)" rx="40" ry="14"></ellipse>
+<ellipse cx="80" cy="96" fill="#F3EDE4" rx="30" ry="10"></ellipse>
+<circle cx="80" cy="74" fill="#EFE8DD" r="14" stroke="#D6CBBA" stroke-width="2"></circle>
+</svg>
+</div>
+<div class="pinfo">
+<h3>酒店陶瓷骨瓷餐具 六件套 高白釉</h3>
+<div class="psold">已售 <em data-sold="">2180</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>129</span><span class="punits">/套</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="酒店用品" data-price="56" data-sales="4760" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wj2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F6F5F1"></stop><stop offset="1" stop-color="#D2D2CA"></stop></lineargradient><lineargradient id="wjb" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#CFCFC6"></stop></lineargradient></defs>
+<rect fill="url(#wj2)" height="160" width="160"></rect>
+<rect fill="url(#wjb)" height="42" rx="8" width="80" x="40" y="70"></rect>
+<path d="M40 84h80M40 98h80" stroke="#E4E2DA" stroke-width="3"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>酒店纯棉浴巾 70×140 加厚吸水</h3>
+<div class="psold">已售 <em data-sold="">4760</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>56</span><span class="punits">/条</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="酒店用品" data-price="2.4" data-sales="32600" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wj3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FAF8F2"></stop><stop offset="1" stop-color="#DCD6C8"></stop></lineargradient><lineargradient id="wjc" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FDFBF6"></stop><stop offset="1" stop-color="#CFC6B4"></stop></lineargradient></defs>
+<rect fill="url(#wj3)" height="160" width="160"></rect>
+<path d="M50 78h30l6 40H56z" fill="url(#wjc)"></path>
+<path d="M84 78h30l6 40H90z" fill="url(#wjc)" opacity=".85"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>酒店一次性拖鞋 加厚EVA 百双装</h3>
+<div class="psold">已售 <em data-sold="">32600</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>2.4</span><span class="punits">/双</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="酒店用品" data-price="42" data-sales="6890" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wj4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F7F3EA"></stop><stop offset="1" stop-color="#D8CBB0"></stop></lineargradient><lineargradient id="wjd" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#E9DFC6"></stop><stop offset="1" stop-color="#B5A582"></stop></lineargradient></defs>
+<rect fill="url(#wj4)" height="160" width="160"></rect>
+<rect fill="url(#wjd)" height="52" rx="6" width="20" x="56" y="68"></rect>
+<rect fill="url(#wjd)" height="52" opacity=".9" rx="6" width="20" x="84" y="68"></rect>
+<rect fill="#C6B590" height="10" rx="4" width="28" x="66" y="60"></rect>
+</svg>
+</div>
+<div class="pinfo">
+<h3>酒店洗护套装 50瓶整箱 洗发沐浴双配</h3>
+<div class="psold">已售 <em data-sold="">6890</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>42</span><span class="punits">/套</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="酒店用品" data-price="68" data-sales="1560" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wj5" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F5F6F4"></stop><stop offset="1" stop-color="#CBCDC8"></stop></lineargradient><lineargradient id="wje" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F4F6F5"></stop><stop offset="1" stop-color="#B2B7B5"></stop></lineargradient></defs>
+<rect fill="url(#wj5)" height="160" width="160"></rect>
+<path d="M62 74h36l-4 46H66z" fill="url(#wje)"></path>
+<path d="M92 80c12-2 12 18 0 16" fill="none" stroke="#9AA09E" stroke-width="4"></path>
+<rect fill="#8E9492" height="9" rx="4" width="24" x="68" y="66"></rect>
+</svg>
+</div>
+<div class="pinfo">
+<h3>酒店客房电热水壶 1.7L 304内胆</h3>
+<div class="psold">已售 <em data-sold="">1560</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>68</span><span class="punits">/台</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="酒店用品" data-price="35" data-sales="13200" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wj6" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBF9F3"></stop><stop offset="1" stop-color="#DFD8C7"></stop></lineargradient><lineargradient id="wjf" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#D4CBB8"></stop></lineargradient></defs>
+<rect fill="url(#wj6)" height="160" width="160"></rect>
+<rect fill="url(#wjf)" height="44" rx="8" width="72" x="44" y="72"></rect>
+<path d="M44 88h72" stroke="#E6DFD0" stroke-width="3"></path>
+<rect fill="#EFE8DA" height="7" rx="3" width="20" x="70" y="80"></rect>
+</svg>
+</div>
+<div class="pinfo">
+<h3>酒店客房抽纸 三层加厚 整箱装</h3>
+<div class="psold">已售 <em data-sold="">13200</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>35</span><span class="punits">/箱</span></div>
+</div>
+</a>
+<!-- 服装 -->
+<a class="pcard" data-cat="服装" data-price="18.8" data-sales="7600" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wc1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F1F4F2"></stop><stop offset="1" stop-color="#B9C6C2"></stop></lineargradient><lineargradient id="wca" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#5E7C74"></stop><stop offset="1" stop-color="#2F4945"></stop></lineargradient></defs>
+<rect fill="url(#wc1)" height="160" width="160"></rect>
+<path d="M60 62h40l16 16-10 10-6-6v50H60V82l-6 6-10-10z" fill="url(#wca)"></path>
+<path d="M76 62c0 8 8 8 8 8s8 0 8-8" fill="none" stroke="#A8BDB7" stroke-width="3"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>纯棉工作外套 加厚耐磨 多尺码可选</h3>
+<div class="psold">已售 <em data-sold="">7600</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>18.8</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="服装" data-price="9.9" data-sales="15600" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wc2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F8F4F0"></stop><stop offset="1" stop-color="#D8CBC2"></stop></lineargradient><lineargradient id="wcb" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#E8D2C0"></stop><stop offset="1" stop-color="#B08C6E"></stop></lineargradient></defs>
+<rect fill="url(#wc2)" height="160" width="160"></rect>
+<path d="M60 62h40l16 14-12 12-4-4v52H60V84l-4 4-12-12z" fill="url(#wcb)"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>纯棉短袖T恤 精梳吸汗 多色走量款</h3>
+<div class="psold">已售 <em data-sold="">15600</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>9.9</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="服装" data-price="46" data-sales="4830" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wc3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F2F2F3"></stop><stop offset="1" stop-color="#C0C0C4"></stop></lineargradient><lineargradient id="wcc" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#3E4756"></stop><stop offset="1" stop-color="#1E2530"></stop></lineargradient></defs>
+<rect fill="url(#wc3)" height="160" width="160"></rect>
+<path d="M64 60h32v18l-6 60H70l-6-60z" fill="url(#wcc)"></path>
+<path d="M64 78h32" stroke="#6E788A" stroke-width="3"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>男士休闲西裤 免烫抗皱 多色可混批</h3>
+<div class="psold">已售 <em data-sold="">4830</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>46</span><span class="punits">/条</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="服装" data-price="32" data-sales="9120" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wc4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F7F1EF"></stop><stop offset="1" stop-color="#DCC6C4"></stop></lineargradient><lineargradient id="wcd" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#C99C9C"></stop><stop offset="1" stop-color="#8C5F60"></stop></lineargradient></defs>
+<rect fill="url(#wc4)" height="160" width="160"></rect>
+<path d="M60 62h40l16 22-12 10-4-6v54H60V88l-4 6-12-10z" fill="url(#wcd)"></path>
+<path d="M72 62v54M88 62v54" opacity=".7" stroke="#E4C9C9" stroke-width="2.4"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>女式针织开衫 春秋薄款 柔软不扎身</h3>
+<div class="psold">已售 <em data-sold="">9120</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>32</span><span class="punits">/件</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="服装" data-price="15" data-sales="6240" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wc5" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F4F3EF"></stop><stop offset="1" stop-color="#CBC9BE"></stop></lineargradient><lineargradient id="wce" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#46505C"></stop><stop offset="1" stop-color="#232B34"></stop></lineargradient></defs>
+<rect fill="url(#wc5)" height="160" width="160"></rect>
+<path d="M64 58h32l4 70H60z" fill="url(#wce)"></path>
+<path d="M64 78h32" stroke="#7C8794" stroke-width="3"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>校服工装裤 高密耐磨 洗后不变形</h3>
+<div class="psold">已售 <em data-sold="">6240</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>15</span><span class="punits">/条</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="服装" data-price="88" data-sales="1860" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wc6" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F5F3F0"></stop><stop offset="1" stop-color="#CFC8BC"></stop></lineargradient><lineargradient id="wcf" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#8C7B66"></stop><stop offset="1" stop-color="#4E4234"></stop></lineargradient></defs>
+<rect fill="url(#wcf)" height="160" opacity=".18" width="160"></rect>
+<path d="M58 64h44l14 26-12 8-4-8v50H60V90l-4 8-12-8z" fill="url(#wcf)"></path>
+<path d="M70 64c0 10 20 10 20 0" fill="none" stroke="#B7A691" stroke-width="3"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>加厚羽绒棉服 锁温保暖 多色可混批</h3>
+<div class="psold">已售 <em data-sold="">1860</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>88</span><span class="punits">/件</span></div>
+</div>
+</a>
+<!-- 床上用品 -->
+<a class="pcard" data-cat="床上用品" data-price="189" data-sales="1560" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wb1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FAF6EF"></stop><stop offset="1" stop-color="#DED3C1"></stop></lineargradient><lineargradient id="wba" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#D8CBB6"></stop></lineargradient></defs>
+<rect fill="url(#wb1)" height="160" width="160"></rect>
+<rect fill="url(#wba)" height="44" rx="12" width="92" x="34" y="72"></rect>
+<path d="M34 86h92" opacity=".7" stroke="#CBBBA2" stroke-width="1.6"></path>
+<path d="M50 72v44M80 72v44M110 72v44" stroke="#E3D8C6" stroke-width="1.4"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>酒店白鹅绒被 90%绒 立体绗缝</h3>
+<div class="psold">已售 <em data-sold="">1560</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>189</span><span class="punits">/床</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="床上用品" data-price="68" data-sales="5240" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wb2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F8F1EE"></stop><stop offset="1" stop-color="#DBC7C2"></stop></lineargradient><lineargradient id="wbb" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F0DCD8"></stop><stop offset="1" stop-color="#C8A49E"></stop></lineargradient></defs>
+<rect fill="url(#wb2)" height="160" width="160"></rect>
+<rect fill="url(#wbb)" height="40" rx="7" width="88" x="36" y="74"></rect>
+<rect fill="#F7E9E6" height="14" rx="5" width="34" x="46" y="66"></rect>
+<rect fill="#F7E9E6" height="14" rx="5" width="34" x="88" y="66"></rect>
+</svg>
+</div>
+<div class="pinfo">
+<h3>纯棉四件套 全棉活性印染 亲肤可裸睡</h3>
+<div class="psold">已售 <em data-sold="">5240</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>68</span><span class="punits">/套</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="床上用品" data-price="39" data-sales="11200" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wb3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FAF8F3"></stop><stop offset="1" stop-color="#DFD9CF"></stop></lineargradient><lineargradient id="wbc" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#D4CCC0"></stop></lineargradient></defs>
+<rect fill="url(#wb3)" height="160" width="160"></rect>
+<rect fill="url(#wbc)" height="28" rx="13" width="80" x="40" y="82"></rect>
+<path d="M56 96h48" stroke="#E8E1D6" stroke-width="2.4"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>抗菌枕芯 防螨填充 软硬适中 一对装</h3>
+<div class="psold">已售 <em data-sold="">11200</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>39</span><span class="punits">/对</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="床上用品" data-price="46" data-sales="8760" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wb4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F7F4EE"></stop><stop offset="1" stop-color="#D8D2C4"></stop></lineargradient><lineargradient id="wbd" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#CFC7B8"></stop></lineargradient></defs>
+<rect fill="url(#wb4)" height="160" width="160"></rect>
+<rect fill="url(#wbd)" height="42" rx="9" width="92" x="34" y="74"></rect>
+<path d="M34 92h92M60 74v42M100 74v42" stroke="#E2DACC" stroke-width="2"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>加厚床垫保护垫 防滑四角 可机洗</h3>
+<div class="psold">已售 <em data-sold="">8760</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>46</span><span class="punits">/床</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="床上用品" data-price="28" data-sales="14300" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wb5" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FAF7F0"></stop><stop offset="1" stop-color="#DBD5C6"></stop></lineargradient><lineargradient id="wbe" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBF7F0"></stop><stop offset="1" stop-color="#C9C0AE"></stop></lineargradient></defs>
+<rect fill="url(#wb5)" height="160" width="160"></rect>
+<rect fill="url(#wbe)" height="38" rx="8" width="84" x="38" y="76"></rect>
+<path d="M38 88h84" stroke="#E3DBCB" stroke-width="2.6"></path>
+<path d="M54 76v38M106 76v38" stroke="#E9E2D4" stroke-width="2"></path>
+</svg>
+</div>
+<div class="pinfo">
+<h3>纯棉毛巾被 吸水透气 可机洗</h3>
+<div class="psold">已售 <em data-sold="">14300</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>28</span><span class="punits">/条</span></div>
+</div>
+</a>
+<a class="pcard" data-cat="床上用品" data-price="118" data-sales="2340" href="product-detail.html">
+<div class="pimg">
+<svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 160 160">
+<defs><lineargradient id="wb6" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F7F2EC"></stop><stop offset="1" stop-color="#D9CBB8"></stop></lineargradient><lineargradient id="wbf" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#FBF6EF"></stop><stop offset="1" stop-color="#C6B49C"></stop></lineargradient></defs>
+<rect fill="url(#wb6)" height="160" width="160"></rect>
+<rect fill="url(#wbf)" height="38" rx="10" width="104" x="28" y="70"></rect>
+<path d="M28 84h104" opacity=".6" stroke="#B8A68E" stroke-width="1.6"></path>
+<rect fill="#F5EDE2" height="14" rx="5" width="22" x="58" y="76"></rect>
+</svg>
+</div>
+<div class="pinfo">
+<h3>酒店四季空调被 200×230 宾馆批量</h3>
+<div class="psold">已售 <em data-sold="">2340</em> 件</div>
+<div class="prow"><span class="price"><small>¥</small>118</span><span class="punits">/床</span></div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<nav aria-label="底部导航" class="tabbar">
+<a href="home.html">
+<span class="ti"><svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"><path d="M3.2 10.9 12 4l8.8 6.9V20a1.2 1.2 0 0 1-1.2 1.2h-4.9v-6.4H9.3v6.4H4.4A1.2 1.2 0 0 1 3.2 20z"></path></svg></span>
+<span>首页</span>
+</a>
+<a href="nearby.html">
+<span class="ti"><svg height="22" viewbox="0 0 24 24" width="22"><rect fill="currentColor" height="19" rx="5.5" width="19" x="2.5" y="2.5"></rect><text fill="#fff" font-family="PingFang SC" font-size="11.5" font-weight="700" text-anchor="middle" x="12" y="16.8">逛</text></svg></span>
+<span>附近店</span>
+</a>
+<a class="on" href="wholesale.html">
+<span class="ti">
+<svg aria-hidden="true" fill="none" height="22" viewbox="0 0 24 24" width="22">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="tws" x1="3" x2="21" y1="3" y2="21"><stop stop-color="#FFB39C"></stop><stop offset=".5" stop-color="#FA6E50"></stop><stop offset="1" stop-color="#EE3C28"></stop></lineargradient>
+</defs>
+<rect fill="url(#tws)" height="7.6" rx="1.8" width="7.6" x="2.6" y="2.6"></rect><rect fill="url(#tws)" height="7.6" rx="1.8" width="7.6" x="13.8" y="2.6"></rect><circle cx="6.4" cy="17.6" fill="url(#tws)" r="3.8"></circle><circle cx="17.6" cy="17.6" fill="url(#tws)" r="3.8"></circle>
+</svg>
+</span>
+<span>批发选品</span>
+</a>
+<a href="messages.html">
+<span class="ti">
+<svg height="21" viewbox="0 0 26 22" width="23"><ellipse cx="16.6" cy="9" fill="currentColor" opacity=".55" rx="8.4" ry="7"></ellipse><rect fill="currentColor" height="12.4" rx="6.2" width="19" x="1.6" y="5.2"></rect><path d="M6 17.6l-2.4 3.4 4.6-1.6z" fill="currentColor"></path><circle cx="7.4" cy="11.2" fill="#fff" r="1.2"></circle><circle cx="11.3" cy="11.2" fill="#fff" r="1.2"></circle><circle cx="15.2" cy="11.2" fill="#fff" r="1.2"></circle></svg>
+<i class="badge">22</i>
+</span>
+<span>消息</span>
+</a>
+<a href="profile.html">
+<span class="ti"><svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><circle cx="12" cy="7.6" r="4"></circle><path d="M3.8 21.4c0-4.4 3.7-7 8.2-7s8.2 2.6 8.2 7z"></path></svg></span>
+<span>我的</span>
+</a>
+</nav>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast">已刷新同城批发货源</div>
+</div>
+<script>
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1600);
+  }
+
+  function shareShop(event, name) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    showToast('已生成「' + name + '」的分享店铺链接');
+    return false;
+  }
+
+  function addPick(event, name) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    showToast('已加入选品单：' + name);
+    return false;
+  }
+
+  var shopPanel = document.getElementById('shopPanel');
+  var goodsPanel = document.getElementById('goodsPanel');
+  var goodsTitle = document.getElementById('goodsTitle');
+  var goodsSub = document.getElementById('goodsSub');
+  var goodsGrid = document.getElementById('goodsGrid');
+  var arrowUp = document.getElementById('arrowUp');
+  var arrowDown = document.getElementById('arrowDown');
+  var curCat = '推荐';
+  var curSort = '综合距离';
+  var priceAsc = true;
+
+  var HINTS = {
+    '综合距离': '默认综合距离 · 常购优先 · 就近展示',
+    '热销': '销量排序 · 已选分类时仅显示该分类商品',
+    '价格': '价格排序 · 仅对当前分类商品生效',
+    '批发单': '进入批发单查看已下单货源',
+    '选品单': '进入选品单查看我的选品'
+  };
+
+  function cards() {
+    return goodsGrid ? Array.prototype.slice.call(goodsGrid.querySelectorAll('.pcard')) : [];
+  }
+
+  function showPanel(isGoods) {
+    if (!shopPanel || !goodsPanel) return;
+    if (isGoods) {
+      shopPanel.classList.add('hidden');
+      goodsPanel.classList.remove('hidden');
+    } else {
+      goodsPanel.classList.add('hidden');
+      shopPanel.classList.remove('hidden');
+    }
+    var sc = document.getElementById('mainScroll');
+    if (sc) sc.scrollTop = 0;
+  }
+
+  function sortCards(mode) {
+    var list = cards();
+    list.sort(function (a, b) {
+      var pa = parseFloat(a.getAttribute('data-price')) || 0;
+      var pb = parseFloat(b.getAttribute('data-price')) || 0;
+      var sa = parseInt(a.getAttribute('data-sales'), 10) || 0;
+      var sb = parseInt(b.getAttribute('data-sales'), 10) || 0;
+      if (mode === '热销') return sb - sa;
+      if (mode === '价格') return priceAsc ? pa - pb : pb - pa;
+      return sb - sa;
+    });
+    list.forEach(function (el) { goodsGrid.appendChild(el); });
+  }
+
+  function renderGoods() {
+    var list = cards();
+    list.forEach(function (el) {
+      var ok = curCat === '推荐' || el.getAttribute('data-cat') === curCat;
+      el.classList.toggle('hidden', !ok);
+    });
+    sortCards(curSort);
+    if (goodsTitle) goodsTitle.textContent = curCat + ' · 全部商品';
+    if (goodsSub) {
+      if (curSort === '热销') goodsSub.textContent = '销量由高到低';
+      else if (curSort === '价格') goodsSub.textContent = priceAsc ? '价格从低到高' : '价格从高到低';
+      else goodsSub.textContent = '综合推荐';
+    }
+    var sc = document.getElementById('mainScroll');
+    if (sc) sc.scrollTop = 0;
+  }
+
+  function setSortUI() {
+    if (!HINTS[curSort]) curSort = '综合距离';
+    var items = document.querySelectorAll('.fitem');
+    items.forEach(function (b) { b.classList.remove('on'); });
+    items.forEach(function (b) {
+      if (b.getAttribute('data-sort') === curSort) b.classList.add('on');
+    });
+    var isPrice = curSort === '价格';
+    if (arrowUp) arrowUp.classList.toggle('hidden', !(isPrice && priceAsc));
+    if (arrowDown) arrowDown.classList.toggle('hidden', !(isPrice && !priceAsc));
+  }
+
+  window.pickCat = function (btn) {
+    document.querySelectorAll('#catgrid .catpill').forEach(function (b) { b.classList.remove('on'); });
+    btn.classList.add('on');
+    curCat = btn.getAttribute('data-cat') || '推荐';
+    if (curSort === '批发单' || curSort === '选品单' || curSort === '综合距离') curSort = '热销';
+    if (curSort === '价格' && curCat === '推荐') curSort = '热销';
+    showPanel(true);
+    renderGoods();
+    setSortUI();
+  };
+
+  window.pickSort = function (el, name) {
+    if (name === '批发单' || name === '选品单') {
+      window.location.href = name === '批发单'
+        ? 'wholesale-orders.html?tab=whole'
+        : 'wholesale-orders.html?tab=pick';
+      return;
+    }
+    if (name === '综合距离') {
+      curSort = '综合距离';
+      showPanel(false);
+      setSortUI();
+      return;
+    }
+    if (name === '热销') {
+      curSort = '热销';
+      showPanel(true);
+      renderGoods();
+      setSortUI();
+      return;
+    }
+    if (name === '价格') {
+      if (curCat === '推荐') {
+        showToast('请先选择商品分类后按价格排序');
+        return;
+      }
+      if (curSort === '价格') {
+        priceAsc = !priceAsc;
+      } else {
+        curSort = '价格';
+        priceAsc = true;
+      }
+      showPanel(true);
+      renderGoods();
+      setSortUI();
+    }
+  };
+
+  function setDefaultState() {
+    curCat = '推荐';
+    curSort = '综合距离';
+    document.querySelectorAll('#catgrid .catpill').forEach(function (b) {
+      b.classList.toggle('on', (b.getAttribute('data-cat') || '推荐') === '推荐');
+    });
+    document.querySelectorAll('.fitem').forEach(function (b) {
+      b.classList.remove('on');
+    });
+    showPanel(false);
+    setSortUI();
+  }
+
+  setDefaultState();
+</script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 优惠红包店铺</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding:0 12px 14px}
+.hidden{display:none!important}
+/* 头部 */
+.head{position:relative;padding:0 14px 10px;background:linear-gradient(165deg,#FFE9E2 0%,#FDE0D7 55%,rgba(253,247,244,0) 100%);border-radius:0 0 22px 22px}
+.hrow{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:30px;padding:2px 0 14px}
+.hrow a{color:#2A2420;width:24px;flex:0 0 auto;display:flex;align-items:center}
+.hrow h1{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;font-size:16px;font-weight:700;color:#231C18;letter-spacing:-.2px;white-space:nowrap;pointer-events:none}
+.hrow .rule{width:auto;flex:0 0 auto;margin-left:auto;font-size:13px;line-height:1;white-space:nowrap;color:#EE4A2F;background:#fff;border-radius:999px;padding:6px 11px;border:1px solid #F7C7B8;text-decoration:none;justify-content:center}
+.bal{display:flex;align-items:flex-end;gap:12px;color:#231C18}
+.bal .l{font-size:11px;opacity:.8}
+.bal .n{font-size:32px;font-weight:800;line-height:1.1;letter-spacing:-.5px}
+.bal .n small{font-size:15px;font-weight:700;margin-right:2px}
+.bal .r{margin-left:auto;font-size:10px;color:#B3411F;text-align:right;line-height:1.6}
+/* 筛选 */
+.tabs{display:flex;gap:8px;padding:12px 0 10px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:0 0 auto;font-size:11.5px;padding:7px 13px;border-radius:999px;color:#6F6259;background:#fff;border:1px solid #F0E2DA;white-space:nowrap;font-weight:600}
+.tabs button.on{background:#E23A2E;color:#fff;border-color:#E23A2E;font-weight:700;box-shadow:0 4px 12px rgba(226,58,46,.22)}
+/* 说明条 */
+.tips{display:flex;align-items:center;gap:7px;background:#fff;border-radius:12px;padding:9px 11px;margin-bottom:10px;box-shadow:0 4px 14px rgba(120,60,50,.05);font-size:10.5px;color:#5C5049}
+.tips svg{flex:0 0 auto}
+.tips span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* 活动卡 */
+.card{display:flex;gap:10px;min-height:114px;background:#fff;border-radius:14px;padding:10px;margin-bottom:9px;box-shadow:0 4px 14px rgba(120,60,50,.06);align-items:stretch}
+.card .shopimg{flex:0 0 94px;width:94px;height:94px;border-radius:12px;overflow:hidden;position:relative;display:flex;align-items:flex-end}
+.card .shopimg svg{position:absolute;inset:0;width:100%;height:100%}
+.card .shopimg em{position:relative;z-index:1;display:block;width:100%;height:21px;line-height:21px;text-align:center;font-style:normal;font-size:10.5px;color:#fff;font-weight:700;background:rgba(30,18,14,.62);white-space:nowrap;overflow:hidden;text-overflow:clip;border-radius:0 0 12px 12px}
+.card .bd{flex:1;min-width:0;height:94px;display:flex;flex-direction:column;margin:0;padding:0;position:static;left:auto}
+.card .r1{display:flex;align-items:center;height:22px;gap:0;min-width:0;position:static;left:auto;margin:0;padding:0}
+.card .r1 em{font-style:normal;flex:0 0 auto;font-size:9px;font-weight:700;padding:2px 6px;border-radius:5px;white-space:nowrap;line-height:1.5;margin:0 6px 0 0;position:static;left:auto}
+.card .r1 em.shop{color:#E23A2E;background:#FDE9E7}
+.card .r1 em.plate{color:#B4690E;background:#FFF0DC}
+.card .r1 b{font-size:13.5px;font-weight:800;color:#241C18;font-style:normal;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto;margin:0}
+.card .r1 .dist{flex:0 0 auto;display:flex;align-items:center;justify-content:flex-end;gap:3px;white-space:nowrap;margin:0 0 0 8px;padding:0;position:static;left:auto;align-self:center}
+.card .r1 .dist b{font-weight:400;font-style:normal;font-size:11px;color:#9A9A9E;line-height:1.3;font-variant-numeric:tabular-nums;white-space:nowrap}
+.card .r1 .dist button{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:16px;height:16px;padding:0;margin:0;background:none;color:#9A9A9E}
+.card .r2{display:flex;align-items:center;gap:6px;height:28px;margin:3px 0 0 0;padding:0;min-width:0;flex-wrap:nowrap;white-space:nowrap;position:static;left:auto}
+.card .off{flex:0 0 auto;font-size:10.5px;color:#C9402F;font-weight:500;font-style:normal;white-space:nowrap;display:flex;align-items:baseline;margin:0;padding:0;line-height:1.3}
+.card .off i{font-style:normal;font-weight:800;font-size:15px;color:#E23A2E;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+.card .act{margin-left:auto;flex:0 0 auto;display:flex;align-items:center;justify-content:flex-end;margin-top:0;padding:0;position:static;left:auto;gap:0}
+.card .btn{flex:0 0 auto;font-size:10px;line-height:1.2;font-weight:700;color:#E23A2E;background:#fff;border:1px solid #F5A79A;border-radius:999px;padding:5px 8px;white-space:nowrap;margin:0}
+.card .foot{display:flex;align-items:center;flex-wrap:nowrap;gap:7px;margin-top:auto;padding:8px 0 0 0;font-size:9.5px;color:#B0A49B;min-width:0;line-height:1.4;font-style:normal}
+.card .foot .ft{display:flex;align-items:center;gap:3px;white-space:nowrap;flex:0 0 auto;min-width:0;font-variant-numeric:tabular-nums;font-style:normal;line-height:1.4;margin:0;padding:0;letter-spacing:normal}
+.card .foot .ft.remain{flex:0 1 auto;overflow:hidden;text-overflow:ellipsis}
+.card .foot .ft b{font-weight:600;color:#A08D80;font-style:normal;font-variant-numeric:tabular-nums;line-height:1.4}
+.card .foot .ft .exp{flex:0 0 auto;font-style:normal;font-size:11px;font-weight:400;line-height:1.4;color:#B0A49B;white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:normal;margin:0;padding:0}
+.card .foot .ft .exp em{font-style:normal;font-weight:500;color:#8A8A8E;font-variant-numeric:tabular-nums}
+.card .foot .dv{width:1px;height:9px;background:#EFE5DE;flex:0 0 1px}
+/* 精选 */
+.pick{margin-top:6px}
+.pick h2{margin:0;font-size:14.5px;font-weight:800;color:#241C18;display:flex;align-items:center;gap:6px;padding:8px 2px 10px}
+.pick h2:before{content:"";width:3px;height:14px;border-radius:2px;background:linear-gradient(180deg,#FB6E4E,#F03A2C)}
+.pick .row{display:flex;align-items:center;gap:9px;background:#fff;border-radius:14px;padding:10px 11px;box-shadow:0 4px 14px rgba(120,60,50,.05)}
+.pick .av{width:38px;height:38px;border-radius:50%;overflow:hidden;flex:0 0 38px;position:relative}
+.pick .av svg{width:100%;height:100%;display:block}
+.pick .mid{flex:1;min-width:0}
+.pick .mid .nm{font-size:12.5px;font-weight:700;color:#241C18;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pick .mid .tags{display:flex;gap:5px;margin-top:5px;flex-wrap:nowrap;overflow:hidden}
+.pick .mid .tags i{font-style:normal;font-size:9px;color:#E23A2E;background:#FDE9E7;border-radius:4px;padding:2px 6px;white-space:nowrap;flex:0 0 auto}
+.pick .go{flex:0 0 auto;font-size:11px;color:#EE4A2F;font-weight:600;white-space:nowrap}
+/* 规则浮层 */
+.mask{position:absolute;inset:0;background:rgba(30,20,16,.42);display:none;align-items:center;justify-content:center;padding:26px;z-index:80}
+.mask.show{display:flex}
+.sheet{width:100%;max-width:320px;background:#fff;border-radius:18px;padding:16px 16px 14px;box-shadow:0 16px 40px rgba(60,30,24,.22)}
+.sheet h3{margin:0 0 8px;font-size:15px;font-weight:800;color:#241C18}
+.sheet ol{margin:0;padding-left:16px;font-size:11px;line-height:1.85;color:#6E6157}
+.sheet button{display:block;width:100%;margin-top:12px;height:38px;border-radius:12px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:13px;font-weight:700}
+.empty{display:none;text-align:center;font-size:11px;color:#B0A49B;padding:26px 0}
+.empty.show{display:block}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+/* toast */
+.toast{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);background:rgba(58,50,45,.86);color:#fff;font-size:12px;border-radius:10px;padding:9px 15px;z-index:60;white-space:nowrap;pointer-events:none}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="scroll">
+<div class="head">
+<div class="hrow">
+<a aria-label="返回" href="home.html"><svg fill="none" height="21" viewbox="0 0 24 24" width="21"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"></path></svg></a>
+<h1>优惠红包店铺</h1>
+<button class="rule" id="ruleBtn" type="button">使用规则</button>
+</div>
+<div class="bal" style="align-items:flex-start">
+<div>
+<div class="l">可享店铺礼金（元）</div>
+<div class="n"><small>¥</small>38.50</div>
+</div>
+<div class="r" style="font-size:11px;color:#8A5A46;line-height:2;text-align:right">
+<a href="nearby.html" style="display:block">参与店铺 26 家 <span style="color:#C9A396">›</span></a>
+<a href="#list" style="display:block;color:#E23A2E;font-weight:600">进行中活动 18 个</a>
+</div>
+</div>
+</div>
+<div class="pad" id="list">
+<div class="tabs" id="tabs">
+<button class="on" data-f="all">全部活动 (18)</button>
+<button data-f="shop">店铺专属 (9)</button>
+<button data-f="item">商品专属 (3)</button>
+</div>
+<div class="tips">
+<svg fill="none" height="15" viewbox="0 0 24 24" width="15"><path d="M4 9.5v5l4 .8 9 4V4.7l-9 4z" fill="#EE4A2F"></path><path d="M8 15.2 7.2 20" stroke="#EE4A2F" stroke-linecap="round" stroke-width="1.8"></path><path d="M19.4 9c.9.7 1.4 1.8 1.4 3s-.5 2.3-1.4 3" stroke="#EE4A2F" stroke-linecap="round" stroke-width="1.6"></path></svg>
+<span>平台所有参与店铺的礼金活动，符合条件下单自动抵扣</span>
+<svg fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="m9.5 5 7 7-7 7" stroke="#E23A2E" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</div>
+<div class="card" data-type="shop">
+<div class="shopimg">
+<svg aria-hidden="true" preserveaspectratio="none" viewbox="0 0 80 80">
+<defs><lineargradient id="s1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#5A2E1E"></stop><stop offset="1" stop-color="#2C140C"></stop></lineargradient></defs>
+<rect fill="url(#s1)" height="80" width="80"></rect>
+<rect fill="#7B3A22" height="15" width="80" x="0" y="0"></rect>
+<rect fill="#C98A46" height="34" opacity=".7" rx="1" width="12" x="4" y="20"></rect>
+<rect fill="#C98A46" height="34" opacity=".55" rx="1" width="13" x="62" y="20"></rect>
+<rect fill="#E9BE7E" height="22" rx="2" width="40" x="20" y="34"></rect>
+<rect fill="#F6DDB6" height="8" rx="2" width="28" x="26" y="30"></rect>
+<rect fill="#8E5030" height="20" width="80" x="0" y="60"></rect>
+<circle cx="14" cy="30" fill="#FFC97A" opacity=".8" r="5"></circle>
+<circle cx="66" cy="30" fill="#FFC97A" opacity=".7" r="5"></circle>
+<rect fill="#6B3520" height="14" rx="2" width="44" x="18" y="58"></rect>
+</svg>
+<em>全部商品</em>
+</div>
+<div class="bd">
+<div class="r1"><em class="shop">店铺专属</em><b>郫都豆瓣老铺</b><span class="dist"><b>1.2km</b><button aria-label="导航到郫都豆瓣老铺" onclick="goNav('郫都豆瓣老铺')" type="button"><svg fill="none" height="14" viewbox="0 0 24 24" width="14"><path d="M3.5 11.1 20.5 3.5l-7.6 17-2-7.4z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path></svg></button></span></div>
+<div class="r2"><span class="off">满39减<i>5元</i></span><div class="act"><button class="btn" data-auto="" type="button">自动抵扣</button></div></div>
+<div class="foot">
+<span class="ft"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><rect height="16" rx="3" stroke="#B0A49B" stroke-width="2" width="17" x="3.5" y="5"></rect><path d="M8 3v4M16 3v4M3.5 10h17" stroke="#B0A49B" stroke-linecap="round" stroke-width="2"></path></svg>有效期至 <em class="exp">11-26</em></span>
+<span class="dv"></span>
+<span class="ft remain"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M12 3.2 21 8 12 12.8 3 8z" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path><path d="M3 12.4 12 17.2l9-4.8M3 16.4 12 21.2l9-4.8" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path></svg>剩余 <b>86</b> 张</span>
+</div>
+</div>
+</div>
+<div class="card" data-type="shop">
+<div class="shopimg">
+<svg aria-hidden="true" preserveaspectratio="none" viewbox="0 0 80 80">
+<defs><lineargradient id="s2" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#6B2B1B"></stop><stop offset="1" stop-color="#2F120B"></stop></lineargradient></defs>
+<rect fill="url(#s2)" height="80" width="80"></rect>
+<rect fill="#A03B22" height="14" width="80" x="0" y="0"></rect>
+<rect fill="#3B1A10" height="30" rx="2" width="68" x="6" y="18"></rect>
+<rect fill="#C8862F" height="8" rx="2" width="60" x="10" y="44"></rect>
+<circle cx="18" cy="55" fill="#F04E2E" r="6"></circle>
+<circle cx="32" cy="57" fill="#FFB32E" r="6"></circle>
+<circle cx="46" cy="55" fill="#C33B2A" r="6"></circle>
+<circle cx="60" cy="57" fill="#7FBF3F" r="6"></circle>
+<rect fill="#7A3A22" height="16" width="80" x="0" y="64"></rect>
+<rect fill="#FFD27A" height="6" opacity=".8" rx="1" width="10" x="14" y="30"></rect>
+<rect fill="#FFD27A" height="6" opacity=".7" rx="1" width="10" x="56" y="30"></rect>
+</svg>
+<em>指定商品</em>
+</div>
+<div class="bd">
+<div class="r1"><em class="shop">店铺专属</em><b>满江果香源</b><span class="dist"><b>2.4km</b><button aria-label="导航到满江果香源" onclick="goNav('满江果香源')" type="button"><svg fill="none" height="14" viewbox="0 0 24 24" width="14"><path d="M3.5 11.1 20.5 3.5l-7.6 17-2-7.4z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path></svg></button></span></div>
+<div class="r2"><span class="off">满59减<i>8.5元</i></span><div class="act"><button class="btn" data-auto="" type="button">自动抵扣</button></div></div>
+<div class="foot">
+<span class="ft"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><rect height="16" rx="3" stroke="#B0A49B" stroke-width="2" width="17" x="3.5" y="5"></rect><path d="M8 3v4M16 3v4M3.5 10h17" stroke="#B0A49B" stroke-linecap="round" stroke-width="2"></path></svg>有效期至 <em class="exp">12-05</em></span>
+<span class="dv"></span>
+<span class="ft remain"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M12 3.2 21 8 12 12.8 3 8z" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path><path d="M3 12.4 12 17.2l9-4.8M3 16.4 12 21.2l9-4.8" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path></svg>剩余 <b>42</b> 张</span>
+</div>
+</div>
+</div>
+<div class="card" data-type="shop">
+<div class="shopimg">
+<svg aria-hidden="true" preserveaspectratio="none" viewbox="0 0 80 80">
+<defs><lineargradient id="s3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#4A4238"></stop><stop offset="1" stop-color="#241E18"></stop></lineargradient></defs>
+<rect fill="url(#s3)" height="80" width="80"></rect>
+<path d="M0 26 22 12l26 6 32-8v30H0z" fill="#3C3630"></path>
+<rect fill="#2A241E" height="12" width="80" x="0" y="0"></rect>
+<rect fill="#6E4A2C" height="22" rx="2" width="64" x="8" y="30"></rect>
+<rect fill="#C9A06A" height="14" opacity=".85" rx="1" width="24" x="12" y="34"></rect>
+<rect fill="#C9A06A" height="14" opacity=".7" rx="1" width="24" x="44" y="34"></rect>
+<rect fill="#5A4128" height="22" width="80" x="0" y="58"></rect>
+<path d="M6 66h68" stroke="#8B6B44" stroke-width="3"></path>
+<circle cx="20" cy="26" fill="#FFD98A" opacity=".85" r="4"></circle>
+<circle cx="60" cy="26" fill="#FFD98A" opacity=".7" r="4"></circle>
+</svg>
+<em>指定类目</em>
+</div>
+<div class="bd">
+<div class="r1"><em class="shop">店铺专属</em><b>青城山农家特产</b><span class="dist"><b>5.8km</b><button aria-label="导航到青城山农家特产" onclick="goNav('青城山农家特产')" type="button"><svg fill="none" height="14" viewbox="0 0 24 24" width="14"><path d="M3.5 11.1 20.5 3.5l-7.6 17-2-7.4z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path></svg></button></span></div>
+<div class="r2"><span class="off">满29减<i>4元</i></span><div class="act"><button class="btn" data-auto="" type="button">自动抵扣</button></div></div>
+<div class="foot">
+<span class="ft"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><rect height="16" rx="3" stroke="#B0A49B" stroke-width="2" width="17" x="3.5" y="5"></rect><path d="M8 3v4M16 3v4M3.5 10h17" stroke="#B0A49B" stroke-linecap="round" stroke-width="2"></path></svg>有效期至 <em class="exp">11-21</em></span>
+<span class="dv"></span>
+<span class="ft remain"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M12 3.2 21 8 12 12.8 3 8z" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path><path d="M3 12.4 12 17.2l9-4.8M3 16.4 12 21.2l9-4.8" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path></svg>剩余 <b>320</b> 张</span>
+</div>
+</div>
+</div>
+<div class="card" data-type="platform">
+<div class="shopimg">
+<svg aria-hidden="true" preserveaspectratio="none" viewbox="0 0 80 80">
+<defs><lineargradient id="s4" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#8C3A24"></stop><stop offset="1" stop-color="#3A1509"></stop></lineargradient></defs>
+<rect fill="url(#s4)" height="80" width="80"></rect>
+<rect fill="#B24627" height="13" width="80" x="0" y="0"></rect>
+<rect fill="#33150C" height="24" rx="2" width="70" x="5" y="17"></rect>
+<rect fill="#E4A94E" height="7" rx="2" width="64" x="8" y="42"></rect>
+<circle cx="16" cy="54" fill="#F0602F" r="5.5"></circle>
+<circle cx="28" cy="55" fill="#FFC23C" r="5.5"></circle>
+<circle cx="40" cy="54" fill="#8ECB44" r="5.5"></circle>
+<circle cx="52" cy="55" fill="#E8482F" r="5.5"></circle>
+<circle cx="64" cy="54" fill="#C5321F" r="5.5"></circle>
+<rect fill="#6F2C18" height="17" width="80" x="0" y="63"></rect>
+<rect fill="#FFD98A" height="6" opacity=".8" rx="1" width="8" x="12" y="26"></rect>
+<rect fill="#FFD98A" height="6" opacity=".7" rx="1" width="8" x="60" y="26"></rect>
+</svg>
+<em>全平台商品</em>
+</div>
+<div class="bd">
+<div class="r1"><em class="plate">平台通用</em><b>金堂鲜果直供</b><span class="dist"><b>3.6km</b><button aria-label="导航到金堂鲜果直供" onclick="goNav('金堂鲜果直供')" type="button"><svg fill="none" height="14" viewbox="0 0 24 24" width="14"><path d="M3.5 11.1 20.5 3.5l-7.6 17-2-7.4z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path></svg></button></span></div>
+<div class="r2"><span class="off">满9.9减<i>3元</i></span><div class="act"><button class="btn" data-auto="" type="button">自动抵扣</button></div></div>
+<div class="foot">
+<span class="ft"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><rect height="16" rx="3" stroke="#B0A49B" stroke-width="2" width="17" x="3.5" y="5"></rect><path d="M8 3v4M16 3v4M3.5 10h17" stroke="#B0A49B" stroke-linecap="round" stroke-width="2"></path></svg>有效期至 <em class="exp">12-12</em></span>
+<span class="dv"></span>
+<span class="ft remain"><svg fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M12 3.2 21 8 12 12.8 3 8z" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path><path d="M3 12.4 12 17.2l9-4.8M3 16.4 12 21.2l9-4.8" stroke="#B0A49B" stroke-linejoin="round" stroke-width="1.8"></path></svg>剩余 <b>128</b> 张</span>
+</div>
+</div>
+</div>
+<div class="empty" id="empty">暂无该类礼金活动</div>
+<div class="pick">
+<h2>精选店铺礼金</h2>
+<div class="row">
+<span class="av">
+<svg aria-hidden="true" viewbox="0 0 40 40">
+<defs><radialgradient cx=".4" cy=".3" id="av1" r=".8"><stop stop-color="#8C3A24"></stop><stop offset="1" stop-color="#3A1509"></stop></radialgradient></defs>
+<rect fill="url(#av1)" height="40" width="40"></rect>
+<rect fill="#B24627" height="7" width="40" x="0" y="8"></rect>
+<circle cx="10" cy="27" fill="#F0602F" r="4"></circle>
+<circle cx="20" cy="28" fill="#FFC23C" r="4"></circle>
+<circle cx="30" cy="27" fill="#8ECB44" r="4"></circle>
+<rect fill="#6F2C18" height="8" width="40" x="0" y="32"></rect>
+</svg>
+</span>
+<div class="mid">
+<div class="nm">金堂鲜果直供</div>
+<div class="tags"><i>满29减4</i><i>满59减8.5</i></div>
+</div>
+<a class="go" href="shop.html">进店逛逛 ›</a>
+</div>
+</div>
+</div>
+</div>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast" style="display:none">正在打开商家导航</div>
+<div class="mask" id="ruleMask">
+<div class="sheet">
+<h3>店铺礼金使用规则</h3>
+<ol>
+<li>礼金由平台或店铺发放，下单时自动抵扣，无需手动领取。</li>
+<li>需满足对应满减门槛，每笔订单限用一份礼金。</li>
+<li>店铺专属礼金仅限本店使用；平台通用礼金全平台店铺可用。</li>
+<li>商品专属礼金仅限指定商品使用，且不与同类礼金叠加。</li>
+<li>礼金有效期内可用，逾期自动失效，数量以活动剩余为准。</li>
+</ol>
+<button id="ruleClose" type="button">我知道了</button>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    var tabs = document.getElementById('tabs');
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+    var empty = document.getElementById('empty');
+    tabs.addEventListener('click', function (e) {
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      Array.prototype.forEach.call(tabs.querySelectorAll('button'), function (x) { x.classList.remove('on'); });
+      btn.classList.add('on');
+      var f = btn.getAttribute('data-f');
+      var shown = 0;
+      cards.forEach(function (c) {
+        var ok = f === 'all' || c.getAttribute('data-type') === f;
+        c.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      empty.classList.toggle('show', shown === 0);
+    });
+
+    /* 活动卡有效期已改为静态文案，不再初始化倒计时 */
+
+    document.querySelectorAll('[data-auto]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        b.textContent = '已生效';
+        b.style.color = '#A79A91';
+        b.style.borderColor = '#EFE5DE';
+        b.style.pointerEvents = 'none';
+      });
+    });
+
+    var toastEl = document.getElementById('toast');
+    window.showToast = function (msg) {
+      toastEl.textContent = msg;
+      toastEl.style.display = 'block';
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(function () { toastEl.style.display = 'none'; }, 1600);
+    };
+    window.goNav = function () {
+      showToast('正在打开商家导航');
+      setTimeout(function () { location.href = 'shop.html'; }, 350);
+    };
+
+    var mask = document.getElementById('ruleMask');
+    document.getElementById('ruleBtn').addEventListener('click', function () { mask.classList.add('show'); });
+    document.getElementById('ruleClose').addEventListener('click', function () { mask.classList.remove('show'); });
+    mask.addEventListener('click', function (e) { if (e.target === mask) mask.classList.remove('show'); });
+  })();
+</script>
+</body>
+</html>
+
+<style>
+/* 店铺礼金卡片精确对齐 */
+.card .bd{display:grid;grid-template-rows:24px 30px 1fr;align-content:stretch}
+.card .r1{height:24px;align-items:baseline;line-height:24px}
+.card .r1 em{line-height:16px;align-self:center;margin-right:7px;padding:1px 6px}
+.card .r1 b{line-height:20px;display:block}
+.card .r1 .dist{align-self:center;line-height:20px;margin-left:8px}
+.card .r2{height:30px;align-items:center;margin:0;line-height:30px}
+.card .off{line-height:20px;align-items:baseline}
+.card .off i{line-height:20px}
+.card .act{height:30px;align-items:center}
+.card .btn{line-height:18px;padding:4px 8px}
+.card .foot{height:40px;min-height:40px;padding:10px 0 0;align-items:baseline;line-height:16px}
+.card .foot .ft{line-height:16px;align-items:baseline}
+.card .foot .ft .exp{line-height:16px}
+</style>
+<style>
+/* 礼金卡片信息组垂直居中 */
+.card .bd{height:94px;grid-template-rows:28px 32px 28px;align-content:center}
+.card .r1,.card .r2{height:100%;margin:0}
+.card .foot{height:100%;min-height:0;padding:0;align-items:center}
+</style>
+<style>
+/* 有效期与剩余数量图标及文字对齐 */
+.card .foot{gap:8px;align-items:center}
+.card .foot .ft{height:18px;display:inline-flex;align-items:center;gap:4px;line-height:18px}
+.card .foot .ft svg{width:13px;height:13px;flex:0 0 13px;display:block}
+.card .foot .ft .exp{line-height:18px}
+.card .foot .dv{height:12px;align-self:center;margin:0 1px}
+</style>
+<style>
+/* 底部信息组水平居中 */
+.card .foot{justify-content:center;width:100%}
+</style>
+<style>
+/* 底部信息横向居中，组内左对齐 */
+.card .foot{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;justify-content:initial;column-gap:8px}
+.card .foot .ft:first-child{justify-self:end;justify-content:flex-start}
+.card .foot .ft.remain{justify-self:start;justify-content:flex-start}
+.card .foot .dv{justify-self:center;margin:0}
+</style>
+<style>
+/* 收紧底部有效期与剩余数量的横向间距 */
+.card .foot{grid-template-columns:auto auto auto;justify-content:center;column-gap:7px}
+.card .foot .ft:first-child,.card .foot .ft.remain{justify-self:initial}
+.card .foot .dv{justify-self:initial}
+</style>
+<style>
+/* 优惠红包店铺新版排版 */
+.head{padding-bottom:14px;background:linear-gradient(160deg,#FFE8E1 0%,#FBDDD4 72%,#FDF7F4 100%)}
+.hrow{padding-bottom:12px}
+.bal{gap:10px;padding:0 2px}
+.bal .l{font-size:11px;line-height:1.3}
+.bal .n{font-size:34px;letter-spacing:-1px}
+.bal .r{font-size:10px;line-height:1.8}
+.tabs{padding:14px 0 12px;gap:9px}
+.tabs button{height:34px;padding:0 15px;font-size:12px}
+.tips{height:38px;padding:0 12px;margin-bottom:12px;border-radius:12px}
+.card{gap:10px;min-height:116px;padding:10px;border-radius:16px;margin-bottom:10px;box-shadow:0 5px 16px rgba(120,60,50,.07)}
+.card .shopimg{flex-basis:92px;width:92px;height:92px;border-radius:12px}
+.card .shopimg em{height:20px;line-height:20px;font-size:10px}
+.card .bd{height:92px;grid-template-rows:26px 32px 26px}
+.card .r1{height:26px;line-height:26px}
+.card .r1 em{font-size:9px;padding:2px 6px;margin-right:7px}
+.card .r1 b{font-size:13px}
+.card .r1 .dist{font-size:11px;margin-left:7px}
+.card .r2{height:32px}
+.card .off{font-size:11px}
+.card .off i{font-size:15px}
+.card .btn{min-width:58px;height:26px;padding:0 9px;font-size:10px}
+.card .foot{height:26px;min-height:0;grid-template-columns:auto auto auto;column-gap:7px;padding:0;font-size:9.5px}
+.card .foot .ft{height:18px;font-size:9.5px;gap:4px}
+.card .foot .ft svg{width:13px;height:13px;flex-basis:13px}
+.card .foot .dv{height:12px}
+.pick{margin-top:8px}
+.pick h2{padding:9px 2px 10px;font-size:14px}
+.pick .row{padding:11px 12px;border-radius:15px}
+</style>
+<style>
+/* 底部信息与右侧内容左边缘对齐 */
+.card .foot{grid-template-columns:auto auto auto;justify-content:start;justify-items:start;column-gap:7px}
+.card .foot .ft:first-child,.card .foot .ft.remain{justify-self:start}
+.card .foot .dv{justify-self:start}
+</style>
+<style>
+.card .r1{align-items:center}
+.card .r1 em{transform:translateY(-1px)}
+</style>

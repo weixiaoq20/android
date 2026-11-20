@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 规则与服务中心</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.hidden{display:none!important}
+.topbar{flex:0 0 46px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.topbar h1{margin:0;font-size:16px;font-weight:700;letter-spacing:-.2px}
+.back{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;box-shadow:0 3px 9px rgba(160,110,80,.08)}
+.online{font-size:9px;color:#EE4A2F;border:1px solid #F7A392;background:#FFF6F3;border-radius:999px;padding:4px 9px;font-weight:700}
+.pad{padding:0 14px}
+.hero{margin:2px 14px 0;border-radius:18px;background:linear-gradient(120deg,#FB7C5B 0%,#F1503A 55%,#E23629 100%);padding:14px;color:#fff;position:relative;overflow:hidden;box-shadow:0 10px 24px rgba(232,70,45,.24)}
+.hero:before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-44px;top:-64px;background:rgba(255,255,255,.14)}
+.hero:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;left:-30px;bottom:-54px;background:rgba(255,255,255,.08)}
+.hero h2{margin:0;font-size:17px;font-weight:800;letter-spacing:.3px;position:relative;z-index:2}
+.hero p{margin:5px 0 0;font-size:9px;opacity:.9;line-height:1.5;position:relative;z-index:2}
+.hero .phone{display:inline-flex;align-items:center;gap:5px;margin-top:9px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 9px;font-size:9px;font-weight:700;position:relative;z-index:2}
+.hero .wm{position:absolute;right:10px;bottom:0;font-size:48px;font-weight:900;color:rgba(255,255,255,.14);font-family:"STKaiti","KaiTi",serif;line-height:1}
+.notice{display:flex;align-items:center;gap:7px;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:12px;padding:8px 9px;margin-top:10px}
+.notice .ni{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 50% 42%,#FDE7E4,#FCEBEA 70%,#FDF2F1);display:grid;place-items:center;flex:0 0 28px;color:#EE4A2F}
+.notice .nt{flex:1;min-width:0;font-size:8.5px;color:#B3411F;line-height:1.45}
+.notice .nt b{color:#B3411F;font-size:9.5px;display:block;margin-bottom:1px}
+.notice a{flex:0 0 auto;font-size:8px;color:#EE4A2F;background:#fff;border:1px solid #F7C7B8;border-radius:999px;padding:4px 8px;font-weight:700}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.qc{background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:10px;display:flex;align-items:center;gap:8px}
+.qc .qi{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex:0 0 36px}
+.qc b{display:block;font-size:10.5px;font-weight:700}
+.qc span{display:block;font-size:7.8px;color:#A99C92;margin-top:2px;line-height:1.3}
+.sec{display:flex;align-items:center;justify-content:space-between;margin:13px 2px 7px}
+.sec b{font-size:13px;font-weight:800;letter-spacing:-.2px}
+.sec span{font-size:8.5px;color:#B2A69C}
+.rules{background:#fff;border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.rule{display:flex;align-items:center;gap:7px;padding:9px 11px;border-bottom:1px solid #F9F3EE;font-size:10px;color:#4A3F37}
+.rule:last-child{border-bottom:0}
+.rule .no{width:19px;height:19px;border-radius:50%;background:radial-gradient(circle at 50% 42%,#FDE7E4,#FCEBEA 70%,#FDF2F1);color:#EE4A2F;font-size:8px;font-weight:800;display:grid;place-items:center;flex:0 0 19px}
+.rule span{margin-left:auto;color:#B2A69C;font-size:9px}
+.faq{background:#fff;border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.fitem{border-bottom:1px solid #F9F3EE}
+.fitem:last-child{border-bottom:0}
+.fq{width:100%;display:flex;align-items:center;gap:7px;padding:10px 11px;text-align:left}
+.fq b{flex:1;font-size:10px;font-weight:600;color:#4A3F37;line-height:1.4}
+.fq .ar{font-size:11px;color:#C2B5AB;transition:transform .18s}
+.fitem.open .fq .ar{transform:rotate(180deg);color:#EE4A2F}
+.fa{display:none;padding:0 11px 10px;font-size:9px;color:#8E8076;line-height:1.65}
+.fitem.open .fa{display:block}
+.banner{display:flex;align-items:center;gap:8px;background:linear-gradient(115deg,#FFF2EC,#FFE6DD);border:1px solid #FAD3C6;border-radius:14px;padding:10px;margin-top:10px}
+.banner .bi{width:32px;height:32px;border-radius:10px;background:linear-gradient(145deg,#FE9E7E,#F2452E);display:grid;place-items:center;flex:0 0 32px}
+.banner b{display:block;font-size:10px;color:#B3411F}
+.banner span{display:block;font-size:8px;color:#C08065;margin-top:2px}
+.banner a{margin-left:auto;font-size:8px;color:#fff;background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-radius:999px;padding:5px 9px;font-weight:700;flex:0 0 auto}
+.foot{text-align:center;font-size:8.5px;color:#B2A69C;padding:12px 0 16px;line-height:1.6}
+.mask{position:absolute;inset:0;background:rgba(30,20,15,.45);z-index:40}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:20px 20px 0 0;z-index:41;padding:14px 16px 12px;max-height:70%;overflow-y:auto;box-shadow:0 -10px 30px rgba(80,40,20,.15)}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sh h2{margin:0;font-size:14px;font-weight:800}
+.sh button{font-size:11px;color:#A99C92}
+.types{display:flex;gap:5px;margin-bottom:8px}
+.type{flex:1;height:29px;border-radius:999px;border:1px solid #F1E5DB;background:#FDFBF9;font-size:9px;color:#5C5C5F;font-weight:600}
+.type.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-color:transparent;color:#fff;font-weight:700}
+textarea{width:100%;height:84px;border-radius:10px;border:1px solid #F1E5DB;background:#FDFBF9;padding:8px;font-size:10px;font-family:inherit;outline:none;resize:none;line-height:1.5}
+textarea:focus{border-color:#E3C3AE;background:#fff}
+.submit{width:100%;height:42px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:12px;font-weight:700;margin-top:8px;box-shadow:0 6px 16px rgba(232,70,45,.24)}
+.toast{position:absolute;left:50%;bottom:40px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="topbar">
+<a aria-label="返回" class="back" href="profile.html">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+<h1>规则与服务中心</h1>
+<a class="online" href="chat-service.html">在线客服</a>
+</div>
+<div class="scroll">
+<div class="pad">
+<div class="hero">
+<h2>福聚贡翔 · 服务中心</h2>
+<p>平台规则、商家入驻、投诉建议与常见问题，都在这里。</p>
+<span class="phone">
+<svg fill="none" height="11" viewbox="0 0 24 24" width="11"><path d="M6 3.5h3l1.5 4-2 1.2a12 12 0 0 0 6.8 6.8l1.2-2 4 1.5v3c0 1-.8 1.8-1.8 1.8C10.2 19.8 4.2 13.8 4.2 5.3 4.2 4.3 5 3.5 6 3.5z" stroke="#fff" stroke-linejoin="round" stroke-width="1.7"></path></svg>
+          客服热线 400-820-2026 · 9:00–21:00
+        </span>
+<span class="wm">服</span>
+</div>
+<div class="notice">
+<span class="ni"><svg fill="none" height="14" viewbox="0 0 24 24" width="14"><path d="M12 8v5M12 16.5v.2" stroke="#B4674B" stroke-linecap="round" stroke-width="2"></path><circle cx="12" cy="12" r="8.5" stroke="#B4674B" stroke-width="1.6"></circle></svg></span>
+<div class="nt"><b>订单问题请先联系商家</b>商家 24 小时未处理，可提交平台介入。</div>
+<a href="chat-shop.html">去联系</a>
+</div>
+<div class="quick">
+<a class="qc" href="chat-service.html">
+<span class="qi" style="background:#FAF1E9"><svg fill="none" height="17" viewbox="0 0 24 24" width="17"><path d="M20.5 11.5A8.2 8.2 0 0 1 8 18.7L4 20l1.3-3.9A8.2 8.2 0 1 1 20.5 11.5z" stroke="#BA7659" stroke-width="1.7"></path><circle cx="9" cy="11.5" fill="#BA7659" r="1"></circle><circle cx="12.5" cy="11.5" fill="#BA7659" r="1"></circle><circle cx="16" cy="11.5" fill="#BA7659" r="1"></circle></svg></span>
+<div><b>在线客服</b><span>规则咨询 · 订单协助</span></div>
+</a>
+<a class="qc" href="merchant-apply.html">
+<span class="qi" style="background:#EFF5FF"><svg fill="none" height="17" viewbox="0 0 24 24" width="17"><path d="M4 9.5 5.5 4h13L20 9.5M5 9.5V20h14V9.5" stroke="#3E8BD6" stroke-linejoin="round" stroke-width="1.7"></path><path d="M9 20v-5h6v5" stroke="#3E8BD6" stroke-width="1.7"></path></svg></span>
+<div><b>商家入驻</b><span>资质 · 结算 · 审核</span></div>
+</a>
+<button class="qc" onclick="openComplain()">
+<span class="qi" style="background:#FBF0FF"><svg fill="none" height="17" viewbox="0 0 24 24" width="17"><path d="M12 3.5 20 6v5c0 4.6-3.4 8.2-8 10-4.6-1.8-8-5.4-8-10V6z" stroke="#A45BD0" stroke-linejoin="round" stroke-width="1.7"></path><path d="M12 8.5v4M12 15.5v.2" stroke="#A45BD0" stroke-linecap="round" stroke-width="1.8"></path></svg></span>
+<div style="text-align:left"><b>投诉建议</b><span>违规举报 · 服务建议</span></div>
+</button>
+<a class="qc" href="coupons.html">
+<span class="qi" style="background:#EFF8F1"><svg fill="none" height="17" viewbox="0 0 24 24" width="17"><path d="M4 8h16v3a2 2 0 0 0 0 4v3H4v-3a2 2 0 0 0 0-4z" stroke="#2C9C6A" stroke-linejoin="round" stroke-width="1.7"></path><path d="M12 8v11" stroke="#2C9C6A" stroke-dasharray="2 2" stroke-width="1.4"></path></svg></span>
+<div><b>红包与售后</b><span>抵扣规则 · 退款说明</span></div>
+</a>
+</div>
+<div class="sec"><b>平台规则</b><span>2026 年 11 月更新</span></div>
+<div class="rules">
+<a class="rule" href="chat-service.html"><span class="no">1</span>《福聚贡翔平台运营规则》<span>›</span></a>
+<a class="rule" href="chat-service.html"><span class="no">2</span>《商家服务协议与结算规则》<span>›</span></a>
+<a class="rule" href="chat-service.html"><span class="no">3</span>《坏果包赔与售后处理规范》<span>›</span></a>
+<a class="rule" href="chat-service.html"><span class="no">4</span>《隐私政策与信息保护》<span>›</span></a>
+</div>
+<div class="sec"><b>常见问题</b><span>点击展开</span></div>
+<div class="faq" id="faq">
+<div class="fitem open">
+<button class="fq" onclick="toggleFaq(this)"><b>付款后货款在哪里？多久分账给商家？</b><span class="ar">⌄</span></button>
+<div class="fa">平台订单统一使用微信担保支付：你付款后货款由平台托管，商家备货发货，你确认收货后自动分账给商家。若商家迟迟未发货，可联系商家或申请平台介入，售后期间分账冻结。</div>
+</div>
+<div class="fitem">
+<button class="fq" onclick="toggleFaq(this)"><b>商家多久发货？可以同城当日达吗？</b><span class="ar">⌄</span></button>
+<div class="fa">现货商品承诺 48 小时内发货；带有“同城配送”标识的店铺，青羊区、武侯区等核心区域支持当日达，具体以结算页展示的预计送达时间为准。</div>
+</div>
+<div class="fitem">
+<button class="fq" onclick="toggleFaq(this)"><b>收到坏果怎么申请包赔？</b><span class="ar">⌄</span></button>
+<div class="fa">在订单详情点击“申请售后”，上传坏果与快递面单合照，选择“坏果包赔”。商家需在 24 小时内处理，超时平台自动介入；赔付金额按坏果比例计算。</div>
+</div>
+<div class="fitem">
+<button class="fq" onclick="toggleFaq(this)"><b>选品链接的佣金什么时候到账？</b><span class="ar">⌄</span></button>
+<div class="fa">买家通过选品链接下单并确认收货后，佣金进入“预估”状态，T+7 结算至佣金钱包；发生退款时对应佣金自动冲回，可在钱包流水中查看明细。</div>
+</div>
+</div>
+<div class="banner">
+<span class="bi"><svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="M12 3.5 20 6v5c0 4.6-3.4 8.2-8 10-4.6-1.8-8-5.4-8-10V6z" stroke="#fff" stroke-linejoin="round" stroke-width="1.8"></path><path d="m8.5 12 2.4 2.4 4.6-4.9" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"></path></svg></span>
+<div><b>商家入驻通道</b><span>营业执照 + 身份证 + 门头照，1–3 个工作日审核</span></div>
+<a href="merchant-apply.html">去入驻</a>
+</div>
+<div class="foot">福聚贡翔（成都）网络科技有限公司<br/>平台客服不代收货款 · 请勿向任何人提供验证码</div>
+</div>
+</div>
+<div class="homebar"><i></i></div>
+<div class="mask hidden" id="mask" onclick="closeComplain()"></div>
+<div class="sheet hidden" id="sheet">
+<div class="sh"><h2>投诉与建议</h2><button onclick="closeComplain()">取消</button></div>
+<div class="types" id="types">
+<button class="type on" onclick="pickType(this)">商品问题</button>
+<button class="type" onclick="pickType(this)">商家服务</button>
+<button class="type" onclick="pickType(this)">平台建议</button>
+</div>
+<textarea id="complainText" placeholder="请描述具体情况，便于我们核实处理（不少于 10 字）"></textarea>
+<div style="font-size:8px;color:#A99C92;margin-top:5px;line-height:1.5">涉及订单请填写订单号；平台将在 1 个工作日内通过站内消息回复。</div>
+<button class="submit" onclick="submitComplain()">提交</button>
+</div>
+<div class="toast" id="toast">已提交</div>
+</div>
+<script>
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1700);
+  }
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.fitem');
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.fitem').forEach(function (x) { x.classList.remove('open'); });
+    if (!open) { item.classList.add('open'); }
+  }
+
+  function openComplain() {
+    document.getElementById('mask').classList.remove('hidden');
+    document.getElementById('sheet').classList.remove('hidden');
+  }
+  function closeComplain() {
+    document.getElementById('mask').classList.add('hidden');
+    document.getElementById('sheet').classList.add('hidden');
+  }
+  function pickType(btn) {
+    document.querySelectorAll('.type').forEach(function (b) { b.classList.remove('on'); });
+    btn.classList.add('on');
+  }
+  function submitComplain() {
+    const v = document.getElementById('complainText').value.trim();
+    if (v.length < 10) { toast('请至少填写 10 个字，便于核实'); return; }
+    closeComplain();
+    document.getElementById('complainText').value = '';
+    toast('已提交，平台将在 1 个工作日内回复');
+  }
+</script>
+</body>
+</html>

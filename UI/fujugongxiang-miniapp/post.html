@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 发逛逛</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding:12px 14px}
+.hidden{display:none!important}
+.navbar{flex:0 0 46px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #F7EEE8}
+.navbar a{font-size:13px;color:#5C5C5F}
+.navbar h1{margin:0;font-size:16px;font-weight:700;flex:1;text-align:center;letter-spacing:-.2px}
+.navbar .pub{font-size:12.5px;font-weight:700;color:#fff;background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-radius:999px;padding:7px 16px;box-shadow:0 4px 12px rgba(232,70,45,.24)}
+/* 输入 */
+.writer{background:#fff;border-radius:16px;padding:12px;box-shadow:var(--shadow)}
+.writer textarea{width:100%;min-height:112px;border:0;outline:none;resize:none;font-size:14px;line-height:1.7;color:#1C1C1E;font-family:inherit;background:transparent}
+.writer textarea::placeholder{color:#B6AAA2}
+.wfoot{display:flex;align-items:center;justify-content:space-between;padding-top:8px;border-top:1px dashed #F2EAE4;font-size:10.5px;color:#B0A49B}
+/* 图片 */
+.media{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}
+.media .up{width:76px;height:76px;border-radius:12px;border:1px dashed #F0C7B6;background:#FFF9F6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#B08B79;font-size:9.5px}
+.media .img{width:76px;height:76px;border-radius:12px;position:relative;overflow:hidden;background:linear-gradient(150deg,#FFF2EC,#FBD8CB)}
+.media .img i{position:absolute;width:52px;height:52px;border-radius:50%;left:11px;top:11px;background:radial-gradient(circle at 34% 30%,#E3D5AE,#C0A57B 55%,#95794F 100%)}
+.media .img.b{background:linear-gradient(150deg,#FAEFE6,#EFCDB9)}
+.media .img.b i{border-radius:12px;background:radial-gradient(circle at 35% 25%,#C98164,#A15E47 65%,#7A4534 100%)}
+.media .img span{position:absolute;right:3px;top:3px;width:16px;height:16px;border-radius:50%;background:rgba(58,50,45,.42);color:#fff;font-size:10px;display:grid;place-items:center;line-height:1}
+/* 关联 */
+.card{background:#fff;border-radius:14px;margin-top:11px;overflow:hidden;box-shadow:var(--shadow)}
+.row{display:flex;align-items:center;gap:9px;padding:12px;font-size:12.5px;color:#5E5249;width:100%;text-align:left}
+.row+.row{border-top:1px solid #F6EFE9}
+.row .ic{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 50% 42%,#FDE7E4,#FCEBEA 70%,#FDF2F1);color:#EE4A2F;display:grid;place-items:center;flex:0 0 28px}
+.row .lb{flex:1;min-width:0}
+.row .lb small{display:block;font-size:9.5px;color:#A79A91;margin-top:2px}
+.row .val{font-size:11px;color:#A79A91;display:flex;align-items:center;gap:3px}
+.row .val.hl{color:#E23A2E;font-weight:600}
+/* 位置 */
+.loc{display:flex;align-items:center;gap:8px;background:#fff;border-radius:12px;padding:10px 11px;margin-top:11px;font-size:11.5px;color:#6E6157;box-shadow:var(--shadow)}
+.loc svg{color:#EE4A2F;flex:0 0 14px}
+.loc .chg{margin-left:auto;color:#EE4A2F;font-size:10.5px}
+.tip{font-size:10px;color:#B0A49B;line-height:1.7;margin-top:10px;padding:0 3px}
+.publish{flex:0 0 auto;padding:9px 14px 12px;background:#fff;border-top:1px solid #F3EBE5}
+.publish button{width:100%;height:46px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:14.5px;font-weight:700;box-shadow:0 6px 16px rgba(232,70,45,.26)}
+.toast{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);background:rgba(58,50,45,.86);color:#fff;font-size:12px;border-radius:10px;padding:9px 15px;z-index:60;white-space:nowrap}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="navbar">
+<a href="nearby.html">取消</a>
+<h1>发逛逛</h1>
+<button class="pub" id="pubTop">发布</button>
+</div>
+<div class="scroll">
+<div class="pad">
+<div class="writer">
+<textarea id="content" maxlength="1000" placeholder="分享你今天逛到的成都好物、探店心得或街坊新鲜事…"></textarea>
+<div class="media">
+<span class="img"><i></i><span id="del1">×</span></span>
+<span class="img b"><i></i><span id="del2">×</span></span>
+<button class="up" id="up">
+<svg fill="none" height="17" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24" width="17"><path d="M12 5v14M5 12h14"></path></svg>
+            图片 2/9
+          </button>
+<button class="up" id="vid" type="button">
+<svg fill="none" height="17" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="17"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z" stroke-linejoin="round"></path><path d="m10.5 11.5 4 2.5-4 2.5z" fill="currentColor" stroke="none"></path></svg>
+            视频 0/1
+          </button>
+</div>
+<div class="wfoot"><span>最多 9 张图 / 1 段视频 · 支持文字 1000 字</span><span id="count">0/1000</span></div>
+</div>
+<div class="card">
+<a class="row" href="shop.html">
+<span class="ic"><svg fill="none" height="14" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="14"><path d="M4 9.5 5.5 4h13L20 9.5M5 9.5V20h14V9.5M9.5 20v-5h5v5"></path></svg></span>
+<span class="lb">关联店铺<small>让同城街坊找到你的店</small></span>
+<span class="val hl" id="shopVal">福聚贡翔演示店</span>
+<svg fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="m9 5 7 7-7 7" stroke="#C2B5AC" stroke-linecap="round" stroke-width="2"></path></svg>
+</a>
+<a class="row" href="product-detail.html">
+<span class="ic"><svg fill="none" height="14" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="14"><path d="M4 8.2 12 4l8 4.2v8L12 20.4 4 16.2z"></path><path d="M4 8.2 12 12.4l8-4.2M12 12.4v8"></path></svg></span>
+<span class="lb">关联商品<small>最多挂载 6 个，朋友可直接下单</small></span>
+<span class="val">添加 0/6</span>
+<svg fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="m9 5 7 7-7 7" stroke="#C2B5AC" stroke-linecap="round" stroke-width="2"></path></svg>
+</a>
+<button class="row" id="syncRow">
+<span class="ic"><svg fill="none" height="14" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="14"><path d="M12 21s6.5-6 6.5-11A6.5 6.5 0 0 0 5.5 10c0 5 6.5 11 6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></svg></span>
+<span class="lb">所在位置<small>发布后显示距离</small></span>
+<span class="val" id="locVal">成都 · 武侯区</span>
+<svg fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="m9 5 7 7-7 7" stroke="#C2B5AC" stroke-linecap="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<div class="loc">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24" width="14"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"></path><circle cx="12" cy="10" r="2.4"></circle></svg>
+        成都市武侯区天府三街
+        <span class="chg">切换</span>
+</div>
+<div class="tip">视频时长 ≤60 秒、大小 ≤10MB；关联商品最多 6 个。发布内容将进入审核，通过后展示在附近店。</div>
+</div>
+</div>
+<div class="publish"><button id="pub">发布逛逛</button></div>
+<div class="homebar"><i></i></div>
+<div class="toast hidden" id="toast">已提交审核，通过后展示在附近店</div>
+</div>
+<script>
+  (function () {
+    var ta = document.getElementById('content');
+    var count = document.getElementById('count');
+    ta.addEventListener('input', function () {
+      if (ta.value.length > 1000) { ta.value = ta.value.slice(0, 1000); }
+      count.textContent = ta.value.length + '/1000';
+    });
+
+    document.getElementById('del1').addEventListener('click', function (e) {
+      e.stopPropagation();
+      e.target.parentNode.remove();
+    });
+    document.getElementById('del2').addEventListener('click', function (e) {
+      e.stopPropagation();
+      e.target.parentNode.remove();
+    });
+    document.getElementById('up').addEventListener('click', function () {
+      var btn = document.getElementById('up');
+      if (document.querySelectorAll('.media .img').length >= 9) {
+        btn.title = '最多上传 9 张图片';
+        return;
+      }
+      var img = document.createElement('span');
+      img.className = 'img';
+      img.innerHTML = '<i></i><span>×</span>';
+      btn.parentNode.insertBefore(img, btn);
+      img.querySelector('span').addEventListener('click', function (e) {
+        e.stopPropagation();
+        img.remove();
+      });
+    });
+
+    document.getElementById('vid').addEventListener('click', function () {
+      var v = document.getElementById('vid');
+      if (v.classList.contains('done')) {
+        v.classList.remove('done');
+        v.style.color = '';
+        v.style.borderColor = '';
+        v.lastChild.textContent = '视频 0/1';
+        return;
+      }
+      v.classList.add('done');
+      v.style.color = '#2C9C6A';
+      v.style.borderColor = '#BFE6CF';
+      v.lastChild.textContent = '视频 1/1 · 00:18';
+    });
+
+    function publish() {
+      if (!ta.value.trim()) {
+        ta.focus();
+        return;
+      }
+      var t = document.getElementById('toast');
+      t.classList.remove('hidden');
+      setTimeout(function () { location.href = 'nearby.html'; }, 900);
+    }
+    document.getElementById('pub').addEventListener('click', publish);
+    document.getElementById('pubTop').addEventListener('click', publish);
+  })();
+</script>
+</body>
+</html>

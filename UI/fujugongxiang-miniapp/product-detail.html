@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 商品详情</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding-left:14px;padding-right:14px}
+.hidden{display:none!important}
+.price{color:var(--brand);font-weight:800}
+.price small{font-size:12px;font-weight:800;margin-right:1px}
+/* 顶栏 */
+.navbar{position:absolute;left:0;right:0;top:34px;height:44px;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:0 12px;pointer-events:none}
+.navbar a,.navbar button{pointer-events:auto;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.86);backdrop-filter:blur(6px);display:grid;place-items:center;color:#5B5049;box-shadow:0 2px 8px rgba(120,90,70,.1)}
+/* 主图 */
+.hero{height:318px;position:relative;overflow:hidden;background:linear-gradient(155deg,#F7F7EC 0%,#E4E8CB 45%,#C4CDA0 100%)}
+.hero .b1{position:absolute;width:150px;height:150px;left:60px;top:80px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#E3D5AE,#C0A57B 55%,#95794F 100%)}
+.hero .b2{position:absolute;width:96px;height:96px;left:186px;top:140px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#DCE3B9,#A8BC7E 60%,#7F965B 100%)}
+.hero .b3{position:absolute;width:44px;height:22px;left:112px;top:72px;background:#7C9867;transform:rotate(-28deg);border-radius:60% 40% 60% 40%}
+.hero .b4{position:absolute;width:210px;height:210px;left:26px;top:52px;border-radius:50%;border:10px solid rgba(255,255,255,.28)}
+.hero .tag{position:absolute;left:14px;bottom:70px;color:#fff;font-size:13px;font-weight:700;text-shadow:0 1px 6px rgba(70,50,35,.35)}
+.hero .hint{position:absolute;right:14px;bottom:70px;background:rgba(255,255,255,.85);color:#8A7C72;font-size:10px;border-radius:999px;padding:3px 9px}
+/* 价格卡 */
+.pcard{background:#fff;border-radius:18px;margin:-22px 12px 0;position:relative;z-index:5;padding:13px 14px 12px;box-shadow:0 8px 22px rgba(120,60,50,.08)}
+.pcard .ptop{display:flex;align-items:flex-end;justify-content:space-between}
+.pcard .ptop .price{font-size:28px;line-height:1;letter-spacing:-.8px}
+.pcard .ptop .old{font-size:11px;color:#B0A49B;text-decoration:line-through;margin-left:6px}
+.pcard .ptop .sold{font-size:10.5px;color:var(--muted);text-align:right;line-height:1.5}
+.pcard h1{margin:9px 0 0;font-size:15px;line-height:1.5;font-weight:600}
+.ptags{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.ptags i{font-style:normal;font-size:10px;color:#EE4A2F;background:#FFF6F3;border-radius:999px;padding:2px 7px;border:1px solid #F7A392}
+/* 玩法 */
+.plays{display:flex;gap:8px;margin:10px 12px 0}
+.play{flex:1;border-radius:12px;padding:9px 10px;background:linear-gradient(120deg,#FFF3EE,#FFF8F5);border:1px solid #FAD9CD;display:flex;align-items:center;gap:8px}
+.play .ic{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 50% 42%,#FDE7E4,#FCEBEA 70%,#FDF2F1);display:grid;place-items:center;color:#EE4A2F;flex:0 0 28px}
+.play b{display:block;font-size:12px;color:#7C4E3B}
+.play span{display:block;font-size:10px;color:#A2908A;margin-top:1px}
+.play .go{margin-left:auto;color:#C6B3A8}
+/* 限时秒杀 · 拼团动态 */
+.skmob{margin:10px 12px 0;background:#fff;border-radius:13px;box-shadow:0 6px 16px rgba(120,60,50,.07);border:1px solid #F5EDE7;overflow:hidden}
+.skmob .skm-hd{height:38px;display:flex;align-items:center;gap:7px;padding:0 10px;background:linear-gradient(90deg,#E23A2E,#C9301F);color:#fff;border-radius:12px 12px 0 0;width:100%;text-align:left}
+.skmob .skm-hd b{font-size:14px;font-weight:700;flex:0 0 auto;letter-spacing:.2px}
+.skmob .skm-hd .dv{width:1px;height:14px;background:rgba(255,255,255,.55);flex:0 0 1px}
+.skmob .skm-hd em{font-style:normal;font-size:11px;color:rgba(255,255,255,.9);flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.skmob .skm-hd svg{flex:0 0 12px;color:#fff}
+.skmob .skm-row{display:flex;align-items:center;gap:8px;padding:0 10px;height:56px;border-bottom:1px solid #F2EEEA}
+.skmob .skm-row:last-child{border-bottom:0}
+.skmob .avs{display:flex;flex:0 0 auto;padding-left:2px}
+.skmob .avs .av{width:24px;height:24px;border-radius:50%;border:1.5px solid #fff;display:grid;place-items:center;flex:0 0 24px;overflow:hidden}
+.skmob .avs .av+.av{margin-left:-8px}
+.skmob .avs .av span{font-size:9.5px;font-weight:700;color:#fff;line-height:1}
+.skmob .skm-nm{flex:1 1 auto;min-width:0}
+.skmob .skm-nm p{margin:0;font-size:13px;color:#2A2420;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.25}
+.skmob .skm-nm i{display:inline-block;margin-top:2px;font-style:normal;font-size:9.5px;line-height:1.5;color:#E23A2E;background:#FFF1EC;border-radius:4px;padding:0 4px;white-space:nowrap}
+.skmob .skm-cd{flex:0 0 auto;text-align:right;margin-left:auto}
+.skmob .skm-cd p{margin:0;font-size:11px;color:#9A9A9E;line-height:1.25;white-space:nowrap}
+.skmob .skm-cd .cdown{font-size:11.5px;color:#2A2420;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:.2px;white-space:nowrap}
+.skmob .skm-op{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.skmob .skm-op .hot{font-size:9.5px;line-height:1.5;color:#C08A2A;background:#FFF4DA;border-radius:4px;padding:0 4px;white-space:nowrap}
+.skmob .skm-op .join{font-size:11px;line-height:1;color:#fff;background:#E23A2E;border-radius:6px;padding:5px 8px;white-space:nowrap}
+/* 服务 */
+.svc{display:flex;align-items:center;gap:9px;background:#fff;border-radius:14px;margin:10px 12px 0;padding:10px 12px;border:1px solid #F5EDE7;font-size:11px;color:#8A7C72}
+.svc b{color:#5E5249;font-weight:600}
+.svc .more{margin-left:auto;color:#BDB0A6;display:flex;align-items:center;gap:2px}
+/* 店铺 */
+.shop{display:flex;align-items:center;gap:10px;background:#fff;border-radius:14px;margin:10px 12px 0;padding:11px 12px;border:1px solid #F5EDE7}
+.slogo{width:38px;height:38px;border-radius:11px;background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;flex:0 0 38px}
+.shop .nm{font-size:13px;font-weight:700}
+.shop .mt{font-size:10px;color:#9A8C82;margin-top:2px;display:flex;gap:8px}
+.shop .btnline{margin-left:auto;display:flex;gap:6px}
+.shop .btnline a{font-size:10.5px;border-radius:999px;padding:5px 11px;border:1px solid #F7A392;color:#EE4A2F;background:#FFF6F3}
+/* 评价 */
+.block{background:#fff;border-radius:16px;margin:10px 12px 0;padding:12px 13px;border:1px solid #F5EDE7}
+.bhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.bhead h2{margin:0;font-size:13.5px;font-weight:700}
+.bhead a{font-size:10.5px;color:#A79A91;display:flex;align-items:center;gap:2px}
+.rev{display:flex;gap:9px;padding:8px 0;border-bottom:1px dashed #F2EAE4}
+.rev:last-child{border-bottom:0;padding-bottom:0}
+.ava{width:26px;height:26px;border-radius:50%;background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;flex:0 0 26px}
+.rev .txt{font-size:11.5px;line-height:1.55;color:#5E5249}
+.rev .meta{font-size:9.5px;color:#B0A49B;margin-top:3px}
+.stars{color:#F27B4A;font-size:10px;letter-spacing:1px}
+/* 详情 */
+.dhead{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.dhead h2{margin:0;font-size:13.5px;font-weight:700}
+.dhead:before{content:"";width:3px;height:13px;border-radius:2px;background:linear-gradient(180deg,#FB6E4E,#F03A2C)}
+.dimg{height:130px;border-radius:12px;background:linear-gradient(150deg,#F8F6EC 0%,#E9E4D2 50%,#D6CDB6 100%);display:grid;place-items:center;margin-bottom:8px}
+.dimg span{font-size:11px;color:#94887C}
+.dlist{margin:0;padding-left:16px;font-size:11.5px;line-height:1.9;color:#6E6157}
+/* 底部操作 */
+.actions{flex:0 0 62px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:#fff;border-top:1px solid #F3EAE3;box-shadow:0 -4px 14px rgba(150,110,88,.05)}
+.act{width:44px;flex:0 0 44px;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:9px;color:#8A7C72;position:relative}
+.act svg{color:#5C5C5F}
+.act i{position:absolute;right:6px;top:-2px;min-width:14px;height:14px;border-radius:7px;background:#E8392C;color:#fff;font-size:8px;font-style:normal;display:grid;place-items:center;border:1px solid #fff}
+.buy{flex:1;height:44px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.buy.pin{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;box-shadow:0 4px 12px rgba(232,70,45,.2)}
+.buy.now{background:linear-gradient(135deg,#F7906A 0%,#F2563A 55%,#EC3B2A 100%);color:#fff;box-shadow:0 5px 14px rgba(232,70,45,.3)}
+/* 弹层 */
+.mask{position:absolute;inset:0;background:rgba(58,50,45,.38);z-index:40;display:flex;align-items:flex-end}
+.sheet{width:100%;background:#fff;border-radius:20px 20px 0 0;padding:14px 16px 18px;max-height:78%;overflow-y:auto;scrollbar-width:none}
+.sheet::-webkit-scrollbar{display:none}
+.sheet .sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.sheet .sh b{font-size:14px}
+.sheet .sh button{color:#A79A91;font-size:20px;line-height:1}
+.sku{display:flex;gap:9px;align-items:center;margin-bottom:12px}
+.sku .thumb{width:62px;height:62px;border-radius:12px;background:linear-gradient(150deg,#F7F7EC,#DCE2BE);flex:0 0 62px}
+.sku .price{font-size:20px}
+.sku .stk{font-size:10px;color:#A79A91;margin-top:2px}
+.optl{font-size:11px;color:#8A7C72;margin:10px 0 6px}
+.opts{display:flex;gap:7px;flex-wrap:wrap}
+.opts button{font-size:11.5px;padding:6px 12px;border-radius:8px;background:#FBF6F4;border:1px solid #F0E6DF;color:#6E6157}
+.opts button.on{background:#FFF0EB;border-color:#F7A392;color:#EE4A2F;font-weight:700}
+.qty{display:flex;align-items:center;gap:0;margin-top:14px}
+.qty b{font-size:11px;color:#8A7C72;margin-right:auto;font-weight:500}
+.qty button{width:28px;height:28px;background:#F7F2EE;color:#5C5C5F;font-size:16px;line-height:1;display:grid;place-items:center}
+.qty button:first-of-type{border-radius:7px 0 0 7px}
+.qty button:last-of-type{border-radius:0 7px 7px 0}
+.qty span{width:38px;height:28px;display:grid;place-items:center;background:#fff;border-top:1px solid #F0E6DF;border-bottom:1px solid #F0E6DF;font-size:12px}
+.confirm{width:100%;height:46px;margin-top:16px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:14px;font-weight:700;box-shadow:0 6px 16px rgba(232,70,45,.26)}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center is-mb-ai-setting">
+<div class="app">
+<div class="status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="scroll">
+<div class="hero">
+<i class="b4"></i><i class="b1"></i><i class="b2"></i><i class="b3"></i>
+<span class="tag">蒲江红心猕猴桃 · 5斤大果</span>
+<span class="hint">图 1 / 5</span>
+<div class="navbar">
+<a aria-label="返回" href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/home.html?render_html=true" id="backBtn"><svg class="" fill="none" height="20" viewbox="0 0 24 24" width="20"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"></path></svg></a>
+<a aria-label="首页" href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/home.html?render_html=true"><svg class="" fill="none" height="19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="19"><path d="M3.5 10.7 12 4l8.5 6.7V20a1 1 0 0 1-1 1h-4.7v-6.2H9.2V21H4.5a1 1 0 0 1-1-1z"></path></svg></a>
+</div>
+</div>
+<div class="pcard">
+<div class="ptop">
+<div><span class="price"><small>¥</small>39.90</span><span class="old">¥58.00</span></div>
+<div class="sold">已售 2.3万件<br/>成都蒲江 · 48h发货</div>
+</div>
+<h1>蒲江红心猕猴桃 5斤大果 现摘现发 甜度18° 坏果包赔</h1>
+<div class="ptags"><i>坏果包赔</i><i>产地直发</i><i>今日下单明日达</i></div>
+</div>
+<div class="skmob" id="seckillModule">
+<a class="skm-hd" href="#reviews" id="skmHead">
+<b>限时秒杀</b><span class="dv"></span>
+<em>134人评价"正品"，同类畅销第1名</em>
+<svg fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+<div class="skm-row">
+<div class="avs">
+<span class="av" style="background:linear-gradient(150deg,#F3C6B4,#E49C86)"><span>陈</span></span>
+<span class="av" style="background:linear-gradient(150deg,#CBD9C0,#9FB393)"><span>李</span></span>
+<span class="av" style="background:linear-gradient(150deg,#E7D2A8,#CBAE7C)"><span>周</span></span>
+</div>
+<div class="skm-nm"><p>陈立宏·画...</p><i>看视频下单</i></div>
+<div class="skm-cd"><p>秒杀团快结束</p><p class="cdown" data-sec="80052.6">22:14:12.6</p></div>
+<div class="skm-op"><span class="hot">热销69天</span><button class="join" type="button">直接拼成</button></div>
+</div>
+<div class="skm-row">
+<div class="avs">
+<span class="av" style="background:linear-gradient(150deg,#D9C6B4,#B4967C)"><span>彭</span></span>
+<span class="av" style="background:linear-gradient(150deg,#C7D3DE,#93A8BC)"><span>吴</span></span>
+<span class="av" style="background:linear-gradient(150deg,#E3C9CE,#C594A0)"><span>何</span></span>
+</div>
+<div class="skm-nm"><p>小彭、吓不...</p><i>看视频下单</i></div>
+<div class="skm-cd"><p>秒杀团快结束</p><p class="cdown" data-sec="28326.6">07:52:06.6</p></div>
+<div class="skm-op"><span class="hot">热销69天</span><button class="join" type="button">直接拼成</button></div>
+</div>
+<div class="skm-row">
+<div class="avs">
+<span class="av" style="background:linear-gradient(150deg,#D3C3D8,#AC93B6)"><span>栀</span></span>
+<span class="av" style="background:linear-gradient(150deg,#F0D5BA,#D3A979)"><span>邓</span></span>
+<span class="av" style="background:linear-gradient(150deg,#C9DAD5,#97B4AC)"><span>杨</span></span>
+</div>
+<div class="skm-nm"><p>栀子花、东...</p><i>看视频下单</i></div>
+<div class="skm-cd"><p>秒杀团快结束</p><p class="cdown" data-sec="77577.6">21:32:57.6</p></div>
+<div class="skm-op"><span class="hot">热销69天</span><button class="join" type="button">直接拼成</button></div>
+</div>
+</div>
+<div class="plays">
+<a class="play" href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/group-buy.html?render_html=true">
+<span class="ic"><svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="8.6" r="2.4"></circle><path d="M3.5 19c0-3.1 2.5-5 5.5-5s5.5 1.9 5.5 5M16.5 14.4c2.4.2 4 1.9 4 4.6"></path></svg></span>
+<span><b>2人拼单 ¥34.9</b><span>已拼 1,268 件</span></span>
+<span class="go"><svg fill="none" height="13" viewbox="0 0 24 24" width="13"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></span>
+</a>
+<a class="play" href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/seckill.html?render_html=true">
+<span class="ic"><svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><circle cx="12" cy="13" r="7.4"></circle><path d="M12 9.5V13l2.4 1.6M9 3h6"></path></svg></span>
+<span><b>20:00 秒杀</b><span>低至 5 折</span></span>
+<span class="go"><svg fill="none" height="13" viewbox="0 0 24 24" width="13"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></span>
+</a>
+</div>
+<div class="svc">
+<b>服务</b><span>坏果包赔</span><span>·</span><span>48h发货</span><span>·</span><span>同城次日达</span>
+<span class="more">保障 <svg fill="none" height="11" viewbox="0 0 24 24" width="11"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></span>
+</div>
+<div class="shop">
+<span class="slogo">福聚</span>
+<div>
+<div class="nm">福聚贡翔演示店</div>
+<div class="mt"><span>评分 4.9</span><span>月销 3.2万</span><span>成都青羊</span></div>
+</div>
+<div class="btnline">
+<a href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/shop.html?render_html=true">进店</a>
+<a href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/chat-shop.html?render_html=true">客服</a>
+</div>
+</div>
+<div class="block">
+<div class="bhead" id="reviews"><h2>评价 (1.8万)</h2><a href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/product-detail.html?from=product-detail.html&amp;render_html=true">好评率 98% <svg fill="none" height="11" viewbox="0 0 24 24" width="11"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></a></div>
+<div class="rev">
+<span class="ava">李</span>
+<div><div class="stars">★★★★★</div><div class="txt">果子个头均匀，皮薄肉甜，冰镇后更好吃，回购第三次了。</div><div class="meta">李** · 2天前 · 5斤大果</div></div>
+</div>
+<div class="rev">
+<span class="ava">王</span>
+<div><div class="stars">★★★★★</div><div class="txt">物流很快，第二天就到成都了，包装扎实没有碰伤。</div><div class="meta">王** · 4天前 · 5斤中果</div></div>
+</div>
+</div>
+<div class="block">
+<div class="dhead"><h2>商品详情</h2></div>
+<div class="dimg"><span>蒲江猕猴桃果园实拍</span></div>
+<ul class="dlist">
+<li>产地：四川成都蒲江县，海拔 600m 山地果园</li>
+<li>规格：5 斤装，单果 90-110g，约 24-28 个</li>
+<li>口感：红心果肉，甜度 18° 以上，酸甜适口</li>
+<li>发货：下单后 48 小时内顺丰冷链发出</li>
+</ul>
+</div>
+<div style="height:12px"></div>
+</div>
+<div class="actions">
+<a class="act" href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/shop.html?render_html=true"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="20"><path d="M4 9.5 5.5 4h13L20 9.5M5 9.5V20h14V9.5M9.5 20v-5h5v5"></path></svg><span>店铺</span></a>
+<a class="act" href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/chat-shop.html?render_html=true"><svg fill="none" height="20" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="20"><path d="M20.5 11.5A8.2 8.2 0 0 1 8 18.7L4 20l1.3-3.9A8.2 8.2 0 1 1 20.5 11.5z"></path></svg><span>客服</span></a>
+<a class="act" href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/order-confirm.html?render_html=true"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="20"><path d="M3 5h2.2l2.4 10h10.8l2.2-6.5H6.4"></path><circle cx="9.6" cy="19" r="1.5"></circle><circle cx="17.4" cy="19" r="1.5"></circle></svg><i>2</i><span>购物车</span></a>
+<button class="buy pin" id="pinBtn">拼单购买</button>
+<button class="buy now" id="nowBtn">立即购买</button>
+</div>
+<div class="mask hidden" id="mask">
+<div class="sheet">
+<div class="sh"><b>选择规格</b><button id="close">×</button></div>
+<div class="sku">
+<span class="thumb"></span>
+<div>
+<span class="price" id="sheetPrice"><small>¥</small>39.90</span>
+<div class="stk">库存 3,200 件 · 48h 内发货</div>
+</div>
+</div>
+<div class="optl">规格</div>
+<div class="opts" id="sizeOpts">
+<button class="on">5斤大果</button>
+<button>5斤中果</button>
+<button>10斤大果</button>
+</div>
+<div class="optl">优惠</div>
+<div class="opts"><button class="on">满2件减¥3</button><button>使用红包</button></div>
+<div class="qty"><b>购买数量</b><button id="minus">−</button><span id="num">1</span><button id="plus">+</button></div>
+<a class="confirm" href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/order-confirm.html?render_html=true" id="toOrder" style="display:flex;align-items:center;justify-content:center">确定</a>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    var mask = document.getElementById('mask');
+    var backBtn = document.getElementById('backBtn');
+    var num = document.getElementById('num');
+    var qty = 1;
+    function openSheet() { mask.classList.remove('hidden'); }
+    function closeSheet() { mask.classList.add('hidden'); }
+    document.getElementById('nowBtn').addEventListener('click', openSheet);
+    function goPin() { location.href = 'group-buy.html'; }
+    document.getElementById('pinBtn').addEventListener('click', goPin);
+    document.getElementById('close').addEventListener('click', closeSheet);
+    mask.addEventListener('click', function (e) { if (e.target === mask) closeSheet(); });
+    document.getElementById('plus').addEventListener('click', function () { qty = Math.min(9, qty + 1); num.textContent = qty; });
+    document.getElementById('minus').addEventListener('click', function () { qty = Math.max(1, qty - 1); num.textContent = qty; });
+    if (backBtn) {
+      var fromParam = '';
+      try {
+        fromParam = (new URLSearchParams(location.search).get('from') || '').split('#')[0].split('?')[0];
+      } catch (err) { fromParam = ''; }
+      var fromPage = /^[A-Za-z0-9_-]+\.html$/.test(fromParam) ? fromParam : '';
+      if (fromPage) backBtn.setAttribute('href', fromPage);
+      backBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (fromPage) {
+          location.href = fromPage;
+        } else if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          location.href = 'home.html';
+        }
+      });
+    }
+    var sizes = document.querySelectorAll('#sizeOpts button');
+    sizes.forEach(function (b) {
+      b.addEventListener('click', function () {
+        sizes.forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+        var prices = { '5斤大果': '39.90', '5斤中果': '34.90', '10斤大果': '69.90' };
+        var p = prices[b.textContent.trim()] || '39.90';
+        document.getElementById('sheetPrice').innerHTML = '<small>¥</small>' + p;
+      });
+    });
+
+    /* 限时秒杀 · 拼团动态 */
+    var skmob = document.getElementById('seckillModule');
+    if (skmob) {
+      var skmHead = document.getElementById('skmHead');
+      if (skmHead) {
+        skmHead.addEventListener('click', function (e) {
+          var target = document.getElementById('reviews');
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (history.replaceState) history.replaceState(null, '', '#reviews');
+        });
+      }
+      var skmJoin = skmob.querySelectorAll('.skm-op .join');
+      for (var j = 0; j < skmJoin.length; j++) {
+        skmJoin[j].addEventListener('click', goPin);
+      }
+
+      var cdNodes = skmob.querySelectorAll('.cdown');
+      for (var k = 0; k < cdNodes.length; k++) {
+        (function (node) {
+          var remain = parseFloat(node.getAttribute('data-sec'));
+          if (!Number.isFinite(remain) || remain < 0) return;
+          var last = { t: Date.now() };
+          function paint(sec) {
+            var tenths = Math.round(sec * 10);
+            var h = Math.floor(tenths / 36000);
+            var m = Math.floor(tenths / 600) % 60;
+            var s = Math.floor(tenths / 10) % 60;
+            var d = tenths % 10;
+            function two(n) { return n < 10 ? '0' + n : '' + n; }
+            node.textContent = two(h) + ':' + two(m) + ':' + two(s) + '.' + d;
+          }
+          paint(remain);
+          var timer = setInterval(function () {
+            var now = Date.now();
+            var delta = (now - last.t) / 1000;
+            last.t = now;
+            if (!Number.isFinite(delta) || delta < 0) delta = 0;
+            remain = Math.max(0, remain - delta);
+            paint(remain);
+            if (remain <= 0) {
+              clearInterval(timer);
+              node.textContent = '00:00:00.0';
+            }
+          }, 100);
+        })(cdNodes[k]);
+      }
+    }
+  })();
+</script>
+</body></html><style>
+/* 商品图顶部操作按钮下移 */
+.navbar{top:58px}
+</style>

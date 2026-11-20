@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 新建秒杀活动</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#EE4A2F;--ink:#2A2420;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 8px 20px rgba(150,110,88,.07)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input{font-family:inherit}
+html.w-full.h-full{overflow:hidden}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.topbar{flex:0 0 46px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.topbar h1{margin:0;font-size:16px;font-weight:700;color:#231C18;letter-spacing:-.2px}
+.back{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;box-shadow:0 3px 9px rgba(150,90,70,.08)}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding:0 14px}
+.card{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:13px 12px;margin-top:10px}
+.card h3{margin:0 0 9px;font-size:11.5px;font-weight:800;color:#2A2420;display:flex;align-items:center;gap:4px}
+.card h3 small{font-size:8px;color:#B2A69C;font-weight:400;margin-left:auto}
+.req{color:#EE4A2F;margin-left:2px}
+.field{margin-bottom:9px}
+.field:last-child{margin-bottom:0}
+.field label{font-size:9px;color:#8E8076;display:block;margin-bottom:4px}
+.inp{width:100%;height:38px;border-radius:10px;border:1px solid #F1E5DB;background:#FDFBF9;padding:0 10px;font-size:12px;color:#2A2420;outline:none;transition:border-color .16s,box-shadow .16s,background .16s}
+.inp::placeholder{color:#C4B7AC}
+.inp:focus{border-color:#F7A392;background:#fff;box-shadow:0 0 0 3px rgba(251,110,78,.1)}
+.inp.err{border-color:#EE4A2F;background:#FFF5F2;box-shadow:0 0 0 3px rgba(238,74,47,.12)}
+.inp[readonly]{background:#F7F3EF;color:#5C5C5F}
+.two{display:flex;gap:8px}
+.two .field{flex:1;min-width:0}
+.chips{display:flex;gap:6px}
+.chip{flex:1;height:32px;border-radius:999px;border:1px solid #F1E5DB;background:#FDFBF9;font-size:10.5px;color:#5C5C5F;font-weight:600;white-space:nowrap;transition:all .16s}
+.chip.on{background:#FFEFEB;border-color:#F7A392;color:#EE4A2F}
+.prodsel{display:flex;flex-direction:column;gap:7px}
+.psrow{display:flex;align-items:center;gap:8px;border:1px solid #F4E9E0;border-radius:11px;padding:8px;cursor:pointer}
+.psrow.on{border-color:#F7A392;background:#FFF8F5}
+.psrow .cb{width:17px;height:17px;border-radius:5px;border:1.4px solid #DFD2C8;background:#fff;display:grid;place-items:center;flex:0 0 17px;color:transparent;font-size:11px;font-weight:800}
+.psrow.on .cb{background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-color:transparent;color:#fff}
+.psrow .pthumb{width:38px;height:38px;border-radius:8px;background:linear-gradient(140deg,#EAF0D8,#B8CE92);flex:0 0 38px}
+.psrow .pthumb.o{background:linear-gradient(140deg,#FBF0DC,#E9CB9C)}
+.psrow .pthumb.r{background:linear-gradient(140deg,#FFE0D5,#DE7A5D)}
+.psrow .pt{flex:1;min-width:0}
+.psrow .pt b{font-size:10px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.psrow .pt span{font-size:8.5px;color:#A99C92;display:block;margin-top:2px}
+.psrow .pp{font-size:10px;color:#E23A2E;font-weight:700;flex:0 0 auto}
+.addbtn{width:100%;height:34px;border-radius:10px;border:1px dashed #F7A392;background:#FFF8F5;color:#EE4A2F;font-size:10px;font-weight:700;margin-top:8px}
+.sku{display:flex;gap:6px;flex-wrap:wrap}
+.sku .chip{flex:0 0 auto;padding:0 12px}
+.switchrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px dashed #F3E9E1}
+.switchrow:first-of-type{border-top:0}
+.switchrow .sl{font-size:10px;color:#5C5C5F;font-weight:600;line-height:1.45}
+.switchrow .sl small{display:block;font-size:8.5px;color:#B2A69C;font-weight:400;margin-top:2px}
+.sw{width:36px;height:20px;border-radius:999px;background:#EDE3DB;position:relative;transition:background .18s;flex:0 0 36px}
+.sw i{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.18);transition:left .18s}
+.sw[data-on="1"]{background:linear-gradient(135deg,#FB6E4E,#F03A2C)}
+.sw[data-on="1"] i{left:18px}
+.remark{font-size:8.5px;color:#A99C92;line-height:1.55;margin-top:7px}
+.tip{display:flex;gap:7px;align-items:flex-start;background:#FFF6F3;border:1px solid #FBD9CD;border-radius:12px;padding:9px 10px;margin-top:8px}
+.tip svg{flex:0 0 14px;margin-top:1px}
+.tip p{margin:0;font-size:9px;color:#B3411F;line-height:1.6}
+.foot{flex:0 0 auto;padding:10px 14px 12px;background:linear-gradient(180deg,rgba(255,253,252,0),#FFFDFC 30%);display:flex;flex-direction:column;gap:7px}
+.mainbtn{width:100%;height:44px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:13px;font-weight:700;box-shadow:0 8px 18px rgba(232,70,45,.26)}
+.draftbtn{width:100%;height:38px;border-radius:999px;background:#FFEFEB;color:#EE4A2F;font-size:11.5px;font-weight:700;border:1px solid #FBD9CD}
+.homebar{height:18px;flex:0 0 18px;background:#FFFDFC;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+.toast{position:absolute;left:50%;bottom:96px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="topbar">
+<a aria-label="返回营销工具" class="back" href="merchant-marketing.html">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+<h1>新建秒杀活动</h1>
+<span style="width:30px"></span>
+</div>
+<div class="scroll">
+<div class="pad">
+<div class="card">
+<h3>选择商品 <small>单选</small></h3>
+<div class="prodsel" id="skSel">
+<div class="psrow on" data-name="蒲江红心猕猴桃 5斤大果" data-price="39.90">
+<span class="cb">✓</span><span class="pthumb"></span>
+<div class="pt"><b>蒲江红心猕猴桃 5斤大果</b><span>原价 ¥39.90 · 库存 3,200</span></div><span class="pp">¥39.90</span>
+</div>
+<div class="psrow" data-name="金堂脐橙 10斤装" data-price="29.90">
+<span class="cb">✓</span><span class="pthumb o"></span>
+<div class="pt"><b>金堂脐橙 10斤装</b><span>原价 ¥29.90 · 库存 860</span></div><span class="pp">¥29.90</span>
+</div>
+<div class="psrow" data-name="川味手工腊味礼盒" data-price="58.00">
+<span class="cb">✓</span><span class="pthumb r"></span>
+<div class="pt"><b>川味手工腊味礼盒</b><span>原价 ¥58.00 · 库存 126</span></div><span class="pp">¥58.00</span>
+</div>
+</div>
+<button class="addbtn" onclick="toast('已打开商品选择器')">+ 添加秒杀商品</button>
+<div class="remark">每场秒杀仅支持 1 个商品；同商品不建议同时参加拼单活动。</div>
+</div>
+<div class="card">
+<h3>规格与价格 <small>必填</small></h3>
+<div class="field">
+<label>SKU 选择<span class="req">*</span></label>
+<div class="sku" id="skSku">
+<button class="chip on" data-v="5斤大果">5斤大果</button>
+<button class="chip" data-v="3斤中果">3斤中果</button>
+<button class="chip" data-v="10斤箱装">10斤箱装</button>
+</div>
+</div>
+<div class="two">
+<div class="field">
+<label>秒杀价（元）<span class="req">*</span></label>
+<input class="inp" id="skPrice" inputmode="decimal" placeholder="如：29.90"/>
+</div>
+<div class="field">
+<label>原价（元）</label>
+<input class="inp" id="skOrigin" readonly="" value="39.90"/>
+</div>
+</div>
+</div>
+<div class="card">
+<h3>时段与库存 <small>必填</small></h3>
+<div class="two">
+<div class="field">
+<label>开始时间<span class="req">*</span></label>
+<input class="inp" id="skStart" placeholder="如：2026-11-12 10:00"/>
+</div>
+<div class="field">
+<label>结束时间<span class="req">*</span></label>
+<input class="inp" id="skEnd" placeholder="如：2026-11-12 12:00"/>
+</div>
+</div>
+<div class="two">
+<div class="field">
+<label>秒杀库存<span class="req">*</span></label>
+<input class="inp" id="skStock" inputmode="numeric" placeholder="如：300"/>
+</div>
+<div class="field">
+<label>每人限购（件）<span class="req">*</span></label>
+<input class="inp" id="skLimit" inputmode="numeric" value="1"/>
+</div>
+</div>
+<div class="remark">库存按秒杀场次独立计算，售罄即自动结束，不追加不补货。</div>
+</div>
+<div class="card">
+<h3>展示设置 <small>可选</small></h3>
+<div class="switchrow">
+<div class="sl">开启开抢提醒<small>开抢前 10 分钟推送收藏用户</small></div>
+<button aria-label="开启开抢提醒" class="sw" data-on="1" onclick="toggleSw(this)"><i></i></button>
+</div>
+<div class="switchrow">
+<div class="sl">展示库存进度<small>商品页显示已抢百分比</small></div>
+<button aria-label="展示库存进度" class="sw" data-on="1" onclick="toggleSw(this)"><i></i></button>
+</div>
+<div class="tip">
+<svg fill="none" height="14" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="9" stroke="#EE4A2F" stroke-width="1.8"></circle><path d="M12 7.5v5.5M12 16.2v.3" stroke="#EE4A2F" stroke-linecap="round" stroke-width="1.9"></path></svg>
+<p>秒杀为限时限量活动，与拼单同商品按互斥规则处理；秒杀订单适用原交易与售后规则。</p>
+</div>
+</div>
+<div style="height:12px"></div>
+</div>
+</div>
+<div class="foot">
+<button class="mainbtn" id="skSubmit">发布秒杀</button>
+<button class="draftbtn" id="skDraft">存为草稿</button>
+</div>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast">已发布</div>
+</div>
+<script>
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1700);
+  }
+
+  function toggleSw(el) {
+    el.dataset.on = el.dataset.on === '1' ? '0' : '1';
+  }
+
+  function bindChips(id) {
+    const box = document.getElementById(id);
+    if (!box) return;
+    box.querySelectorAll('.chip').forEach(function (b) {
+      b.addEventListener('click', function () {
+        box.querySelectorAll('.chip').forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+      });
+    });
+  }
+  bindChips('skSku');
+
+  document.querySelectorAll('#skSel .psrow').forEach(function (row) {
+    row.addEventListener('click', function () {
+      document.querySelectorAll('#skSel .psrow').forEach(function (x) { x.classList.remove('on'); });
+      row.classList.add('on');
+      row.classList.remove('err');
+      document.getElementById('skOrigin').value = row.dataset.price;
+    });
+  });
+
+  document.querySelectorAll('.inp').forEach(function (el) {
+    el.addEventListener('input', function () { el.classList.remove('err'); });
+  });
+
+  function markErr(el, msg) {
+    el.classList.add('err');
+    el.focus();
+    toast(msg);
+  }
+
+  function isNum(v) { return /^\d+(\.\d+)?$/.test(v); }
+
+  function validate() {
+    const pick = document.querySelector('#skSel .psrow.on');
+    if (!pick) { toast('请选择 1 个秒杀商品'); return false; }
+    if (!document.querySelector('#skSku .chip.on')) { toast('请选择 SKU'); return false; }
+
+    const price = document.getElementById('skPrice');
+    const origin = Number(document.getElementById('skOrigin').value);
+    if (!price.value.trim()) { markErr(price, '请填写秒杀价'); return false; }
+    if (!isNum(price.value.trim()) || Number(price.value) <= 0) { markErr(price, '秒杀价需为大于 0 的数字'); return false; }
+    if (Number(price.value) >= origin) { markErr(price, '秒杀价需低于原价 ¥' + origin.toFixed(2)); return false; }
+
+    const start = document.getElementById('skStart');
+    const end = document.getElementById('skEnd');
+    if (!start.value.trim()) { markErr(start, '请填写开始时间'); return false; }
+    if (!/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(start.value.trim())) { markErr(start, '时间格式为 2026-11-12 10:00'); return false; }
+    if (!end.value.trim()) { markErr(end, '请填写结束时间'); return false; }
+    if (!/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(end.value.trim())) { markErr(end, '时间格式为 2026-11-12 12:00'); return false; }
+    if (end.value.trim() <= start.value.trim()) { markErr(end, '结束时间需晚于开始时间'); return false; }
+
+    const stock = document.getElementById('skStock');
+    if (!/^\d+$/.test(stock.value.trim()) || Number(stock.value) <= 0) { markErr(stock, '请填写有效的秒杀库存'); return false; }
+
+    const limit = document.getElementById('skLimit');
+    if (!/^\d+$/.test(limit.value.trim()) || Number(limit.value) <= 0) { markErr(limit, '每人限购至少 1 件'); return false; }
+    return true;
+  }
+
+  document.getElementById('skSubmit').addEventListener('click', function () {
+    if (!validate()) return;
+    toast('秒杀已发布');
+    setTimeout(function () { location.href = 'merchant-marketing.html'; }, 900);
+  });
+
+  document.getElementById('skDraft').addEventListener('click', function () {
+    toast('已存为草稿');
+  });
+</script>
+</body>
+</html>

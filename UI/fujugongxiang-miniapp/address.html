@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 收货地址</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.hidden{display:none!important}
+.pad{padding:0 14px}
+.topbar{flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.topbar h1{margin:0;font-size:16px;font-weight:700;letter-spacing:-.2px}
+.back{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;box-shadow:0 3px 9px rgba(160,110,80,.08)}
+.manage{font-size:11px;color:#8E8076;padding:5px 4px}
+.acard{background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:12px;margin-top:10px;position:relative;border:1.5px solid transparent;transition:border-color .15s}
+.acard.def{border-color:#F7C7B8;background:linear-gradient(180deg,#FFF9F6,#fff)}
+.atop{display:flex;align-items:center;gap:6px}
+.an{font-size:13.5px;font-weight:800;letter-spacing:-.2px}
+.ap{font-size:11px;color:#6E6057;letter-spacing:.2px}
+.dtag{font-size:8px;color:#EE4A2F;background:#FFF6F3;border:1px solid #F7A392;border-radius:999px;padding:1px 5px;font-weight:600}
+.aedit{margin-left:auto;width:27px;height:27px;border-radius:50%;background:#FFF6F3;display:grid;place-items:center;color:#EE4A2F}
+.del{margin-left:4px;font-size:8.5px;color:#EE4A2F;background:#FFF6F3;border:1px solid #F7A392;border-radius:999px;padding:3px 8px;display:none}
+.app.managing .del{display:inline-block}
+.ad{font-size:10.5px;color:#7B6D63;line-height:1.55;margin:6px 0 0;padding-right:8px}
+.afoot{display:flex;align-items:center;gap:6px;margin-top:8px;padding-top:7px;border-top:1px dashed #F3E9E1}
+.afoot .defbtn{font-size:8.5px;color:#A99C92;display:flex;align-items:center;gap:4px}
+.afoot .defbtn i{width:11px;height:11px;border-radius:50%;border:1.2px solid #D9CEC6;display:block;font-style:normal}
+.acard.def .defbtn{color:#E23A2E}
+.acard.def .defbtn i{border-color:#F27B63;background:radial-gradient(circle,#F27B63 0 55%,#fff 58%)}
+.afoot .use{margin-left:auto;font-size:9px;color:#EE4A2F;font-weight:700}
+.note{font-size:9px;color:#A99C92;line-height:1.6;padding:10px 3px 16px}
+.dock{flex:0 0 auto;background:#fff;border-top:1px solid #F3EBE5;display:flex;align-items:center;padding:9px 14px 14px;box-shadow:0 -4px 14px rgba(120,80,60,.04)}
+.dock .main{flex:1;height:44px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:13.5px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:5px;box-shadow:0 6px 16px rgba(232,70,45,.24)}
+.mask{position:absolute;inset:0;background:rgba(30,20,15,.45);z-index:40;backdrop-filter:blur(1px)}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:20px 20px 0 0;z-index:41;padding:14px 16px 12px;max-height:80%;overflow-y:auto;scrollbar-width:none;box-shadow:0 -10px 30px rgba(80,40,20,.15)}
+.sheet::-webkit-scrollbar{display:none}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.sh h2{margin:0;font-size:14px;font-weight:800}
+.sh button{font-size:11px;color:#A99C92}
+.field{margin-bottom:8px}
+.field label{font-size:9.5px;color:#8E8076;display:block;margin-bottom:3px}
+.field input{width:100%;height:36px;border-radius:10px;border:1px solid #F3E9E2;background:#FFFBF9;padding:0 10px;font-size:11.5px;font-family:inherit;outline:none;color:#1C1C1E}
+.field input:focus{border-color:#F7A392;background:#fff}
+.frow{display:flex;gap:8px}
+.frow .field{flex:1}
+.map{height:122px;border-radius:12px;position:relative;overflow:hidden;background:#F2EFE7;margin-bottom:7px;cursor:crosshair;border:1px solid #EDE4DB}
+.map .blk{position:absolute;background:#E4EAD9;border-radius:3px}
+.map .rd{position:absolute;background:#fff}
+.map .pin{position:absolute;left:50%;top:44%;transform:translate(-50%,-100%);z-index:3;transition:left .15s,top .15s}
+.map .lbl{position:absolute;left:6px;bottom:5px;background:rgba(255,255,255,.92);border-radius:999px;padding:2px 7px;font-size:8px;color:#7B6D63;z-index:3}
+.map .re{position:absolute;right:6px;top:6px;background:#fff;border-radius:999px;padding:4px 7px;font-size:8px;color:#EE4A2F;font-weight:700;z-index:3;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.switchrow{display:flex;align-items:center;justify-content:space-between;padding:7px 0 4px}
+.switchrow span{font-size:11px;color:#4A3F37}
+.sw{width:38px;height:21px;border-radius:999px;background:#E9DFD8;position:relative;transition:background .18s;flex:0 0 38px}
+.sw:after{content:"";position:absolute;width:17px;height:17px;border-radius:50%;background:#fff;top:2px;left:2px;box-shadow:0 1px 3px rgba(0,0,0,.15);transition:left .18s}
+.sw.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C)}
+.sw.on:after{left:19px}
+.save{width:100%;height:44px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:13.5px;font-weight:700;margin-top:9px;box-shadow:0 6px 16px rgba(232,70,45,.24)}
+.toast{position:absolute;left:50%;bottom:84px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:2}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app" id="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="topbar">
+<a aria-label="返回" class="back" href="order-confirm.html">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+<h1>收货地址</h1>
+<button class="manage" id="manageBtn" onclick="toggleManage()">管理</button>
+</div>
+<div class="scroll">
+<div class="pad">
+<div class="acard def" data-detail="四川省成都市青羊区少城街道长顺上街 18 号 3 栋 2 单元 601" data-name="张三" data-phone="138****6688" id="addr-1" onclick="useAddr(event)">
+<div class="atop"><b class="an">张三</b><span class="ap">138****6688</span><span class="dtag">默认</span>
+<button class="del" onclick="delAddr(event,'addr-1')">删除</button>
+<button aria-label="编辑" class="aedit" onclick="gotoEdit(event,'addr-1')">
+<svg fill="none" height="13" viewbox="0 0 24 24" width="13"><path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17z" stroke="#EE4A2F" stroke-linejoin="round" stroke-width="1.7"></path><path d="m13.5 7.5 3 3" stroke="#EE4A2F" stroke-width="1.7"></path></svg>
+</button>
+</div>
+<p class="ad">四川省成都市青羊区少城街道长顺上街 18 号 3 栋 2 单元 601</p>
+<div class="afoot"><span class="defbtn"><i></i>默认收货地址</span><span class="use">使用此地址 ›</span></div>
+</div>
+<div class="acard" data-detail="四川省成都市武侯区天府三街 288 号 2 栋 3 单元 1201" data-name="李女士" data-phone="139****2408" id="addr-2" onclick="useAddr(event)">
+<div class="atop"><b class="an">李女士</b><span class="ap">139****2408</span><span class="dtag hidden">默认</span>
+<button class="del" onclick="delAddr(event,'addr-2')">删除</button>
+<button aria-label="编辑" class="aedit" onclick="gotoEdit(event,'addr-2')">
+<svg fill="none" height="13" viewbox="0 0 24 24" width="13"><path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17z" stroke="#EE4A2F" stroke-linejoin="round" stroke-width="1.7"></path><path d="m13.5 7.5 3 3" stroke="#EE4A2F" stroke-width="1.7"></path></svg>
+</button>
+</div>
+<p class="ad">四川省成都市武侯区天府三街 288 号 2 栋 3 单元 1201</p>
+<div class="afoot"><span class="defbtn"><i></i>设为默认地址</span><span class="use">使用此地址 ›</span></div>
+</div>
+<div class="acard" data-detail="四川省成都市都江堰市玉堂街道青城桥社区 6 组 22 号" data-name="王先生" data-phone="136****9152" id="addr-3" onclick="useAddr(event)">
+<div class="atop"><b class="an">王先生</b><span class="ap">136****9152</span><span class="dtag hidden">默认</span>
+<button class="del" onclick="delAddr(event,'addr-3')">删除</button>
+<button aria-label="编辑" class="aedit" onclick="gotoEdit(event,'addr-3')">
+<svg fill="none" height="13" viewbox="0 0 24 24" width="13"><path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17z" stroke="#EE4A2F" stroke-linejoin="round" stroke-width="1.7"></path><path d="m13.5 7.5 3 3" stroke="#EE4A2F" stroke-width="1.7"></path></svg>
+</button>
+</div>
+<p class="ad">四川省成都市都江堰市玉堂街道青城桥社区 6 组 22 号</p>
+<div class="afoot"><span class="defbtn"><i></i>设为默认地址</span><span class="use">使用此地址 ›</span></div>
+</div>
+<div class="note">同城配送地址将同步给商家，仅用于本单履约。可在「我的 · 设置」中关闭地址自动填充。</div>
+</div>
+</div>
+<div class="dock"><button class="main" onclick="location.href='address-edit.html'">
+<svg fill="none" height="15" viewbox="0 0 24 24" width="15"><path d="M12 5v14M5 12h14" stroke="#fff" stroke-linecap="round" stroke-width="2.2"></path></svg>
+    新增收货地址
+  </button></div>
+<div class="homebar"><i></i></div>
+<div class="mask hidden" id="mask" onclick="closeSheet()"></div>
+<div class="sheet hidden" id="sheet">
+<div class="sh"><h2 id="sheetTitle">新增收货地址</h2><button onclick="closeSheet()">取消</button></div>
+<div class="frow">
+<div class="field"><label>收货人</label><input id="fName" placeholder="请输入姓名"/></div>
+<div class="field"><label>手机号</label><input id="fPhone" inputmode="numeric" placeholder="11 位手机号"/></div>
+</div>
+<div class="field"><label>所在地区</label><input id="fRegion" placeholder="省 / 市 / 区" value="四川省 成都市 青羊区"/></div>
+<div class="map" id="map" onclick="pickMap(event)">
+<span class="blk" style="width:70px;height:34px;left:8px;top:10px"></span>
+<span class="blk" style="width:52px;height:42px;left:96px;top:8px"></span>
+<span class="blk" style="width:64px;height:30px;left:168px;top:56px"></span>
+<span class="blk" style="width:56px;height:38px;left:16px;top:64px"></span>
+<span class="blk" style="width:42px;height:30px;left:250px;top:12px"></span>
+<span class="rd" style="width:100%;height:7px;left:0;top:46px"></span>
+<span class="rd" style="width:7px;height:100%;left:88px;top:0"></span>
+<span class="rd" style="width:7px;height:100%;left:230px;top:0"></span>
+<span class="rd" style="width:100%;height:6px;left:0;top:98px"></span>
+<span class="pin" id="pin">
+<svg height="28" viewbox="0 0 24 30" width="22"><path d="M12 29C12 29 22 19 22 11A10 10 0 1 0 2 11c0 8 10 18 10 18z" fill="#C98467"></path><circle cx="12" cy="11" fill="#fff" r="3.6"></circle></svg>
+</span>
+<span class="lbl" id="mapLbl">青羊区 · 少城街道</span>
+<span class="re" onclick="relocate(event)">重新定位</span>
+</div>
+<div class="field" style="margin-bottom:2px"><label>详细地址</label><input id="fDetail" placeholder="街道、门牌号、楼栋单元"/></div>
+<div class="switchrow"><span>设为默认收货地址</span><button aria-label="设为默认" class="sw" id="defSw" onclick="this.classList.toggle('on')"></button></div>
+<button class="save" onclick="saveAddr()">保存地址</button>
+</div>
+<div class="toast" id="toast">已保存</div>
+</div>
+<script>
+  let editingId = null;
+  let tempDefault = false;
+
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1600);
+  }
+
+  function openAdd() {
+    location.href = 'address-edit.html';
+  }
+
+  function gotoEdit(e, id) {
+    if (e) { e.stopPropagation(); }
+    const card = document.getElementById(id);
+    const q = [
+      'mode=edit',
+      'id=' + encodeURIComponent(id),
+      'name=' + encodeURIComponent(card ? card.dataset.name : ''),
+      'phone=' + encodeURIComponent(card ? card.dataset.phone : ''),
+      'detail=' + encodeURIComponent(card ? card.dataset.detail : ''),
+      'region=' + encodeURIComponent('四川省 成都市 青羊区'),
+      'def=' + (card && card.classList.contains('def') ? '1' : '0')
+    ].join('&');
+    location.href = 'address-edit.html?' + q;
+  }
+
+  function openEdit(e, id) {
+    e.stopPropagation();
+    editingId = id;
+    const card = document.getElementById(id);
+    document.getElementById('sheetTitle').textContent = '编辑收货地址';
+    document.getElementById('fName').value = card.dataset.name;
+    document.getElementById('fPhone').value = card.dataset.phone;
+    document.getElementById('fRegion').value = '四川省 成都市 青羊区';
+    document.getElementById('fDetail').value = card.dataset.detail;
+    document.getElementById('defSw').classList.toggle('on', card.classList.contains('def'));
+    openSheet();
+  }
+
+  function openSheet() {
+    document.getElementById('mask').classList.remove('hidden');
+    document.getElementById('sheet').classList.remove('hidden');
+  }
+
+  function closeSheet() {
+    document.getElementById('mask').classList.add('hidden');
+    document.getElementById('sheet').classList.add('hidden');
+  }
+
+  function pickMap(e) {
+    if (e.target.closest('.re')) { return; }
+    const map = document.getElementById('map');
+    const r = map.getBoundingClientRect();
+    const x = Math.min(Math.max(e.clientX - r.left, 12), r.width - 12);
+    const y = Math.min(Math.max(e.clientY - r.top, 20), r.height - 12);
+    const pin = document.getElementById('pin');
+    pin.style.left = x + 'px';
+    pin.style.top = y + 'px';
+    document.getElementById('mapLbl').textContent = '地图选点 · 已选位置';
+    document.getElementById('fDetail').value = '长顺上街 18 号（地图选点）';
+    toast('已选点，可补充门牌号');
+  }
+
+  function relocate(e) {
+    e.stopPropagation();
+    document.getElementById('pin').style.left = '50%';
+    document.getElementById('pin').style.top = '44%';
+    document.getElementById('mapLbl').textContent = '青羊区 · 少城街道';
+    document.getElementById('fRegion').value = '四川省 成都市 青羊区';
+    toast('已定位到青羊区少城街道');
+  }
+
+  function validatePhone(v) {
+    if (!/^1\d{10}$/.test(v) && !/^1\d{2}\*{4}\d{4}$/.test(v)) { return false; }
+    return true;
+  }
+
+  function saveAddr() {
+    const name = document.getElementById('fName').value.trim();
+    const phone = document.getElementById('fPhone').value.trim();
+    const region = document.getElementById('fRegion').value.trim();
+    const detail = document.getElementById('fDetail').value.trim();
+    if (!name) { toast('请填写收货人姓名'); return; }
+    if (!validatePhone(phone)) { toast('请填写正确的手机号'); return; }
+    if (!detail) { toast('请填写详细地址'); return; }
+
+    const isDef = document.getElementById('defSw').classList.contains('on');
+    const full = region.replace(/\s+/g, '') + ' ' + detail;
+
+    if (editingId) {
+      const card = document.getElementById(editingId);
+      card.dataset.name = name;
+      card.dataset.phone = phone;
+      card.dataset.detail = full;
+      card.querySelector('.an').textContent = name;
+      card.querySelector('.ap').textContent = phone;
+      card.querySelector('.ad').textContent = full;
+      if (isDef) { makeDefault(card); }
+      toast('地址已更新');
+    } else {
+      const card = document.createElement('div');
+      card.className = 'acard';
+      card.id = 'addr-' + Date.now();
+      card.dataset.name = name;
+      card.dataset.phone = phone;
+      card.dataset.detail = full;
+      card.onclick = useAddr;
+      card.innerHTML = '<div class="atop"><b class="an"></b><span class="ap"></span><span class="dtag hidden">默认</span><button class="del" onclick="delAddr(event,this.closest(\'.acard\').id)">删除</button><button class="aedit" onclick="gotoEdit(event,this.closest(\'.acard\').id)" aria-label="编辑"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17z" stroke="#EE4A2F" stroke-width="1.7" stroke-linejoin="round"/><path d="m13.5 7.5 3 3" stroke="#EE4A2F" stroke-width="1.7"/></svg></button></div><p class="ad"></p><div class="afoot"><span class="defbtn"><i></i>设为默认地址</span><span class="use">使用此地址 ›</span></div>';
+      card.querySelector('.an').textContent = name;
+      card.querySelector('.ap').textContent = phone;
+      card.querySelector('.ad').textContent = full;
+      const list = document.querySelector('.scroll .pad');
+      const first = list.querySelector('.acard');
+      list.insertBefore(card, first);
+      if (isDef) { makeDefault(card); }
+      toast('新地址已保存');
+    }
+    closeSheet();
+  }
+
+  function makeDefault(card) {
+    document.querySelectorAll('.acard').forEach(function (c) {
+      c.classList.remove('def');
+      const tag = c.querySelector('.dtag');
+      if (tag) { tag.classList.add('hidden'); }
+      const label = c.querySelector('.defbtn');
+      if (label && label.childNodes[1]) { label.childNodes[1].textContent = '设为默认地址'; }
+    });
+    card.classList.add('def');
+    const tag = card.querySelector('.dtag');
+    if (tag) { tag.classList.remove('hidden'); }
+    const label = card.querySelector('.defbtn');
+    if (label && label.childNodes[1]) { label.childNodes[1].textContent = '默认收货地址'; }
+  }
+
+  function delAddr(e, id) {
+    e.stopPropagation();
+    const card = document.getElementById(id);
+    if (!card) { return; }
+    const wasDef = card.classList.contains('def');
+    card.remove();
+    if (wasDef) {
+      const first = document.querySelector('.acard');
+      if (first) { makeDefault(first); }
+    }
+    toast('地址已删除');
+  }
+
+  function useAddr(e) {
+    if (e && e.target.closest('button')) { return; }
+    toast('已选择该地址，正在返回订单');
+    setTimeout(function () { window.location.href = 'order-confirm.html'; }, 550);
+  }
+
+  function toggleManage() {
+    const app = document.getElementById('app');
+    app.classList.toggle('managing');
+    document.getElementById('manageBtn').textContent = app.classList.contains('managing') ? '完成' : '管理';
+  }
+
+  function cardInner() {
+    return '<div class="atop"><b class="an"></b><span class="ap"></span><span class="dtag hidden">默认</span><button class="del" onclick="delAddr(event,this.closest(\'.acard\').id)">删除</button><button class="aedit" onclick="gotoEdit(event,this.closest(\'.acard\').id)" aria-label="编辑"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17z" stroke="#EE4A2F" stroke-width="1.7" stroke-linejoin="round"/><path d="m13.5 7.5 3 3" stroke="#EE4A2F" stroke-width="1.7"/></svg></button></div><p class="ad"></p><div class="afoot"><span class="defbtn"><i></i>设为默认地址</span><span class="use">使用此地址 ›</span></div>';
+  }
+
+  function applySaved() {
+    const q = new URLSearchParams(window.location.search);
+    if (q.get('saved') !== '1') { return; }
+    const name = q.get('name') || '';
+    const phone = q.get('phone') || '';
+    const detail = q.get('detail') || '';
+    const isDef = q.get('def') === '1';
+    const id = q.get('id');
+    let card = id ? document.getElementById(id) : null;
+
+    if (q.get('mode') === 'edit' && card) {
+      card.dataset.name = name;
+      card.dataset.phone = phone;
+      card.dataset.detail = detail;
+      card.querySelector('.an').textContent = name;
+      card.querySelector('.ap').textContent = phone;
+      card.querySelector('.ad').textContent = detail;
+    } else {
+      card = document.createElement('div');
+      card.className = 'acard';
+      card.id = 'addr-' + Date.now();
+      card.dataset.name = name;
+      card.dataset.phone = phone;
+      card.dataset.detail = detail;
+      card.innerHTML = cardInner();
+      card.querySelector('.an').textContent = name;
+      card.querySelector('.ap').textContent = phone;
+      card.querySelector('.ad').textContent = detail;
+      const list = document.querySelector('.scroll .pad');
+      list.insertBefore(card, list.querySelector('.acard'));
+    }
+    if (isDef) { makeDefault(card); }
+    toast(q.get('mode') === 'edit' ? '地址已更新' : '地址已保存');
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState({}, '', 'address.html');
+    }
+  }
+
+  applySaved();
+</script>
+</body>
+</html>

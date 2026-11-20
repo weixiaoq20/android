@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 搜索</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding-left:14px;padding-right:14px}
+.row{display:flex;align-items:center}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hidden{display:none!important}
+.price{color:var(--brand);font-weight:800}
+.price small{font-size:11px;font-weight:800;margin-right:1px}
+/* 顶部搜索 */
+.shead{flex:0 0 auto;display:flex;align-items:center;gap:9px;padding:2px 14px 10px}
+.back{width:26px;flex:0 0 26px;color:#2A2420}
+.sbar{flex:1;min-width:0;height:40px;background:#fff;border-radius:999px;border:1px solid #F5E7E1;display:flex;align-items:center;padding:0 3px 0 13px;box-shadow:0 4px 12px rgba(190,120,90,.06)}
+.sbar input{flex:1;min-width:0;border:0;outline:none;background:transparent;font-size:13px;color:var(--ink)}
+.sbar input::placeholder{color:#B6B6BC}
+.sgo{height:34px;padding:0 15px;border-radius:999px;background:linear-gradient(100deg,#F7906A 0%,#F2563A 60%,#EC3B2A 100%);color:#fff;font-size:13px;font-weight:600;box-shadow:0 3px 8px rgba(232,70,45,.28)}
+.cartbtn{width:34px;flex:0 0 34px;color:#EE4A2F;display:grid;place-items:center;position:relative}
+.cnum{position:absolute;right:-2px;top:-2px;min-width:15px;height:15px;border-radius:8px;background:#E8392C;color:#fff;font-size:9px;font-weight:600;display:grid;place-items:center;border:1.5px solid #fff;padding:0 3px;font-style:normal}
+/* 关键词 */
+.kw{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 14px 12px}
+.kw::-webkit-scrollbar{display:none}
+.kw button{flex:0 0 auto;font-size:12px;color:#6E6660;background:#fff;border-radius:999px;padding:5px 12px;box-shadow:0 2px 6px rgba(150,110,88,.04)}
+.kw button.on{background:#FFF6F3;color:#EE4A2F;font-weight:700;border:1px solid #F7A392}
+/* 筛选条 */
+.filters{display:flex;align-items:center;gap:4px;padding:10px 14px;background:rgba(255,255,255,.95);border-top:1px solid #F7EEE8;border-bottom:1px solid #F7EEE8;position:sticky;top:0;z-index:10}
+.filters button{flex:1;display:flex;align-items:center;justify-content:center;gap:3px;font-size:12px;color:#5C5C5F;font-weight:600}
+.filters button.on{color:#EE4A2F;font-weight:700}
+.filters .arr{display:flex;flex-direction:column;gap:1px}
+.filters .arr i{width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent}
+.filters .arr i:first-child{border-bottom:4px solid #C4B7AE}
+.filters .arr i:last-child{border-top:4px solid #C4B7AE}
+.filters button.on .arr i:first-child{border-bottom-color:#E23A2E}
+/* 商品流 */
+.wf{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start;padding-top:11px}
+.wcol{display:flex;flex-direction:column;min-width:0}
+.pcard{display:block;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(120,60,50,.06);margin-bottom:10px}
+.pimg{position:relative;overflow:hidden}
+.blob{position:absolute;display:block;border-radius:50%}
+.plabel{position:absolute;left:9px;bottom:40px;color:#fff;font-size:10px;font-weight:700;letter-spacing:.3px;text-shadow:0 1px 5px rgba(60,40,30,.35);z-index:2}
+.pcorner{position:absolute;right:0;top:0;background:#E23127;color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:0 0 0 8px;z-index:3}
+.pstrip{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(124,26,18,.9),rgba(108,20,14,.95));padding:5px 7px;display:flex;align-items:center;gap:5px;z-index:3}
+.pstrip .m{background:rgba(255,255,255,.14);color:#FFE1D8;font-size:9.5px;font-weight:800;padding:2px 5px;border-radius:5px;white-space:nowrap}
+.pstrip .last{margin-left:auto;text-align:right;font-size:8px;color:#F7C5BA;line-height:1.2;white-space:nowrap}
+.pstrip .last b{display:block;color:#fff;font-size:9px}
+.pbody{padding:9px 10px 11px}
+.pbody h3{margin:0;font-size:13.5px;line-height:1.42;font-weight:400;height:38px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;letter-spacing:-.2px}
+.pbody .sold{font-size:10.5px;color:var(--muted);margin:5px 0 2px}
+.pbody .price{font-size:20px;line-height:1.2;letter-spacing:-.6px;font-weight:700}
+.pbody .tags{display:flex;gap:4px;margin-top:5px;flex-wrap:wrap}
+.pbody .tags i{font-style:normal;font-size:9px;color:#EE4A2F;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:999px;padding:1px 5px}
+.footnote{text-align:center;font-size:10.5px;color:#B6AAA2;padding:8px 0 20px}
+.tip{font-size:11px;color:#9A8C82;padding:8px 2px 0}
+.tip b{color:#E23A2E}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="shead">
+<a aria-label="返回" class="back" href="home.html">
+<svg fill="none" height="22" viewbox="0 0 24 24" width="22"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"></path></svg>
+</a>
+<label class="sbar">
+<svg fill="none" height="15" viewbox="0 0 24 24" width="15"><circle cx="10.8" cy="10.8" r="6.6" stroke="#B6AAA2" stroke-width="2"></circle><path d="m16 16 4.2 4.2" stroke="#B6AAA2" stroke-linecap="round" stroke-width="2"></path></svg>
+<input id="q" placeholder="搜索特产、店铺" style="margin-left:6px" value="猕猴桃"/>
+<button class="sgo" id="sgo">搜索</button>
+</label>
+<a aria-label="购物车" class="cartbtn" href="order-confirm.html">
+<svg fill="none" height="23" viewbox="0 0 30 27" width="23"><path d="M2 4h3.2l3 13h13.5l3-9H6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle cx="11" cy="22.5" fill="#7E94B2" r="2.2"></circle><circle cx="22" cy="22.5" fill="#7E94B2" r="2.2"></circle></svg>
+<i class="cnum">2</i>
+</a>
+</div>
+<div class="kw">
+<button class="on">猕猴桃</button>
+<button>腊肠礼盒</button>
+<button>郫县豆瓣</button>
+<button>竹叶青</button>
+<button>金堂脐橙</button>
+</div>
+<div class="scroll">
+<div class="filters" id="filters">
+<button class="on">综合</button>
+<button>销量</button>
+<button>价格<span class="arr"><i></i><i></i></span></button>
+<button>附近<span class="arr"><i></i><i></i></span></button>
+<button>筛选</button>
+</div>
+<div class="pad">
+<div class="tip">为你找到 <b>1,286</b> 件成都特产 · 支持同城次日达</div>
+<div class="wf">
+<div class="wcol">
+<a class="pcard" href="product-detail.html">
+<div class="pimg" style="height:160px;background:linear-gradient(150deg,#F7F7EC 0%,#E6E9CE 46%,#C9D1A6 100%)">
+<i class="blob" style="width:92px;height:92px;left:32px;top:30px;background:radial-gradient(circle at 34% 30%,#E3D5AE,#C0A57B 55%,#95794F 100%)"></i>
+<i class="blob" style="width:58px;height:58px;left:102px;top:62px;background:radial-gradient(circle at 35% 30%,#DCE3B9,#A8BC7E 60%,#7F965B 100%)"></i>
+<span class="pcorner">产地直发</span>
+<span class="plabel">蒲江红心猕猴桃</span>
+<div class="pstrip"><span class="m">券后 ¥34.9</span><span class="last">已售<b>2.3万</b></span></div>
+</div>
+<div class="pbody">
+<h3>蒲江红心猕猴桃 5斤大果 现摘现发 甜度18°</h3>
+<div class="sold">成都蒲江 · 48小时发货</div>
+<div class="price"><small>¥</small>39.90</div>
+<div class="tags"><i>坏果包赔</i><i>包邮</i></div>
+</div>
+</a>
+<a class="pcard" href="product-detail.html">
+<div class="pimg" style="height:148px;background:linear-gradient(150deg,#F4F7EC 0%,#D9E2CB 48%,#B4C3A3 100%)">
+<i class="blob" style="width:72px;height:72px;left:28px;top:48px;background:radial-gradient(circle at 35% 30%,#C2D2AA,#93AA79 60%,#6D8557 100%)"></i>
+<i class="blob" style="width:42px;height:42px;left:104px;top:28px;background:radial-gradient(circle at 35% 30%,#E3EBCF,#B5C797 65%,#93A675 100%)"></i>
+<span class="pcorner">春茶</span>
+<span class="plabel">竹叶青 · 明前</span>
+<div class="pstrip"><span class="m">买1送茶具</span><span class="last">已售<b>6800</b></span></div>
+</div>
+<div class="pbody">
+<h3>竹叶青明前春茶 100g 嫩芽清香 成都伴手礼</h3>
+<div class="sold">成都邛崃 · 礼盒装</div>
+<div class="price"><small>¥</small>128.00</div>
+<div class="tags"><i>礼品包装</i></div>
+</div>
+</a>
+<a class="pcard" href="product-detail.html">
+<div class="pimg" style="height:136px;background:linear-gradient(150deg,#FAF1E6 0%,#F1DCC3 50%,#DFC3A0 100%)">
+<i class="blob" style="width:66px;height:70px;left:36px;top:34px;border-radius:14px;background:radial-gradient(circle at 35% 30%,#E6CFA9,#C9A87C 65%,#A08258 100%)"></i>
+<span class="pcorner">同城速发</span>
+<span class="plabel">青城山老腊肉</span>
+<div class="pstrip"><span class="m">两件9折</span><span class="last">已售<b>5100</b></span></div>
+</div>
+<div class="pbody">
+<h3>青城山老腊肉 500g 柴火烟熏 农家自制</h3>
+<div class="sold">都江堰 · 冷链配送</div>
+<div class="price"><small>¥</small>46.00</div>
+<div class="tags"><i>冷链</i><i>农家自制</i></div>
+</div>
+</a>
+</div>
+<div class="wcol">
+<a class="pcard" href="product-detail.html">
+<div class="pimg" style="height:148px;background:linear-gradient(150deg,#FAEFE6 0%,#F1CDB9 48%,#D8A68D 100%)">
+<i class="blob" style="width:78px;height:86px;left:40px;top:26px;border-radius:18px;background:radial-gradient(circle at 35% 25%,#C98164,#A15E47 65%,#7A4534 100%)"></i>
+<i class="blob" style="width:50px;height:56px;left:56px;top:40px;border-radius:8px;background:linear-gradient(180deg,#FBF3E2,#EEDCB9)"></i>
+<span class="pcorner">热卖</span>
+<span class="plabel">郫县豆瓣 · 三年陈</span>
+<div class="pstrip"><span class="m">满2件减¥3</span><span class="last">已售<b>1.8万</b></span></div>
+</div>
+<div class="pbody">
+<h3>郫县豆瓣酱 500g 三年陈酿 川菜灵魂</h3>
+<div class="sold">成都郫都 · 官方旗舰</div>
+<div class="price"><small>¥</small>12.80</div>
+<div class="tags"><i>中华老字号</i></div>
+</div>
+</a>
+<a class="pcard" href="product-detail.html">
+<div class="pimg" style="height:162px;background:linear-gradient(150deg,#FBF2E3 0%,#F2D8B4 48%,#DFB88C 100%)">
+<i class="blob" style="width:84px;height:84px;left:34px;top:36px;background:radial-gradient(circle at 34% 28%,#F3DDB5,#E1B87F 58%,#BC8F5A 100%)"></i>
+<i class="blob" style="width:50px;height:50px;left:104px;top:62px;background:radial-gradient(circle at 35% 30%,#F8E7C4,#E7C28E 62%,#BF955F 100%)"></i>
+<span class="pcorner">年货节</span>
+<span class="plabel">金堂脐橙 · 10斤</span>
+<div class="pstrip"><span class="m">满10斤包邮</span><span class="last">已售<b>3.1万</b></span></div>
+</div>
+<div class="pbody">
+<h3>金堂脐橙 10斤装 果径75mm 酸甜爆汁</h3>
+<div class="sold">成都金堂 · 当日采摘</div>
+<div class="price"><small>¥</small>29.90</div>
+<div class="tags"><i>产地直发</i><i>包邮</i></div>
+</div>
+</a>
+<a class="pcard" href="product-detail.html">
+<div class="pimg" style="height:140px;background:linear-gradient(150deg,#F8EEF1 0%,#E6CFD8 48%,#C0A7B3 100%)">
+<i class="blob" style="width:76px;height:76px;left:32px;top:32px;background:repeating-linear-gradient(45deg,#EBDCA8 0 6px,#C4A469 6px 12px)"></i>
+<i class="blob" style="width:46px;height:46px;left:104px;top:58px;background:repeating-linear-gradient(90deg,#C58B77 0 5px,#98614F 5px 10px)"></i>
+<span class="pcorner">非遗</span>
+<span class="plabel">蜀锦杯垫</span>
+<div class="pstrip"><span class="m">第二件半价</span><span class="last">已售<b>2400</b></span></div>
+</div>
+<div class="pbody">
+<h3>蜀锦手作杯垫 4只装 成都非遗伴手礼</h3>
+<div class="sold">成都青羊 · 手作</div>
+<div class="price"><small>¥</small>45.00</div>
+<div class="tags"><i>非遗手作</i></div>
+</div>
+</a>
+</div>
+</div>
+<div class="footnote">— 已经到底啦，再看看别的 —</div>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    var filters = document.querySelectorAll('#filters button');
+    filters.forEach(function (b) {
+      b.addEventListener('click', function () {
+        filters.forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+      });
+    });
+    var kws = document.querySelectorAll('.kw button');
+    kws.forEach(function (b) {
+      b.addEventListener('click', function () {
+        kws.forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+        document.getElementById('q').value = b.textContent.trim();
+      });
+    });
+    document.getElementById('sgo').addEventListener('click', function () {
+      var v = document.getElementById('q').value.trim();
+      if (!v) { document.getElementById('q').focus(); return; }
+    });
+  })();
+</script>
+</body>
+</html>

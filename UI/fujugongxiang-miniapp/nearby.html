@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 附近店</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.hidden{display:none!important}
+.pad{padding-left:14px;padding-right:14px}
+.nheadwrap{flex:0 0 auto;padding:0 14px}
+.nhead{display:flex;align-items:center;padding:2px 0 7px}
+.avatar{width:44px;height:44px;border-radius:50%;overflow:hidden;flex:0 0 44px;background:#F0E1D2;box-shadow:0 0 0 2px #fff,0 4px 10px rgba(150,100,70,.14)}
+.avatar svg{display:block;width:100%;height:100%}
+.uname{font-size:17px;font-weight:800;margin-left:10px;letter-spacing:-.4px}
+.ustatus{font-size:10px;color:#8A7A70;margin-left:7px;background:#fff;border-radius:999px;padding:2px 7px;display:inline-flex;align-items:center;gap:3px}
+.ustatus i{width:5px;height:5px;border-radius:50%;background:#34B37A;display:block}
+.nearflag{margin-left:auto;display:flex;flex-direction:column;align-items:center;gap:2px;position:relative}
+.flagart{width:34px;height:30px;border-radius:9px;background:linear-gradient(150deg,#FF9B7C,#F2452E);color:#fff;font-size:15px;font-weight:900;display:grid;place-items:center;box-shadow:0 4px 10px rgba(232,70,45,.24);position:relative;overflow:hidden}
+.flagart:before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 5px,transparent 5px 10px);opacity:.55}
+.nearflag span:last-child{font-size:8.5px;color:#E23A2E;font-weight:700;background:#FFF0EB;border-radius:5px;padding:0 4px;line-height:1.5}
+.ptabs{display:flex;gap:7px;padding:1px 0 8px}
+.ptab{flex:1;height:34px;border-radius:999px;background:#fff;border:1px solid #F0E4DE;font-size:13px;font-weight:600;color:#5E544C;display:flex;align-items:center;justify-content:center;transition:all .18s;box-shadow:0 2px 6px rgba(180,130,100,.04)}
+.ptab.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(232,70,45,.22);font-weight:700}
+.notice{display:flex;align-items:center;gap:7px;height:36px;background:rgba(255,255,255,.9);margin:0 14px 10px;border-radius:12px;padding:0 10px;overflow:hidden;box-shadow:0 4px 12px rgba(180,130,100,.05)}
+.notice b{font-size:11.5px;white-space:nowrap;color:#3A2E26}
+.notice b em{color:#E23A2E;font-style:normal}
+.ntrack{flex:1;overflow:hidden;position:relative;height:100%}
+.nmove{position:absolute;top:50%;left:0;transform:translateY(-50%);white-space:nowrap;font-size:11.5px;color:#4C4038;animation:marquee 26s linear infinite}
+@keyframes marquee{0%{transform:translate(0,-50%)}100%{transform:translate(-72%,-50%)}}
+.panel{padding-bottom:4px}
+.feedcard{background:#fff;border-radius:16px;padding:10px;box-shadow:var(--shadow);margin-bottom:12px}
+.fhead{display:flex;align-items:center;gap:8px;padding:1px 1px 9px}
+.favatar{width:35px;height:35px;border-radius:50%;overflow:hidden;flex:0 0 35px;background:#F1E2D4}
+.favatar svg{width:100%;height:100%;display:block}
+.fname{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.fname b{font-size:14.5px;font-weight:700;letter-spacing:-.2px}
+.fname span{font-size:9.5px;color:#A99C92;margin-top:1px}
+.fbtns{display:flex;gap:5px;flex:0 0 auto}
+.fbtn{height:27px;padding:0 9px;border-radius:999px;border:1px solid #F7A392;background:#FFF6F3;color:#EE4A2F;font-size:10.5px;font-weight:700;display:flex;align-items:center;gap:2px;white-space:nowrap}
+.fbtn.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-color:transparent;color:#fff;box-shadow:0 3px 8px rgba(232,70,45,.18)}
+.media{position:relative;height:216px;border-radius:14px;overflow:hidden;background:#BEE2F0;box-shadow:0 4px 14px rgba(120,60,50,.06)}
+.media .cloud{position:absolute;background:rgba(255,255,255,.86);border-radius:50%;filter:blur(1.5px)}
+.media .cloud:before,.media .cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.media .cloud:before{width:62%;height:150%;left:8%;top:-62%}
+.media .cloud:after{width:52%;height:132%;right:4%;top:-38%}
+.media .sun{position:absolute;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#FBF3DE,#EFDAB4 60%,#DCC29A);box-shadow:0 0 24px rgba(226,206,170,.55);right:24%;top:19%}
+.media .palm{position:absolute;right:-4px;bottom:-6px;opacity:.96}
+.media .banana{position:absolute;left:-18px;bottom:-10px;opacity:.95}
+.mshade{position:absolute;left:0;right:0;top:0;height:86px;background:linear-gradient(180deg,rgba(20,28,26,.56),rgba(20,28,26,.18) 62%,transparent)}
+.mtext{position:absolute;left:10px;right:10px;top:9px;color:#fff;font-size:12.5px;line-height:1.5;letter-spacing:.1px;text-shadow:0 1px 5px rgba(0,0,0,.28);z-index:2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.24);border:1.5px solid rgba(255,255,255,.85);display:grid;place-items:center;backdrop-filter:blur(2px)}
+.play svg{margin-left:3px}
+.mloc{position:absolute;left:9px;bottom:9px;background:rgba(30,25,22,.42);backdrop-filter:blur(4px);color:#fff;font-size:9px;padding:3px 7px;border-radius:999px}
+.ffoot{display:flex;align-items:center;padding:8px 2px 1px}
+.ftime{flex:1;min-width:0;font-size:10px;color:#A99C92;letter-spacing:-.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.facts{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.act{display:flex;align-items:center;gap:3px;font-size:10.5px;color:#7A6D63;font-weight:600;white-space:nowrap;padding:0}
+.act svg{width:15px;height:15px;flex:0 0 15px}
+.act svg{stroke:currentColor;fill:none}
+.act.like svg{fill:none}
+.act.like.on{color:#E23A2E}
+.act.like.on svg{fill:currentColor;stroke:currentColor}
+.mini-head{display:flex;align-items:center;justify-content:space-between;padding:2px 2px 9px}
+.mini-head b{font-size:14px;font-weight:800}
+.mini-head span{font-size:10px;color:#A99C92}
+.post-text{background:linear-gradient(145deg,#FFF8F5,#FFEFE9);border-radius:14px;padding:14px;position:relative;overflow:hidden}
+.post-text:after{content:"“";position:absolute;right:10px;top:-6px;font-size:66px;color:rgba(186,118,89,.12);font-family:Georgia,serif}
+.post-text p{margin:0;font-size:13.5px;line-height:1.6;color:#4B3B31;position:relative;z-index:1}
+.parrow{display:inline-flex;align-items:center;gap:5px;margin-top:9px;font-size:9px;color:#fff;background:rgba(30,25,22,.42);backdrop-filter:blur(4px);padding:3px 7px;border-radius:999px}
+.shoprow{background:#fff;border-radius:16px;padding:12px;box-shadow:var(--shadow);display:flex;gap:10px;margin-bottom:10px;align-items:flex-start}
+.savatar{width:72px;height:72px;border-radius:14px;flex:0 0 72px;display:grid;place-items:center;color:#fff;font-weight:900;font-size:28px;background:linear-gradient(140deg,#FE9E7E,#F2452E);box-shadow:0 3px 9px rgba(232,70,45,.2)}
+.savatar.g{background:linear-gradient(140deg,#FBD08E,#EFA03C);color:#fff}
+.savatar.r{background:linear-gradient(135deg,#F58B7A,#D94A32)}
+.sinfo{flex:1;min-width:0}
+.shead{display:flex;align-items:flex-start;justify-content:space-between;gap:6px}
+.sname{display:flex;align-items:center;flex-wrap:wrap;gap:5px;font-size:14.5px;font-weight:800;line-height:1.3;min-width:0;flex:1}
+.open{font-size:9px;color:#2C9C6A;background:#EAF7F0;border-radius:4px;padding:2px 5px;font-weight:700;flex:0 0 auto;white-space:nowrap}
+.distance-nav{display:flex;align-items:center;gap:5px;flex:0 0 auto;margin-top:1px}
+.distance-nav .dval{display:inline-flex;align-items:center;gap:2px;color:#E23A2E;font-size:12.5px;font-weight:800;letter-spacing:-.2px;white-space:nowrap}
+.distance-nav .dval svg{flex:0 0 12px}
+.distance-nav button{height:22px;padding:0 9px;border-radius:999px;border:1px solid #F7A392;background:#fff;color:#E23A2E;font-size:10px;font-weight:700;white-space:nowrap}
+.sdesc{font-size:11px;color:#8A7B70;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.smeta{font-size:11px;color:#7D6F65;margin-top:4px;display:flex;align-items:center;gap:6px}
+.stags{display:flex;align-items:center;gap:6px;margin-top:6px}
+.service{font-size:10px;color:#6F625C;background:#F7F2EE;border-radius:6px;padding:2px 7px;font-weight:600;display:inline-flex;align-items:center;gap:3px}
+.service svg{flex:0 0 11px;color:#9A8C82}
+.sacts{display:flex;align-items:center;gap:6px;margin-top:8px}
+.sbtn{font-size:10px;height:26px;padding:0 10px;border-radius:999px;border:1px solid #F4C1B5;color:#EF4D3A;background:#fff;font-weight:600;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
+.sbtn.on{color:#fff;border-color:transparent;background:linear-gradient(135deg,#FB6E4E,#F03A2C)}
+.sbtn.link{color:#EE4A2F;border-color:#F7A392;background:#FFF6F3;font-weight:700}
+/* 距离列表店标：对齐秒杀商品图 110×110 正方形 */
+#panel-dist .shoprow{align-items:stretch;padding:12px;border-radius:16px;gap:10px}
+#panel-dist .savatar{width:110px;height:110px;min-width:110px;flex:0 0 110px;border-radius:11px;font-size:42px;font-weight:800;box-shadow:0 4px 12px rgba(239,73,55,.16)}
+#panel-dist .savatar.g{background:linear-gradient(145deg,#ffc95e,#f49c27)}
+#panel-dist .savatar.r{background:linear-gradient(145deg,#ff8067,#db3e31)}
+#panel-dist .sinfo{display:flex;flex-direction:column;justify-content:center;min-width:0}
+#panel-dist .sname{font-size:15px}
+#panel-dist .smeta{color:#8C8079;margin-top:3px}
+#panel-dist .sdesc{color:#6F625C;margin-top:2px}
+#panel-dist .stags{margin-top:5px}
+#panel-dist .sacts{margin-top:7px;flex-wrap:wrap}
+.distbar{display:flex;align-items:center;justify-content:space-between;padding:0 0 9px}
+.sortchips{display:flex;gap:5px}
+.schip{font-size:10px;padding:5px 9px;border-radius:999px;background:#fff;border:1px solid #F0E4DE;color:#7D6F65;font-weight:600}
+.schip.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-color:transparent;color:#fff}
+.viewtoggle{display:flex;background:#fff;border:1px solid #F0E1D6;border-radius:999px;padding:2px}
+.vt{font-size:9.5px;padding:3px 7px;border-radius:999px;color:#8A7B70;font-weight:600}
+.vt.on{background:#FFF0EB;color:#E23A2E;border:1px solid #F7C7B8}
+.map{position:relative;height:318px;border-radius:18px;overflow:hidden;background:linear-gradient(150deg,#F5EEE2,#EAE3D4);box-shadow:var(--shadow);margin-bottom:10px}
+.map .park{position:absolute;background:#DEE8CF;border-radius:26px}
+.map .river{position:absolute;width:160%;height:32px;background:linear-gradient(90deg,#C4E3ED,#9CCADB);transform:rotate(-16deg);left:-25%;top:60%;border-radius:20px;opacity:.9}
+.map .rd{position:absolute;background:#FFFDF7;box-shadow:0 0 0 1px rgba(218,204,184,.55)}
+.map .rd.h{height:8px;left:-10%;right:-10%}
+.map .rd.v{width:8px;top:-10%;bottom:-10%}
+.pin{position:absolute;width:31px;height:31px;border-radius:50% 50% 50% 0;background:linear-gradient(135deg,#FB6E4E,#F03A2C);transform:rotate(-45deg);box-shadow:0 4px 10px rgba(232,70,45,.24);display:grid;place-items:center;z-index:3}
+.pin b{transform:rotate(45deg);color:#fff;font-size:11px;font-weight:800}
+.pin.blue{background:linear-gradient(135deg,#6FA9F8,#2F7CF6);box-shadow:0 5px 12px rgba(47,124,246,.28)}
+.mlocate{position:absolute;right:9px;top:9px;width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 4px 9px rgba(120,90,60,.15);z-index:4}
+.mcard{position:absolute;left:9px;right:9px;bottom:9px;background:#fff;border-radius:14px;padding:8px;display:flex;align-items:center;gap:8px;box-shadow:0 6px 16px rgba(100,70,40,.16);z-index:4}
+.mavatar{width:36px;height:36px;border-radius:11px;background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff;font-weight:900;font-size:13px;display:grid;place-items:center;flex:0 0 36px}
+.mcard .grow{line-height:1.3}
+.mcard b{font-size:12px}
+.mcard p{margin:1px 0 0;font-size:9px;color:#9C8E83}
+.mgo{font-size:10px;color:#fff;background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-radius:999px;padding:6px 11px;font-weight:700}
+.friendrow{display:flex;align-items:center;gap:9px;background:#fff;border-radius:15px;padding:10px;margin-bottom:8px;box-shadow:0 4px 12px rgba(150,110,88,.05);border:1px solid #F5EDE7}
+.friendrow .favatar{width:40px;height:40px;flex:0 0 40px}
+.friendrow .fi{flex:1;min-width:0}
+.friendrow b{font-size:12.5px;display:block}
+.friendrow p{margin:2px 0 0;font-size:9.5px;color:#A09389;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.friendrow .go{font-size:9.5px;color:#EE4A2F;border:1px solid #F7A392;border-radius:999px;padding:4px 9px;font-weight:700;background:#FFF6F3}
+.applybar{display:flex;align-items:center;gap:8px;background:linear-gradient(120deg,#FFF3EE,#FFE9E2);border-radius:14px;padding:10px 11px;margin-bottom:10px;border:1px solid #FAD3C6}
+.applybar b{font-size:11.5px;color:#B3411F}
+.applybar span{font-size:9.5px;color:#C08065;margin-left:auto}
+.invite{margin-top:10px;background:linear-gradient(135deg,#FFF1EB,#FFE4DA);border:1px solid #F8CDBD;border-radius:16px;padding:13px;color:#B3411F;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 12px rgba(232,70,45,.06)}
+.invite b{font-size:13px;display:block}
+.invite span{font-size:9.5px;opacity:.85;display:block;margin-top:2px}
+.invite a{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:10px;font-weight:700;border-radius:999px;padding:6px 11px}
+.fab{position:absolute;right:14px;bottom:88px;height:38px;padding:0 14px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:11.5px;font-weight:700;display:flex;align-items:center;gap:5px;box-shadow:0 6px 16px rgba(232,70,45,.26);z-index:20}
+.toast{position:absolute;left:50%;bottom:104px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:50;white-space:nowrap;backdrop-filter:blur(6px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.tabbar{flex:0 0 58px;background:#fff;border-top:1px solid #F0EDEA;display:flex;padding:6px 3px 0;position:relative;z-index:30}
+.tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;color:#6D7480;font-size:13px;font-weight:500;position:relative;text-decoration:none;letter-spacing:-.2px}
+.tabbar a.on{color:#F2452E;font-weight:700}
+.ti{width:38px;height:28px;display:grid;place-items:center;border-radius:50%;position:relative;transition:background .2s}
+.tabbar a.on .ti{background:radial-gradient(circle at 50% 58%,#FDE0D8 0%,rgba(253,224,216,0) 72%)}
+.badge{position:absolute;top:-5px;right:-3px;min-width:18px;height:18px;border-radius:9px;background:#E8392C;color:#fff;font-size:10px;font-weight:600;display:grid;place-items:center;padding:0 4px;font-style:normal}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="nheadwrap">
+<div class="nhead">
+<div aria-label="用户名111的头像" class="avatar">
+<svg viewbox="0 0 40 40">
+<circle cx="20" cy="20" fill="#EFE0D1" r="20"></circle>
+<ellipse cx="11.5" cy="17" fill="#6B4A36" rx="5.2" ry="7.2" transform="rotate(-24 11.5 17)"></ellipse>
+<ellipse cx="28.5" cy="17" fill="#6B4A36" rx="5.2" ry="7.2" transform="rotate(24 28.5 17)"></ellipse>
+<circle cx="20" cy="21" fill="#F8EFE5" r="11"></circle>
+<circle cx="15.8" cy="19" fill="#3B2A1F" r="1.5"></circle>
+<circle cx="24.2" cy="19" fill="#3B2A1F" r="1.5"></circle>
+<ellipse cx="20" cy="24" fill="#3B2A1F" rx="2.5" ry="1.8"></ellipse>
+<path d="M20 25.6v2M17 28.2c1.8 1.3 4.2 1.3 6 0" fill="none" stroke="#3B2A1F" stroke-linecap="round" stroke-width="1"></path>
+</svg>
+</div>
+<span class="uname">用户名111</span>
+<span class="ustatus"><i></i>成都 · 青羊区</span>
+<button aria-label="查看附近店铺" class="nearflag" onclick="switchTab('dist')">
+<span class="flagart">逛</span>
+<span>附近店铺</span>
+</button>
+</div>
+<div class="ptabs" id="ntabs">
+<button class="ptab on" data-t="feed">发现</button>
+<button class="ptab" data-t="dist">距离</button>
+<button class="ptab" data-t="gzz">关注</button>
+<button class="ptab" data-t="friend">好友</button>
+</div>
+</div>
+<div class="scroll">
+<div class="notice">
+<svg aria-hidden="true" fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="#2E2620"></path><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="#2E2620" stroke-linecap="round" stroke-width="1.6"></path></svg>
+<b>系统<em>公告</em>：</b>
+<div class="ntrack"><div class="nmove">城南区域下午14时有6级阵风，请注意安全；青羊区今日新增3家同城店铺，逛逛发帖审核通过后可获流量扶持。</div></div>
+</div>
+<div class="pad">
+<div class="panel hidden" id="panel-gzz">
+<article class="feedcard">
+<div class="fhead">
+<div class="favatar">
+<svg viewbox="0 0 40 40"><rect fill="#DDE7EE" height="40" width="40"></rect><circle cx="20" cy="21" fill="#F3D6BF" r="12"></circle><path d="M8 15c2-7 10-9 16-7l-2 6c-5-2-10-1-14 1z" fill="#5C4436"></path><circle cx="16" cy="20" fill="#3B2A1F" r="1.4"></circle><circle cx="24" cy="20" fill="#3B2A1F" r="1.4"></circle><path d="M18 25c1.4 1 2.6 1 4 0" fill="none" stroke="#B5705A" stroke-linecap="round" stroke-width="1.1"></path><path d="M20 30v6M14 37c3-2 9-2 12 0" stroke="#D8A77C" stroke-linecap="round" stroke-width="3"></path></svg>
+</div>
+<div class="fname"><b>用户名222</b><span>同城 · 2.3km · 刚刚</span></div>
+<div class="fbtns">
+<button class="fbtn" data-toggle="follow">☆ 关注</button>
+<button class="fbtn" data-toggle="friend">⊕ 加好友</button>
+</div>
+</div>
+<div class="media" style="background:linear-gradient(180deg,#DDE7EC 0%,#EAF0F2 37%,#B9CBD6 38%,#A2B8C6 67%,#EFE6D6 68%,#E2D4BF 100%)">
+<div class="cloud" style="width:104px;height:38px;left:26%;top:17%"></div>
+<div class="cloud" style="width:68px;height:26px;left:9%;top:27%;opacity:.8"></div>
+<div class="sun"></div>
+<svg aria-hidden="true" class="palm" fill="none" height="140" viewbox="0 0 100 180" width="76">
+<path d="M55 180c-4-45 2-80 12-108" stroke="#7A5B3A" stroke-linecap="round" stroke-width="7"></path>
+<g fill="#2F6B3A">
+<path d="M67 72C50 52 28 50 14 60c22-2 38 4 50 18z"></path>
+<path d="M67 72C54 48 58 26 72 16c-2 20 2 36 6 52z"></path>
+<path d="M67 72c18-18 40-20 54-10-22-2-38 4-50 16z"></path>
+<path d="M67 72c8-24 2-44-10-56 6 22 6 40 4 56z"></path>
+<path d="M67 72c-18-8-36-2-46 12 18-8 32-8 46-2z"></path>
+</g>
+</svg>
+<div class="mshade"></div>
+<p class="mtext">城南的日落橘子海，和刚上市的蒲江猕猴桃，都是成都秋天的味道…</p>
+<button aria-label="播放视频" class="play" onclick="showToast('视频播放演示')">
+<svg fill="#fff" height="18" viewbox="0 0 16 18" width="16"><path d="M1 1.6c0-1 1.1-1.6 2-1.1l12 6.9c.9.5.9 1.8 0 2.3L3 16.6c-.9.5-2-.1-2-1.1z"></path></svg>
+</button>
+<span class="mloc">同城 · 青羊区</span>
+</div>
+<div class="ffoot">
+<span class="ftime">发布时间：2026.11.06 09:12:20</span>
+<div class="facts">
+<button class="act" onclick="showToast('评论区演示：共 2834 条')">
+<svg height="16" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L4 21l1.6-4.3A8.5 8.5 0 1 1 21 11.5z" stroke-linejoin="round"></path></svg>2834
+              </button>
+<button class="act like" data-likes="15230" onclick="toggleLike(this)">
+<svg height="16" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M7 10v10H4V10h3zm0 9h9.6a2 2 0 0 0 2-1.7l1.2-6A2 2 0 0 0 17.8 9H14V5a2 2 0 0 0-2-2l-3 7" stroke-linejoin="round"></path></svg><span>1.5w</span>
+</button>
+<a class="act" href="shop.html" onclick="showToast('正在打开商家导航')">
+<svg height="16" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M20 10.5c0 5.6-8 11.5-8 11.5S4 16.1 4 10.5a8 8 0 1 1 16 0z" stroke-linejoin="round"></path><circle cx="12" cy="10.5" r="2.6"></circle></svg><span>导航</span>
+</a>
+</div>
+</div>
+</article>
+<article class="feedcard">
+<div class="fhead">
+<div class="favatar">
+<svg viewbox="0 0 40 40"><rect fill="#E8EFD9" height="40" width="40"></rect><circle cx="20" cy="20" fill="#F3D6BF" r="13"></circle><path d="M7 16c1-6 7-9 13-9 7 0 12 4 13 9-4-2-8-3-13-3s-9 1-13 3z" fill="#5C4436"></path><circle cx="16" cy="20" fill="#3B2A1F" r="1.4"></circle><circle cx="24" cy="20" fill="#3B2A1F" r="1.4"></circle><path d="M17.5 26c1.6 1.2 3.4 1.2 5 0" fill="none" stroke="#B5705A" stroke-linecap="round" stroke-width="1.2"></path><path d="M14 33c2-3 10-3 12 0" stroke="#6B8E4E" stroke-linecap="round" stroke-width="3"></path></svg>
+</div>
+<div class="fname"><b>蒲江果农小陈</b><span>好友 · 12.6km · 1小时前</span></div>
+<div class="fbtns">
+<button class="fbtn on" data-toggle="follow">✓ 关注</button>
+<button class="fbtn on" data-toggle="friend">✓ 好友</button>
+</div>
+</div>
+<div class="media" style="background:linear-gradient(180deg,#BFE4EE 0%,#DCEEF1 34%,#4C8C4A 35%,#2E6B36 100%)">
+<div class="cloud" style="width:120px;height:46px;left:33%;top:16%;opacity:.95"></div>
+<div class="cloud" style="width:70px;height:28px;left:12%;top:25%;opacity:.7"></div>
+<svg aria-hidden="true" class="banana" fill="none" height="190" viewbox="0 0 160 200" width="150">
+<path d="M8 200C-4 130 20 50 74 4c-16 62-22 124-8 186z" fill="#4F9A3C"></path>
+<path d="M2 200c26-78 62-128 108-160-30 58-52 112-56 160z" fill="#6DB34F" opacity=".9"></path>
+<path d="M74 200c18-66 54-108 86-128-30 46-48 88-52 128z" fill="#3E8032" opacity=".85"></path>
+<path d="M20 198C30 132 48 84 82 44" opacity=".5" stroke="#2F6B35" stroke-width="2"></path>
+</svg>
+<div class="mshade"></div>
+<p class="mtext">果园现摘直发，今天摘了300箱红心猕猴桃，甜度18°，同城下午就能到…</p>
+<button aria-label="播放视频" class="play" onclick="showToast('视频播放演示')">
+<svg fill="#fff" height="18" viewbox="0 0 16 18" width="16"><path d="M1 1.6c0-1 1.1-1.6 2-1.1l12 6.9c.9.5.9 1.8 0 2.3L3 16.6c-.9.5-2-.1-2-1.1z"></path></svg>
+</button>
+<span class="mloc">蒲江县 · 猕猴桃基地</span>
+</div>
+<div class="ffoot">
+<span class="ftime">发布时间：2026.11.05 18:40:12</span>
+<div class="facts">
+<button class="act" onclick="showToast('评论区演示：共 486 条')">
+<svg height="16" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L4 21l1.6-4.3A8.5 8.5 0 1 1 21 11.5z" stroke-linejoin="round"></path></svg>486
+              </button>
+<button class="act like" data-likes="3280" onclick="toggleLike(this)">
+<svg height="16" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M7 10v10H4V10h3zm0 9h9.6a2 2 0 0 0 2-1.7l1.2-6A2 2 0 0 0 17.8 9H14V5a2 2 0 0 0-2-2l-3 7" stroke-linejoin="round"></path></svg><span>3280</span>
+</button>
+<a class="act" href="shop.html" onclick="showToast('正在打开商家导航')">
+<svg height="16" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M20 10.5c0 5.6-8 11.5-8 11.5S4 16.1 4 10.5a8 8 0 1 1 16 0z" stroke-linejoin="round"></path><circle cx="12" cy="10.5" r="2.6"></circle></svg><span>导航</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+<div class="panel hidden" id="panel-dist">
+<div class="distbar">
+<div class="sortchips">
+<button class="schip on" onclick="sortChip(this)">距离最近</button>
+<button class="schip" onclick="sortChip(this)">热度优先</button>
+</div>
+<div class="viewtoggle">
+<button class="vt on" id="vtList" onclick="setView('list')">列表</button>
+<button class="vt" id="vtMap" onclick="setView('map')">地图</button>
+</div>
+</div>
+<div id="distList">
+<article class="shoprow">
+<div class="savatar">福</div>
+<div class="sinfo">
+<div class="shead">
+<div class="sname">福聚贡翔演示店 <span class="open">营业中</span></div>
+<div class="distance-nav">
+<span class="dval"><svg aria-hidden="true" fill="none" height="12" viewBox="0 0 24 24" width="12"><path d="M12 21s7-5.8 7-11.2A7 7 0 0 0 5 9.8C5 15.2 12 21 12 21z" stroke="currentColor" stroke-width="1.8"></path><circle cx="12" cy="9.8" r="2.4" fill="currentColor"></circle></svg>2.3km</span>
+<button type="button" onclick="showToast('已打开地图导航')">导航</button>
+</div>
+</div>
+<div class="smeta">已售 36万件 · 4.7分</div>
+<div class="sdesc">青羊区 · 盐市口</div>
+<div class="stags"><span class="service"><svg aria-hidden="true" fill="none" height="11" viewBox="0 0 24 24" width="11"><path d="M3 7h13v10H3zM16 10h3.5L22 13v4h-6" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path><circle cx="7.5" cy="18.5" r="1.6" fill="currentColor"></circle><circle cx="18.5" cy="18.5" r="1.6" fill="currentColor"></circle></svg>配送</span><span class="service"><svg aria-hidden="true" fill="none" height="11" viewBox="0 0 24 24" width="11"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path></svg>到店取货</span></div>
+<div class="sacts">
+<button class="sbtn" data-toggle="friend">+ 好友</button>
+<button class="sbtn" data-toggle="follow">☆ 关注</button>
+<a class="sbtn link" href="shop.html">进店 ›</a>
+</div>
+</div>
+</article>
+<article class="shoprow">
+<div class="savatar g">鲜</div>
+<div class="sinfo">
+<div class="shead">
+<div class="sname">锦城鲜果铺 <span class="open">营业中</span></div>
+<div class="distance-nav">
+<span class="dval"><svg aria-hidden="true" fill="none" height="12" viewBox="0 0 24 24" width="12"><path d="M12 21s7-5.8 7-11.2A7 7 0 0 0 5 9.8C5 15.2 12 21 12 21z" stroke="currentColor" stroke-width="1.8"></path><circle cx="12" cy="9.8" r="2.4" fill="currentColor"></circle></svg>2.3km</span>
+<button type="button" onclick="showToast('已打开地图导航')">导航</button>
+</div>
+</div>
+<div class="smeta">已售 14万件 · 4.8分</div>
+<div class="sdesc">武侯区 · 玉林路</div>
+<div class="stags"><span class="service"><svg aria-hidden="true" fill="none" height="11" viewBox="0 0 24 24" width="11"><path d="M3 7h13v10H3zM16 10h3.5L22 13v4h-6" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path><circle cx="7.5" cy="18.5" r="1.6" fill="currentColor"></circle><circle cx="18.5" cy="18.5" r="1.6" fill="currentColor"></circle></svg>配送</span><span class="service"><svg aria-hidden="true" fill="none" height="11" viewBox="0 0 24 24" width="11"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path></svg>到店取货</span></div>
+<div class="sacts">
+<button class="sbtn" data-toggle="friend">+ 好友</button>
+<button class="sbtn" data-toggle="follow">☆ 关注</button>
+<a class="sbtn link" href="shop.html">进店 ›</a>
+</div>
+</div>
+</article>
+<article class="shoprow">
+<div class="savatar r">豆</div>
+<div class="sinfo">
+<div class="shead">
+<div class="sname">郫都豆瓣老作坊 <span class="open">营业中</span></div>
+<div class="distance-nav">
+<span class="dval"><svg aria-hidden="true" fill="none" height="12" viewBox="0 0 24 24" width="12"><path d="M12 21s7-5.8 7-11.2A7 7 0 0 0 5 9.8C5 15.2 12 21 12 21z" stroke="currentColor" stroke-width="1.8"></path><circle cx="12" cy="9.8" r="2.4" fill="currentColor"></circle></svg>2.3km</span>
+<button type="button" onclick="showToast('已打开地图导航')">导航</button>
+</div>
+</div>
+<div class="smeta">已售 36万件 · 4.7分</div>
+<div class="sdesc">郫都区 · 安德镇</div>
+<div class="stags"><span class="service"><svg aria-hidden="true" fill="none" height="11" viewBox="0 0 24 24" width="11"><path d="M3 7h13v10H3zM16 10h3.5L22 13v4h-6" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path><circle cx="7.5" cy="18.5" r="1.6" fill="currentColor"></circle><circle cx="18.5" cy="18.5" r="1.6" fill="currentColor"></circle></svg>配送</span><span class="service"><svg aria-hidden="true" fill="none" height="11" viewBox="0 0 24 24" width="11"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path></svg>到店取货</span></div>
+<div class="sacts">
+<button class="sbtn" data-toggle="friend">+ 好友</button>
+<button class="sbtn" data-toggle="follow">☆ 关注</button>
+<a class="sbtn link" href="shop.html">进店 ›</a>
+</div>
+</div>
+</article>
+</div>
+<div class="map hidden" id="distMap">
+<div class="park" style="width:120px;height:78px;left:12px;top:16px"></div>
+<div class="park" style="width:90px;height:56px;right:18px;top:34px"></div>
+<div class="park" style="width:70px;height:110px;left:38px;bottom:44px"></div>
+<div class="river"></div>
+<div class="rd h" style="top:36%"></div>
+<div class="rd h" style="top:72%"></div>
+<div class="rd v" style="left:26%"></div>
+<div class="rd v" style="left:68%"></div>
+<button aria-label="定位" class="mlocate" onclick="showToast('已定位到当前位置')">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" fill="#2F7CF6" r="3.2"></circle><circle cx="12" cy="12" r="7.5" stroke="#2F7CF6" stroke-width="1.6"></circle><path d="M12 1v3M12 20v3M1 12h3M20 12h3" stroke="#2F7CF6" stroke-linecap="round" stroke-width="1.6"></path></svg>
+</button>
+<span class="pin blue" style="left:43%;top:70%"><b>我</b></span>
+<span class="pin" style="left:31%;top:39%"><b>1</b></span>
+<span class="pin" style="left:57%;top:27%"><b>2</b></span>
+<span class="pin" style="left:72%;top:52%"><b>3</b></span>
+<div class="mcard">
+<div class="mavatar">福</div>
+<div class="grow"><b>福聚贡翔演示店</b><p>距你 2.3km · 青羊区宽窄巷子 · 4.9分</p></div>
+<a class="mgo" href="shop.html">进店</a>
+</div>
+</div>
+</div>
+<div class="panel" id="panel-feed">
+<div class="mini-head"><b>同城逛逛 · 热帖</b><span>成都 · 青羊区</span></div>
+<article class="feedcard">
+<div class="fhead">
+<div class="favatar">
+<svg viewbox="0 0 40 40"><rect fill="#F6E4D0" height="40" width="40"></rect><circle cx="20" cy="20" fill="#F3D6BF" r="13"></circle><path d="M7 16c1-6 7-9 13-9 7 0 12 4 13 9-4-2-8-3-13-3s-9 1-13 3z" fill="#4B392E"></path><circle cx="16" cy="20" fill="#3B2A1F" r="1.4"></circle><circle cx="24" cy="20" fill="#3B2A1F" r="1.4"></circle><path d="M17.5 26c1.6 1.2 3.4 1.2 5 0" fill="none" stroke="#B5705A" stroke-linecap="round" stroke-width="1.2"></path><circle cx="29" cy="12" fill="#E8B24D" r="2.4"></circle></svg>
+</div>
+<div class="fname"><b>成都吃货阿May</b><span>同城热帖 · 1.8km · 20分钟前</span></div>
+<div class="fbtns">
+<button class="fbtn" data-toggle="follow">☆ 关注</button>
+<button class="fbtn" data-toggle="friend">⊕ 加好友</button>
+</div>
+</div>
+<div class="post-text">
+<p>宽窄巷子旁边这家干杂店，汉源花椒香得整条街都闻得到，老板还会教你怎么分辨新花椒。顺手买了两袋，回家做麻婆豆腐刚好。</p>
+<span class="parrow">青羊区</span>
+</div>
+<div class="ffoot">
+<span class="ftime">发布时间：2026.11.06 14:06:33</span>
+<div class="facts">
+<button class="act" onclick="showToast('评论区演示：共 126 条')">
+<svg height="16" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L4 21l1.6-4.3A8.5 8.5 0 1 1 21 11.5z" stroke-linejoin="round"></path></svg>126
+              </button>
+<button class="act like" onclick="toggleLike(this)">
+<svg height="16" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M7 10v10H4V10h3zm0 9h9.6a2 2 0 0 0 2-1.7l1.2-6A2 2 0 0 0 17.8 9H14V5a2 2 0 0 0-2-2l-3 7" stroke-linejoin="round"></path></svg><span>892</span>
+</button>
+<a class="act" href="shop.html" onclick="showToast('正在打开商家导航')">
+<svg height="16" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M20 10.5c0 5.6-8 11.5-8 11.5S4 16.1 4 10.5a8 8 0 1 1 16 0z" stroke-linejoin="round"></path><circle cx="12" cy="10.5" r="2.6"></circle></svg><span>导航</span>
+</a>
+</div>
+</div>
+</article>
+<article class="feedcard">
+<div class="fhead">
+<div class="favatar">
+<svg viewbox="0 0 40 40"><rect fill="#E4EEDB" height="40" width="40"></rect><circle cx="20" cy="20" fill="#F3D6BF" r="13"></circle><path d="M7 16c1-6 7-9 13-9 7 0 12 4 13 9-4-2-8-3-13-3s-9 1-13 3z" fill="#5C4436"></path><circle cx="16" cy="20" fill="#3B2A1F" r="1.4"></circle><circle cx="24" cy="20" fill="#3B2A1F" r="1.4"></circle><path d="M17.5 26c1.6 1.2 3.4 1.2 5 0" fill="none" stroke="#B5705A" stroke-linecap="round" stroke-width="1.2"></path></svg>
+</div>
+<div class="fname"><b>城南花市</b><span>同城 · 3.1km · 44分钟前</span></div>
+<div class="fbtns">
+<button class="fbtn" data-toggle="follow">☆ 关注</button>
+<button class="fbtn" data-toggle="friend">⊕ 加好友</button>
+</div>
+</div>
+<div class="media" style="height:150px;background:linear-gradient(140deg,#FBF2E2 0%,#F1DCBB 50%,#DCC19C 100%)">
+<div class="cloud" style="width:88px;height:32px;left:14%;top:20%;opacity:.45"></div>
+<div class="mshade"></div>
+<p class="mtext">周末逛菜市，遇到刚出锅的糖油果子，外脆里糯，还是小时候的味道…</p>
+<span class="mloc">青羊区 · 宽窄巷子</span>
+</div>
+<div class="ffoot">
+<span class="ftime">发布时间：2026.11.06 13:40:08</span>
+<div class="facts">
+<button class="act" onclick="showToast('评论区演示：共 88 条')">
+<svg height="16" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L4 21l1.6-4.3A8.5 8.5 0 1 1 21 11.5z" stroke-linejoin="round"></path></svg>88
+              </button>
+<button class="act like" onclick="toggleLike(this)">
+<svg height="16" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M7 10v10H4V10h3zm0 9h9.6a2 2 0 0 0 2-1.7l1.2-6A2 2 0 0 0 17.8 9H14V5a2 2 0 0 0-2-2l-3 7" stroke-linejoin="round"></path></svg><span>640</span>
+</button>
+<a class="act" href="shop.html" onclick="showToast('正在打开商家导航')">
+<svg height="16" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M20 10.5c0 5.6-8 11.5-8 11.5S4 16.1 4 10.5a8 8 0 1 1 16 0z" stroke-linejoin="round"></path><circle cx="12" cy="10.5" r="2.6"></circle></svg><span>导航</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+<div class="panel hidden" id="panel-friend">
+<a class="applybar" href="friends.html">
+<span style="width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:14px;box-shadow:0 2px 6px rgba(232,70,45,.12)">👋</span>
+<b>有 2 条好友申请待处理</b>
+<span>查看 ›</span>
+</a>
+<div class="friendrow">
+<div class="favatar"><svg viewbox="0 0 40 40"><rect fill="#F3E7D7" height="40" width="40"></rect><circle cx="20" cy="20" fill="#F3D6BF" r="13"></circle><path d="M7 16c1-6 7-9 13-9 7 0 12 4 13 9-4-2-8-3-13-3s-9 1-13 3z" fill="#5C4436"></path><circle cx="16" cy="20" fill="#3B2A1F" r="1.4"></circle><circle cx="24" cy="20" fill="#3B2A1F" r="1.4"></circle><path d="M17.5 26c1.6 1.2 3.4 1.2 5 0" fill="none" stroke="#B5705A" stroke-linecap="round" stroke-width="1.2"></path></svg></div>
+<div class="fi"><b>小满</b><p>同城好友 · 常逛青石桥批发市场</p></div>
+<a class="go" href="chat-friend.html">发消息</a>
+</div>
+<div class="friendrow">
+<div class="favatar"><svg viewbox="0 0 40 40"><rect fill="#E7EFDC" height="40" width="40"></rect><circle cx="20" cy="20" fill="#F3D6BF" r="13"></circle><path d="M7 16c1-6 7-9 13-9 7 0 12 4 13 9-4-2-8-3-13-3s-9 1-13 3z" fill="#4B392E"></path><circle cx="16" cy="20" fill="#3B2A1F" r="1.4"></circle><circle cx="24" cy="20" fill="#3B2A1F" r="1.4"></circle><path d="M17.5 26c1.6 1.2 3.4 1.2 5 0" fill="none" stroke="#B5705A" stroke-linecap="round" stroke-width="1.2"></path><path d="M14 33c2-3 10-3 12 0" stroke="#6B8E4E" stroke-linecap="round" stroke-width="3"></path></svg></div>
+<div class="fi"><b>蒲江果农小陈</b><p>好友 · 12.6km · 蒲江猕猴桃基地</p></div>
+<a class="go" href="chat-friend.html">发消息</a>
+</div>
+<div class="friendrow">
+<div class="favatar"><svg viewbox="0 0 40 40"><rect fill="#F6E4D0" height="40" width="40"></rect><circle cx="20" cy="20" fill="#F3D6BF" r="13"></circle><path d="M7 16c1-6 7-9 13-9 7 0 12 4 13 9-4-2-8-3-13-3s-9 1-13 3z" fill="#4B392E"></path><circle cx="16" cy="20" fill="#3B2A1F" r="1.4"></circle><circle cx="24" cy="20" fill="#3B2A1F" r="1.4"></circle><path d="M17.5 26c1.6 1.2 3.4 1.2 5 0" fill="none" stroke="#B5705A" stroke-linecap="round" stroke-width="1.2"></path><circle cx="29" cy="12" fill="#E8B24D" r="2.4"></circle></svg></div>
+<div class="fi"><b>成都吃货阿May</b><p>好友 · 青羊区 · 最近发帖 3 条</p></div>
+<a class="go" href="chat-friend.html">发消息</a>
+</div>
+<a class="invite" href="friends.html">
+<div><b>邀请好友一起逛</b><span>分享同城好店，好友下单得佣金</span></div>
+<span style="background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:10px;font-weight:700;border-radius:999px;padding:6px 11px">去邀请</span>
+</a>
+</div>
+</div>
+</div>
+<a class="fab" href="post.html">
+<svg fill="none" height="15" viewbox="0 0 24 24" width="15"><path d="M4 20h4l10-10a2.8 2.8 0 0 0-4-4L4 16v4z" stroke="#fff" stroke-linejoin="round" stroke-width="1.9"></path><path d="m13 7 4 4" stroke="#fff" stroke-width="1.9"></path></svg>发逛逛
+  </a>
+<nav aria-label="底部导航" class="tabbar">
+<a href="home.html">
+<span class="ti">
+<svg aria-hidden="true" height="24" viewbox="0 0 24 24" width="24">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="thmN" x1="4" x2="20" y1="4" y2="21"><stop stop-color="#FFB59F"></stop><stop offset=".5" stop-color="#FA7154"></stop><stop offset="1" stop-color="#EE3C28"></stop></lineargradient>
+</defs>
+<path d="M3.2 10.9 12 4l8.8 6.9V20a1.2 1.2 0 0 1-1.2 1.2h-4.9v-6.4H9.3v6.4H4.4A1.2 1.2 0 0 1 3.2 20z" fill="currentColor"></path>
+</svg>
+</span>
+<span>首页</span>
+</a>
+<a class="on" href="nearby.html">
+<span class="ti">
+<svg aria-hidden="true" height="24" viewbox="0 0 24 24" width="24">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="tstroll" x1="3" x2="21" y1="3" y2="21"><stop stop-color="#FFB39C"></stop><stop offset=".5" stop-color="#FA6E50"></stop><stop offset="1" stop-color="#EE3C28"></stop></lineargradient>
+</defs>
+<rect fill="url(#tstroll)" height="19" rx="6" width="19" x="2.5" y="2.5"></rect>
+<text fill="#fff" font-family="PingFang SC" font-size="11" font-weight="700" text-anchor="middle" x="12" y="16.6">逛</text>
+</svg>
+</span>
+<span>附近店</span>
+</a>
+<a href="wholesale.html">
+<span class="ti"><svg fill="none" height="22" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24" width="22"><rect height="7.6" rx="1.8" width="7.6" x="2.6" y="2.6"></rect><rect height="7.6" rx="1.8" width="7.6" x="13.8" y="2.6"></rect><circle cx="6.4" cy="17.6" r="3.8"></circle><circle cx="17.6" cy="17.6" r="3.8"></circle></svg></span>
+<span>批发选品</span>
+</a>
+<a href="messages.html">
+<span class="ti">
+<svg height="21" viewbox="0 0 26 22" width="23"><ellipse cx="16.6" cy="9" fill="currentColor" opacity=".55" rx="8.4" ry="7"></ellipse><rect fill="currentColor" height="12.4" rx="6.2" width="19" x="1.6" y="5.2"></rect><path d="M6 17.6l-2.4 3.4 4.6-1.6z" fill="currentColor"></path><circle cx="7.4" cy="11.2" fill="#fff" r="1.2"></circle><circle cx="11.3" cy="11.2" fill="#fff" r="1.2"></circle><circle cx="15.2" cy="11.2" fill="#fff" r="1.2"></circle></svg>
+<i class="badge">22</i>
+</span>
+<span>消息</span>
+</a>
+<a href="profile.html">
+<span class="ti"><svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><circle cx="12" cy="7.6" r="4"></circle><path d="M3.8 21.4c0-4.4 3.7-7 8.2-7s8.2 2.6 8.2 7z"></path></svg></span>
+<span>我的</span>
+</a>
+</nav>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast">已关注</div>
+</div>
+<script>
+  const tabs = document.querySelectorAll('#ntabs .ptab');
+  function switchTab(key) {
+    tabs.forEach(function (b) {
+      b.classList.toggle('on', b.dataset.t === key);
+    });
+    document.querySelectorAll('.panel').forEach(function (p) { p.classList.add('hidden'); });
+    const panel = document.getElementById('panel-' + key);
+    if (panel) { panel.classList.remove('hidden'); }
+  }
+  tabs.forEach(function (b) {
+    b.addEventListener('click', function () { switchTab(b.dataset.t); });
+  });
+
+  (function () {
+    var q = new URLSearchParams(window.location.search);
+    var t = q.get('tab');
+    var alias = { distance: 'dist', dist: 'dist', feed: 'feed', gzz: 'gzz', friend: 'friend' };
+    var key = alias[t];
+    if (!key) { return; }
+    function applyInitialTab() {
+      if (document.getElementById('panel-' + key)) { switchTab(key); }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', applyInitialTab);
+    } else {
+      applyInitialTab();
+    }
+  })();
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1600);
+  }
+
+  document.querySelectorAll('[data-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const type = btn.dataset.toggle;
+      btn.classList.toggle('on');
+      const on = btn.classList.contains('on');
+      if (type === 'follow') {
+        btn.textContent = on ? '✓ 关注' : '☆ 关注';
+        showToast(on ? '已关注该店铺' : '已取消关注');
+      } else {
+        var isShop = !!btn.closest('#panel-dist');
+        btn.textContent = on ? '✓ 好友' : (isShop ? '+ 好友' : '⊕ 加好友');
+        showToast(on ? '好友申请已发送' : '已取消好友申请');
+      }
+    });
+  });
+
+  function toggleLike(el) {
+    el.classList.toggle('on');
+    showToast(el.classList.contains('on') ? '已点赞' : '已取消点赞');
+  }
+
+  function sortChip(el) {
+    document.querySelectorAll('.schip').forEach(function (b) { b.classList.remove('on'); });
+    el.classList.add('on');
+    showToast(el.textContent === '距离最近' ? '已按距离排序' : '已按热度排序');
+  }
+
+  function setView(v) {
+    document.getElementById('vtList').classList.toggle('on', v === 'list');
+    document.getElementById('vtMap').classList.toggle('on', v === 'map');
+    document.getElementById('distList').classList.toggle('hidden', v === 'map');
+    document.getElementById('distMap').classList.toggle('hidden', v === 'list');
+  }
+</script>
+</body>
+</html>

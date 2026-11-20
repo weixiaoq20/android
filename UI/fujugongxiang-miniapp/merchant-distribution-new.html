@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 新建分销活动</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#EE4A2F;--ink:#2A2420;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 8px 20px rgba(150,110,88,.07)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input{font-family:inherit}
+html.w-full.h-full{overflow:hidden}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.topbar{flex:0 0 46px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.topbar h1{margin:0;font-size:16px;font-weight:700;color:#231C18;letter-spacing:-.2px}
+.back{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;box-shadow:0 3px 9px rgba(150,90,70,.08)}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding:0 14px}
+.card{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:13px 12px;margin-top:10px}
+.card h3{margin:0 0 9px;font-size:11.5px;font-weight:800;color:#2A2420;display:flex;align-items:center;gap:4px}
+.card h3 small{font-size:8px;color:#B2A69C;font-weight:400;margin-left:auto}
+.req{color:#EE4A2F;margin-left:2px}
+.field{margin-bottom:9px}
+.field:last-child{margin-bottom:0}
+.field label{font-size:9px;color:#8E8076;display:block;margin-bottom:4px}
+.inp{width:100%;height:38px;border-radius:10px;border:1px solid #F1E5DB;background:#FDFBF9;padding:0 10px;font-size:12px;color:#2A2420;outline:none;transition:border-color .16s,box-shadow .16s,background .16s}
+.inp::placeholder{color:#C4B7AC}
+.inp:focus{border-color:#F7A392;background:#fff;box-shadow:0 0 0 3px rgba(251,110,78,.1)}
+.inp.err{border-color:#EE4A2F;background:#FFF5F2;box-shadow:0 0 0 3px rgba(238,74,47,.12)}
+.two{display:flex;gap:8px}
+.two .field{flex:1;min-width:0}
+.chips{display:flex;gap:6px}
+.chip{flex:1;height:32px;border-radius:999px;border:1px solid #F1E5DB;background:#FDFBF9;font-size:10.5px;color:#5C5C5F;font-weight:600;white-space:nowrap;transition:all .16s}
+.chip.on{background:#FFEFEB;border-color:#F7A392;color:#EE4A2F}
+.remark{font-size:8.5px;color:#A99C92;line-height:1.55;margin-top:7px}
+.remark b{color:#EE4A2F}
+.picked{display:flex;align-items:center;gap:8px;margin-top:8px;border:1px solid #F4E9E0;border-radius:11px;padding:8px}
+.picked .th{width:36px;height:36px;border-radius:8px;background:linear-gradient(140deg,#EAF0D8,#B8CE92);flex:0 0 36px}
+.picked .th.o{background:linear-gradient(140deg,#FBF0DC,#E9CB9C)}
+.picked .pm{flex:1;min-width:0}
+.picked .pm b{font-size:9.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.picked .pm span{font-size:8px;color:#A99C92;display:block;margin-top:2px}
+.picked .padd{font-size:9px;font-weight:700;color:#EE4A2F;border:1px solid #F7A392;background:#fff;border-radius:999px;padding:4px 10px;flex:0 0 auto}
+.addbtn{width:100%;height:34px;border-radius:10px;border:1px dashed #F7A392;background:#FFF8F5;color:#EE4A2F;font-size:10px;font-weight:700;margin-top:8px}
+.rule{background:#FFFBF8;border:1px solid #F6EAE1;border-radius:12px;padding:9px}
+.rule p{margin:0 0 6px;font-size:9px;color:#7D6F65;line-height:1.6;display:flex;gap:6px}
+.rule p:last-child{margin-bottom:0}
+.rule p b{color:#2A2420}
+.rule svg{flex:0 0 11px;margin-top:3px}
+.level{display:flex;align-items:center;gap:5px;background:#FFF3EE;border-radius:10px;padding:8px;margin-top:8px}
+.level .lv{flex:1;text-align:center}
+.level .lv span{display:block;font-size:8px;color:#B3411F}
+.level .lv b{display:block;font-size:10.5px;color:#C22E1B;margin-top:2px}
+.level svg{flex:0 0 13px}
+.mat{display:flex;gap:8px;margin-top:8px}
+.mat button{flex:1;height:36px;border-radius:10px;font-size:10.5px;font-weight:700}
+.mat .m1{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;box-shadow:0 6px 14px rgba(232,70,45,.2)}
+.mat .m2{background:#FFEFEB;color:#EE4A2F;border:1px solid #FBD9CD}
+.linkbox{background:#FFF6F3;border:1px dashed #F7A392;border-radius:11px;padding:9px;margin-top:8px;display:none}
+.linkbox.show{display:block}
+.linkbox .lt{font-size:8.5px;color:#A99C92}
+.linkbox .lu{display:flex;align-items:center;gap:6px;margin-top:4px}
+.linkbox .lu span{flex:1;font-size:9.5px;color:#C22E1B;word-break:break-all;line-height:1.4}
+.linkbox .lu button{font-size:8.5px;color:#fff;background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-radius:999px;padding:4px 9px;font-weight:700;flex:0 0 auto}
+.foot{flex:0 0 auto;padding:10px 14px 12px;background:linear-gradient(180deg,rgba(255,253,252,0),#FFFDFC 30%);display:flex;flex-direction:column;gap:7px}
+.mainbtn{width:100%;height:44px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:13px;font-weight:700;box-shadow:0 8px 18px rgba(232,70,45,.26)}
+.draftbtn{width:100%;height:38px;border-radius:999px;background:#FFEFEB;color:#EE4A2F;font-size:11.5px;font-weight:700;border:1px solid #FBD9CD}
+.homebar{height:18px;flex:0 0 18px;background:#FFFDFC;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+.toast{position:absolute;left:50%;bottom:96px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.hidden{display:none!important}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="topbar">
+<a aria-label="返回营销工具" class="back" href="merchant-marketing.html">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+<h1>新建分销活动</h1>
+<span style="width:30px"></span>
+</div>
+<div class="scroll">
+<div class="pad">
+<div class="card">
+<h3>活动基础 <small>仅一级归因</small></h3>
+<div class="field">
+<label>活动名称<span class="req">*</span></label>
+<input class="inp" id="dsName" maxlength="30" placeholder="如：秋冬水果组合分销"/>
+</div>
+<div class="field">
+<label>佣金比例（%）<span class="req">*</span></label>
+<input class="inp" id="dsRate" inputmode="decimal" placeholder="如：8"/>
+<div class="remark">以商城参数配置的佣金上下限为准，超出范围将无法保存。</div>
+</div>
+</div>
+<div class="card">
+<h3>参与商品范围 <small>必填</small></h3>
+<div class="field">
+<div class="chips" id="dsScope">
+<button class="chip on" data-v="all">全部商品</button>
+<button class="chip" data-v="pick">指定商品</button>
+</div>
+</div>
+<div class="hidden" id="dsPick">
+<div class="picked">
+<span class="th"></span>
+<div class="pm"><b>蒲江红心猕猴桃 5斤大果</b><span>¥39.90 · 库存 3,200</span></div>
+<button class="padd" onclick="toast('已打开商品选择器')">更换</button>
+</div>
+<div class="picked">
+<span class="th o"></span>
+<div class="pm"><b>金堂脐橙 10斤装</b><span>¥29.90 · 库存 860</span></div>
+<button class="padd" onclick="toast('已打开商品选择器')">更换</button>
+</div>
+<button class="addbtn" onclick="toast('已打开商品选择器')">+ 添加商品</button>
+<div class="remark">已选 <b>2</b> 个商品，分销佣金比例随商品同步到商品详情。</div>
+</div>
+</div>
+<div class="card">
+<h3>结算说明 <small>平台规则</small></h3>
+<div class="rule">
+<p><svg fill="none" height="11" viewbox="0 0 24 24" width="11"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="#2C9C6A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path></svg><span><b>仅一级分销</b>，平台不做多级 / 团队计酬。</span></p>
+<p><svg fill="none" height="11" viewbox="0 0 24 24" width="11"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="#2C9C6A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path></svg><span><b>A 邀请 B</b>，B 下单 → A 获得佣金。</span></p>
+<p><svg fill="none" height="11" viewbox="0 0 24 24" width="11"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="#2C9C6A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path></svg><span><b>B 再邀请 C</b>，C 下单 → <b>只有 B 拿佣金</b>，A 不再获得 C 的佣金。</span></p>
+<p><svg fill="none" height="11" viewbox="0 0 24 24" width="11"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="#2C9C6A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path></svg><span>佣金先计入<b>预估</b>，订单确认收货后<b>到账</b>；发生退款 / 售后则<b>冲回</b>。</span></p>
+</div>
+<div class="level">
+<div class="lv"><span>上级 A</span><b>第 1 级得佣</b></div>
+<svg fill="none" height="13" viewbox="0 0 24 24" width="13"><path d="M4 12h15m-5-5 5 5-5 5" stroke="#E9A78F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div class="lv"><span>被邀请人 B</span><b>下单</b></div>
+<svg fill="none" height="13" viewbox="0 0 24 24" width="13"><path d="M4 12h15m-5-5 5 5-5 5" stroke="#E9A78F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div class="lv"><span>再邀请 C</span><b>A 无佣金</b></div>
+</div>
+</div>
+<div class="card">
+<h3>邀请物料 <small>发布后可分享</small></h3>
+<div class="mat">
+<button class="m1" id="dsLink">生成邀请链接</button>
+<button class="m2" id="dsPoster">生成邀请海报</button>
+</div>
+<div class="linkbox" id="dsLinkBox">
+<div class="lt">专属邀请链接 · 商品范围与佣金比例已写入</div>
+<div class="lu"><span id="dsLinkText">https://fjgx.example/s/8K2M6Q</span><button id="dsCopy">复制</button></div>
+</div>
+<div class="remark">邀请链接与海报仅可分享给个人好友，禁止站外广告投放；违规将暂停佣金结算。</div>
+</div>
+<div class="card">
+<h3>有效期 <small>必填</small></h3>
+<div class="field">
+<div class="chips" id="dsPeriod">
+<button class="chip on" data-v="长期">长期有效</button>
+<button class="chip" data-v="自定义">自定义起止</button>
+</div>
+</div>
+<div class="two hidden" id="dsDates">
+<div class="field">
+<label>开始日期<span class="req">*</span></label>
+<input class="inp" id="dsStart" type="date" value="2026-11-10"/>
+</div>
+<div class="field">
+<label>结束日期<span class="req">*</span></label>
+<input class="inp" id="dsEnd" type="date" value="2026-12-31"/>
+</div>
+</div>
+<div class="remark">长期有效指不限结束时间，可随时手动停用；佣金结算仍按订单确认收货时间计算。</div>
+</div>
+<div style="height:12px"></div>
+</div>
+</div>
+<div class="foot">
+<button class="mainbtn" id="dsSubmit">保存配置</button>
+<button class="draftbtn" id="dsDraft">存为草稿</button>
+</div>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast">已保存</div>
+</div>
+<script>
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1700);
+  }
+
+  function bindChips(id, cb) {
+    const box = document.getElementById(id);
+    if (!box) return;
+    box.querySelectorAll('.chip').forEach(function (b) {
+      b.addEventListener('click', function () {
+        box.querySelectorAll('.chip').forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+        if (cb) cb(b);
+      });
+    });
+  }
+
+  bindChips('dsScope', function (b) {
+    document.getElementById('dsPick').classList.toggle('hidden', b.dataset.v !== 'pick');
+  });
+
+  bindChips('dsPeriod', function (b) {
+    document.getElementById('dsDates').classList.toggle('hidden', b.dataset.v !== '自定义');
+  });
+
+  document.querySelectorAll('.inp').forEach(function (el) {
+    el.addEventListener('input', function () { el.classList.remove('err'); });
+  });
+
+  function markErr(el, msg) {
+    el.classList.add('err');
+    el.focus();
+    toast(msg);
+  }
+
+  document.getElementById('dsLink').addEventListener('click', function () {
+    const rate = document.getElementById('dsRate');
+    if (!rate.value.trim()) { markErr(rate, '请先填写佣金比例'); return; }
+    document.getElementById('dsLinkBox').classList.add('show');
+    document.getElementById('dsLinkText').textContent = 'https://fjgx.example/s/' + (Math.random().toString(36).slice(2, 8).toUpperCase());
+    toast('邀请链接已生成');
+  });
+
+  document.getElementById('dsCopy').addEventListener('click', function () {
+    const txt = document.getElementById('dsLinkText').textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function () { toast('链接已复制'); }).catch(function () { toast('链接已复制（演示）'); });
+    } else {
+      toast('链接已复制（演示）');
+    }
+  });
+
+  document.getElementById('dsPoster').addEventListener('click', function () {
+    toast('邀请海报已生成到相册');
+  });
+
+  function validate() {
+    const name = document.getElementById('dsName');
+    const rate = document.getElementById('dsRate');
+    if (!name.value.trim()) { markErr(name, '请填写活动名称'); return false; }
+    if (!rate.value.trim()) { markErr(rate, '请填写佣金比例'); return false; }
+    if (!/^\d+(\.\d+)?$/.test(rate.value.trim())) { markErr(rate, '佣金比例只能填写数字'); return false; }
+    if (Number(rate.value) <= 0 || Number(rate.value) > 50) { markErr(rate, '佣金比例需在 0-50% 之间，且以商城参数上下限为准'); return false; }
+    if (document.querySelector('#dsPeriod .chip.on').dataset.v === '自定义') {
+      const start = document.getElementById('dsStart');
+      const end = document.getElementById('dsEnd');
+      if (!start.value) { markErr(start, '请选择开始日期'); return false; }
+      if (!end.value) { markErr(end, '请选择结束日期'); return false; }
+      if (end.value < start.value) { markErr(end, '结束日期不能早于开始日期'); return false; }
+    }
+    return true;
+  }
+
+  document.getElementById('dsSubmit').addEventListener('click', function () {
+    if (!validate()) return;
+    toast('分销配置已保存');
+    setTimeout(function () { location.href = 'merchant-marketing.html'; }, 900);
+  });
+
+  document.getElementById('dsDraft').addEventListener('click', function () {
+    toast('已存为草稿');
+  });
+</script>
+</body>
+</html>

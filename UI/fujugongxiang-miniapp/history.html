@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 历史记录</title>
+<style>
+:root{--ink:#2A2420;--ink2:#5C5C5F;--muted:#8A8A8E;--red:#E23A2E;--red2:#EE4A2F;--line:#F2ECE7}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{width:100%;height:100%;margin:0;overflow:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.hidden{display:none!important}
+
+.app{width:100%;height:100%;max-width:393px;max-height:852px;min-height:0;display:flex;flex-direction:column;overflow:hidden;background:#FFFDFC;position:relative}
+
+/* 状态栏 */
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;color:#1B1B1D;background:#FEF7F5}
+.si{display:flex;align-items:center;gap:6px}
+
+/* 顶部导航 */
+.hd{flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:2px 12px 8px;background:#FEF7F5}
+.hd-back{width:32px;height:32px;flex:0 0 32px;display:grid;place-items:center;color:#2A2420}
+.hd-title{font-size:18px;font-weight:800;letter-spacing:-.3px;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.hd-title em{font-style:normal;font-weight:600;font-size:15px;color:#8A8A8E;margin-left:2px}
+.hd-tools{margin-left:auto;display:flex;align-items:center;gap:12px}
+.hd-tools a,.hd-tools button{display:flex;align-items:center;font-size:15px;font-weight:500;color:#2A2420;line-height:1;padding:2px 0}
+.hd-tools button.done{color:var(--red);font-weight:700}
+.more-wrap{position:relative}
+
+/* 更多菜单 */
+.menu{position:absolute;right:0;top:28px;z-index:40;background:#fff;border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 28px rgba(80,45,35,.16);padding:4px;min-width:140px}
+.menu button{display:block;width:100%;text-align:left;font-size:13.5px;padding:10px 12px;border-radius:8px;color:#2A2420;white-space:nowrap}
+.menu button:active{background:#FBF3EF}
+.menu button.danger{color:var(--red)}
+.menu .mtitle{font-size:11px;color:var(--muted);padding:8px 12px 4px;letter-spacing:.4px}
+.menu button.on{color:var(--red);font-weight:700;background:#FFF2EE}
+.menu hr{border:0;border-top:1px solid var(--line);margin:4px 8px}
+
+/* 分类 tab */
+.tabs{flex:0 0 auto;display:flex;gap:22px;padding:2px 16px 0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);background:#FEF7F5}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:0 0 auto;font-size:15.5px;color:var(--ink2);font-weight:500;padding:7px 0 9px;position:relative;white-space:nowrap}
+.tabs button.on{color:#1B1B1D;font-weight:800}
+.tabs button.on:after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:22px;height:3px;border-radius:2px;background:var(--red2)}
+
+/* 时间筛选 */
+.filter{flex:0 0 auto;padding:10px 14px 2px;position:relative;background:#FFFDFC}
+.filter-btn{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;color:var(--ink2);background:#F6F4F2;border-radius:6px;padding:5px 9px}
+.filter-btn.on{color:var(--red);background:#FFF1ED}
+.tmenu{position:absolute;left:14px;top:40px;z-index:30;background:#fff;border-radius:10px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(80,45,35,.16);padding:4px;min-width:132px}
+.tmenu button{display:block;width:100%;text-align:left;font-size:13px;color:var(--ink);padding:9px 12px;border-radius:7px;white-space:nowrap}
+.tmenu button.on{color:var(--red);font-weight:700;background:#FFF3EF}
+
+/* 滚动区 */
+.scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;width:100%;min-width:0;padding:0 14px 20px;background:#FFFDFC;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+
+.day{padding-top:16px}
+.day h3{margin:0 0 10px;font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.2px}
+
+/* 商品网格 */
+.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 8px}
+.pcard{min-width:0;position:relative}
+.thumb{position:relative;width:100%;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#F5EDE8}
+.thumb svg{display:block;width:100%;height:100%}
+.cam{position:absolute;right:4px;bottom:4px;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;box-shadow:0 1px 3px rgba(0,0,0,.16)}
+.pname{font-size:11.5px;line-height:1.35;color:var(--ink2);margin:5px 0 3px;min-width:0;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.pprice{font-size:13.5px;font-weight:800;color:var(--red);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pprice small{font-size:11px;font-weight:800;margin-right:1px}
+.ptag{display:inline-block;max-width:100%;margin-top:3px;font-size:10px;line-height:1.5;color:#C2410C;background:#FFF0E6;border-radius:3px;padding:0 4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* 店铺条目 */
+.slist{display:flex;flex-direction:column;gap:10px}
+.srow{display:flex;align-items:center;gap:10px;min-width:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;position:relative}
+.sava{width:44px;height:44px;flex:0 0 44px;border-radius:10px;overflow:hidden;display:grid;place-items:center;background:linear-gradient(135deg,#FFE2C9,#FFB98C);color:#fff;font-weight:800;font-size:16px}
+.sinfo{flex:1;min-width:0}
+.sname{font-size:14px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.smeta{font-size:11.5px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sgo{flex:0 0 auto;font-size:12px;color:var(--red);border:1px solid #FFD3C9;border-radius:999px;padding:4px 10px;background:#FFF7F4}
+.stime{font-size:10.5px;color:#B0B0B5;margin-top:3px}
+
+/* 逛逛内容 */
+.flist{display:flex;flex-direction:column;gap:10px}
+.frow{display:flex;gap:10px;min-width:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px;position:relative}
+.fcover{width:74px;height:74px;flex:0 0 74px;border-radius:10px;overflow:hidden;background:#F5EDE8}
+.fcover svg{display:block;width:100%;height:100%}
+.fbody{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:5px}
+.ftitle{font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fmeta{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:8px;white-space:nowrap;overflow:hidden}
+
+/* 空态 */
+.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:90px 20px 40px;text-align:center}
+.empty h4{margin:14px 0 6px;font-size:15.5px;font-weight:700;color:var(--ink)}
+.empty p{margin:0;font-size:12.5px;color:var(--muted)}
+.empty a{margin-top:18px;display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 26px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:14px;font-weight:700;box-shadow:0 6px 16px rgba(232,70,45,.26)}
+
+/* 管理模式勾选圈 */
+.chk{position:absolute;left:5px;top:5px;width:20px;height:20px;border-radius:50%;border:1.6px solid #fff;background:rgba(0,0,0,.18);display:none;place-items:center;z-index:3;box-shadow:0 1px 4px rgba(0,0,0,.18)}
+.chk.sq{left:6px;top:8px}
+.managing .chk{display:grid}
+.chk.on{background:var(--red2);border-color:var(--red2)}
+.chk svg{opacity:0}
+.chk.on svg{opacity:1}
+
+/* 底部管理条 */
+.bar{flex:0 0 auto;display:none;gap:10px;padding:10px 14px;border-top:1px solid var(--line);background:#fff}
+.bar.show{display:flex}
+.bar button{flex:1;height:40px;border-radius:999px;font-size:14px;font-weight:700}
+.bar .del{background:#FFF1ED;color:var(--red);border:1px solid #FFD3C9}
+.bar .clr{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff}
+.bar button:disabled{opacity:.45}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center;border-top:0}
+.bar.show + .homebar{border-top:0}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+<div class="status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="hd">
+<a aria-label="返回首页" class="hd-back" href="home.html">
+<svg fill="none" height="21" viewbox="0 0 24 24" width="21"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"></path></svg>
+</a>
+<h1 class="hd-title">历史记录<em>(<span id="total">0</span>)</em></h1>
+<div class="hd-tools">
+<a aria-label="搜索" href="search.html">
+<svg fill="none" height="20" viewbox="0 0 24 24" width="20"><circle cx="10.6" cy="10.6" r="6.4" stroke="currentColor" stroke-width="2"></circle><path d="m15.6 15.6 4.4 4.4" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+</a>
+<button id="manageBtn" type="button">管理</button>
+<div class="more-wrap">
+<button aria-label="更多" id="moreBtn" type="button">
+<svg fill="currentColor" height="19" viewbox="0 0 24 24" width="19"><circle cx="5" cy="12" r="1.9"></circle><circle cx="12" cy="12" r="1.9"></circle><circle cx="19" cy="12" r="1.9"></circle></svg>
+</button>
+<div class="menu hidden" id="moreMenu">
+<button id="menuSort" type="button">排序方式：最近浏览 ›</button>
+<hr/>
+<button class="danger" id="menuClear" type="button">清空全部</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="tabs" id="tabs">
+<button class="on" data-cat="all" type="button">全部</button>
+<button data-cat="goods" type="button">宝贝</button>
+<button data-cat="shop" type="button">店铺</button>
+<button data-cat="feed" type="button">逛逛</button>
+</nav>
+<div class="filter">
+<button class="filter-btn" id="timeBtn" type="button">筛选浏览时间
+      <svg fill="none" height="6" viewbox="0 0 10 6" width="9"><path d="m1 1 4 4 4-4" stroke="#8A8A8E" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg>
+</button>
+<div class="tmenu hidden" id="timeMenu">
+<button class="on" data-time="all" type="button">全部时间</button>
+<button data-time="7" type="button">近 7 天</button>
+<button data-time="30" type="button">近 30 天</button>
+<button data-time="older" type="button">更早</button>
+</div>
+</div>
+<div class="scroll" id="scroll">
+<div id="list"></div>
+<div class="empty hidden" id="empty">
+<svg aria-hidden="true" fill="none" height="88" viewbox="0 0 88 88" width="88">
+<circle cx="44" cy="44" fill="#FFF3EF" r="42"></circle>
+<rect fill="#FFD9CE" height="32" rx="6" width="40" x="24" y="28"></rect>
+<rect fill="#FFC3B2" height="10" rx="5" width="40" x="24" y="28"></rect>
+<circle cx="44" cy="47" fill="#fff" r="7"></circle>
+<circle cx="44" cy="47" fill="#EE4A2F" r="3.4"></circle>
+<rect fill="#FFC3B2" height="6" rx="2" width="12" x="33" y="20"></rect>
+</svg>
+<h4>暂无历史记录</h4>
+<p>快去逛逛，看过的宝贝会出现在这里</p>
+<a href="home.html">去逛逛</a>
+</div>
+</div>
+<div class="bar" id="bar">
+<button class="del" disabled="" id="delSel" type="button">删除选中 (0)</button>
+<button class="clr" id="clearAll" type="button">清空全部</button>
+</div>
+<div class="homebar"><i></i></div>
+</div>
+<script>
+(function(){
+  var ITEMS = [
+    {id:'g1',cat:'goods',day:'today',date:'今天',time:'今天 09:12',name:'蒲江红心猕猴桃 5斤装',price:35,tag:'官方立减12%',art:'kiwi'},
+    {id:'g2',cat:'goods',day:'today',date:'今天',time:'今天 08:40',name:'金堂脐橙 10斤整箱',price:39.9,tag:'买赠',art:'orange'},
+    {id:'s1',cat:'shop',day:'today',date:'今天',time:'今天 08:31',name:'蒲江果香源水果店',meta:'距你 1.2km · 4.9 分 · 本地果园直发'},
+    {id:'g3',cat:'goods',day:'today',date:'今天',time:'今天 07:56',name:'郫县豆瓣酱 500g',price:18.8,tag:'',art:'sauce'},
+
+    {id:'g4',cat:'goods',day:'yday',date:'昨天',time:'昨天 20:05',name:'川味腊肉礼盒 2kg',price:168,tag:'官方立减12%',art:'bacon'},
+    {id:'f1',cat:'feed',day:'yday',date:'昨天',time:'昨天 19:20',name:'蒲江猕猴桃采果实录：从枝头到箱里只要三小时',meta:'逛逛 · 128 赞'},
+    {id:'g5',cat:'goods',day:'yday',date:'昨天',time:'昨天 18:02',name:'原木抽纸 6包*3层',price:29.9,tag:'',art:'tissue'},
+    {id:'s2',cat:'shop',day:'yday',date:'昨天',time:'昨天 17:44',name:'川味干杂铺',meta:'距你 2.6km · 4.8 分 · 辣椒花椒香料全'},
+
+    {id:'g6',cat:'goods',day:'1112',date:'11月12日',time:'11月12日 15:30',name:'厨房清洁剂 500ml*2',price:19.9,tag:'',art:'clean'},
+    {id:'g7',cat:'goods',day:'1112',date:'11月12日',time:'11月12日 14:12',name:'食品保鲜袋 300只',price:12.9,tag:'买赠',art:'bag'},
+    {id:'g8',cat:'goods',day:'1112',date:'11月12日',time:'11月12日 10:07',name:'304不锈钢餐具 四件套',price:119.46,tag:'官方立减12%',art:'tableware'},
+    {id:'g9',cat:'goods',day:'1112',date:'11月12日',time:'11月12日 09:41',name:'汉源花椒 200g',price:26,tag:'',art:'sauce'},
+
+    {id:'g10',cat:'goods',day:'1107',date:'11月7日',time:'11月7日 18:20',name:'蒲江丑柑 8斤装',price:45.8,tag:'',art:'orange'},
+    {id:'g11',cat:'goods',day:'1107',date:'11月7日',time:'11月7日 16:03',name:'腾冲干香菇 250g',price:32,tag:'官方立减12%',art:'bag'},
+    {id:'f2',cat:'feed',day:'1107',date:'11月7日',time:'11月7日 12:10',name:'川味腊肉的三种家常做法，蒸、炒、焖都下饭',meta:'逛逛 · 96 赞'},
+    {id:'s3',cat:'shop',day:'1107',date:'11月7日',time:'11月7日 11:20',name:'金堂脐橙合作社直营',meta:'距你 4.4km · 4.7 分 · 整箱批发'},
+
+    {id:'g12',cat:'goods',day:'1031',date:'10月31日',time:'10月31日 17:45',name:'一次性厨房清洁湿巾',price:15.6,tag:'',art:'clean'},
+    {id:'g13',cat:'goods',day:'1031',date:'10月31日',time:'10月31日 15:22',name:'不锈钢调料盆 三件套',price:72,tag:'买赠',art:'tableware'},
+    {id:'g14',cat:'goods',day:'1031',date:'10月31日',time:'10月31日 09:05',name:'郫县老豆瓣 1kg 礼罐',price:42,tag:'',art:'sauce'},
+    {id:'f3',cat:'feed',day:'1031',date:'10月31日',time:'10月31日 08:30',name:'郫县豆瓣怎么挑？看颜色、闻酱香、认产区',meta:'逛逛 · 210 赞'}
+  ];
+
+  var DAY_ORDER = ['today','yday','1112','1107','1031'];
+  var DAY_W = {today:1,yday:2,'1112':6,'1107':11,'1031':18};
+
+  var ART = {
+    kiwi:'<defs><linearGradient id="kw" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EFE3CC"/><stop offset="1" stop-color="#D9C7A6"/></linearGradient></defs><rect width="100" height="100" fill="url(#kw)"/><ellipse cx="50" cy="52" rx="27" ry="24" fill="#8C6B3F"/><ellipse cx="50" cy="52" rx="20" ry="17" fill="#A7C05C"/><circle cx="50" cy="52" r="10" fill="#EAF0C4"/><g fill="#3E3A24"><circle cx="50" cy="45" r="1.4"/><circle cx="56" cy="48" r="1.4"/><circle cx="58" cy="54" r="1.4"/><circle cx="54" cy="59" r="1.4"/><circle cx="48" cy="60" r="1.4"/><circle cx="43" cy="56" r="1.4"/><circle cx="43" cy="49" r="1.4"/></g>',
+    orange:'<defs><linearGradient id="og" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF2DE"/><stop offset="1" stop-color="#FFE0BB"/></linearGradient></defs><rect width="100" height="100" fill="url(#og)"/><circle cx="42" cy="56" r="21" fill="#F59A22"/><circle cx="62" cy="62" r="17" fill="#FBB63C"/><circle cx="58" cy="40" r="14" fill="#FFC15A"/><path d="M58 27c3-6 10-8 14-6-3 6-8 8-14 6z" fill="#5E9E51"/><circle cx="36" cy="50" r="4" fill="#FFD089" opacity=".8"/>',
+    sauce:'<defs><linearGradient id="sc" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FDF1E3"/><stop offset="1" stop-color="#F3DDC6"/></linearGradient></defs><rect width="100" height="100" fill="url(#sc)"/><rect x="30" y="26" width="40" height="54" rx="7" fill="#C62F25"/><rect x="30" y="26" width="40" height="13" rx="6" fill="#E0473A"/><rect x="38" y="47" width="24" height="20" rx="3" fill="#FFF6EC"/><rect x="42" y="53" width="16" height="2.6" rx="1.3" fill="#C62F25"/><rect x="42" y="58" width="10" height="2.6" rx="1.3" fill="#E2B49B"/>',
+    bacon:'<defs><linearGradient id="bc" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FBEEDD"/><stop offset="1" stop-color="#F0D6BC"/></linearGradient></defs><rect width="100" height="100" fill="url(#bc)"/><rect x="20" y="30" width="60" height="42" rx="6" fill="#9C3B26"/><path d="M26 40h48M26 48h48M26 56h48M26 64h48" stroke="#E88F6B" stroke-width="3"/><rect x="20" y="30" width="60" height="10" rx="5" fill="#C8553A"/><path d="M34 24h32" stroke="#E23A2E" stroke-width="4" stroke-linecap="round"/>',
+    tissue:'<defs><linearGradient id="ts" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F6F8FB"/><stop offset="1" stop-color="#E4EBF3"/></linearGradient></defs><rect width="100" height="100" fill="url(#ts)"/><rect x="24" y="32" width="52" height="44" rx="7" fill="#fff" stroke="#D8E2EC"/><ellipse cx="50" cy="45" rx="11" ry="6" fill="#DCE7F2"/><rect x="34" y="56" width="32" height="4" rx="2" fill="#EE4A2F" opacity=".7"/><rect x="34" y="64" width="20" height="3" rx="1.5" fill="#BCC9D6"/>',
+    clean:'<defs><linearGradient id="cl" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EAF7F3"/><stop offset="1" stop-color="#D3EDE6"/></linearGradient></defs><rect width="100" height="100" fill="url(#cl)"/><rect x="34" y="34" width="34" height="46" rx="8" fill="#35A88C"/><rect x="42" y="24" width="18" height="12" rx="3" fill="#1F8A72"/><rect x="42" y="48" width="18" height="16" rx="3" fill="#F4FFFB" opacity=".92"/><path d="M46 56h10" stroke="#35A88C" stroke-width="2.4" stroke-linecap="round"/>',
+    bag:'<defs><linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F4F9FF"/><stop offset="1" stop-color="#DEEBF7"/></linearGradient></defs><rect width="100" height="100" fill="url(#bg2)"/><rect x="26" y="32" width="48" height="44" rx="6" fill="#fff" stroke="#CBDCEA"/><rect x="26" y="32" width="48" height="10" rx="5" fill="#7FB2DA"/><path d="M40 48h20M40 56h20M40 64h12" stroke="#AFC9DE" stroke-width="3" stroke-linecap="round"/>',
+    tableware:'<defs><linearGradient id="tw" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FDFDFB"/><stop offset="1" stop-color="#E7E7E2"/></linearGradient></defs><rect width="100" height="100" fill="url(#tw)"/><circle cx="50" cy="54" r="24" fill="#DDE1E4"/><circle cx="50" cy="54" r="17" fill="#FAFBFB"/><circle cx="50" cy="54" r="11" fill="#E9EDF0"/><rect x="72" y="24" width="4" height="40" rx="2" fill="#C6CDD3"/><rect x="72" y="24" width="4" height="40" rx="2" fill="#C6CDD3"/><path d="M22 28v22c0 3 2 5 5 5s5-2 5-5V28" stroke="#C6CDD3" stroke-width="4" stroke-linecap="round" fill="none"/>',
+    feed1:'<defs><linearGradient id="fd1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#D9EDC9"/><stop offset="1" stop-color="#A9C98B"/></linearGradient></defs><rect width="100" height="100" fill="url(#fd1)"/><circle cx="38" cy="46" r="15" fill="#8C6B3F"/><circle cx="38" cy="46" r="11" fill="#A7C05C"/><circle cx="62" cy="60" r="13" fill="#F59A22"/><path d="M20 76c10-8 22-8 32 0s22 8 32 0v24H20z" fill="#7FA75F"/>',
+    feed2:'<defs><linearGradient id="fd2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFE6D2"/><stop offset="1" stop-color="#F3B58C"/></linearGradient></defs><rect width="100" height="100" fill="url(#fd2)"/><rect x="22" y="34" width="56" height="34" rx="6" fill="#9C3B26"/><path d="M28 44h44M28 52h44M28 60h44" stroke="#E88F6B" stroke-width="3"/><circle cx="70" cy="30" r="8" fill="#5E9E51"/>',
+    feed3:'<defs><linearGradient id="fd3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF0DC"/><stop offset="1" stop-color="#EFD3B0"/></linearGradient></defs><rect width="100" height="100" fill="url(#fd3)"/><circle cx="42" cy="50" r="16" fill="#C62F25"/><circle cx="60" cy="42" r="12" fill="#E0473A"/><path d="M32 70h36" stroke="#8C6B3F" stroke-width="5" stroke-linecap="round"/>'
+  };
+
+  var state = {cat:'all', time:'all', managing:false, sort:'recent', selected:{}};
+  var listEl = document.getElementById('list');
+  var emptyEl = document.getElementById('empty');
+  var totalEl = document.getElementById('total');
+  var barEl = document.getElementById('bar');
+  var appEl = document.getElementById('app');
+  var manageBtn = document.getElementById('manageBtn');
+  var delSelBtn = document.getElementById('delSel');
+  var clearBtn = document.getElementById('clearAll');
+  var timeBtn = document.getElementById('timeBtn');
+  var timeMenu = document.getElementById('timeMenu');
+  var moreBtn = document.getElementById('moreBtn');
+  var moreMenu = document.getElementById('moreMenu');
+
+  function iconCam(){
+    return '<span class="cam"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M9 5.5 10.4 3.6h3.2L15 5.5h3.6c.9 0 1.6.7 1.6 1.6v9.4c0 .9-.7 1.6-1.6 1.6H5.4c-.9 0-1.6-.7-1.6-1.6V7.1c0-.9.7-1.6 1.6-1.6H9z" stroke="#2A2420" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.2" stroke="#2A2420" stroke-width="1.7"/></svg></span>';
+  }
+  function artPrice(price){
+    return '¥' + (Number.isInteger(price) ? price.toFixed(0) : price.toFixed(2));
+  }
+  function artKey(it){
+    if(it.cat === 'feed') return it.id === 'f1' ? 'feed1' : (it.id === 'f2' ? 'feed2' : 'feed3');
+    return it.art || 'kiwi';
+  }
+  function svgArt(it){
+    var k = artKey(it);
+    return '<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">' + ART[k] + '<\/svg>';
+  }
+
+  function inTime(it){
+    var w = DAY_W[it.day] || 0;
+    if(state.time === 'all') return true;
+    if(state.time === '7') return w <= 7;
+    if(state.time === '30') return w <= 30;
+    if(state.time === 'older') return w > 30;
+    return true;
+  }
+  function matchCat(it){
+    return state.cat === 'all' || it.cat === state.cat;
+  }
+  function visibleItems(){
+    var arr = ITEMS.filter(function(it){ return matchCat(it) && inTime(it); });
+    if(state.sort === 'oldest') arr = arr.slice().reverse();
+    return arr;
+  }
+
+  function chkHtml(it, small){
+    return '<span class="chk' + (small ? ' sq' : '') + (state.selected[it.id] ? ' on' : '') + '" data-sel="' + it.id + '">' +
+      '<svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.6 4.6L19 7.5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><\/svg></span>';
+  }
+
+  function itemHtml(it){
+    if(it.cat === 'goods'){
+      return '<a class="pcard" href="product-detail.html">' + chkHtml(it) +
+        '<div class="thumb">' + svgArt(it) + iconCam() + '</div>' +
+        '<p class="pname">' + it.name + '</p>' +
+        '<div class="pprice"><small>¥</small>' + artPrice(it.price).slice(1) + '</div>' +
+        (it.tag ? '<span class="ptag">' + it.tag + '</span>' : '') +
+        '<\/a>';
+    }
+    if(it.cat === 'shop'){
+      return '<a class="srow" href="shop.html">' + chkHtml(it, true) +
+        '<span class="sava">' + it.name.slice(0,1) + '</span>' +
+        '<span class="sinfo"><span class="sname">' + it.name + '</span><span class="smeta">' + it.meta + '</span><span class="stime">' + it.time + '</span></span>' +
+        '<span class="sgo">进店</span><\/a>';
+    }
+    return '<a class="frow" href="post.html">' + chkHtml(it, true) +
+      '<span class="fcover">' + svgArt(it) + '</span>' +
+      '<span class="fbody"><span class="ftitle">' + it.name + '</span><span class="fmeta">' + it.meta + '<em style="font-style:normal">· ' + it.time + '</em></span></span><\/a>';
+  }
+
+  function render(){
+    var arr = visibleItems();
+    var total = arr.length;
+    totalEl.textContent = total;
+
+    var groups = {};
+    arr.forEach(function(it){ (groups[it.day] = groups[it.day] || []).push(it); });
+    var html = '';
+    DAY_ORDER.forEach(function(day){
+      var g = groups[day];
+      if(!g || !g.length) return;
+      var goods = g.filter(function(x){ return x.cat === 'goods'; });
+      var shops = g.filter(function(x){ return x.cat === 'shop'; });
+      var feeds = g.filter(function(x){ return x.cat === 'feed'; });
+      html += '<section class="day"><h3>' + g[0].date + '</h3>';
+      if(goods.length){
+        html += '<div class="pgrid">' + goods.map(itemHtml).join('') + '</div>';
+      }
+      if(shops.length){
+        html += '<div class="slist"' + (goods.length ? ' style="margin-top:10px"' : '') + '>' + shops.map(itemHtml).join('') + '</div>';
+      }
+      if(feeds.length){
+        html += '<div class="flist"' + ((goods.length || shops.length) ? ' style="margin-top:10px"' : '') + '>' + feeds.map(itemHtml).join('') + '</div>';
+      }
+      html += '<\/section>';
+    });
+
+    listEl.innerHTML = html;
+    var isEmpty = total === 0;
+    emptyEl.classList.toggle('hidden', !isEmpty);
+    listEl.classList.toggle('hidden', isEmpty);
+    if(isEmpty){
+      state.managing = false;
+      applyManaging();
+    }
+    updateSelBar();
+  }
+
+  function updateSelBar(){
+    var n = Object.keys(state.selected).filter(function(k){ return state.selected[k]; }).length;
+    delSelBtn.textContent = '删除选中 (' + n + ')';
+    delSelBtn.disabled = n === 0;
+  }
+
+  function applyManaging(){
+    manageBtn.textContent = state.managing ? '完成' : '管理';
+    manageBtn.classList.toggle('done', state.managing);
+    barEl.classList.toggle('show', state.managing);
+    appEl.classList.toggle('managing', state.managing);
+  }
+
+  /* tab 切换 */
+  document.getElementById('tabs').addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-cat]');
+    if(!btn) return;
+    state.cat = btn.dataset.cat;
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function(b){
+      b.classList.toggle('on', b === btn);
+    });
+    render();
+    document.getElementById('scroll').scrollTop = 0;
+  });
+
+  /* 时间筛选 */
+  timeBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    timeMenu.classList.toggle('hidden');
+  });
+  timeMenu.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-time]');
+    if(!btn) return;
+    state.time = btn.dataset.time;
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function(b){
+      b.classList.toggle('on', b === btn);
+    });
+    timeBtn.classList.toggle('on', state.time !== 'all');
+    timeMenu.classList.add('hidden');
+    render();
+  });
+
+  /* 管理态 */
+  manageBtn.addEventListener('click', function(){
+    state.managing = !state.managing;
+    if(!state.managing) state.selected = {};
+    applyManaging();
+    render();
+  });
+
+  /* 勾选 */
+  listEl.addEventListener('click', function(e){
+    if(!state.managing) return;
+    var chk = e.target.closest('[data-sel]');
+    var host = e.target.closest('a');
+    e.preventDefault();
+    if(chk){
+      var id = chk.dataset.sel;
+      state.selected[id] = !state.selected[id];
+      chk.classList.toggle('on', state.selected[id]);
+      updateSelBar();
+      return;
+    }
+    if(host){
+      var c = host.querySelector('[data-sel]');
+      if(c){
+        var cid = c.dataset.sel;
+        state.selected[cid] = !state.selected[cid];
+        c.classList.toggle('on', state.selected[cid]);
+        updateSelBar();
+      }
+    }
+  });
+
+  /* 删除选中 */
+  delSelBtn.addEventListener('click', function(){
+    var ids = Object.keys(state.selected).filter(function(k){ return state.selected[k]; });
+    if(!ids.length) return;
+    ITEMS = ITEMS.filter(function(it){ return ids.indexOf(it.id) === -1; });
+    state.selected = {};
+    render();
+  });
+
+  /* 清空全部 */
+  clearBtn.addEventListener('click', function(){
+    ITEMS = [];
+    state.selected = {};
+    render();
+  });
+
+  /* 更多菜单 */
+  moreBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    moreMenu.classList.toggle('hidden');
+  });
+  document.getElementById('menuSort').addEventListener('click', function(){
+    state.sort = state.sort === 'recent' ? 'oldest' : 'recent';
+    this.textContent = '排序方式：' + (state.sort === 'recent' ? '最近浏览 ›' : '最早浏览 ›');
+    moreMenu.classList.add('hidden');
+    render();
+  });
+  document.getElementById('menuClear').addEventListener('click', function(){
+    moreMenu.classList.add('hidden');
+    ITEMS = [];
+    state.selected = {};
+    render();
+  });
+
+  document.addEventListener('click', function(e){
+    if(!timeMenu.contains(e.target) && e.target !== timeBtn && !timeBtn.contains(e.target)) timeMenu.classList.add('hidden');
+    if(!moreMenu.contains(e.target) && e.target !== moreBtn && !moreBtn.contains(e.target)) moreMenu.classList.add('hidden');
+  });
+
+  applyManaging();
+  render();
+})();
+</script>
+</body>
+</html>

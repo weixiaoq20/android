@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 限时秒杀</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding:0 12px 14px}
+.price{color:var(--brand);font-weight:800}
+.price small{font-size:11px}
+.hidden{display:none!important}
+/* 头图 */
+.hero{position:relative;padding:0 14px 14px;background:linear-gradient(165deg,#FFE9E2 0%,#FDE0D7 55%,rgba(253,247,244,0) 100%);border-radius:0 0 22px 22px}
+.hrow{display:flex;align-items:center;gap:8px;padding:2px 0 12px}
+.hrow a{color:#2A2420;width:24px}
+.hrow h1{margin:0;font-size:16px;font-weight:700;color:#231C18;letter-spacing:-.2px}
+.timing{display:flex;align-items:center;gap:7px;margin-bottom:13px;min-width:0}
+.timing .lb{flex:0 0 auto;font-size:10.5px;color:#B3411F;background:rgba(255,255,255,.85);border-radius:999px;padding:3px 8px}
+.clk{display:flex;align-items:center;gap:3px;flex:0 0 auto}
+.clk b{min-width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:12px;display:grid;place-items:center;font-weight:700;box-shadow:0 2px 6px rgba(232,70,45,.22)}
+.clk i{font-style:normal;color:#E23A2E;font-size:11px;font-weight:700}
+.timing .tip{margin-left:auto;flex:0 1 auto;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:10px;color:#B08C79}
+.timing .tab{flex:0 0 auto;width:auto;height:26px;display:inline-flex;align-items:center;justify-content:center;padding:0 12px;border-radius:999px;background:#FBE3D6;color:#B4441F;font-size:11px;font-weight:600;letter-spacing:normal;line-height:1;white-space:nowrap;border:0}
+.slots{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;margin-bottom:11px}
+.slots::-webkit-scrollbar{display:none}
+.slots button{flex:0 0 auto;font-size:11.5px;padding:6px 13px;border-radius:999px;background:#fff;color:#5C5C5F;border:1px solid #F5E7E0}
+.slots button.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;border-color:transparent;font-weight:700;box-shadow:0 4px 12px rgba(232,70,45,.22)}
+/* 商品图（内联 SVG 精细插画） */
+.pi{width:100%;height:100%;display:block}
+.pi .sh{fill:rgba(122,74,54,.16)}
+.thg{width:86px;height:86px;border-radius:13px;flex:0 0 86px;position:relative;overflow:hidden}
+.thg.m{background:linear-gradient(150deg,#F4F7E6 0%,#E2EBC6 60%,#D2DFAE 100%)}
+.thg.p{background:linear-gradient(150deg,#FBF0E4 0%,#F1D6BC 60%,#E5BE9C 100%)}
+.thg.o{background:linear-gradient(150deg,#FDF2DC 0%,#F7DDAE 60%,#EDC383 100%)}
+.thg.t{background:linear-gradient(150deg,#F1F6E6 0%,#DCE7C6 60%,#C5D6A8 100%)}
+.thg.w{background:linear-gradient(150deg,#FAEFE8 0%,#EFD2C0 60%,#DFAF92 100%)}
+/* 主推 */
+.feature{display:flex;flex-direction:column;background:#fff;border-radius:16px;padding:11px;box-shadow:var(--shadow)}
+.feature .ftop{display:flex;gap:11px;min-width:0}
+.feature .th{width:104px;height:104px;border-radius:13px;flex:0 0 104px;position:relative;overflow:hidden;background:linear-gradient(150deg,#F4F7E6 0%,#E2EBC6 60%,#D2DFAE 100%)}
+.feature .th .badge{position:absolute;left:6px;top:0;z-index:2;background:rgba(226,49,39,.94);color:#fff;font-size:10px;font-weight:700;line-height:1;letter-spacing:.2px;white-space:nowrap;padding:4px 7px 3px;border-radius:0 0 7px 7px}
+.feature .nf{flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.feature h3{margin:0;font-size:13px;line-height:1.45;font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.feature .rowp{display:flex;align-items:flex-end;gap:6px;margin-top:7px}
+.feature .price{font-size:23px;line-height:1;letter-spacing:-.6px}
+.feature .old{font-size:10px;color:#ABABAF;text-decoration:line-through}
+.feature .fmeta{margin-top:11px;min-width:0}
+.feature .stock{font-size:9.5px;color:#A79A91;line-height:1.45}
+.bar{width:100%;height:5px;border-radius:3px;background:#FDEDE8;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;width:85.3%;border-radius:3px;background:linear-gradient(90deg,#FB6E4E,#E23A2E)}
+.feature .fact{display:flex;justify-content:flex-end;margin-top:11px}
+.feature .go{flex:0 0 auto;width:108px;height:35px;padding:0;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:13px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(232,70,45,.24)}
+/* 列表 */
+.sec{display:flex;align-items:center;justify-content:space-between;padding:14px 2px 9px}
+.sec h2{margin:0;font-size:15px;font-weight:800;display:flex;align-items:center;gap:6px}
+.sec h2:before{content:"";width:3px;height:14px;border-radius:2px;background:linear-gradient(180deg,#FB6E4E,#F03A2C)}
+.sec span{font-size:10.5px;color:#A79A91}
+.li{display:flex;gap:10px;align-items:center;background:#fff;border-radius:16px;padding:12px;margin-bottom:11px;box-shadow:0 4px 14px rgba(120,60,50,.05)}
+.li .nf{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
+.li h3{margin:0;font-size:13.5px;line-height:1.4;font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.li .tags{display:flex;align-items:center;gap:4px;margin-top:5px;min-width:0;overflow:hidden}
+.li .tg{font-size:10px;line-height:1.5;color:#EE4A2F;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:999px;padding:0 6px;white-space:nowrap;text-overflow:ellipsis;max-width:100%;min-width:0;overflow:hidden}
+.li .bt{display:flex;align-items:baseline;gap:5px;margin-top:8px;min-width:0}
+.li .price{font-size:16px;line-height:1;letter-spacing:-.3px}
+.li .price small{font-size:11px}
+.li .old{font-size:12px;line-height:1;color:#ABABAF;text-decoration:line-through}
+.li .sm{width:40px;height:40px;flex:0 0 40px;margin-left:4px;border-radius:50%;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center;box-shadow:0 3px 9px rgba(232,70,45,.22)}
+.tabbar{flex:0 0 58px;background:#fff;border-top:1px solid #F0EDEA;display:flex;padding:6px 3px 0;z-index:30}
+.tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;color:#6D7480;font-size:13px;font-weight:500;letter-spacing:-.2px}
+.tabbar a.on{color:#F2452E;font-weight:700}
+.ti{width:38px;height:28px;display:grid;place-items:center;border-radius:50%;position:relative}
+.tabbar a.on .ti{background:radial-gradient(circle at 50% 58%,#FDE0D8 0%,rgba(253,224,216,0) 72%)}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+/* 秒杀单行卡片（对齐首页限时秒杀列表） */
+.skrow{display:flex;flex-direction:column;gap:10px;padding:0 2px 2px;min-width:0}
+.skcard{display:flex;align-items:stretch;gap:10px;width:100%;min-width:0;background:#fff;border-radius:13px;border:1px solid #F6EDE8;padding:9px 10px 10px;box-shadow:0 3px 10px rgba(120,60,50,.05);text-decoration:none;overflow:hidden}
+.skthumb{position:relative;flex:0 0 110px;width:110px;height:110px;border-radius:11px;overflow:hidden;background:linear-gradient(150deg,#FBF1E9,#F3E4D8)}
+.skthumb svg{display:block;width:100%;height:100%}
+.sklab{position:absolute;left:0;top:0;background:linear-gradient(100deg,#FF6A3D,#E23127);color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:0 0 7px 0;letter-spacing:.2px;line-height:1.5;z-index:2}
+.skbody{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:3px}
+.skname{font-size:13px;color:#2A2420;line-height:1.35;font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-width:0}
+.skname em{font-style:normal;font-weight:500;color:#5C544E}
+.skcomment{font-size:11px;color:#8A8A8E;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.skhot{display:flex;align-items:center;gap:3px;font-size:11px;color:#9A9A9E;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.skhot svg{flex:0 0 auto}
+.skhot b{font-style:normal;font-weight:700;color:#E2683F}
+.skbuyline{display:flex;align-items:center;gap:6px;min-width:0;margin-top:1px}
+.skprices{display:flex;align-items:baseline;gap:4px;min-width:0;flex:1 1 auto;overflow:hidden}
+.sknow{font-size:18px;font-weight:800;color:#E23A2E;letter-spacing:-.5px;white-space:nowrap;line-height:1.15}
+.sknow small{font-size:11px;font-weight:800;margin-right:1px}
+.skip{font-size:11px;color:#B9B9BE;text-decoration:line-through;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.skbuy{flex:0 0 auto;height:26px;padding:0 11px;border-radius:999px;background:linear-gradient(100deg,#F47348,#E23A2E 70%,#D8321F);color:#fff;font-size:11.5px;font-weight:700;display:flex;align-items:center;justify-content:center;white-space:nowrap;letter-spacing:.2px;box-shadow:0 3px 8px rgba(226,58,46,.24)}
+.skbar{margin-top:2px;position:relative;height:4px;border-radius:999px;background:#FBEDE7;overflow:hidden;width:100%}
+.skbar i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,#FFAB7E,#EE4A2F)}
+.skpct{font-size:9.5px;color:#B4806B;margin-top:2px;line-height:1.3;white-space:nowrap;letter-spacing:-.1px}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="scroll">
+<div class="hero">
+<div class="hrow">
+<a aria-label="返回" href="home.html"><svg fill="none" height="21" viewbox="0 0 24 24" width="21"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"></path></svg></a>
+<h1>限时秒杀</h1>
+</div>
+<div class="timing">
+<span class="lb">本场</span>
+<div class="clk"><b id="h">01</b><i>:</i><b id="m">42</b><i>:</i><b id="s">16</b></div>
+<span class="tip">距结束 · 仅限同城</span>
+<a aria-label="进入拼单专场" class="tab" href="group-buy.html">拼单专场 ›</a>
+</div>
+<div class="slots" id="slots">
+<button data-slot="10">10:00 已结束</button>
+<button class="on" data-slot="14">14:00 抢购中</button>
+<button data-slot="20">20:00 即将开始</button>
+</div>
+<div class="skrow" data-slot="14">
+<a class="skcard" href="product-detail.html">
+<div class="skthumb">
+<svg aria-hidden="true" viewbox="0 0 112 112">
+<rect fill="url(#skbg1)" height="112" width="112"></rect>
+<defs><lineargradient id="skbg1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F3F7EE"></stop><stop offset="1" stop-color="#DDE7D4"></stop></lineargradient></defs>
+<ellipse cx="56" cy="86" fill="#9AAE8C" opacity=".35" rx="34" ry="7"></ellipse>
+<circle cx="42" cy="58" fill="#8C5A2B" r="17"></circle>
+<circle cx="70" cy="62" fill="#9B6832" r="15"></circle>
+<circle cx="56" cy="42" fill="#A5733B" r="14"></circle>
+<path d="M56 30c8-9 22-6 22 6 0 0-12-1-22 6" fill="#6A4A22" opacity=".35"></path>
+<path d="M56 30c-8-9-22-6-22 6 0 0 12-1 22 6" fill="#6A4A22" opacity=".4"></path>
+<ellipse cx="50" cy="38" fill="#fff" opacity=".45" rx="3" ry="1.6"></ellipse>
+</svg>
+<span class="sklab">超级秒杀</span>
+</div>
+<div class="skbody">
+<span class="skname">5斤装｜<em>蒲江红心猕猴桃 大果 单果90-110g</em></span>
+<div class="skcomment">“果肉很甜，新鲜度好，个头均匀…”</div>
+<div class="skhot"><svg aria-hidden="true" fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M13 2c1 4-2 5-2 8 0 2 1.4 3 3 3 2 0 3-1.6 3-3.4 2 1.6 3.2 3.9 3.2 6.2A8.2 8.2 0 0 1 5 15c0-4.6 3.6-6.4 3.6-9.6 1.4.6 2.4 1.8 2.7 3.2C12.4 6.4 14 4.4 13 2Z" fill="#F0916A"></path></svg>疯抢 <b>3,412</b> 件 · 仅剩 <b>588</b> 件</div>
+<div class="skbuyline">
+<div class="skprices"><span class="sknow"><small>¥</small>19.90</span><span class="skip">¥39.90</span></div>
+<span class="skbuy">立即抢购</span>
+</div>
+<div class="skbar"><i style="width:85%"></i></div>
+<span class="skpct">已抢 85%</span>
+</div>
+</a>
+<a class="skcard" href="product-detail.html">
+<div class="skthumb">
+<svg aria-hidden="true" viewbox="0 0 112 112">
+<defs><lineargradient id="skbg2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FFF6EC"></stop><stop offset="1" stop-color="#FBE2CC"></stop></lineargradient></defs>
+<rect fill="url(#skbg2)" height="112" width="112"></rect>
+<circle cx="58" cy="60" fill="#F59B23" r="35"></circle>
+<circle cx="58" cy="60" fill="#FBB44A" r="29"></circle>
+<path d="M58 31c1-6 7-9 12-8-2 5-6 9-12 8z" fill="#5C8B3C"></path>
+<path d="M40 58h36M58 40v40" opacity=".35" stroke="#E07C12" stroke-width="1.4"></path>
+<circle cx="45" cy="48" fill="#FFD98C" opacity=".55" r="6"></circle>
+</svg>
+<span class="sklab">超级秒杀</span>
+</div>
+<div class="skbody">
+<span class="skname">10斤装｜<em>金堂脐橙 现摘鲜果 果径65-75mm</em></span>
+<div class="skcomment">“汁水足 皮薄 酸甜刚好…”</div>
+<div class="skhot"><svg aria-hidden="true" fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M13 2c1 4-2 5-2 8 0 2 1.4 3 3 3 2 0 3-1.6 3-3.4 2 1.6 3.2 3.9 3.2 6.2A8.2 8.2 0 0 1 5 15c0-4.6 3.6-6.4 3.6-9.6 1.4.6 2.4 1.8 2.7 3.2C12.4 6.4 14 4.4 13 2Z" fill="#F0916A"></path></svg>疯抢 <b>6.2万</b> 件 · 仅剩 <b>203</b> 件</div>
+<div class="skbuyline">
+<div class="skprices"><span class="sknow"><small>¥</small>14.80</span><span class="skip">¥29.90</span></div>
+<span class="skbuy">立即抢购</span>
+</div>
+<div class="skbar"><i style="width:86%"></i></div>
+<span class="skpct">已抢 86%</span>
+</div>
+</a>
+<a class="skcard" href="product-detail.html">
+<div class="skthumb">
+<svg aria-hidden="true" viewbox="0 0 112 112">
+<defs><lineargradient id="skbg3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FFF3F3"></stop><stop offset="1" stop-color="#FBDDE0"></stop></lineargradient></defs>
+<rect fill="url(#skbg3)" height="112" width="112"></rect>
+<rect fill="#E8483F" height="52" rx="7" width="46" x="20" y="42"></rect>
+<rect fill="#F26A5C" height="16" rx="7" width="46" x="20" y="42"></rect>
+<rect fill="#2F3A45" height="52" rx="7" width="46" x="40" y="38"></rect>
+<rect fill="#4B5763" height="16" rx="7" width="46" x="40" y="38"></rect>
+<path d="M49 60h28M49 70h22M49 80h16" opacity=".55" stroke="#C9D3DC" stroke-width="2"></path>
+<path d="M46 66c0-6 6-8 9-4" fill="none" stroke="#F26A5C" stroke-width="2"></path>
+</svg>
+<span class="sklab">超级秒杀</span>
+</div>
+<div class="skbody">
+<span class="skname">24包整箱｜<em>原木抽纸 4层加厚 1包120抽</em></span>
+<div class="skcomment">“纸张厚实不掉屑，回购很多次…”</div>
+<div class="skhot"><svg aria-hidden="true" fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M13 2c1 4-2 5-2 8 0 2 1.4 3 3 3 2 0 3-1.6 3-3.4 2 1.6 3.2 3.9 3.2 6.2A8.2 8.2 0 0 1 5 15c0-4.6 3.6-6.4 3.6-9.6 1.4.6 2.4 1.8 2.7 3.2C12.4 6.4 14 4.4 13 2Z" fill="#F0916A"></path></svg>疯抢 <b>5.4万</b> 件 · 仅剩 <b>1,120</b> 件</div>
+<div class="skbuyline">
+<div class="skprices"><span class="sknow"><small>¥</small>9.90</span><span class="skip">¥24.90</span></div>
+<span class="skbuy">立即抢购</span>
+</div>
+<div class="skbar"><i style="width:64%"></i></div>
+<span class="skpct">已抢 64%</span>
+</div>
+</a>
+</div>
+<div class="skrow hidden" data-slot="10">
+<a class="skcard" href="product-detail.html">
+<div class="skthumb">
+<svg aria-hidden="true" viewbox="0 0 112 112">
+<defs><lineargradient id="skbg5" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FBF4EC"></stop><stop offset="1" stop-color="#EFDFCC"></stop></lineargradient></defs>
+<rect fill="url(#skbg5)" height="112" width="112"></rect>
+<path d="M34 36h44l-3.4 48a9 9 0 0 1-9 8.4H46.4a9 9 0 0 1-9-8.4z" fill="#A24B2E"></path>
+<path d="M34 36h44l-.6 7H34.6z" fill="#B75B38"></path>
+<ellipse cx="56" cy="38" fill="#C86C43" rx="22" ry="6.6"></ellipse>
+<ellipse cx="56" cy="37" fill="#7B2E1C" rx="17.6" ry="4.6"></ellipse>
+<rect fill="#F7E6CE" height="24" rx="4.4" width="32" x="40" y="54"></rect>
+<text fill="#A8391C" font-family="PingFang SC,sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="56" y="68">豆瓣</text>
+<text fill="#B9714B" font-family="PingFang SC,sans-serif" font-size="6.4" letter-spacing="1" text-anchor="middle" x="56" y="75">三年陈酿</text>
+<path d="M30 42c-4 12-4 26 0 38" fill="none" opacity=".8" stroke="#E7B48F" stroke-linecap="round" stroke-width="2.6"></path>
+</svg>
+<span class="sklab">超级秒杀</span>
+</div>
+<div class="skbody">
+<span class="skname">500g｜<em>郫县豆瓣酱 三年陈酿 川菜底味</em></span>
+<div class="skcomment">“炒回锅肉很香，颜色红亮…”</div>
+<div class="skhot"><svg aria-hidden="true" fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M13 2c1 4-2 5-2 8 0 2 1.4 3 3 3 2 0 3-1.6 3-3.4 2 1.6 3.2 3.9 3.2 6.2A8.2 8.2 0 0 1 5 15c0-4.6 3.6-6.4 3.6-9.6 1.4.6 2.4 1.8 2.7 3.2C12.4 6.4 14 4.4 13 2Z" fill="#F0916A"></path></svg>疯抢 <b>2.1万</b> 件 · 仅剩 <b>356</b> 件</div>
+<div class="skbuyline">
+<div class="skprices"><span class="sknow"><small>¥</small>8.80</span><span class="skip">¥12.80</span></div>
+<span class="skbuy">立即抢购</span>
+</div>
+<div class="skbar"><i style="width:91%"></i></div>
+<span class="skpct">已抢 91%</span>
+</div>
+</a>
+<a class="skcard" href="product-detail.html">
+<div class="skthumb">
+<svg aria-hidden="true" viewbox="0 0 112 112">
+<defs><lineargradient id="skbg6" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F1F6E6"></stop><stop offset="1" stop-color="#D6E3C2"></stop></lineargradient></defs>
+<rect fill="url(#skbg6)" height="112" width="112"></rect>
+<rect fill="#3F6B45" height="52" rx="6" width="64" x="24" y="42"></rect>
+<path d="M24 42h64l-4-10a3.4 3.4 0 0 0-3.2-2.2H31.2A3.4 3.4 0 0 0 28 32z" fill="#325839"></path>
+<path d="M56 30v64" opacity=".5" stroke="#2A4A30" stroke-width="2.4"></path>
+<path d="M24 42h64" stroke="#B2C98C" stroke-width="3"></path>
+<rect fill="#F4EFDF" height="28" rx="3.2" width="40" x="36" y="54"></rect>
+<text fill="#3A5A3F" font-family="PingFang SC,sans-serif" font-size="9" font-weight="700" text-anchor="middle" x="56" y="72">竹叶青</text>
+<text fill="#7E8E6C" font-family="PingFang SC,sans-serif" font-size="5" letter-spacing=".6" text-anchor="middle" x="56" y="78">明前春茶</text>
+</svg>
+<span class="sklab">超级秒杀</span>
+</div>
+<div class="skbody">
+<span class="skname">100g 礼盒｜<em>竹叶青明前春茶 嫩芽清香</em></span>
+<div class="skcomment">“汤色清亮，回甘明显…”</div>
+<div class="skhot"><svg aria-hidden="true" fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M13 2c1 4-2 5-2 8 0 2 1.4 3 3 3 2 0 3-1.6 3-3.4 2 1.6 3.2 3.9 3.2 6.2A8.2 8.2 0 0 1 5 15c0-4.6 3.6-6.4 3.6-9.6 1.4.6 2.4 1.8 2.7 3.2C12.4 6.4 14 4.4 13 2Z" fill="#F0916A"></path></svg>疯抢 <b>4,280</b> 件 · 仅剩 <b>88</b> 件</div>
+<div class="skbuyline">
+<div class="skprices"><span class="sknow"><small>¥</small>88.00</span><span class="skip">¥128.00</span></div>
+<span class="skbuy">立即抢购</span>
+</div>
+<div class="skbar"><i style="width:78%"></i></div>
+<span class="skpct">已抢 78%</span>
+</div>
+</a>
+</div>
+<div class="skrow hidden" data-slot="20">
+<a class="skcard" href="product-detail.html">
+<div class="skthumb">
+<svg aria-hidden="true" viewbox="0 0 112 112">
+<defs><lineargradient id="skbg7" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FAEFE8"></stop><stop offset="1" stop-color="#E6C3AB"></stop></lineargradient></defs>
+<rect fill="url(#skbg7)" height="112" width="112"></rect>
+<ellipse cx="56" cy="92" fill="#9A6E52" opacity=".25" rx="32" ry="6"></ellipse>
+<path d="M30 70c0-5 4-9 9-9h34c5 0 9 4 9 9v18a4 4 0 0 1-4 4H34a4 4 0 0 1-4-4z" fill="#9B4A38"></path>
+<path d="M30 70h52l-2 6.4H32z" fill="#B75B44"></path>
+<ellipse cx="56" cy="70" fill="#F0E2CE" rx="24" ry="5.6"></ellipse>
+<g transform="rotate(-28 64 46)">
+<rect fill="#8B3A29" height="21" rx="8.6" width="44" x="42" y="38"></rect>
+<rect fill="#F2DCC0" height="8" rx="4" width="44" x="42" y="38"></rect>
+<rect fill="#F2DCC0" height="21" opacity=".95" rx="4" width="8" x="42" y="38"></rect>
+</g>
+<path d="M36 40c6 5 10 11 11 17" fill="none" opacity=".45" stroke="#6B7264" stroke-linecap="round" stroke-width="2.4"></path>
+</svg>
+<span class="sklab">超级秒杀</span>
+</div>
+<div class="skbody">
+<span class="skname">500g｜<em>青城山老腊肉 柴火烟熏 肥瘦相间</em></span>
+<div class="skcomment">“烟熏味正，切片炒蒜苗很香…”</div>
+<div class="skhot"><svg aria-hidden="true" fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M13 2c1 4-2 5-2 8 0 2 1.4 3 3 3 2 0 3-1.6 3-3.4 2 1.6 3.2 3.9 3.2 6.2A8.2 8.2 0 0 1 5 15c0-4.6 3.6-6.4 3.6-9.6 1.4.6 2.4 1.8 2.7 3.2C12.4 6.4 14 4.4 13 2Z" fill="#F0916A"></path></svg>已预约 <b>1.8万</b> 人 · 备货 <b>500</b> 件</div>
+<div class="skbuyline">
+<div class="skprices"><span class="sknow"><small>¥</small>32.00</span><span class="skip">¥46.00</span></div>
+<span class="skbuy">即将开抢</span>
+</div>
+<div class="skbar"><i style="width:0%"></i></div>
+<span class="skpct">20:00 准时开抢</span>
+</div>
+</a>
+<a class="skcard" href="product-detail.html">
+<div class="skthumb">
+<svg aria-hidden="true" viewbox="0 0 112 112">
+<defs><lineargradient id="skbg8" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#EEF7F8"></stop><stop offset="1" stop-color="#D6EAEC"></stop></lineargradient></defs>
+<rect fill="url(#skbg8)" height="112" width="112"></rect>
+<rect fill="#3EA9B8" height="52" rx="9" width="34" x="34" y="34"></rect>
+<rect fill="#2B8896" height="12" rx="3" width="14" x="47" y="24"></rect>
+<path d="M51 66c-8 0-12-6-11-12 8 1 12 5 11 12z" fill="#9BE0B0"></path>
+<path d="M52 64c2-8 9-11 16-9-2 7-8 11-16 9z" fill="#CBF0D6"></path>
+<path d="M42 48h18" opacity=".35" stroke="#fff" stroke-width="3"></path>
+<circle cx="52" cy="78" fill="#fff" opacity=".25" r="8"></circle>
+</svg>
+<span class="sklab">超级秒杀</span>
+</div>
+<div class="skbody">
+<span class="skname">2瓶装｜<em>厨房油污清洁剂 重油污免拆洗</em></span>
+<div class="skcomment">“喷一喷油污自己化掉，味道不刺鼻…”</div>
+<div class="skhot"><svg aria-hidden="true" fill="none" height="10" viewbox="0 0 24 24" width="10"><path d="M13 2c1 4-2 5-2 8 0 2 1.4 3 3 3 2 0 3-1.6 3-3.4 2 1.6 3.2 3.9 3.2 6.2A8.2 8.2 0 0 1 5 15c0-4.6 3.6-6.4 3.6-9.6 1.4.6 2.4 1.8 2.7 3.2C12.4 6.4 14 4.4 13 2Z" fill="#F0916A"></path></svg>已预约 <b>3.1万</b> 人 · 备货 <b>800</b> 套</div>
+<div class="skbuyline">
+<div class="skprices"><span class="sknow"><small>¥</small>15.90</span><span class="skip">¥29.90</span></div>
+<span class="skbuy">即将开抢</span>
+</div>
+<div class="skbar"><i style="width:0%"></i></div>
+<span class="skpct">20:00 准时开抢</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<nav class="tabbar">
+<a href="home.html"><span class="ti"><svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22"><path d="M3.5 10.7 12 4l8.5 6.7V20a1 1 0 0 1-1 1h-4.7v-6.2H9.2V21H4.5a1 1 0 0 1-1-1z"></path></svg></span><span>首页</span></a>
+<a href="nearby.html"><span class="ti"><svg height="24" viewbox="0 0 24 24" width="24"><rect fill="currentColor" height="19" rx="6" width="19" x="2.5" y="2.5"></rect><text fill="#fff" font-family="PingFang SC" font-size="11" font-weight="700" text-anchor="middle" x="12" y="16.6">逛</text></svg></span><span>附近店</span></a>
+<a href="wholesale.html"><span class="ti"><svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><rect height="8" rx="2.2" width="8" x="2.5" y="2.5"></rect><rect height="8" opacity=".55" rx="2.2" width="8" x="13.5" y="2.5"></rect><rect height="8" opacity=".55" rx="2.2" width="8" x="2.5" y="13.5"></rect><circle cx="16.2" cy="16.2" fill="none" r="4.3" stroke="currentColor" stroke-width="2.1"></circle><path d="m19.6 19.6 2.2 2.2" stroke="currentColor" stroke-linecap="round" stroke-width="2.1"></path></svg></span><span>批发选品</span></a>
+<a href="messages.html"><span class="ti"><svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M21 11.6a8.6 8.6 0 0 1-12.6 7.6L4 21l1.5-4.2A8.6 8.6 0 1 1 21 11.6z"></path></svg></span><span>消息</span></a>
+<a href="profile.html"><span class="ti"><svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><circle cx="12" cy="8" r="4.2"></circle><path d="M4 21c0-4.2 3.6-6.7 8-6.7s8 2.5 8 6.7z"></path></svg></span><span>我的</span></a>
+</nav>
+<div class="homebar"><i></i></div>
+</div>
+<script>
+  (function () {
+    var eh = document.getElementById('h'), em = document.getElementById('m'), es = document.getElementById('s');
+    var left = 1 * 3600 + 42 * 60 + 16;
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+    function tick() {
+      if (left < 0) return;
+      eh.textContent = pad(Math.floor(left / 3600));
+      em.textContent = pad(Math.floor((left % 3600) / 60));
+      es.textContent = pad(left % 60);
+      left--;
+    }
+    tick();
+    setInterval(tick, 1000);
+    document.querySelectorAll('#slots button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        document.querySelectorAll('#slots button').forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+        var slot = b.getAttribute('data-slot');
+        document.querySelectorAll('.skrow').forEach(function (r) {
+          r.classList.toggle('hidden', r.getAttribute('data-slot') !== slot);
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 批发店铺</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding:0 12px 22px}
+.hidden{display:none!important}
+.navbar{flex:0 0 46px;display:flex;align-items:center;justify-content:space-between;padding:0 13px;position:sticky;top:0;z-index:20;color:#2A2420}
+.navbar .r{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.navbar .r a{display:inline-flex;align-items:center;justify-content:center;height:26px;font-size:11.5px;line-height:1;color:#EE4A2F;background:#fff;border:1px solid #F7C7B8;border-radius:999px;padding:0 11px;font-weight:600;white-space:nowrap;flex:0 0 auto}
+.navbar .r a.iconbtn{width:28px;height:28px;padding:0;border-radius:50%;color:#EE4A2F}
+/* head */
+.head{display:flex;gap:10px;padding:8px 13px 12px}
+.head .logo{width:56px;height:56px;border-radius:16px;background:linear-gradient(140deg,#FE9E7E,#F2452E);display:grid;place-items:center;color:#fff;font-size:19px;font-weight:800;flex:0 0 56px;box-shadow:0 6px 14px rgba(232,70,45,.2)}
+.head .info{flex:1;min-width:0}
+.head h1{margin:0;font-size:15.5px;font-weight:700;display:flex;align-items:center;gap:5px;letter-spacing:-.2px}
+.head h1 em{font-style:normal;font-size:8.5px;color:#EE4A2F;background:#FFF6F3;border:1px solid #F7A392;border-radius:999px;padding:1px 5px;font-weight:600}
+.head p{margin:4px 0 0;font-size:9.5px;color:#A79A91;line-height:1.6}
+.metrics{display:flex;gap:10px;margin-top:6px;font-size:9.5px;color:#8A7C72}
+.metrics b{color:#4A3F38;font-weight:700}
+.follow{flex:0 0 auto;align-self:flex-start;margin-top:2px;font-size:11px;font-weight:700;color:#EE4A2F;background:#FFF6F3;border:1px solid #F7A392;border-radius:999px;height:26px;display:inline-flex;align-items:center;padding:0 13px;line-height:1}
+.follow.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;border-color:transparent;box-shadow:0 3px 8px rgba(232,70,45,.2)}
+/* notice */
+.notice{display:flex;align-items:center;gap:6px;margin:0 12px 10px;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:12px;padding:8px 10px;font-size:10px;color:#B3411F}
+/* filter */
+.filters{display:flex;gap:7px;padding:10px 12px;overflow-x:auto;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:0 0 auto;font-size:11px;color:#8A7C72;background:#fff;border:1px solid #F5E9E2;border-radius:999px;padding:5px 12px}
+.filters button.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;border-color:transparent;font-weight:700;box-shadow:0 3px 8px rgba(232,70,45,.18)}
+/* goods */
+.goods{display:grid;grid-template-columns:86px minmax(0,1fr);grid-template-rows:auto auto;column-gap:10px;row-gap:9px;background:#fff;border-radius:16px;padding:12px;margin-top:11px;box-shadow:0 4px 14px rgba(120,60,50,.05);min-width:0;box-sizing:border-box}
+.goods .gmain{grid-column:2;grid-row:1;min-width:0;display:flex;flex-direction:column}
+.gthumb{grid-column:1;grid-row:1;align-self:center;justify-self:start;flex:0 0 86px;width:86px;height:86px;min-height:0;aspect-ratio:1/1;border-radius:13px;display:grid;place-items:center;position:relative;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)}
+.gthumb svg{display:block;width:60px;height:60px;flex:0 0 auto}
+.gthumb:after{content:"";position:absolute;left:0;right:0;bottom:0;height:26px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.35))}
+.gthumb.t1{background:linear-gradient(150deg,#FFE7D6,#F9BF9B)}
+.gthumb.t2{background:linear-gradient(150deg,#EAF4FF,#B9D8F5)}
+.gthumb.t3{background:linear-gradient(150deg,#F3FFE4,#CBE8A4)}
+.gthumb.t4{background:linear-gradient(150deg,#FFF4D6,#F3D28A)}
+.gthumb.t5{background:linear-gradient(150deg,#EAFBF4,#AFE3CE)}
+.gthumb.t6{background:linear-gradient(150deg,#F1EEFF,#C9BFF0)}
+.gthumb.t7{background:linear-gradient(150deg,#FFEDF1,#F6BAC8)}
+.gthumb.t8{background:linear-gradient(150deg,#E9F6FF,#A9D4EC)}
+.goods .gname{margin:0;font-size:13.5px;font-weight:700;line-height:1.4;color:#2A2420;letter-spacing:-.2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.goods .gmeta{display:flex;align-items:center;gap:6px;margin-top:5px;min-width:0;white-space:nowrap;overflow:hidden}
+.goods .gmodel{font-size:10.5px;color:#8A7C72;background:#FBF7F3;border:1px solid #F1E7DF;border-radius:5px;padding:1px 5px;flex:0 0 auto}
+.goods .gscore{display:inline-flex;align-items:center;gap:2px;font-size:11px;font-weight:700;color:#E8721F;flex:0 0 auto}
+.goods .gscore svg{display:block}
+.goods .gdesc{margin:6px 0 0;font-size:11.5px;line-height:1.5;color:#7A6E66;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.goods .gact{grid-column:2;grid-row:2;display:flex;align-items:center;gap:8px;margin-top:0;padding-top:0;min-width:0}
+.goods .gprice{display:flex;align-items:baseline;gap:2px;min-width:0;white-space:nowrap;color:#E23A2E;flex:0 0 auto;line-height:1}
+.goods .gprice b{font-size:17px;font-weight:800;color:#E23A2E;letter-spacing:-.5px}
+.goods .gprice b small{font-size:10px;font-weight:800;margin-right:1px}
+.goods .gprice span{font-size:10px;color:#E8721F;font-weight:600}
+.grp{display:contents}
+.gact .gtextlink{flex:0 0 auto}
+.gact .gstock{flex:1 1 auto;min-width:0;margin-left:2px}
+.gact .stepper{flex:0 0 auto;margin-left:auto}
+.stepper{display:inline-flex;align-items:center;justify-content:space-between;flex:0 0 auto;gap:2px;padding:0 3px;background:#F5F0EC;border:0;border-radius:999px;overflow:visible;height:32px;width:108px;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+.stepper button{position:relative;width:32px;height:32px;flex:0 0 32px;display:flex;align-items:center;justify-content:center;padding:0;margin:0;border:0;border-radius:999px;line-height:0;font-size:0;overflow:hidden;touch-action:manipulation;transition:background .16s,box-shadow .16s;background:transparent;color:inherit}
+.stepper button::before{content:"";position:absolute;left:50%;top:50%;width:40px;height:40px;transform:translate(-50%,-50%);background:transparent;border-radius:999px}
+.stepper button svg{position:static;display:block;pointer-events:none;width:14px;height:14px;margin:0;overflow:visible;flex:0 0 auto;transform:translateZ(0)}
+.stepper button svg path{stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.stepper .plus{background:linear-gradient(140deg,#FB6E4E,#F03A2C);box-shadow:0 2px 6px rgba(226,58,46,.28);cursor:pointer}
+.stepper .plus svg path{stroke:#FFFFFF}
+.stepper .plus:active{background:linear-gradient(140deg,#F1603F,#DE3225);box-shadow:0 1px 3px rgba(226,58,46,.24)}
+.stepper .minus{background:transparent;box-shadow:none;cursor:pointer}
+.stepper .minus svg path{stroke:#9A8C82}
+.stepper .minus:hover,.stepper .minus:active{background:rgba(0,0,0,.04)}
+.stepper button:disabled{cursor:default;opacity:1}
+.stepper .minus:disabled,.stepper .plus:disabled{cursor:default}
+.stepper .minus:disabled{background:#F4EFEA;box-shadow:none}
+.stepper .minus:disabled svg path{stroke:#A79C93}
+.stepper .plus:disabled{background:linear-gradient(140deg,#FB9A85,#F47869);box-shadow:0 2px 6px rgba(226,58,46,.16)}
+.stepper .qv{flex:0 0 34px;width:34px;height:32px;border:0;outline:none;background:transparent;padding:0;margin:0;text-align:center;font-size:15px;line-height:1;font-weight:700;color:#2A2420;font-family:inherit;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+.stepper .qv::-webkit-outer-spin-button,.stepper .qv::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.stepper .qv:focus{color:var(--brand)}
+/* 局部跳转链接：图片区 + 信息文字区 */
+.gnav{display:block;min-width:0;text-decoration:none;color:inherit;-webkit-tap-highlight-color:transparent}
+.gnav.gimglink{grid-column:1;grid-row:1;align-self:center;justify-self:start;width:86px;flex:0 0 86px}
+.gnav.gtextlink{grid-column:2;grid-row:1;align-self:stretch}
+.gnav:active{opacity:.92}
+.gnav .gthumb{grid-column:auto;grid-row:auto;align-self:auto;justify-self:auto}
+.gact .gtextlink .gprice{display:inline-flex}
+.gl{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;margin-top:0}
+.gl .gleft{display:flex;align-items:baseline;gap:8px;min-width:0;flex-wrap:nowrap}
+.gstock{font-size:11px;line-height:1;color:#8A8A8E;font-weight:400;white-space:nowrap;letter-spacing:0}
+/* cart bar */
+.cartbar{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:10px 12px;background:#fff;border-top:1px solid #F3EBE5;box-shadow:0 -4px 14px rgba(150,110,88,.06);position:relative;z-index:30}
+.cartbar .cinfo{flex:1 1 0;min-width:0;display:flex;align-items:center}
+.cartbar .bgroup{flex:0 0 auto;display:flex;align-items:center;justify-content:flex-end;gap:7px;margin-left:auto}
+.cartbar .ci{width:34px;height:34px;border-radius:10px;background:#FAF1E9;color:#B4674B;display:grid;place-items:center;position:relative;flex:0 0 34px}
+.cartbar .ci b{position:absolute;right:-3px;top:-3px;min-width:15px;height:15px;border-radius:8px;background:#E8392C;color:#fff;font-size:8px;display:grid;place-items:center;border:1.5px solid #fff;padding:0 2px}
+.cartbar .ct{flex:0 1 auto;min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px;white-space:nowrap}
+.cartbar .ct b{display:block;font-size:16px;font-weight:800;color:#E23A2E;line-height:1.1;letter-spacing:-.2px}
+.cartbar .ct span{display:block;font-size:10px;color:#A79A91;margin:0;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cartbar .current-order,.cartbar .contact,.cartbar .go{flex:0 0 auto;min-width:88px;height:36px;display:inline-flex;align-items:center;justify-content:center;padding:0 16px;margin:0;border:0;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:14px;font-weight:700;line-height:1;white-space:nowrap;text-decoration:none;box-shadow:0 5px 14px rgba(232,70,45,.24)}
+.toast{position:absolute;left:50%;bottom:100px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap;width:max-content;max-width:calc(100% - 32px);overflow:hidden;text-overflow:ellipsis;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+/* 店内搜索框 */
+.skbar{display:flex;align-items:center;gap:7px;margin:0 12px 10px;height:36px;padding:0 12px;border-radius:12px;background:#fff;border:1px solid #F3E7DF;color:#A79A91;font-size:12px;box-shadow:0 2px 8px rgba(150,110,88,.04)}
+.skbar svg{flex:0 0 auto;color:#C0B0A6}
+.skbar em{font-style:normal;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.skbar i{font-style:normal;font-size:9.5px;color:#EE4A2F;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:999px;padding:1px 6px;font-weight:700;flex:0 0 auto}
+/* 搜索浮层 */
+.sov{position:absolute;inset:0;z-index:60;display:none}
+.sov.open{display:block}
+.sov .mask{position:absolute;inset:0;background:rgba(42,36,32,.38)}
+.sov .panel{position:absolute;inset:0;display:flex;flex-direction:column;background:#FFFDFC;overflow:hidden}
+.sov .sstat{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.sov .sstat .si{display:flex;align-items:center;gap:5px}
+.sov .shead{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:0 14px 10px}
+.sov .sfield{flex:1;min-width:0;height:36px;display:flex;align-items:center;gap:6px;padding:0 11px;border-radius:999px;background:#F6F1ED;border:1px solid #F1E4DB}
+.sov .sfield svg{flex:0 0 auto;color:#B6AAA2}
+.sov .sfield input{flex:1;min-width:0;border:0;outline:none;background:transparent;font-size:13px;color:#2A2420;height:100%}
+.sov .sfield input::placeholder{color:#B6B6BC}
+.sov .sfield .clr{width:20px;height:20px;flex:0 0 20px;border-radius:50%;background:#DCD2CB;color:#fff;display:none;place-items:center;font-size:11px;line-height:1}
+.sov .sfield .clr.on{display:grid}
+.sov .cancel{flex:0 0 auto;font-size:12.5px;color:#5C5C5F;padding:0 2px}
+.sov .sbody{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;overscroll-behavior:contain}
+.sov .sbody::-webkit-scrollbar{display:none}
+.sov .st{padding:12px 14px 14px}
+.sov .blk{margin-bottom:14px}
+.sov .blk-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.sov .blk-h b{font-size:12.5px;font-weight:700;color:#2A2420}
+.sov .blk-h button{font-size:11px;color:#8A8A8E;display:inline-flex;align-items:center;gap:3px}
+.sov .blk-h button svg{display:block}
+.sov .hist{display:flex;flex-direction:column;gap:2px}
+.sov .hist .hi{display:flex;align-items:center;gap:8px;padding:7px 2px;font-size:12.5px;color:#5C5C5F;border-bottom:1px solid #F7EFEA;min-width:0}
+.sov .hist .hi:last-child{border-bottom:0}
+.sov .hist .hi span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left}
+.sov .hist .hi i{flex:0 0 auto;width:18px;height:18px;display:grid;place-items:center;color:#B9B3AE;font-style:normal;font-size:14px;line-height:1}
+.sov .chips{display:flex;flex-wrap:wrap;gap:8px}
+.sov .chips button{font-size:11.5px;color:#6E6660;background:#F7F2EE;border:1px solid #F1E7DF;border-radius:999px;padding:5px 12px;line-height:1.3}
+.sov .cats{display:flex;flex-wrap:wrap;gap:8px}
+.sov .cats button{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:#5C5C5F;background:#fff;border:1px solid #F3E7DF;border-radius:10px;padding:7px 11px;line-height:1.3}
+.sov .cats button b{font-weight:700;color:#EE4A2F;font-size:10.5px}
+.sov .sug{display:flex;flex-direction:column}
+.sug .srow{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid #F8F0EB;min-width:0}
+.sug .sthumb{flex:0 0 44px;width:44px;height:44px;border-radius:11px;display:grid;place-items:center;overflow:hidden;position:relative}
+.sug .sthumb svg{display:grid;width:32px;height:32px}
+.sug .snm{flex:1;min-width:0;font-size:12.5px;color:#2A2420;font-weight:600;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
+.sug .snm em{font-style:normal;color:#E23A2E}
+.sug .spr{flex:0 0 auto;font-size:13px;font-weight:800;color:#EE4A2F;white-space:nowrap}
+.sug .spr span{font-size:9.5px;font-weight:600;color:#E8721F;margin-left:1px}
+.sug .sgo{text-decoration:none;color:inherit;-webkit-tap-highlight-color:transparent}
+.sug .sgo.sthumblink{flex:0 0 auto;display:block;min-width:0}
+.sug .sgo.sinfo{flex:1;min-width:0;display:flex;align-items:center;gap:10px}
+.sug .sgo.sinfo .snm{flex:1;min-width:0}
+.sug .more{display:flex;align-items:center;justify-content:center;gap:3px;width:100%;padding:12px 14px;font-size:11.5px;color:#8A8A8E}
+.sug .more b{color:#EE4A2F;font-weight:700;margin:0 2px}
+.sov .sflt{display:flex;align-items:center;gap:6px;padding:9px 14px;border-bottom:1px solid #F7EEE8;background:#fff;position:sticky;top:0;z-index:2}
+.sov .sflt .fad{flex:1;min-width:0;position:relative}
+.sov .sflt .fad > button{width:100%;display:flex;align-items:center;justify-content:center;gap:3px;height:28px;font-size:11.5px;color:#6E6660;background:#FAF5F1;border:1px solid #F1E7DF;border-radius:8px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sov .sflt .fad > button.on{color:#EE4A2F;border-color:#F7C7B8;background:#FFF6F3;font-weight:700}
+.sov .sflt .fad .arr{display:flex;flex-direction:column;gap:1px;flex:0 0 auto}
+.sov .sflt .fad .arr i{width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent}
+.sov .sflt .fad .arr i:first-child{border-bottom:4px solid #C4B7AE}
+.sov .sflt .fad .arr i:last-child{border-top:4px solid #C4B7AE}
+.sov .sflt .fad.up .arr i:first-child{border-bottom-color:#E23A2E}
+.sov .sflt .fad.down .arr i:last-child{border-top-color:#E23A2E}
+.sov .sflt .dd{position:absolute;left:0;top:32px;min-width:120px;background:#fff;border:1px solid #F3E7DF;border-radius:10px;box-shadow:0 10px 24px rgba(120,60,50,.14);padding:4px;display:none;z-index:5}
+.sov .sflt .dd.open{display:block}
+.sov .sflt .dd button{display:block;width:100%;text-align:left;font-size:11.5px;color:#5C5C5F;padding:8px 10px;border-radius:7px;white-space:nowrap}
+.sov .sflt .dd button.on{color:#EE4A2F;background:#FFF6F3;font-weight:700}
+.sov .sres{padding:0 12px 16px}
+.sov .sres .stip{font-size:10.5px;color:#9A8C82;padding:9px 2px 0}
+.sov .sres .stip b{color:#E23A2E}
+.sov .sg{display:grid;grid-template-columns:86px minmax(0,1fr);grid-template-rows:auto auto;column-gap:10px;row-gap:9px;background:#fff;border-radius:16px;padding:12px;margin-top:11px;box-shadow:0 4px 14px rgba(120,60,50,.05);min-width:0;box-sizing:border-box}
+.sov .sg .gmain{grid-column:2;grid-row:1;min-width:0;display:flex;flex-direction:column}
+.sov .sg .gact{grid-column:2;grid-row:2;display:flex;align-items:center;gap:8px;min-width:0}
+.sov .sg .gthumb{grid-column:1;grid-row:1}
+.sov .sg .gname{-webkit-line-clamp:2}
+.sov .empty{padding:34px 16px 8px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.sov .empty .eic{width:64px;height:64px;border-radius:50%;background:#F7F2EE;display:grid;place-items:center;color:#C9BDB5;margin-bottom:12px}
+.sov .empty h4{margin:0;font-size:13px;font-weight:700;color:#5C5C5F}
+.sov .empty p{margin:6px 0 0;font-size:11.5px;color:#A79A91}
+.sov .near{margin-top:22px;width:100%;text-align:left}
+.sov .near h5{margin:0 0 4px;font-size:11.5px;color:#8A8A8E;font-weight:600}
+.sov .na{display:flex;align-items:center;gap:9px;padding:8px 2px;border-bottom:1px solid #F8F0EB;min-width:0}
+.sov .na:last-child{border-bottom:0}
+.sov .na .sthumb{flex:0 0 38px;width:38px;height:38px;border-radius:10px;display:grid;place-items:center}
+.sov .na .sthumb svg{width:28px;height:28px}
+.sov .na .snm{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
+.sov .na .spr{font-size:12px}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="navbar">
+<a aria-label="返回" href="wholesale.html"><svg fill="none" height="21" viewbox="0 0 24 24" width="21"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"></path></svg></a>
+<div class="r">
+<a aria-label="搜索本店批发商品" class="iconbtn" href="javascript:void(0)" id="navSearch"><svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-width="2.1" viewbox="0 0 24 24" width="14"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg></a>
+<a class="shopchat" href="chat-shop.html">联系商家</a>
+</div>
+</div>
+<div class="scroll">
+<div class="head">
+<span class="logo">青</span>
+<div class="info">
+<h1>青羊日用批发 <em>实力商家</em></h1>
+<p>成都青羊区 · 日用百货 · 已开店 6 年</p>
+<div class="metrics"><span>商品 <b>326</b></span><span>发货 <b>48 小时</b></span><span>支持混批</span></div>
+</div>
+<button class="follow on" id="follow">已关注</button>
+</div>
+<div class="notice">
+<svg fill="none" height="12" stroke="#B98D6E" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M4 9V5h16v4M4 9h16v11H4zM9 20v-6h6v6"></path></svg>
+      批发采购满 300 元包邮，混批可享阶梯价
+    </div>
+<button aria-label="搜索本店批发商品" class="skbar" id="shopSearch" type="button">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="14"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg>
+<em>搜本店批发商品</em>
+<i>店内</i>
+</button>
+<div class="filters" id="filters">
+<button class="on">全部商品</button>
+<button>厨房用品</button>
+<button>清洁用品</button>
+<button>家居收纳</button>
+<button>纸品耗材</button>
+</div>
+<div class="pad">
+<div class="goods">
+<a aria-label="查看商品详情" class="gnav gimglink" href="product-detail.html">
+<span aria-hidden="true" class="gthumb t1">
+<svg fill="none" height="60" viewbox="0 0 60 60" width="60">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="potBody" x1="10" x2="46" y1="26" y2="50">
+<stop stop-color="#8C4A22"></stop><stop offset=".55" stop-color="#6B3416"></stop><stop offset="1" stop-color="#4A2210"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="potLid" x1="12" x2="44" y1="18" y2="30">
+<stop stop-color="#B9672F"></stop><stop offset="1" stop-color="#7E3C17"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="potSpoon" x1="44" x2="50" y1="14" y2="46">
+<stop stop-color="#F6D9C0"></stop><stop offset="1" stop-color="#C98D62"></stop>
+</lineargradient>
+</defs>
+<!-- 锅身 -->
+<path d="M13 26h32l-2.6 18.2a5 5 0 0 1-4.95 4.3H20.6a5 5 0 0 1-4.95-4.3L13 26Z" fill="url(#potBody)"></path>
+<path d="M17.5 28.5h3.2l1.9 15.6c.08.9.8 1.6 1.7 1.6h-2.8a4 4 0 0 1-3.96-3.44L17.5 28.5Z" fill="#fff" fill-opacity=".14"></path>
+<ellipse cx="29" cy="26" fill="#3E1C0C" fill-opacity=".35" rx="16" ry="3.6"></ellipse>
+<path d="M13 26h32" stroke="#4A2210" stroke-linecap="round" stroke-width="1.6"></path>
+<!-- 侧耳 -->
+<path d="M11.6 30.5C7.4 30.5 6.4 35 8.6 37.4c1.4 1.5 3.3 1.9 4.7 1.7" stroke="#6B3416" stroke-linecap="round" stroke-width="2.8"></path>
+<path d="M46.4 30.5c4.2 0 5.2 4.5 3 6.9-1.4 1.5-3.3 1.9-4.7 1.7" stroke="#6B3416" stroke-linecap="round" stroke-width="2.8"></path>
+<!-- 锅盖 -->
+<path d="M15 23.5c0-6.2 6.3-11 14-11s14 4.8 14 11" fill="url(#potLid)"></path>
+<path d="M18.6 22.6c.6-4.6 5-8.2 10.4-8.2 2.9 0 5.5 1 7.4 2.7-2.2-.9-4.6-1.4-7-1.4-4.4 0-8.4 1.4-10.8 6.9Z" fill="#fff" fill-opacity=".28"></path>
+<path d="M15 23.5h28" stroke="#5C2A10" stroke-linecap="round" stroke-width="1.8"></path>
+<rect fill="#3F1C0B" height="4.4" rx="2.2" width="5.2" x="26.4" y="8.4"></rect>
+<path d="M27.4 9.5h3.2" stroke="#fff" stroke-linecap="round" stroke-opacity=".5" stroke-width="1"></path>
+<!-- 汤勺 -->
+<path d="M45.5 15.5 41 42" stroke="#A9622F" stroke-linecap="round" stroke-width="2.4"></path>
+<path d="M45.5 15.5 41 42" stroke="url(#potSpoon)" stroke-linecap="round" stroke-width="1.2"></path>
+<ellipse cx="46.9" cy="14.4" fill="#E3B48D" rx="4.2" ry="5.1" stroke="#A9622F" stroke-width="1.4" transform="rotate(16 46.9 14.4)"></ellipse>
+<ellipse cx="46.4" cy="13.4" fill="#fff" fill-opacity=".45" rx="2" ry="2.6" transform="rotate(16 46.4 13.4)"></ellipse>
+<rect fill="#8C4A22" height="5.6" rx="1.5" transform="rotate(-12 39.6 38.6)" width="3.4" x="39.6" y="38.6"></rect>
+</svg>
+</span>
+</a>
+<span class="gmain">
+<a class="gnav gtextlink" href="product-detail.html">
+<h3 class="gname">304 不锈钢餐具三件套 家用火锅勺筷组合</h3>
+<div class="gmeta">
+<span class="gmodel">型号 QY-304C</span>
+<span class="gscore"><svg fill="#F5A623" height="11" viewbox="0 0 24 24" width="11"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"></path></svg>4.8</span>
+</div>
+</a>
+<a class="gnav gtextlink" href="product-detail.html">
+<p class="gdesc">食品级 304 加厚钢材，勺筷火锅漏勺一套齐，餐饮门店与家用通用。</p>
+</a>
+<div class="gact">
+<a class="gnav gtextlink" href="product-detail.html">
+<span class="gl"><span class="gleft"><span class="gprice"><b><small>¥</small>6.80</b><span>/套</span></span></span></span>
+</a>
+<div class="grp">
+<span class="gstock">剩余 120 件</span>
+<div class="stepper" data-id="p1" data-name="304 不锈钢餐具三件套" data-price="6.8" data-stock="120">
+<button aria-label="减少数量" class="minus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path></svg></button>
+<input class="qv" id="qty-1" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" value="0" aria-label="数量"/>
+<button aria-label="增加数量" class="plus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path><path d="M7 2v10"></path></svg></button>
+</div>
+</div>
+</div>
+</span>
+</div>
+<div class="goods">
+<a aria-label="查看商品详情" class="gnav gimglink" href="product-detail.html">
+<span aria-hidden="true" class="gthumb t2">
+<svg fill="none" height="60" stroke="#2F6393" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 60 60" width="60">
+<rect height="26" rx="3" width="28" x="16" y="20"></rect>
+<path d="M23 20c0-5 14-5 14 0"></path>
+<path d="M26 12c0 4 8 4 8 8" stroke-opacity=".8"></path>
+<path d="M22 30c0-4 7-4 7 0s7 4 7 0" stroke-opacity=".9"></path>
+<path d="M22 38c0-4 7-4 7 0s7 4 7 0" stroke-opacity=".55"></path>
+</svg>
+</span>
+</a>
+<span class="gmain">
+<a class="gnav gtextlink" href="product-detail.html">
+<h3 class="gname">本色抽取式纸巾 100 抽 4 层加厚整箱装</h3>
+<div class="gmeta">
+<span class="gmodel">型号 QY-Z100</span>
+<span class="gscore"><svg fill="#F5A623" height="11" viewbox="0 0 24 24" width="11"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"></path></svg>4.7</span>
+</div>
+</a>
+<a class="gnav gtextlink" href="product-detail.html">
+<p class="gdesc">原木浆无荧光，4 层加厚不易破，整箱 24 包，办公室与门店常备。</p>
+</a>
+<div class="gact">
+<a class="gnav gtextlink" href="product-detail.html">
+<span class="gl"><span class="gleft"><span class="gprice"><b><small>¥</small>32.00</b><span>/箱</span></span></span></span>
+</a>
+<div class="grp">
+<span class="gstock">剩余 60 件</span>
+<div class="stepper" data-id="p2" data-name="本色抽取式纸巾整箱" data-price="32" data-stock="60">
+<button aria-label="减少数量" class="minus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path></svg></button>
+<input class="qv" id="qty-2" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" value="0" aria-label="数量"/>
+<button aria-label="增加数量" class="plus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path><path d="M7 2v10"></path></svg></button>
+</div>
+</div>
+</div>
+</span>
+</div>
+<div class="goods">
+<a aria-label="查看商品详情" class="gnav gimglink" href="product-detail.html">
+<span aria-hidden="true" class="gthumb t3">
+<svg fill="none" height="60" stroke="#4C7B2A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 60 60" width="60">
+<rect height="26" rx="4" width="14" x="21" y="22"></rect>
+<path d="M25 22v-4h6v4"></path><path d="M38 16l-5 1.6 1 3.4 5-1.6z"></path>
+<path d="M42 30h7M42 35h6M42 40h7" stroke-opacity=".8"></path>
+<circle cx="28" cy="33" r="4"></circle><path d="M28 29v8M24 33h8" stroke-opacity=".8" stroke-width="1.4"></path>
+</svg>
+</span>
+</a>
+<span class="gmain">
+<a class="gnav gtextlink" href="product-detail.html">
+<h3 class="gname">柠檬去油污清洁剂 500ml 厨房重油污</h3>
+<div class="gmeta">
+<span class="gmodel">型号 QY-L500</span>
+<span class="gscore"><svg fill="#F5A623" height="11" viewbox="0 0 24 24" width="11"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"></path></svg>4.6</span>
+</div>
+</a>
+<a class="gnav gtextlink" href="product-detail.html">
+<p class="gdesc">植物配方柠檬精华，喷一喷擦净抽油烟机与灶台，重油污快速分解。</p>
+</a>
+<div class="gact">
+<a class="gnav gtextlink" href="product-detail.html">
+<span class="gl"><span class="gleft"><span class="gprice"><b><small>¥</small>4.20</b><span>/瓶</span></span></span></span>
+</a>
+<div class="grp">
+<span class="gstock">剩余 300 件</span>
+<div class="stepper" data-id="p3" data-name="柠檬去油污清洁剂" data-price="4.2" data-stock="300">
+<button aria-label="减少数量" class="minus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path></svg></button>
+<input class="qv" id="qty-3" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" value="0" aria-label="数量"/>
+<button aria-label="增加数量" class="plus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path><path d="M7 2v10"></path></svg></button>
+</div>
+</div>
+</div>
+</span>
+</div>
+<div class="goods">
+<a aria-label="查看商品详情" class="gnav gimglink" href="product-detail.html">
+<span aria-hidden="true" class="gthumb t4">
+<svg fill="none" height="60" stroke="#9A7418" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 60 60" width="60">
+<path d="M17 24h26l-3 20H20z"></path>
+<path d="M22 24l4-8h8l4 8"></path>
+<path d="M26 30v9M34 30v9" stroke-opacity=".7"></path>
+<path d="M17 24h26" stroke-width="2.4"></path>
+</svg>
+</span>
+</a>
+<span class="gmain">
+<a class="gnav gtextlink" href="product-detail.html">
+<h3 class="gname">可折叠收纳筐 大号衣物整理筐加厚款</h3>
+<div class="gmeta">
+<span class="gmodel">型号 QY-S66</span>
+<span class="gscore"><svg fill="#F5A623" height="11" viewbox="0 0 24 24" width="11"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"></path></svg>4.8</span>
+</div>
+</a>
+<a class="gnav gtextlink" href="product-detail.html">
+<p class="gdesc">加厚牛津布内衬可折叠，承重 15kg 不变形，衣物玩具一筐收纳。</p>
+</a>
+<div class="gact">
+<a class="gnav gtextlink" href="product-detail.html">
+<span class="gl"><span class="gleft"><span class="gprice"><b><small>¥</small>9.50</b><span>/个</span></span></span></span>
+</a>
+<div class="grp">
+<span class="gstock">剩余 88 件</span>
+<div class="stepper" data-id="p4" data-name="可折叠收纳筐" data-price="9.5" data-stock="88">
+<button aria-label="减少数量" class="minus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path></svg></button>
+<input class="qv" id="qty-4" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" value="0" aria-label="数量"/>
+<button aria-label="增加数量" class="plus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path><path d="M7 2v10"></path></svg></button>
+</div>
+</div>
+</div>
+</span>
+</div>
+<div class="goods">
+<a aria-label="查看商品详情" class="gnav gimglink" href="product-detail.html">
+<span aria-hidden="true" class="gthumb t5">
+<svg fill="none" height="60" stroke="#2C7A5B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 60 60" width="60">
+<path d="M20 16l20 26M25 12l20 26"></path>
+<path d="M14 48c5-3 9-3 14 0s9 3 14 0" stroke-opacity=".7"></path>
+<path d="M43 14l3 5M46 12l4 3" stroke-opacity=".8"></path>
+</svg>
+</span>
+</a>
+<span class="gmain">
+<a class="gnav gtextlink" href="product-detail.html">
+<h3 class="gname">一次性竹筷 独立包装 商用餐饮 1000 双</h3>
+<div class="gmeta">
+<span class="gmodel">型号 QY-K1000</span>
+<span class="gscore"><svg fill="#F5A623" height="11" viewbox="0 0 24 24" width="11"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"></path></svg>4.5</span>
+</div>
+</a>
+<a class="gnav gtextlink" href="product-detail.html">
+<p class="gdesc">无毛刺毛竹原材，独立薄膜包装干净卫生，外卖快餐批量标配。</p>
+</a>
+<div class="gact">
+<a class="gnav gtextlink" href="product-detail.html">
+<span class="gl"><span class="gleft"><span class="gprice"><b><small>¥</small>58.00</b><span>/件</span></span></span></span>
+</a>
+<div class="grp">
+<span class="gstock">剩余 40 件</span>
+<div class="stepper" data-id="p5" data-name="一次性竹筷 1000 双" data-price="58" data-stock="40">
+<button aria-label="减少数量" class="minus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path></svg></button>
+<input class="qv" id="qty-5" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" value="0" aria-label="数量"/>
+<button aria-label="增加数量" class="plus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path><path d="M7 2v10"></path></svg></button>
+</div>
+</div>
+</div>
+</span>
+</div>
+<div class="goods">
+<a aria-label="查看商品详情" class="gnav gimglink" href="product-detail.html">
+<span aria-hidden="true" class="gthumb t6">
+<svg fill="none" height="60" stroke="#5B4A9B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 60 60" width="60">
+<path d="M18 22h24v16H18z"></path>
+<path d="M18 22c-2 3-2 13 0 16M42 22c2 3 2 13 0 16"></path>
+<path d="M18 30h24" stroke-opacity=".6"></path>
+<circle cx="30" cy="44" r="3"></circle><path d="M30 44h8"></path>
+</svg>
+</span>
+</a>
+<span class="gmain">
+<a class="gnav gtextlink" href="product-detail.html">
+<h3 class="gname">加厚透明保鲜袋 30×40 食品级家用装</h3>
+<div class="gmeta">
+<span class="gmodel">型号 QY-B3040</span>
+<span class="gscore"><svg fill="#F5A623" height="11" viewbox="0 0 24 24" width="11"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"></path></svg>4.6</span>
+</div>
+</a>
+<a class="gnav gtextlink" href="product-detail.html">
+<p class="gdesc">食品级 PE 材质加厚韧性强，冰箱分装冷藏不串味，每卷 100 只。</p>
+</a>
+<div class="gact">
+<a class="gnav gtextlink" href="product-detail.html">
+<span class="gl"><span class="gleft"><span class="gprice"><b><small>¥</small>7.60</b><span>/卷</span></span></span></span>
+</a>
+<div class="grp">
+<span class="gstock">剩余 200 件</span>
+<div class="stepper" data-id="p6" data-name="加厚透明保鲜袋" data-price="7.6" data-stock="200">
+<button aria-label="减少数量" class="minus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path></svg></button>
+<input class="qv" id="qty-6" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" value="0" aria-label="数量"/>
+<button aria-label="增加数量" class="plus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path><path d="M7 2v10"></path></svg></button>
+</div>
+</div>
+</div>
+</span>
+</div>
+<div class="goods">
+<a aria-label="查看商品详情" class="gnav gimglink" href="product-detail.html">
+<span aria-hidden="true" class="gthumb t7">
+<svg fill="none" height="60" stroke="#B04A66" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 60 60" width="60">
+<path d="M16 34l24-12 4 7-24 12z"></path>
+<path d="M20 41l-3 7"></path><path d="M26 38l-2 8"></path>
+<path d="M40 22l4-6" stroke-opacity=".7"></path>
+<path d="M14 24c3 0 5-2 6-5" stroke-opacity=".6"></path>
+</svg>
+</span>
+</a>
+<span class="gmain">
+<a class="gnav gtextlink" href="product-detail.html">
+<h3 class="gname">硅胶刮水器 厨房台面玻璃清洁刮板</h3>
+<div class="gmeta">
+<span class="gmodel">型号 QY-G22</span>
+<span class="gscore"><svg fill="#F5A623" height="11" viewbox="0 0 24 24" width="11"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"></path></svg>4.7</span>
+</div>
+</a>
+<a class="gnav gtextlink" href="product-detail.html">
+<p class="gdesc">一体成型硅胶刮条不伤台面，沥水收边一刮即净，浴室玻璃同样适用。</p>
+</a>
+<div class="gact">
+<a class="gnav gtextlink" href="product-detail.html">
+<span class="gl"><span class="gleft"><span class="gprice"><b><small>¥</small>5.30</b><span>/把</span></span></span></span>
+</a>
+<div class="grp">
+<span class="gstock">剩余 150 件</span>
+<div class="stepper" data-id="p7" data-name="硅胶刮水器" data-price="5.3" data-stock="150">
+<button aria-label="减少数量" class="minus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path></svg></button>
+<input class="qv" id="qty-7" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" value="0" aria-label="数量"/>
+<button aria-label="增加数量" class="plus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path><path d="M7 2v10"></path></svg></button>
+</div>
+</div>
+</div>
+</span>
+</div>
+<div class="goods">
+<a aria-label="查看商品详情" class="gnav gimglink" href="product-detail.html">
+<span aria-hidden="true" class="gthumb t8">
+<svg fill="none" height="60" stroke="#2E6E8E" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 60 60" width="60">
+<path d="M28 16h4v14h-4z"></path><path d="M30 30v6"></path>
+<path d="M18 40c0-6 5-6 5 0M25 40c0-8 5-8 5 0M32 40c0-8 5-8 5 0M39 40c0-6 5-6 5 0"></path>
+<path d="M16 44h28" stroke-width="2.4"></path>
+</svg>
+</span>
+</a>
+<span class="gmain">
+<a class="gnav gtextlink" href="product-detail.html">
+<h3 class="gname">棉线拖把 家用酒店大堂吸水地拖头</h3>
+<div class="gmeta">
+<span class="gmodel">型号 QY-T80</span>
+<span class="gscore"><svg fill="#F5A623" height="11" viewbox="0 0 24 24" width="11"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"></path></svg>4.5</span>
+</div>
+</a>
+<a class="gnav gtextlink" href="product-detail.html">
+<p class="gdesc">高密棉线束吸水量大，拧水省力不掉毛，木杆牢固适合大面积清洁。</p>
+</a>
+<div class="gact">
+<a class="gnav gtextlink" href="product-detail.html">
+<span class="gl"><span class="gleft"><span class="gprice"><b><small>¥</small>13.80</b><span>/把</span></span></span></span>
+</a>
+<div class="grp">
+<span class="gstock">剩余 75 件</span>
+<div class="stepper" data-id="p8" data-name="棉线拖把" data-price="13.8" data-stock="75">
+<button aria-label="减少数量" class="minus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path></svg></button>
+<input class="qv" id="qty-8" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" value="0" aria-label="数量"/>
+<button aria-label="增加数量" class="plus" type="button"><svg fill="none" stroke-linecap="round" viewbox="0 0 14 14"><path d="M2 7h10"></path><path d="M7 2v10"></path></svg></button>
+</div>
+</div>
+</div>
+</span>
+</div>
+</div>
+</div>
+<div class="cartbar">
+<div class="cinfo">
+<div class="ct"><b id="sum">¥0.00</b><span id="sumKinds">已选 0 种商品</span></div>
+</div>
+<div class="bgroup"><a class="current-order" href="wholesale-current-order.html">当前订单</a><a class="contact" href="chat-shop.html">联系商家</a><a class="go" href="wholesale-order-confirm.html">确认</a></div>
+</div><div class="homebar"><i></i></div>
+<div class="toast" id="toast">已加入选品单</div>
+<div aria-label="店内批发商品搜索" aria-modal="true" class="sov" id="sov" role="dialog">
+<div class="mask" id="sovMask"></div>
+<div class="panel">
+<div class="sstat"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="shead">
+<label class="sfield">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="14"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg>
+<input autocomplete="off" enterkeyhint="search" id="sovInput" placeholder="搜本店批发商品" type="search"/>
+<button aria-label="清空输入" class="clr" id="sovClear" type="button">×</button>
+</label>
+<button class="cancel" id="sovCancel" type="button">取消</button>
+</div>
+<div class="sbody">
+<div class="st" id="sovHome">
+<div class="blk hidden" id="histBlock">
+<div class="blk-h"><b>历史搜索</b><button id="histClear" type="button"><svg fill="none" height="11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="11"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"></path></svg>清空</button></div>
+<div class="hist" id="histList"></div>
+</div>
+<div class="blk">
+<div class="blk-h"><b>店内热门搜索</b></div>
+<div class="chips" id="hotWords"></div>
+</div>
+<div class="blk" style="margin-bottom:4px">
+<div class="blk-h"><b>常用分类</b></div>
+<div class="cats" id="hotCats"></div>
+</div>
+</div>
+<div class="sug hidden" id="sugBox"></div>
+<div class="hidden" id="resBox">
+<div class="sflt" id="sflt">
+<div class="fad" data-f="price">
+<button data-open="price" type="button">价格<span class="arr"><i></i><i></i></span></button>
+<div class="dd" id="ddPrice">
+<button data-v="default" type="button">默认排序</button>
+<button data-v="asc" type="button">价格低到高</button>
+<button data-v="desc" type="button">价格高到低</button>
+</div>
+</div>
+<div class="fad" data-f="cat">
+<button data-open="cat" type="button">品类<span class="arr"><i></i><i></i></span></button>
+<div class="dd" id="ddCat"></div>
+</div>
+<div class="fad" data-f="stock">
+<button data-open="stock" type="button">库存<span class="arr"><i></i><i></i></span></button>
+<div class="dd" id="ddStock">
+<button data-v="all" type="button">全部库存</button>
+<button data-v="in" type="button">仅看有货</button>
+</div>
+</div>
+</div>
+<div class="sres" id="resList"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    var picked = {};
+    var syncPaints = [];
+    var cnt = document.getElementById('cnt'), sum = document.getElementById('sum');
+    var sub = document.getElementById('sumKinds');
+    var toastEl = document.getElementById('toast');
+    var toastTimer = null;
+    function num(v) {
+      var n = parseFloat(String(v == null ? '' : v).replace(/[^\d.]/g, ''));
+      return isFinite(n) && n > 0 ? n : 0;
+    }
+    function showToast(msg) {
+      if (!toastEl) return;
+      toastEl.textContent = msg;
+      toastEl.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 1600);
+    }
+    function refresh() {
+      var nums = 0, total = 0, kinds = 0;
+      for (var k in picked) {
+        if (!picked.hasOwnProperty(k)) continue;
+        var q = picked[k].qty;
+        if (q > 0) { kinds += 1; nums += q; total += (picked[k].price || 0) * q; }
+      }
+      if (cnt) {
+        cnt.textContent = nums;
+        cnt.style.display = nums > 0 ? '' : 'none';
+      }
+      if (sum) sum.textContent = '¥' + total.toFixed(2);
+      if (sub) sub.textContent = '已选 ' + kinds + ' 种商品';
+      syncPaints.forEach(function (fn) { try { fn(); } catch (err) {} });
+    }
+
+    function bindStepper(box) {
+      if (!box) return;
+      var val = box.querySelector('.qv');
+      var minus = box.querySelector('.minus');
+      var plus = box.querySelector('.plus');
+      if (!val || !minus || !plus) return;
+      var max = parseInt(box.getAttribute('data-stock') || '99', 10) || 0;
+      if (!(max > 0)) max = 99;
+      var id = box.getAttribute('data-id') || val.id || ('p' + Math.random());
+      var name = box.getAttribute('data-name') || '';
+      var price = num(box.getAttribute('data-price'));
+      if (!picked[id]) picked[id] = { price: price, qty: 0 };
+      picked[id].price = price;
+      picked[id].qty = picked[id].qty || 0;
+      function paint() {
+        var q = picked[id].qty;
+        val.value = String(q);
+        minus.disabled = q <= 0;
+        plus.disabled = q >= max;
+      }
+      syncPaints.push(paint);
+      paint();
+    }
+    function applyQty(box, next, opts) {
+      opts = opts || {};
+      var id = box.getAttribute('data-id') || '';
+      if (!id) return;
+      if (!picked[id]) {
+        picked[id] = { price: num(box.getAttribute('data-price')), qty: 0 };
+      }
+      var max = parseInt(box.getAttribute('data-stock') || '99', 10) || 0;
+      if (!(max > 0)) max = 99;
+      var name = box.getAttribute('data-name') || '';
+      var prev = picked[id].qty || 0;
+      var q = next;
+      if (isNaN(q)) q = 0;
+      if (q < 0) q = 0;
+      if (q > max) {
+        q = max;
+        if (opts.toastOver) showToast('已达库存上限 ' + max);
+      }
+      picked[id].qty = q;
+      var valEl = box.querySelector('.qv');
+      if (valEl) valEl.value = String(q);
+      var minus = box.querySelector('.minus');
+      var plus = box.querySelector('.plus');
+      if (minus) minus.disabled = q <= 0;
+      if (plus) plus.disabled = q >= max;
+      refresh();
+      if (opts.toast) {
+        if (prev === 0 && q > 0) showToast('已加入选品单：' + name + ' ×' + q);
+        else if (prev > 0 && q === 0) showToast('已从选品单移除：' + name);
+      }
+    }
+    /* 事件委托：页面上所有步进器（列表 + 搜索浮层动态结果）统一处理 */
+    document.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('.stepper .plus, .stepper .minus') : null;
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var box = btn.closest('.stepper');
+      if (!box) return;
+      var id = box.getAttribute('data-id') || '';
+      if (!id) return;
+      if (!picked[id]) picked[id] = { price: num(box.getAttribute('data-price')), qty: 0 };
+      var q = picked[id].qty || 0;
+      if (btn.classList.contains('plus')) applyQty(box, q + 1, { toast: true, toastOver: true });
+      else applyQty(box, q - 1, { toast: true });
+    }, true);
+    document.addEventListener('focusin', function (e) {
+      if (!e.target || !e.target.classList || !e.target.classList.contains('qv')) return;
+      e.target.select();
+    });
+    document.addEventListener('input', function (e) {
+      if (!e.target || !e.target.classList || !e.target.classList.contains('qv')) return;
+      e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+    });
+    document.addEventListener('change', function (e) {
+      if (!e.target || !e.target.classList || !e.target.classList.contains('qv')) return;
+      var box = e.target.closest('.stepper');
+      if (!box) return;
+      var raw = e.target.value;
+      var q = raw === '' ? 0 : parseInt(raw, 10);
+      applyQty(box, q, { toast: true, toastOver: true });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!e.target || !e.target.classList || !e.target.classList.contains('qv')) return;
+      if (e.key === 'Enter') { e.preventDefault(); e.target.blur(); }
+    });
+
+    /* 店内商品索引：直接取自页面已展示的 8 条批发商品 */
+    var CATS = ['全部商品', '厨房用品', '清洁用品', '家居收纳', '纸品耗材'];
+    var ITEMS = [];
+    document.querySelectorAll('.scroll .goods').forEach(function (row, i) {
+      var box = row.querySelector('.stepper');
+      var thumb = row.querySelector('.gthumb');
+      var svg = thumb ? thumb.querySelector('svg') : null;
+      if (!box || !svg) return;
+      var modelEl = row.querySelector('.gmodel');
+      var scoreEl = row.querySelector('.gscore');
+      var descEl = row.querySelector('.gdesc');
+      var nameEl = row.querySelector('.gname');
+      ITEMS.push({
+        id: box.getAttribute('data-id') || ('p' + (i + 1)),
+        name: (nameEl ? nameEl.textContent : box.getAttribute('data-name') || '').trim(),
+        model: (modelEl ? modelEl.textContent : '').replace('型号', '').trim(),
+        score: (scoreEl ? scoreEl.textContent : '').trim(),
+        desc: (descEl ? descEl.textContent : '').trim(),
+        price: num(box.getAttribute('data-price')),
+        stock: parseInt(box.getAttribute('data-stock') || '0', 10) || 0,
+        unit: (function () {
+          var pEl = row.querySelector('.gprice');
+          var uEl = pEl ? pEl.querySelector('span:not(:first-child)') : null;
+          var t = uEl ? uEl.textContent.replace('/', '').trim() : '';
+          return t || '件';
+        })(),
+        cat: CATS[i + 1] || '全部商品',
+        thumbClass: thumb.className,
+        thumbSVG: svg.outerHTML
+      });
+    });
+
+    var sov = document.getElementById('sov');
+    var sovMask = document.getElementById('sovMask');
+    var sovInput = document.getElementById('sovInput');
+    var sovClear = document.getElementById('sovClear');
+    var sovHome = document.getElementById('sovHome');
+    var sugBox = document.getElementById('sugBox');
+    var resBox = document.getElementById('resBox');
+    var resList = document.getElementById('resList');
+    var histBlock = document.getElementById('histBlock');
+    var histList = document.getElementById('histList');
+    var hotWords = document.getElementById('hotWords');
+    var hotCats = document.getElementById('hotCats');
+    var sflt = document.getElementById('sflt');
+    var scrollEl = document.querySelector('.scroll');
+    var savedTop = 0;
+    var mode = 'home';
+    var keyword = '';
+    var sortBy = 'default';
+    var catFilter = '全部商品';
+    var stockOnly = false;
+
+    function starSVG() {
+      return '<svg width="11" height="11" viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>';
+    }
+    function money(p) { return p.toFixed(2); }
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    function norm(s) { return String(s).toLowerCase().replace(/\s+/g, ''); }
+    function hit(item, kw) {
+      var k = norm(kw);
+      if (!k) return false;
+      return norm(item.name).indexOf(k) > -1 || norm(item.model).indexOf(k) > -1;
+    }
+    function mark(name, kw) {
+      var safe = esc(name);
+      var k = String(kw).trim();
+      if (!k) return safe;
+      var lower = name.toLowerCase(), kk = k.toLowerCase(), out = '', pos = 0, at = lower.indexOf(kk);
+      while (at > -1) {
+        out += esc(name.slice(pos, at)) + '<em>' + esc(name.slice(at, at + kk.length)) + '</em>';
+        pos = at + kk.length;
+        at = lower.indexOf(kk, pos);
+      }
+      return out + esc(name.slice(pos));
+    }
+    function thumbHTML(item, size) {
+      return '<span class="' + esc(item.thumbClass.replace('gthumb', 'sthumb')) + '" style="' + (size ? 'width:' + size + 'px;height:' + size + 'px;flex:0 0 ' + size + 'px;border-radius:10px' : '') + '">' + item.thumbSVG.replace('<svg', '<svg style="width:60%;height:60%"') + '</span>';
+    }
+    function findItem(id) {
+      for (var i = 0; i < ITEMS.length; i++) if (ITEMS[i].id === id) return ITEMS[i];
+      return null;
+    }
+
+    /* 历史搜索 */
+    var HIST_KEY = 'fujugx_shop_wholesale_hist';
+    var memHist = [];
+    function getHist() {
+      try {
+        var raw = window.localStorage.getItem(HIST_KEY);
+        var arr = raw ? JSON.parse(raw) : [];
+        return Array.isArray(arr) ? arr : [];
+      } catch (err) { return memHist.slice(); }
+    }
+    function setHist(arr) {
+      memHist = arr.slice();
+      try { window.localStorage.setItem(HIST_KEY, JSON.stringify(memHist)); } catch (err) {}
+    }
+    function addHist(word) {
+      var w = String(word || '').trim();
+      if (!w) return;
+      var arr = getHist().filter(function (x) { return norm(x) !== norm(w); });
+      arr.unshift(w);
+      setHist(arr.slice(0, 10));
+    }
+    function renderHist() {
+      var arr = getHist();
+      if (!histList || !histBlock) return;
+      if (!arr.length) {
+        histList.innerHTML = '';
+        histBlock.classList.add('hidden');
+        return;
+      }
+      histBlock.classList.remove('hidden');
+      histList.innerHTML = arr.map(function (w) {
+        return '<div class="hi"><span data-kw="' + esc(w) + '">' + esc(w) + '</span><i data-del="' + esc(w) + '" role="button" aria-label="删除记录">×</i></div>';
+      }).join('');
+    }
+
+    /* 状态 A 热点与分类 */
+    var HOT = ['锅具', '抽纸', '清洁剂', '收纳筐', '竹筷', '保鲜膜'];
+    if (hotWords) {
+      hotWords.innerHTML = HOT.map(function (w) { return '<button type="button" data-kw="' + w + '">' + w + '</button>'; }).join('');
+    }
+    if (hotCats) {
+      hotCats.innerHTML = CATS.map(function (c) {
+        var n = c === '全部商品' ? ITEMS.length : ITEMS.filter(function (it) { return it.cat === c; }).length;
+        return '<button type="button" data-cat="' + c + '">' + c + ' <b>' + n + '</b></button>';
+      }).join('');
+    }
+    if (document.getElementById('ddCat')) {
+      document.getElementById('ddCat').innerHTML = CATS.map(function (c) { return '<button type="button" data-v="' + c + '">' + c + '</button>'; }).join('');
+    }
+
+    function setMode(m) {
+      mode = m;
+      if (sovHome) sovHome.classList.toggle('hidden', m !== 'home');
+      if (sugBox) sugBox.classList.toggle('hidden', m !== 'sug');
+      if (resBox) resBox.classList.toggle('hidden', m !== 'res');
+      if (m !== 'res') closeDD();
+      var body = document.querySelector('.sov .sbody');
+      if (body) body.scrollTop = 0;
+    }
+
+    function renderSug() {
+      var kw = sovInput ? sovInput.value.trim() : '';
+      if (!kw) { renderHist(); setMode('home'); return; }
+      var list = ITEMS.filter(function (it) { return hit(it, kw); });
+      if (!sugBox) return;
+      var rows = list.map(function (it) {
+        return '<div class="srow">' +
+          '<a class="sgo sthumblink" href="product-detail.html" data-go="' + it.id + '" aria-label="查看商品详情">' + thumbHTML(it, 44) + '</a>' +
+          '<a class="sgo sinfo" href="product-detail.html" data-go="' + it.id + '">' +
+          '<span class="snm">' + mark(it.name, kw) + '</span>' +
+          '<span class="spr">¥' + money(it.price) + '<span>/' + unitOf(it) + '</span></span></a></div>';
+      }).join('');
+      if (!list.length) {
+        rows = '<div class="empty" style="padding:40px 16px 24px"><div class="eic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></div><h4>本店暂无该商品</h4><p>换个关键词试试</p></div>';
+      } else {
+        rows += '<button type="button" class="more" id="sugMore">查看全部 <b>' + list.length + '</b> 个结果<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#8A8A8E" stroke-width="2.2" stroke-linecap="round"><path d="m9 5 7 7-7 7"/></svg></button>';
+      }
+      sugBox.innerHTML = rows;
+      setMode('sug');
+    }
+
+    function unitOf(it) {
+      if (it && it.unit) return it.unit;
+      if (it.id === 'p1') return '套';
+      if (it.id === 'p2') return '箱';
+      if (it.id === 'p3') return '瓶';
+      if (it.id === 'p4') return '个';
+      if (it.id === 'p5') return '件';
+      if (it.id === 'p6') return '卷';
+      if (it.id === 'p7') return '把';
+      if (it.id === 'p8') return '把';
+      return '件';
+    }
+
+    function filteredItems() {
+      var list = ITEMS.filter(function (it) { return hit(it, keyword); });
+      if (catFilter !== '全部商品') list = list.filter(function (it) { return it.cat === catFilter; });
+      if (stockOnly) list = list.filter(function (it) { return it.stock > 0; });
+      if (sortBy === 'asc') list.sort(function (a, b) { return a.price - b.price; });
+      else if (sortBy === 'desc') list.sort(function (a, b) { return b.price - a.price; });
+      return list;
+    }
+    function nearItems() {
+      return ITEMS.slice(0, 8).sort(function (a, b) { return a.price - b.price; }).slice(0, 3);
+    }
+    function renderRes() {
+      var list = filteredItems();
+      if (!resList) return;
+      var head = '<div class="stip">店内「' + esc(keyword) + '」共 <b>' + list.length + '</b> 个批发商品</div>';
+      if (!list.length) {
+        var near = nearItems();
+        resList.innerHTML = head +
+          '<div class="empty"><div class="eic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></div><h4>本店暂无该商品</h4><p>换个关键词试试</p>' +
+          '<div class="near"><h5>相近商品推荐</h5>' + near.map(function (it) {
+            return '<a class="na" href="product-detail.html">' + thumbHTML(it, 38) + '<span class="snm">' + esc(it.name) + '</span><span class="spr">¥' + money(it.price) + '</span></a>';
+          }).join('') + '</div></div>';
+      } else {
+        resList.innerHTML = head + list.map(goodsHTML).join('');
+        resList.querySelectorAll('.stepper').forEach(bindStepper);
+      }
+      syncFilterUI();
+    }
+    function goodsHTML(it) {
+      var q = picked[it.id] ? picked[it.id].qty : 0;
+      return '<div class="goods sg">' +
+        '<a class="gnav gimglink" href="product-detail.html" aria-label="查看商品详情">' +
+        '<span class="' + esc(it.thumbClass) + '" aria-hidden="true">' + it.thumbSVG + '</span></a>' +
+        '<span class="gmain">' +
+          '<a class="gnav gtextlink" href="product-detail.html">' +
+          '<h3 class="gname">' + esc(it.name) + '</h3>' +
+          '<div class="gmeta"><span class="gmodel">型号 ' + esc(it.model) + '</span><span class="gscore">' + starSVG() + esc(it.score) + '</span></div>' +
+          '</a>' +
+          '<a class="gnav gtextlink" href="product-detail.html">' +
+          '<p class="gdesc">' + esc(it.desc) + '</p>' +
+          '</a>' +
+          '<div class="gact"><a class="gnav gtextlink" href="product-detail.html"><span class="gl"><span class="gleft"><span class="gprice"><b><small>¥</small>' + money(it.price) + '</b><span>/' + unitOf(it) + '</span></span></span></span></a>' +
+            '<div class="grp"><span class="gstock">剩余 ' + it.stock + ' 件</span><div class="stepper" data-stock="' + it.stock + '" data-id="' + esc(it.id) + '" data-name="' + esc(it.name) + '" data-price="' + it.price + '">' +
+              '<button type="button" class="minus" aria-label="减少数量"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round"><path d="M2 7h10"/></svg></button>' +
+              '<input class="qv" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" value="' + q + '" aria-label="数量"/>' +
+              '<button type="button" class="plus" aria-label="增加数量"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round"><path d="M2 7h10"/><path d="M7 2v10"/></svg></button>' +
+            '</div></div>' +
+          '</div>' +
+        '</span></div>';
+    }
+    function syncFilterUI() {
+      if (!sflt) return;
+      var pb = sflt.querySelector('[data-open="price"]');
+      var cb = sflt.querySelector('[data-open="cat"]');
+      var sb = sflt.querySelector('[data-open="stock"]');
+      var pf = sflt.querySelector('[data-f="price"]');
+      if (pb) {
+        pb.innerHTML = (sortBy === 'asc' ? '价格 ↑' : sortBy === 'desc' ? '价格 ↓' : '价格') + '<span class="arr"><i></i><i></i></span>';
+        pb.classList.toggle('on', sortBy !== 'default');
+      }
+      if (pf) { pf.classList.toggle('up', sortBy === 'asc'); pf.classList.toggle('down', sortBy === 'desc'); }
+      if (cb) {
+        cb.innerHTML = (catFilter === '全部商品' ? '品类' : catFilter) + '<span class="arr"><i></i><i></i></span>';
+        cb.classList.toggle('on', catFilter !== '全部商品');
+      }
+      if (sb) {
+        sb.innerHTML = (stockOnly ? '有货' : '库存') + '<span class="arr"><i></i><i></i></span>';
+        sb.classList.toggle('on', stockOnly);
+      }
+      document.querySelectorAll('.sov .dd [data-v]').forEach(function (b) {
+        var v = b.getAttribute('data-v');
+        var on = false;
+        if (v === 'default' || v === 'asc' || v === 'desc') on = sortBy === v;
+        else if (v === 'all' || v === 'in') on = (v === 'in') === stockOnly;
+        else on = v === catFilter;
+        b.classList.toggle('on', on);
+      });
+    }
+    function closeDD() {
+      document.querySelectorAll('.sov .dd').forEach(function (d) { d.classList.remove('open'); });
+    }
+    function doSearch(kw) {
+      keyword = String(kw || '').trim();
+      if (sovInput && sovInput.value.trim() !== keyword) sovInput.value = keyword;
+      updateClear();
+      if (!keyword) { renderHist(); setMode('home'); return; }
+      addHist(keyword);
+      renderRes();
+      setMode('res');
+    }
+    function updateClear() {
+      if (!sovClear) return;
+      sovClear.classList.toggle('on', !!(sovInput && sovInput.value.length));
+    }
+
+    function openSov() {
+      if (!sov) return;
+      if (scrollEl) savedTop = scrollEl.scrollTop;
+      sov.classList.add('open');
+      if (scrollEl) scrollEl.style.overflowY = 'hidden';
+      if (sovInput) { sovInput.value = ''; }
+      keyword = ''; sortBy = 'default'; catFilter = '全部商品'; stockOnly = false;
+      updateClear();
+      renderHist();
+      setMode('home');
+      setTimeout(function () { try { if (sovInput) sovInput.focus(); } catch (err) {} }, 60);
+    }
+    function closeSov() {
+      if (!sov) return;
+      sov.classList.remove('open');
+      closeDD();
+      if (sovInput) sovInput.blur();
+      if (scrollEl) {
+        scrollEl.style.overflowY = '';
+        scrollEl.scrollTop = savedTop;
+      }
+    }
+
+    var navSearch = document.getElementById('navSearch');
+    var shopSearch = document.getElementById('shopSearch');
+    [navSearch, shopSearch].forEach(function (btn) {
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openSov();
+      });
+    });
+    if (sovCancel) sovCancel.addEventListener('click', closeSov);
+    if (sovMask) sovMask.addEventListener('click', closeSov);
+    if (sovClear) {
+      sovClear.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!sovInput) return;
+        sovInput.value = '';
+        updateClear();
+        renderHist();
+        setMode('home');
+        try { sovInput.focus(); } catch (err) {}
+      });
+    }
+    if (sovInput) {
+      sovInput.addEventListener('input', function () {
+        updateClear();
+        if (!sovInput.value.trim()) { renderHist(); setMode('home'); return; }
+        renderSug();
+      });
+      sovInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+          e.preventDefault();
+          doSearch(sovInput.value);
+          try { sovInput.blur(); } catch (err) {}
+        }
+      });
+    }
+    if (sugBox) {
+      sugBox.addEventListener('click', function (e) {
+        var go = e.target.closest('[data-go]');
+        if (go) {
+          var it = findItem(go.getAttribute('data-go'));
+          if (it) addHist(it.name);
+          location.href = 'product-detail.html';
+          return;
+        }
+        if (e.target.closest('#sugMore')) doSearch(sovInput ? sovInput.value : '');
+      });
+    }
+    if (sovHome) {
+      sovHome.addEventListener('click', function (e) {
+        if (e.target.closest('#histClear')) { setHist([]); renderHist(); return; }
+        var del = e.target.closest('[data-del]');
+        if (del) {
+          var w = del.getAttribute('data-del');
+          setHist(getHist().filter(function (x) { return x !== w; }));
+          renderHist();
+          return;
+        }
+        var kwEl = e.target.closest('[data-kw]');
+        if (kwEl) { doSearch(kwEl.getAttribute('data-kw')); return; }
+        var catEl = e.target.closest('[data-cat]');
+        if (catEl) {
+          keyword = ''; catFilter = catEl.getAttribute('data-cat');
+          if (sovInput) sovInput.value = '';
+          updateClear();
+          renderRes();
+          setMode('res');
+        }
+      });
+    }
+    if (sflt) {
+      sflt.addEventListener('click', function (e) {
+        var openBtn = e.target.closest('[data-open]');
+        if (openBtn) {
+          var wrap = openBtn.parentNode;
+          var dd = wrap.querySelector('.dd');
+          var wasOpen = dd && dd.classList.contains('open');
+          closeDD();
+          if (dd && !wasOpen) dd.classList.add('open');
+          return;
+        }
+        var pick = e.target.closest('.dd [data-v]');
+        if (pick) {
+          var v = pick.getAttribute('data-v');
+          if (v === 'default' || v === 'asc' || v === 'desc') sortBy = v;
+          else if (v === 'all' || v === 'in') stockOnly = v === 'in';
+          else catFilter = v;
+          closeDD();
+          renderRes();
+        }
+      });
+    }
+    if (resList) {
+      resList.addEventListener('click', function (e) {
+        if (e.target.closest('.stepper')) { e.preventDefault(); e.stopPropagation(); }
+      });
+    }
+
+    document.querySelectorAll('.scroll .goods').forEach(function (row) {
+      var box = row.querySelector('.stepper');
+      if (box) bindStepper(box);
+    });
+    /* 兜底：步进器容器内任意位置点击都不触发跳转（不含 stopPropagation，加减逻辑照常执行） */
+    document.addEventListener('click', function (e) {
+      var box = e.target && e.target.closest ? e.target.closest('.stepper') : null;
+      if (!box) return;
+      var link = e.target.closest('a[href]');
+      if (link) e.preventDefault();
+    });
+    refresh();
+    var f = document.getElementById('filters');
+    if (f) {
+      f.querySelectorAll('button').forEach(function (b) {
+        b.addEventListener('click', function () {
+          f.querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); });
+          b.classList.add('on');
+        });
+      });
+    }
+    var fol = document.getElementById('follow');
+    if (fol) {
+      fol.addEventListener('click', function () {
+        var on = fol.classList.toggle('on');
+        fol.textContent = on ? '已关注' : '关注店铺';
+      });
+    }
+  })();
+</script>
+</body>
+</html>
+<style>
+.filters{display:none!important}
+.legacy-cart{display:none!important}
+</style>

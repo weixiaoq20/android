@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 店铺客服</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.hidden{display:none!important}
+.topbar{flex:0 0 48px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid #F7EEE8;background:rgba(255,255,255,.86)}
+.back{width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 3px 9px rgba(160,110,80,.08)}
+.who{display:flex;flex-direction:column;align-items:center;line-height:1.25;min-width:0}
+.who b{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px}
+.who span{font-size:8.5px;color:#34A875;display:flex;align-items:center;gap:3px;margin-top:1px}
+.who span i{width:4px;height:4px;border-radius:50%;background:#34A875;display:block;font-style:normal}
+.enter{font-size:9.5px;color:#EE4A2F;border:1px solid #F7A392;border-radius:999px;padding:4px 9px;font-weight:700;background:#FFF6F3}
+.chat{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding:9px 12px 12px;scrollbar-width:none}
+.chat::-webkit-scrollbar{display:none}
+.day{text-align:center;font-size:8.5px;color:#B2A69C;margin:3px 0 9px}
+.sysline{text-align:center;margin-bottom:10px}
+.sysline span{font-size:8.5px;color:#A99C92;background:rgba(255,255,255,.8);border-radius:999px;padding:3px 8px;display:inline-block}
+.msg{display:flex;gap:7px;margin-bottom:10px;align-items:flex-start}
+.av{width:32px;height:32px;border-radius:50%;flex:0 0 32px;display:grid;place-items:center;font-size:11px;font-weight:800;background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff;box-shadow:0 2px 6px rgba(232,70,45,.14)}
+.msg.me{flex-direction:row-reverse}
+.msg.me .av{background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff;box-shadow:none}
+.bub{max-width:248px;background:#fff;border-radius:4px 14px 14px 14px;padding:8px 11px;font-size:11.5px;line-height:1.55;box-shadow:0 3px 10px rgba(196,110,72,.06);color:#2C2C2F;border:1px solid #F3ECE6;word-break:break-word}
+.msg.me .bub{background:linear-gradient(135deg,#FB7C5B,#F03A2C);border:1px solid transparent;color:#fff;border-radius:14px 4px 14px 14px;box-shadow:0 4px 12px rgba(232,70,45,.2)}
+.tip{font-size:8.5px;color:#B2A69C;padding:1px 6px 0;line-height:1.4}
+.prod{background:#fff;border-radius:12px;padding:7px;width:238px;box-shadow:0 3px 10px rgba(196,110,72,.06)}
+.prod .pimg{height:82px;border-radius:8px;position:relative;overflow:hidden;background:linear-gradient(140deg,#EAF0D8,#C2D59B 55%,#8FAF68)}
+.prod .blob{position:absolute;border-radius:50%;display:block}
+.prod .ttl{font-size:10.5px;line-height:1.4;margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.prod .row{display:flex;align-items:center;justify-content:space-between;margin-top:3px}
+.prod .p{color:#E23A2E;font-weight:800;font-size:14px}
+.prod .go{font-size:8.5px;color:#A99C92}
+.prod .tag{position:absolute;left:5px;bottom:5px;background:rgba(255,255,255,.94);color:#E23A2E;font-size:7.5px;font-weight:700;border-radius:4px;padding:1px 4px}
+.order{background:#fff;border-radius:12px;width:238px;padding:9px;box-shadow:0 3px 10px rgba(196,110,72,.06)}
+.order .oh{display:flex;align-items:center;justify-content:space-between;font-size:8.5px;color:#A99C92;padding-bottom:5px;border-bottom:1px dashed #F2E7DF}
+.order .on{font-size:10px;color:#3E332B;font-weight:700;margin-top:5px}
+.order .or{display:flex;align-items:center;justify-content:space-between;margin-top:3px}
+.order .or b{font-size:14px;color:#E23A2E}
+.order .view{font-size:8.5px;color:#EE4A2F;font-weight:700}
+.voice{display:flex;align-items:center;gap:6px;padding:1px 2px}
+.voice .wave{display:flex;align-items:center;gap:2px;height:14px}
+.voice .wave i{width:2px;border-radius:2px;background:#D9A88F;display:block}
+.imgmsg{width:172px;height:112px;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(150deg,#BFE4EE,#8CC7A8 45%,#4F8C4E)}
+.imgmsg .lbl{position:absolute;left:6px;bottom:5px;background:rgba(20,30,25,.42);color:#fff;font-size:8px;padding:2px 6px;border-radius:999px;backdrop-filter:blur(3px)}
+.actionrow{display:flex;justify-content:center;gap:14px;margin:4px 0 10px}
+.qa{font-size:9px;color:#B3411F;background:#FFF6F3;border:1px solid #F7C7B8;border-radius:999px;padding:4px 10px}
+.inputbar{flex:0 0 auto;background:#fff;border-top:1px solid #F3EBE5;display:flex;align-items:center;gap:7px;padding:9px 10px 8px;box-shadow:0 -4px 14px rgba(120,80,60,.03)}
+.icbtn{width:28px;height:28px;display:grid;place-items:center;flex:0 0 28px;color:#7C6F66}
+.inputbar input{flex:1;height:36px;border-radius:999px;background:#FFFBF9;border:1px solid #F5E9E2;padding:0 13px;font-size:12px;outline:none;font-family:inherit;min-width:0}
+.send{height:32px;padding:0 14px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:11.5px;font-weight:700;flex:0 0 auto;box-shadow:0 4px 12px rgba(232,70,45,.24)}
+.pluspanel{flex:0 0 auto;background:#fff;border-top:1px solid #F6EFEA;display:grid;grid-template-columns:repeat(4,1fr);padding:7px 8px 5px;gap:5px}
+.pitem{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:#6E6057}
+.pitem .pi{width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 50% 42%,#FDE7E4,#FCEBEA 70%,#FDF2F1);display:grid;place-items:center;color:#EE4A2F}
+.toast{position:absolute;left:50%;bottom:152px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:50;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="topbar">
+<a aria-label="返回" class="back" href="messages.html">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+<div class="who"><b>福聚贡翔演示店</b><span><i></i>在线 · 通常几分钟内回复</span></div>
+<a class="enter" href="shop.html">进店</a>
+</div>
+<div class="chat" id="chat">
+<div class="day">2026-11-06 14:48</div>
+<div class="sysline"><span>你已进入店铺会话，请勿发送银行卡等敏感信息</span></div>
+<div class="msg">
+<span class="av">福</span>
+<div>
+<div class="bub">在的，今天的红心猕猴桃都是早上现摘的，5斤大果还有货。成都同城下午发出，晚上就能到。</div>
+<div class="tip">福聚贡翔演示店 · 14:49</div>
+</div>
+</div>
+<div class="msg me">
+<span class="av">我</span>
+<div>
+<div class="bub">要两箱，送到青羊区少城街道，今天能发吗？</div>
+<div class="tip" style="text-align:right">14:50</div>
+</div>
+</div>
+<div class="msg">
+<span class="av">福</span>
+<div>
+<div class="bub">可以，同城下午就能送到。店里有满49减8的红包，下单时可以直接抵扣。</div>
+<div class="tip">14:50</div>
+</div>
+</div>
+<div class="msg">
+<span class="av">福</span>
+<div>
+<a class="prod" href="product-detail.html">
+<div class="pimg">
+<i class="blob" style="width:54px;height:54px;left:18px;top:14px;background:radial-gradient(circle at 34% 30%,#D9C08A,#A47F45 58%,#6E5127)"></i>
+<i class="blob" style="width:34px;height:34px;left:62px;top:38px;background:radial-gradient(circle at 35% 30%,#C6D98B,#7E9B4A 62%,#4F6A2A)"></i>
+<span class="tag">5斤大果 · 现货</span>
+</div>
+<div class="ttl">蒲江红心猕猴桃 5斤大果 现摘现发</div>
+<div class="row"><span class="p">¥39.90</span><span class="go">查看商品 ›</span></div>
+</a>
+<div class="tip" style="margin-top:3px">商品卡 · 点击查看详情</div>
+</div>
+</div>
+<div class="msg">
+<span class="av">福</span>
+<div>
+<a class="order" href="order-detail.html">
+<div class="oh"><span>订单卡</span><span>202611060032</span></div>
+<div class="on">待确认收款 · 线下扫码</div>
+<div class="or"><b>¥71.80</b><span class="view">查看订单 ›</span></div>
+</a>
+<div class="tip" style="margin-top:3px">订单卡 · 2 件猕猴桃</div>
+</div>
+</div>
+<div class="msg me">
+<span class="av">我</span>
+<button class="bub voice" onclick="showToast('语音播放演示：8 秒')" style="display:flex;align-items:center">
+<span class="wave"><i style="height:5px"></i><i style="height:10px"></i><i style="height:14px"></i><i style="height:8px"></i><i style="height:12px"></i></span>
+<span>8″</span>
+</button>
+</div>
+<div class="msg">
+<span class="av">福</span>
+<div>
+<div class="imgmsg">
+<svg height="100%" preserveaspectratio="none" style="position:absolute;inset:0" viewbox="0 0 172 112" width="100%">
+<rect fill="#DFEBD1" height="112" width="172"></rect>
+<circle cx="52" cy="46" fill="#A9C47F" r="24"></circle>
+<circle cx="96" cy="52" fill="#8FAF68" r="20"></circle>
+<circle cx="128" cy="38" fill="#B9D093" r="17"></circle>
+<path d="M0 96c34-24 68-20 96-6 30 15 54 16 76 6v16H0z" fill="#7E9B4A"></path>
+<path d="M32 40c10-12 26-16 38-10" fill="none" stroke="#6E8F42" stroke-width="2"></path>
+</svg>
+<span class="lbl">果园实拍 · 今日现摘</span>
+</div>
+<div class="tip" style="margin-top:3px">图片 · 2 张</div>
+</div>
+</div>
+<div class="msg">
+<span class="av">福</span>
+<div>
+<div class="bub">已经安排打包，发出后会在订单里更新物流。收到有坏果直接拍照发我，包赔。</div>
+<div class="tip">14:56</div>
+</div>
+</div>
+<div class="actionrow">
+<button class="qa" onclick="quickAsk('今天能发吗？')">今天能发吗？</button>
+<button class="qa" onclick="quickAsk('可以开发票吗？')">可以开发票吗？</button>
+<button class="qa" onclick="quickAsk('有优惠吗？')">有优惠吗？</button>
+</div>
+</div>
+<div class="inputbar">
+<button aria-label="语音" class="icbtn" onclick="toast('按住说话：语音消息演示')">
+<svg fill="none" height="20" viewbox="0 0 24 24" width="20"><rect height="11" rx="3" stroke="#7C6F66" stroke-width="1.7" width="6" x="9" y="3"></rect><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6" stroke="#7C6F66" stroke-linecap="round" stroke-width="1.7"></path></svg>
+</button>
+<input id="msgInput" onkeydown="if(event.key==='Enter'){sendText()}" placeholder="输入消息..."/>
+<button aria-label="表情" class="icbtn" onclick="toast('表情面板演示')">
+<svg fill="none" height="20" viewbox="0 0 24 24" width="20"><circle cx="12" cy="12" r="8.5" stroke="#7C6F66" stroke-width="1.7"></circle><circle cx="9" cy="10" fill="#7C6F66" r="1.1"></circle><circle cx="15" cy="10" fill="#7C6F66" r="1.1"></circle><path d="M8.5 14c2 2 5 2 7 0" stroke="#7C6F66" stroke-linecap="round" stroke-width="1.6"></path></svg>
+</button>
+<button aria-label="更多" class="icbtn" onclick="togglePlus()">
+<svg fill="none" height="21" viewbox="0 0 24 24" width="21"><circle cx="12" cy="12" r="8.5" stroke="#7C6F66" stroke-width="1.7"></circle><path d="M12 8v8M8 12h8" stroke="#7C6F66" stroke-linecap="round" stroke-width="1.7"></path></svg>
+</button>
+<button class="send" onclick="sendText()">发送</button>
+</div>
+<div class="pluspanel" id="plusPanel">
+<button class="pitem" onclick="toast('发送图片')">
+<span class="pi"><svg fill="none" height="21" viewbox="0 0 24 24" width="21"><rect height="15" rx="3" stroke="#BA7659" stroke-width="1.7" width="18" x="3" y="4.5"></rect><circle cx="8.5" cy="9.5" fill="#BA7659" r="1.8"></circle><path d="m4 17 5-4.5 3.5 3 3-2.5 4.5 4" stroke="#BA7659" stroke-linejoin="round" stroke-width="1.7"></path></svg></span>
+      图片
+    </button>
+<button class="pitem" onclick="toast('拍照')">
+<span class="pi"><svg fill="none" height="21" viewbox="0 0 24 24" width="21"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z" stroke="#BA7659" stroke-linejoin="round" stroke-width="1.7"></path><circle cx="12" cy="13" r="3.2" stroke="#BA7659" stroke-width="1.7"></circle></svg></span>
+      拍照
+    </button>
+<button class="pitem" onclick="sendOrder()">
+<span class="pi"><svg fill="none" height="21" viewbox="0 0 24 24" width="21"><rect height="17" rx="3" stroke="#BA7659" stroke-width="1.7" width="14" x="5" y="3.5"></rect><path d="M8.5 8h7M8.5 11.5h7M8.5 15h4" stroke="#BA7659" stroke-linecap="round" stroke-width="1.6"></path></svg></span>
+      订单
+    </button>
+<button class="pitem" onclick="toast('选择批发单')">
+<span class="pi"><svg fill="none" height="21" viewbox="0 0 24 24" width="21"><rect height="14.5" rx="2.5" stroke="#BA7659" stroke-width="1.6" width="12" x="8.5" y="3.5"></rect><rect fill="#FDE7E4" height="13.5" rx="2.5" stroke="#BA7659" stroke-width="1.6" width="12" x="3.5" y="7"></rect><path d="M6.6 11.2h6.2M6.6 14.5h6.2M6.6 17.8h4" stroke="#BA7659" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
+      批发单
+    </button>
+</div>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast">已发送</div>
+</div>
+<script>
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1600);
+  }
+
+  function scrollBottom() {
+    const c = document.getElementById('chat');
+    c.scrollTop = c.scrollHeight;
+  }
+
+  function sendText() {
+    const input = document.getElementById('msgInput');
+    const v = input.value.trim();
+    if (!v) { toast('请输入消息内容'); return; }
+    const row = document.createElement('div');
+    row.className = 'msg me';
+    const av = document.createElement('span');
+    av.className = 'av';
+    av.textContent = '我';
+    const bubble = document.createElement('div');
+    bubble.className = 'bub';
+    bubble.textContent = v;
+    row.appendChild(av);
+    row.appendChild(bubble);
+    document.getElementById('chat').appendChild(row);
+    input.value = '';
+    scrollBottom();
+    setTimeout(function () {
+      const reply = document.createElement('div');
+      reply.className = 'msg';
+      reply.innerHTML = '<span class="av">福</span><div><div class="bub">收到，我这边帮你备注一下。还有其他需要可以直接说～</div><div class="tip">刚刚</div></div>';
+      document.getElementById('chat').appendChild(reply);
+      scrollBottom();
+    }, 650);
+  }
+
+  function quickAsk(text) {
+    document.getElementById('msgInput').value = text;
+    sendText();
+  }
+
+  function togglePlus() {
+    const p = document.getElementById('plusPanel');
+    p.classList.toggle('hidden');
+    if (!p.classList.contains('hidden')) { scrollBottom(); }
+  }
+
+  function sendProduct() {
+    const html = '<div class="msg"><span class="av">我</span><div><a class="prod" href="product-detail.html"><div class="pimg"><i class="blob" style="width:54px;height:54px;left:18px;top:14px;background:radial-gradient(circle at 34% 30%,#D9C08A,#A47F45 58%,#6E5127)"></i><i class="blob" style="width:34px;height:34px;left:62px;top:38px;background:radial-gradient(circle at 35% 30%,#C6D98B,#7E9B4A 62%,#4F6A2A)"></i><span class="tag">5斤大果 · 现货</span></div><div class="ttl">蒲江红心猕猴桃 5斤大果 现摘现发</div><div class="row"><span class="p">¥39.90</span><span class="go">查看商品 ›</span></div></a><div class="tip" style="margin-top:3px">你发送了商品卡</div></div></div>';
+    document.getElementById('chat').insertAdjacentHTML('beforeend', html);
+    document.getElementById('plusPanel').classList.add('hidden');
+    scrollBottom();
+    toast('商品卡已发送');
+  }
+
+  function sendOrder() {
+    const html = '<div class="msg"><span class="av">我</span><div><a class="order" href="order-detail.html"><div class="oh"><span>订单卡</span><span>202611060032</span></div><div class="on">待确认收款 · 线下扫码</div><div class="or"><b>¥71.80</b><span class="view">查看订单 ›</span></div></a><div class="tip" style="margin-top:3px">你发送了订单卡</div></div></div>';
+    document.getElementById('chat').insertAdjacentHTML('beforeend', html);
+    scrollBottom();
+    toast('订单卡已发送');
+  }
+
+  scrollBottom();
+</script>
+</body>
+</html>

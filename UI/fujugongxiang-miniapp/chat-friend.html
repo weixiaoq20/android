@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 好友消息</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.hidden{display:none!important}
+.navbar{flex:0 0 48px;display:flex;align-items:center;gap:9px;padding:0 13px;background:rgba(255,255,255,.9);border-bottom:1px solid #F7EEE8}
+.navbar .back{color:#2A2420;width:22px;flex:0 0 22px}
+.navbar .ava{width:32px;height:32px;border-radius:50%;background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center;flex:0 0 32px}
+.navbar .tx{flex:1;min-width:0}
+.navbar .tx b{display:block;font-size:13.5px;font-weight:700}
+.navbar .tx span{display:block;font-size:9.5px;color:#A79A91;margin-top:1px}
+.navbar .more{width:30px;height:30px;border-radius:50%;background:#FFF6F3;color:#EE4A2F;display:grid;place-items:center;flex:0 0 30px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;padding:10px 12px}
+.scroll::-webkit-scrollbar{display:none}
+.time{text-align:center;font-size:9.5px;color:#B0A49B;margin:10px 0 9px}
+.msg{display:flex;gap:7px;margin-bottom:10px;align-items:flex-start}
+.msg .av{width:30px;height:30px;border-radius:50%;flex:0 0 30px;background:linear-gradient(140deg,#CDD5E0,#9FAAB9);color:#fff;font-size:10px;font-weight:800;display:grid;place-items:center}
+.bub{max-width:252px;background:#fff;border-radius:4px 14px 14px 14px;padding:9px 12px;font-size:12.5px;line-height:1.6;color:#2C2C2F;border:1px solid #F3ECE6;box-shadow:0 2px 6px rgba(150,110,88,.05)}
+.msg.mine{flex-direction:row-reverse}
+.msg.mine .av{background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff}
+.bub.me{background:linear-gradient(135deg,#FB7C5B,#F03A2C);border-color:transparent;border-radius:14px 4px 14px 14px;color:#fff;box-shadow:0 4px 12px rgba(232,70,45,.2)}
+/* 分享商品 */
+.share{width:216px;background:#fff;border:1px solid #F2EAE3;border-radius:3px 12px 12px 12px;overflow:hidden}
+.share .im{height:80px;position:relative;background:linear-gradient(150deg,#FBF2E3,#F0D7B6)}
+.share .im i{position:absolute;width:58px;height:58px;border-radius:50%;left:14px;top:11px;background:radial-gradient(circle at 34% 28%,#F3DDB5,#E1B87F 58%,#BC8F5A 100%)}
+.share .im em{position:absolute;left:82px;top:18px;font-size:11.5px;font-style:normal;font-weight:700;color:#6E4433;line-height:1.4}
+.share .im em span{display:block;font-size:9.5px;font-weight:400;color:#A79A91;margin-top:3px}
+.share .bd{padding:7px 9px 9px;display:flex;align-items:center}
+.share .bd b{color:#E23A2E;font-size:13px;font-weight:800}
+.share .bd a{margin-left:auto;font-size:10px;color:#EE4A2F;border:1px solid #F7A392;background:#FFF6F3;border-radius:999px;padding:2px 9px}
+/* 红卡片 */
+.rcard{width:220px;background:linear-gradient(135deg,#FFF3EE,#FFE7DE);border:1px solid #F9D2C4;border-radius:4px 14px 14px 14px;padding:10px 11px;display:flex;align-items:center;gap:9px}
+.rcard .ric{width:34px;height:34px;border-radius:50%;background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff;display:grid;place-items:center;flex:0 0 34px;font-size:14px;font-weight:800}
+.rcard .rt{font-size:11.5px;color:#B3411F;line-height:1.45}
+.rcard .rt b{display:block;font-size:13px}
+.quicks{display:flex;gap:6px;flex-wrap:wrap;padding:9px 12px 8px}
+.quicks button{font-size:10.5px;color:#B3411F;background:#FFF6F3;border:1px solid #F7C7B8;border-radius:999px;padding:5px 11px}
+.inputbar{flex:0 0 auto;display:flex;align-items:center;gap:7px;padding:9px 12px 13px;background:#fff;border-top:1px solid #F3EBE5}
+.inputbar .plus{width:32px;height:32px;border-radius:50%;background:#FFF6F3;color:#EE4A2F;display:grid;place-items:center;flex:0 0 32px}
+.inputbar input{flex:1;min-width:0;height:36px;border-radius:999px;border:1px solid #F5E9E2;background:#FFFBF9;padding:0 14px;font-size:12px;color:var(--ink);outline:none;font-family:inherit}
+.inputbar input::placeholder{color:#B6B6BC}
+.send{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;display:grid;place-items:center;flex:0 0 36px;box-shadow:0 4px 12px rgba(232,70,45,.24)}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="navbar">
+<a aria-label="返回" class="back" href="messages.html"><svg fill="none" height="20" viewbox="0 0 24 24" width="20"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"></path></svg></a>
+<span class="ava">陈</span>
+<div class="tx"><b>陈小满</b><span>好友 · 成都武侯</span></div>
+<a aria-label="更多" class="more" href="friend.html"><svg fill="currentColor" height="16" viewbox="0 0 24 24" width="16"><circle cx="5.5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="18.5" cy="12" r="1.7"></circle></svg></a>
+</div>
+<div class="scroll" id="scroll">
+<div class="time">今天 09:20</div>
+<div class="msg">
+<span class="av">陈</span>
+<div class="bub">小满，你说的那家蒲江猕猴桃靠谱不？我想给家里寄两箱。</div>
+</div>
+<div class="msg mine">
+<span class="av">我</span>
+<div class="bub me">靠谱！我上周买过，果子很甜，还坏了两个直接赔了。</div>
+</div>
+<div class="msg mine">
+<span class="av">我</span>
+<div>
+<div class="share">
+<div class="im">
+<i></i>
+<em>红心猕猴桃 5斤大果<span>券后 ¥34.9 · 坏果包赔</span></em>
+</div>
+<div class="bd"><b>¥39.90</b><a href="product-detail.html">去看看</a></div>
+</div>
+</div>
+</div>
+<div class="msg">
+<span class="av">陈</span>
+<div class="bub">收到，那我拼一单试试，刚好还差一个人成团。</div>
+</div>
+<div class="msg">
+<span class="av">陈</span>
+<div class="rcard">
+<span class="ric">券</span>
+<div class="rt"><b>送你一张店铺券</b>满 39 减 5，今天有效</div>
+</div>
+</div>
+<div class="msg mine">
+<span class="av">我</span>
+<div class="bub me">谢谢～ 我拼单还差一个人，你要一起吗？</div>
+</div>
+<div class="msg">
+<span class="av">陈</span>
+<div class="bub">可以呀，那我直接去拼。</div>
+</div>
+<div style="height:4px"></div>
+</div>
+<div class="quicks" id="quicks">
+<button>拼单链接</button>
+<button>周末一起逛店</button>
+<button>推荐好店</button>
+</div>
+<div class="inputbar">
+<a aria-label="拼单" class="plus" href="group-buy.html"><svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M12 5v14M5 12h14"></path></svg></a>
+<input id="txt" placeholder="发消息…"/>
+<button aria-label="发送" class="send" id="send"><svg fill="none" height="16" stroke="currentColor" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M4 12 20.5 4 14 20l-2.6-6.2z"></path></svg></button>
+</div>
+<div class="homebar"><i></i></div>
+</div>
+<script>
+  (function () {
+    var sc = document.getElementById('scroll');
+    var txt = document.getElementById('txt');
+    function push(text) {
+      var wrap = document.createElement('div');
+      wrap.className = 'msg mine';
+      var av = document.createElement('span');
+      av.className = 'av';
+      av.textContent = '我';
+      var bub = document.createElement('div');
+      bub.className = 'bub me';
+      bub.textContent = text;
+      wrap.appendChild(av);
+      wrap.appendChild(bub);
+      sc.appendChild(wrap);
+      sc.scrollTop = sc.scrollHeight;
+    }
+    function send(text) {
+      text = (text || '').trim();
+      if (!text) { txt.focus(); return; }
+      push(text);
+      txt.value = '';
+    }
+    document.getElementById('send').addEventListener('click', function () { send(txt.value); });
+    txt.addEventListener('keydown', function (e) { if (e.key === 'Enter') send(txt.value); });
+    document.querySelectorAll('#quicks button').forEach(function (b) {
+      b.addEventListener('click', function () { send(b.textContent); });
+    });
+  })();
+</script>
+</body>
+</html>

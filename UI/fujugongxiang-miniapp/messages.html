@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 消息</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.hidden{display:none!important}
+.msghead{padding:2px 14px 0;flex:0 0 auto}
+.readall{height:32px;padding:0 14px;border-radius:999px;background:#fff;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#2A2420;box-shadow:0 4px 12px rgba(180,120,90,.08)}
+.quickrow{display:flex;justify-content:space-between;padding:14px 16px 8px}
+.quick{display:flex;flex-direction:column;align-items:center;gap:7px;position:relative;width:84px}
+.qico{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 3px 10px rgba(150,110,88,.06);border:1px solid #FBE7E0;background:radial-gradient(circle at 50% 42%,#FDE7E4 0%,#FCEBEA 60%,#FDF2F1 100%)!important}
+.qico:after{content:"";position:absolute;left:10px;top:7px;width:20px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);filter:blur(1px)}
+.qico svg{position:relative;z-index:1}
+.quick span{font-size:12px;color:#3F342C;font-weight:600;letter-spacing:-.2px}
+.qbadge{position:absolute;top:-3px;right:8px;min-width:19px;height:19px;border-radius:10px;background:#E8392C;color:#fff;font-size:10px;font-weight:600;display:grid;place-items:center;border:2px solid #FDF6F2;z-index:3;padding:0 4px}
+.pushbanner{display:flex;align-items:center;gap:8px;margin:4px 12px 10px;background:#fff;border-radius:999px;padding:7px 8px 7px 13px;box-shadow:0 5px 16px rgba(232,70,45,.07);height:44px}
+.pushbanner .bell{flex:0 0 21px;display:grid;place-items:center}
+.pushtxt{flex:1;font-size:12.5px;font-weight:600;color:#3E332B;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.openbtn{height:28px;padding:0 13px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:11.5px;font-weight:700;flex:0 0 auto;box-shadow:0 3px 8px rgba(232,70,45,.22)}
+.closebtn{width:25px;height:25px;border-radius:50%;background:#F4F1EF;display:grid;place-items:center;flex:0 0 25px}
+.mlist{background:#fff;border-radius:16px;margin:0 12px;overflow:hidden;box-shadow:0 6px 20px rgba(196,110,72,.06)}
+.mrow{display:flex;align-items:center;gap:10px;padding:11px 14px;position:relative;min-height:64px}
+.mrow + .mrow{border-top:1px solid #F7F1EC}
+.mrow:active{background:#FFFBF8}
+.mico{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;flex:0 0 43px;position:relative}
+.mavatar{width:44px;height:44px;border-radius:12px;overflow:hidden;flex:0 0 44px;background:#F1E4D8}
+.mavatar svg{width:100%;height:100%;display:block}
+.mi{flex:1;min-width:0;line-height:1.35}
+.mtop{display:flex;align-items:center;gap:5px}
+.mtop b{font-size:13.5px;font-weight:700;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mmsg{font-size:11.5px;color:#9C8F85;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mright{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:0 0 auto}
+.mtime{font-size:9.5px;color:#B2A69C;white-space:nowrap}
+.mbadge{min-width:18px;height:18px;border-radius:9px;background:#E8392C;color:#fff;font-size:10px;font-weight:600;display:grid;place-items:center;padding:0 4px;border:1.5px solid #fff;font-style:normal}
+.grouptitle{height:32px;background:#FFF8F5;display:flex;align-items:center;padding:0 14px;font-size:10.5px;color:#A79A90;letter-spacing:.2px}
+.sysrow{display:flex;align-items:stretch;background:#FFF7F4;border-top:1px solid #F7F1EC;min-height:74px}
+.sysleft{display:flex;align-items:center;gap:9px;flex:1;min-width:0;padding:11px 10px 11px 14px}
+.sysacts{display:flex;flex:0 0 150px}
+.sysact{flex:1;display:grid;place-items:center;color:#fff;font-size:13px;font-weight:700}
+.sysact.top{background:#7C93B4}
+.sysact.hide{background:linear-gradient(135deg,#FB6E4E,#F03A2C)}
+.sysleft .mi{min-width:0}
+.sysnote{font-size:9px;color:#B08A78;margin-top:2px}
+.endspace{height:16px}
+.toast{position:absolute;left:50%;bottom:104px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:50;white-space:nowrap;backdrop-filter:blur(6px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.tabbar{flex:0 0 58px;background:#fff;border-top:1px solid #F0EDEA;display:flex;padding:6px 3px 0;position:relative;z-index:30}
+.tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;color:#6D7480;font-size:13px;font-weight:500;position:relative;text-decoration:none;letter-spacing:-.2px}
+.tabbar a.on{color:#F2452E;font-weight:700}
+.ti{width:38px;height:28px;display:grid;place-items:center;border-radius:50%;position:relative;transition:background .2s}
+.tabbar a.on .ti{background:radial-gradient(circle at 50% 58%,#FDE0D8 0%,rgba(253,224,216,0) 72%)}
+.badge{position:absolute;top:-5px;right:-3px;min-width:18px;height:18px;border-radius:9px;background:#E8392C;color:#fff;font-size:10px;font-weight:600;display:grid;place-items:center;padding:0 4px;font-style:normal}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="msghead">
+<button class="readall" onclick="readAll()">
+<svg fill="none" height="15" viewbox="0 0 24 24" width="15"><path d="M4 19h16M6 16l9-9 3 3-9 9H6zM14 6l2-2 3 3-2 2" stroke="#3A2E26" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path></svg>
+      一键已读
+    </button>
+<div class="quickrow">
+<a class="quick" href="orders.html">
+<span class="qico" style="background:#EFF2F7">
+<svg fill="#3D7BF3" height="24" viewbox="0 0 24 24" width="24"><rect height="18" rx="3" width="14" x="5" y="3.5"></rect><rect fill="#2F63CB" height="3.2" rx="1.4" width="8" x="8" y="2.2"></rect><path d="M8.5 10h7M8.5 13.2h7M8.5 16.4h4.6" stroke="#fff" stroke-linecap="round" stroke-width="1.4"></path></svg>
+</span>
+<span>订单通知</span>
+</a>
+<a class="quick" href="friends.html">
+<span class="qico" style="background:#F7EAE3">
+<svg fill="#BA7659" height="24" viewbox="0 0 26 24" width="26"><circle cx="9.5" cy="8" r="4.2"></circle><path d="M1.8 20.5c0-4.2 3.4-6.7 7.7-6.7s7.7 2.5 7.7 6.7z"></path><circle cx="19" cy="9.4" opacity=".72" r="3.1"></circle><path d="M16.6 14.4c4.2-.6 7.6 1.8 7.6 5.6h-5.1" opacity=".72"></path></svg>
+</span>
+<span>好友列表</span>
+<i class="qbadge">22</i>
+</a>
+<a class="quick" href="chat-service.html">
+<span class="qico" style="background:#F7F0E2">
+<svg fill="#C39A63" height="25" viewbox="0 0 24 24" width="25"><path d="M3 9.4v4.9h3.2l4.3 3.4V6L6.2 9.4H3z"></path><path d="M14.2 8a5.2 5.2 0 0 1 0 8M17.4 5a9 9 0 0 1 0 14" fill="none" stroke="#C39A63" stroke-linecap="round" stroke-width="1.8"></path></svg>
+</span>
+<span>系统公告</span>
+</a>
+</div>
+</div>
+<div class="scroll">
+<div class="pushbanner" id="pushBanner">
+<span class="bell">
+<svg fill="#BA7659" height="21" viewbox="0 0 24 24" width="21"><path d="M12 2.2c-3.5 0-6.2 2.7-6.2 6.2v3.6L4 15.4v1.2h16v-1.2L18.2 12V8.4c0-3.5-2.7-6.2-6.2-6.2z"></path><path d="M9.5 18.2a2.7 2.7 0 0 0 5 0z"></path><path d="M12 1.2v1.4" stroke="#EBD4C6" stroke-linecap="round" stroke-width="1.6"></path></svg>
+</span>
+<span class="pushtxt">开启推送通知，及时接收消息</span>
+<button class="openbtn" onclick="openPush()">去开启</button>
+<button aria-label="关闭" class="closebtn" onclick="closePush()">
+<svg fill="none" height="11" viewbox="0 0 24 24" width="11"><path d="M5 5l14 14M19 5 5 19" stroke="#9F9389" stroke-linecap="round" stroke-width="2.4"></path></svg>
+</button>
+</div>
+<div class="mlist">
+<a class="mrow" href="orders.html">
+<span class="mico" style="background:#EFF2F7">
+<svg fill="#7C93B4" height="24" viewbox="0 0 24 24" width="24"><rect height="18" rx="3" width="14" x="5" y="3.5"></rect><rect fill="#6B81A0" height="3.2" rx="1.4" width="8" x="8" y="2.2"></rect><path d="M8.5 10h7M8.5 13.2h7M8.5 16.4h4.6" stroke="#fff" stroke-linecap="round" stroke-width="1.4"></path></svg>
+</span>
+<div class="mi">
+<div class="mtop"><b>订单通知</b></div>
+<div class="mmsg">快递已到达成都青羊站</div>
+</div>
+<div class="mright"><span class="mtime">3小时前</span><i class="mbadge">22</i></div>
+</a>
+<div class="sysrow" id="sysRow">
+<a class="sysleft" href="chat-service.html">
+<span class="mico" style="background:#F7F0E2">
+<svg fill="#C39A63" height="24" viewbox="0 0 24 24" width="24"><path d="M3 9.4v4.9h3.2l4.3 3.4V6L6.2 9.4H3z"></path><path d="M14.2 8a5.2 5.2 0 0 1 0 8M17.4 5a9 9 0 0 1 0 14" fill="none" stroke="#C39A63" stroke-linecap="round" stroke-width="1.8"></path></svg>
+</span>
+<div class="mi">
+<div class="mtop"><b>系统公告</b></div>
+<div class="mmsg">今日更新</div>
+<div class="sysnote">左滑操作 · 置顶或不显示</div>
+</div>
+</a>
+<div class="sysacts">
+<button class="sysact top" onclick="pinChat()">置顶</button>
+<button class="sysact hide" onclick="hideChat()">不显示</button>
+</div>
+</div>
+<a class="mrow" href="chat-shop.html">
+<span class="mavatar">
+<svg viewbox="0 0 44 44"><rect fill="#EFE1D2" height="44" width="44"></rect><ellipse cx="12.5" cy="19" fill="#6B4A36" rx="5" ry="7" transform="rotate(-24 12.5 19)"></ellipse><ellipse cx="31.5" cy="19" fill="#6B4A36" rx="5" ry="7" transform="rotate(24 31.5 19)"></ellipse><circle cx="22" cy="23" fill="#F8EFE5" r="11.5"></circle><circle cx="17.8" cy="21" fill="#3B2A1F" r="1.5"></circle><circle cx="26.2" cy="21" fill="#3B2A1F" r="1.5"></circle><ellipse cx="22" cy="26" fill="#3B2A1F" rx="2.5" ry="1.8"></ellipse><path d="M22 27.6v2" stroke="#3B2A1F" stroke-width="1"></path></svg>
+</span>
+<div class="mi">
+<div class="mtop"><b>福聚贡翔演示店</b></div>
+<div class="mmsg">今天下午发出，猕猴桃都是现摘的</div>
+</div>
+<div class="mright"><span class="mtime">1分钟前</span></div>
+</a>
+<a class="mrow" href="chat-service.html">
+<span class="mico" style="background:#F7EAE3">
+<svg fill="none" height="24" viewbox="0 0 24 24" width="24"><path d="M4 12a8 8 0 0 1 16 0v4.5a2.5 2.5 0 0 1-2.5 2.5H15" stroke="#BA7659" stroke-linecap="round" stroke-width="1.8"></path><rect fill="#BA7659" height="6.5" rx="2" width="4" x="2.8" y="11"></rect><rect fill="#BA7659" height="6.5" rx="2" width="4" x="17.2" y="11"></rect><path d="M9 19h3.5" stroke="#BA7659" stroke-linecap="round" stroke-width="1.8"></path></svg>
+</span>
+<div class="mi">
+<div class="mtop"><b>平台客服</b></div>
+<div class="mmsg">订单问题请先联系商家，平台可介入</div>
+</div>
+<div class="mright"><span class="mtime">今天 10:24</span></div>
+</a>
+<a class="mrow" href="chat-friend.html">
+<span class="mavatar">
+<svg viewbox="0 0 44 44"><rect fill="#E7EFDC" height="44" width="44"></rect><circle cx="22" cy="21" fill="#F3D6BF" r="13"></circle><path d="M8 17c1-6 8-9 14-9 7 0 12 4 13 9-4-2-8-3-13-3s-9 1-13 3z" fill="#5C4436"></path><circle cx="17" cy="21" fill="#3B2A1F" r="1.4"></circle><circle cx="27" cy="21" fill="#3B2A1F" r="1.4"></circle><path d="M19 27c1.8 1.2 4.2 1.2 6 0" fill="none" stroke="#B5705A" stroke-linecap="round" stroke-width="1.2"></path><path d="M14 38c2-4 14-4 16 0" stroke="#6B8E4E" stroke-linecap="round" stroke-width="3.2"></path></svg>
+</span>
+<div class="mi">
+<div class="mtop"><b>小满</b></div>
+<div class="mmsg">明天一起去逛青石桥批发市场？</div>
+</div>
+<div class="mright"><span class="mtime">昨天</span></div>
+</a>
+<div class="grouptitle">30天前的消息</div>
+<a class="mrow" href="chat-shop.html">
+<span class="mavatar">
+<svg viewbox="0 0 44 44"><rect fill="#F3E7B8" height="44" width="44"></rect><circle cx="22" cy="25" fill="#7DB54A" r="13"></circle><circle cx="17" cy="21" fill="#fff" r="3.2"></circle><circle cx="27" cy="21" fill="#fff" r="3.2"></circle><circle cx="17" cy="21" fill="#243A1A" r="1.5"></circle><circle cx="27" cy="21" fill="#243A1A" r="1.5"></circle><path d="M17 30c3 2.2 7 2.2 10 0" fill="none" stroke="#3E6024" stroke-linecap="round" stroke-width="1.4"></path><rect fill="#E9A020" height="8" transform="rotate(12 34 10)" width="8" x="30" y="6"></rect></svg>
+</span>
+<div class="mi">
+<div class="mtop"><b>商家2</b></div>
+<div class="mmsg">对方已添加你为好友</div>
+</div>
+<div class="mright"><span class="mtime">2026.2.01</span></div>
+</a>
+<a class="mrow" href="chat-friend.html">
+<span class="mavatar">
+<svg viewbox="0 0 44 44"><rect fill="#2E3A4C" height="44" width="44"></rect><circle cx="22" cy="17" fill="#F0D2B8" r="6.5"></circle><path d="M10 44c0-8 5.4-13 12-13s12 5 12 13" fill="#E8C9AC"></path><rect fill="#D9B08C" height="9" rx="2" width="12" x="25" y="24"></rect><path d="M26 24v-3a2 2 0 0 1 2-2h6" stroke="#D9B08C" stroke-width="1.6"></path><circle cx="37" cy="8" fill="#F5C451" r="3.4"></circle></svg>
+</span>
+<div class="mi">
+<div class="mtop"><b>青羊同城群</b></div>
+<div class="mmsg">某某进入该群</div>
+</div>
+<div class="mright"><span class="mtime">2025.12.20</span></div>
+</a>
+</div>
+<div class="endspace"></div>
+</div>
+<nav aria-label="底部导航" class="tabbar">
+<a href="home.html">
+<span class="ti"><svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"><path d="M3.2 10.9 12 4l8.8 6.9V20a1.2 1.2 0 0 1-1.2 1.2h-4.9v-6.4H9.3v6.4H4.4A1.2 1.2 0 0 1 3.2 20z"></path></svg></span>
+<span>首页</span>
+</a>
+<a href="nearby.html">
+<span class="ti"><svg height="22" viewbox="0 0 24 24" width="22"><rect fill="currentColor" height="19" rx="5.5" width="19" x="2.5" y="2.5"></rect><text fill="#fff" font-family="PingFang SC" font-size="11.5" font-weight="700" text-anchor="middle" x="12" y="16.8">逛</text></svg></span>
+<span>附近店</span>
+</a>
+<a href="wholesale.html">
+<span class="ti"><svg fill="none" height="22" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24" width="22"><rect height="7.6" rx="1.8" width="7.6" x="2.6" y="2.6"></rect><rect height="7.6" rx="1.8" width="7.6" x="13.8" y="2.6"></rect><circle cx="6.4" cy="17.6" r="3.8"></circle><circle cx="17.6" cy="17.6" r="3.8"></circle></svg></span>
+<span>批发选品</span>
+</a>
+<a class="on" href="messages.html">
+<span class="ti">
+<svg aria-hidden="true" height="21" viewbox="0 0 26 22" width="23">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="tmsg" x1="2" x2="24" y1="4" y2="20"><stop stop-color="#FFB39C"></stop><stop offset=".5" stop-color="#FA6E50"></stop><stop offset="1" stop-color="#EE3C28"></stop></lineargradient>
+</defs>
+<ellipse cx="16.6" cy="9" fill="url(#tmsg)" opacity=".55" rx="8.4" ry="7"></ellipse><rect fill="url(#tmsg)" height="12.4" rx="6.2" width="19" x="1.6" y="5.2"></rect><path d="M6 17.6l-2.4 3.4 4.6-1.6z" fill="url(#tmsg)"></path><circle cx="7.4" cy="11.2" fill="#fff" r="1.2"></circle><circle cx="11.3" cy="11.2" fill="#fff" r="1.2"></circle><circle cx="15.2" cy="11.2" fill="#fff" r="1.2"></circle>
+</svg>
+<i class="badge">22</i>
+</span>
+<span>消息</span>
+</a>
+<a href="profile.html">
+<span class="ti"><svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><circle cx="12" cy="7.6" r="4"></circle><path d="M3.8 21.4c0-4.4 3.7-7 8.2-7s8.2 2.6 8.2 7z"></path></svg></span>
+<span>我的</span>
+</a>
+</nav>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast">全部消息已读</div>
+</div>
+<script>
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1600);
+  }
+
+  function readAll() {
+    document.querySelectorAll('.mbadge, .qbadge, .tabbar .badge').forEach(function (b) { b.remove(); });
+    showToast('全部消息已读');
+  }
+
+  function closePush() {
+    document.getElementById('pushBanner').classList.add('hidden');
+  }
+
+  function openPush() {
+    showToast('已开启微信订单推送');
+  }
+
+  function pinChat() {
+    showToast('已置顶系统公告');
+  }
+
+  function hideChat() {
+    document.getElementById('sysRow').classList.add('hidden');
+    showToast('已设为不显示');
+  }
+</script>
+</body>
+</html>

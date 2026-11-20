@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 售后详情</title>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#2A2420;--ink2:#5C5C5F;--muted:#8A8A8E;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center;overflow:hidden}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input,select{font-family:inherit}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;min-height:0;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 14%,#FDF7F4 30%,#FFFDFC 46%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.navbar{flex:0 0 44px;display:flex;align-items:center;justify-content:center;position:relative;padding:0 12px}
+.navbar h1{margin:0;font-size:16px;font-weight:700;letter-spacing:-.2px}
+.navbar .back{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;box-shadow:0 3px 9px rgba(160,110,80,.08)}
+.navbar .link{position:absolute;right:14px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:3px;font-size:11px;color:#EE4A2F;font-weight:600}
+.scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;width:100%;min-width:0;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding:0 12px 16px}
+/* hero */
+.hero{margin:2px 12px 0;border-radius:18px;background:linear-gradient(135deg,#FB7C5B 0%,#F1503A 54%,#E23629 100%);padding:15px 15px 16px;position:relative;overflow:hidden;color:#fff;box-shadow:0 10px 24px rgba(232,70,45,.24)}
+.hero:before{content:"";position:absolute;width:140px;height:140px;border-radius:50%;right:-46px;top:-64px;background:rgba(255,255,255,.14)}
+.hero:after{content:"";position:absolute;width:96px;height:96px;border-radius:50%;right:36px;bottom:-62px;background:rgba(255,255,255,.08)}
+.hero .tag{display:inline-flex;align-items:center;gap:4px;font-size:8.5px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:3px 8px}
+.hero h2{margin:8px 0 0;font-size:20px;font-weight:800;letter-spacing:-.4px}
+.hero p{margin:6px 0 0;font-size:10.5px;opacity:.92;line-height:1.55;max-width:258px}
+.hero .no{margin-top:11px;font-size:9px;opacity:.8;letter-spacing:.2px;position:relative;z-index:1}
+.hero .ico{position:absolute;right:14px;top:44px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center;border:1px solid rgba(255,255,255,.28)}
+.hero.amber{background:linear-gradient(135deg,#F2B45E 0%,#E08E2E 56%,#C9761D 100%);box-shadow:0 10px 24px rgba(200,130,40,.24)}
+.hero.gray{background:linear-gradient(135deg,#B9ABA0 0%,#9C8B7E 56%,#847466 100%);box-shadow:0 10px 24px rgba(130,110,95,.2)}
+/* demo */
+.demo{display:flex;align-items:center;gap:6px;background:#FFF6F3;border:1px dashed #F7C7B8;border-radius:12px;padding:8px 10px;margin:10px 12px 0;font-size:9.5px;color:#B3411F;overflow-x:auto;scrollbar-width:none}
+.demo::-webkit-scrollbar{display:none}
+.demo span{flex:0 0 auto;white-space:nowrap}
+.demo button{flex:0 0 auto;font-size:9.5px;padding:3px 8px;border-radius:999px;background:#fff;border:1px solid #F6C2B1;color:#C0532F;white-space:nowrap}
+.demo button.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;border-color:transparent;font-weight:600}
+/* card */
+.card{background:#fff;border-radius:16px;padding:12px;box-shadow:var(--shadow);margin-top:10px}
+.hidden{display:none!important}
+.logiwrap{min-width:0}
+.lgrow{display:flex;align-items:center;gap:8px;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:12px;padding:8px 9px;min-width:0}
+.lgico{width:28px;height:28px;border-radius:9px;background:#fff;display:grid;place-items:center;flex:0 0 28px;box-shadow:inset 0 0 0 1px #F5E7DD}
+.lgtx{flex:1;min-width:0}
+.lgtx b{display:block;font-size:10.5px;color:#3E332B}
+.lgtx span{display:block;font-size:8.5px;color:#A99C92;margin-top:2px;word-break:break-all}
+.lglink{flex:0 0 auto;font-size:9px;font-weight:700;color:#D0411F;background:#fff;border:1px solid #F7C7B8;border-radius:999px;padding:4px 9px;white-space:nowrap;text-decoration:none}
+.deadline{display:flex;align-items:flex-start;gap:5px;font-size:9px;line-height:1.55;color:#B4674B;background:#FFFAF7;border:1px dashed #F6DCCD;border-radius:10px;padding:7px 9px;margin-top:7px}
+.deadline svg{flex:0 0 auto;margin-top:1px}
+.deadline b{color:#E23A2E;font-variant-numeric:tabular-nums}
+.lgops{display:flex;gap:6px;margin-top:7px}
+.lgops button{height:26px;padding:0 11px;border-radius:999px;border:1px solid #F0E1D6;background:#fff;font-size:9px;color:#7A6A60;font-weight:600}
+.ctitle{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:9px}
+.ctitle span{font-size:10px;font-weight:500;color:var(--muted)}
+/* timeline */
+.tl{padding-left:2px}
+.tli{display:flex;gap:9px;position:relative;padding-bottom:12px}
+.tli:last-child{padding-bottom:0}
+.tli:before{content:"";position:absolute;left:5px;top:12px;bottom:0;width:1px;background:#F2E7DF}
+.tli:last-child:before{display:none}
+.tdot{width:11px;height:11px;border-radius:50%;background:#F2E7DF;flex:0 0 11px;margin-top:2px;position:relative;z-index:1;border:2px solid #fff;box-shadow:0 0 0 1px #F2E7DF}
+.tli.done .tdot{background:linear-gradient(135deg,#FB6E4E,#F03A2C);box-shadow:0 0 0 1px #F7C7B8}
+.tli.now .tdot{background:#fff;box-shadow:0 0 0 2px #F1503A}
+.tli .tt{flex:1;min-width:0;line-height:1.3}
+.tli .tt b{display:block;font-size:11px;font-weight:600;color:#5C4F45}
+.tli.done .tt b,.tli.now .tt b{color:#3E332B}
+.tli .tt span{display:block;font-size:9px;color:#B2A69C;margin-top:2px;line-height:1.45}
+/* info */
+.ir{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;font-size:10.5px;color:#8E8076;padding:4px 0}
+.ir b{color:#4A3F37;font-weight:500;text-align:right;max-width:230px;line-height:1.45}
+.ir b.link{color:#EE4A2F;font-weight:600}
+/* item */
+.gd{display:flex;gap:10px;min-width:0}
+.thumb{width:56px;height:56px;border-radius:10px;flex:0 0 56px;position:relative;overflow:hidden;background:linear-gradient(150deg,#F1F4E4,#D9E1C0)}
+.thumb i{position:absolute;width:38px;height:38px;border-radius:9px;left:9px;top:9px;background:radial-gradient(circle at 34% 28%,#D7DEE2,#9EAEB8 55%,#6C818D 100%)}
+.thumb.mirror:after{content:"";position:absolute;left:24px;top:11px;width:9px;height:32px;border-radius:6px;background:linear-gradient(180deg,#FBFDFE,#B9C7CF);opacity:.85}
+.thumb.mirror i{background:linear-gradient(160deg,#EEF2F5,#C9D4DB 52%,#8D9DA7 100%)}
+.ii{flex:1;min-width:0}
+.ii h3{margin:0;font-size:12px;line-height:1.45;font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ii .tags{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
+.ii .tg{font-size:9px;color:#9A8A7E;background:#FFF8F5;border-radius:999px;padding:1px 6px}
+.ii .tg.type{color:#C0532F;background:#FFF1EB;font-weight:600}
+.ii .pr{display:flex;align-items:flex-end;justify-content:space-between;margin-top:6px;font-size:10px;color:#A79A91}
+.ii .pr b{color:#E23A2E;font-size:13px;font-weight:800}
+/* proof */
+.proofs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.pf{aspect-ratio:1/1;border-radius:10px;position:relative;overflow:hidden;border:1px solid #F3E8E1}
+.pf.a{background:linear-gradient(150deg,#F3F6EE,#DDE5D2)}
+.pf.a:after{content:"";position:absolute;left:24%;top:24%;width:52%;height:52%;border-radius:6px;background:linear-gradient(160deg,#C9D3D8,#8B9AA3);box-shadow:0 3px 8px rgba(80,70,60,.18)}
+.pf.b{background:linear-gradient(150deg,#FFF4EC,#F7DCCB)}
+.pf.b:after{content:"";position:absolute;left:18%;top:30%;width:64%;height:42%;border-radius:50%;background:radial-gradient(circle at 38% 32%,#E7B79C,#C98A6B 70%,#A76A4C)}
+.pf .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(38,28,22,.45);color:#fff;font-size:8px;text-align:center;padding:2px 0;z-index:1}
+/* chat log */
+.log{padding-left:2px}
+.lg{display:flex;gap:8px;margin-bottom:9px;align-items:flex-start}
+.lg:last-child{margin-bottom:0}
+.lg .av{width:24px;height:24px;border-radius:50%;flex:0 0 24px;display:grid;place-items:center;font-size:9px;font-weight:700;color:#fff}
+.lg.buyer .av{background:linear-gradient(135deg,#FB8E6E,#EE4A2F)}
+.lg.seller .av{background:linear-gradient(135deg,#8FB6A6,#4E8B74)}
+.lg.sys .av{background:linear-gradient(135deg,#F2C46E,#D29333)}
+.lg .bb{flex:1;min-width:0;background:#FFFCFA;border:1px solid #F6EDE6;border-radius:10px;padding:7px 9px}
+.lg.sys .bb{background:#FFFBF0;border-color:#F6E3BB}
+.lg .bb .n{font-size:9px;color:#A79A91;margin-bottom:2px;display:flex;justify-content:space-between;gap:6px}
+.lg .bb .c{font-size:10.5px;line-height:1.55;color:#4A3F37;word-break:break-word}
+/* 物流回填 */
+.shipbox{display:none}
+.shipbox.show{display:block}
+.shipbox .srow{display:flex;align-items:center;gap:8px;padding:8px 0;font-size:11px}
+.shipbox .srow .k{flex:0 0 60px;color:#5C4F45;font-weight:600}
+.shipbox .srow .v{flex:1;min-width:0;display:flex;align-items:center;gap:4px}
+.shipbox select,.shipbox input{width:100%;min-width:0;border:1px solid #F0E4DC;border-radius:9px;background:#FFFCFA;padding:7px 9px;font-size:11px;color:#2A2420;outline:none}
+.shipbox select:invalid{color:#B2A69C}
+.shipbox input:focus,.shipbox select:focus{border-color:#F6B9A8}
+.shipbox .sbtn{margin-top:6px;width:100%;height:38px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 14px rgba(232,70,45,.22)}
+.shipbox .stip{font-size:9.5px;color:#B3411F;background:#FFF6F3;border-radius:9px;padding:6px 8px;margin-bottom:2px;line-height:1.5}
+.note{font-size:9px;color:#A99C92;line-height:1.65;padding:10px 4px 12px}
+/* dock */
+.dock{flex:0 0 auto;background:#fff;border-top:1px solid #F3EBE5;display:flex;align-items:center;gap:7px;padding:9px 12px 12px;box-shadow:0 -4px 14px rgba(120,80,60,.04);width:100%}
+.dock .gbtn{flex:0 0 auto;height:40px;padding:0 15px;border-radius:999px;border:1px solid #F5E9E2;background:#fff;font-size:11.5px;color:#6E6057;font-weight:600;white-space:nowrap}
+.dock .gbtn.soft{background:#FFF3EE;color:#EE4A2F;border-color:#F7C7B8}
+.dock .main{flex:1 1 auto;min-width:0;height:44px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(232,70,45,.26);padding:0 12px}
+.dock .main.done{background:#F3EDE8;color:#9C8E83;box-shadow:none}
+.dock .single{flex:1 1 auto}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+.toast{position:absolute;left:50%;bottom:108px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:50;white-space:nowrap;max-width:88%}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="navbar">
+<a aria-label="返回" class="back" href="aftersale-list.html">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+<h1>售后详情</h1>
+<a class="link" href="chat-shop.html">联系商家</a>
+</div>
+<div class="scroll">
+<div class="hero" id="hero">
+<span class="tag" id="heroTag">退款 · 商家审核中</span>
+<h2 id="heroTitle">待商家审核</h2>
+<p id="heroNote">凭证已提交，商家将在 48 小时内处理；审核通过后按所选售后类型继续。</p>
+<div class="no" id="heroNo">工单号 AS202611130008 · 2026-11-13 09:12 提交</div>
+<span class="ico">
+<svg fill="none" height="23" viewbox="0 0 24 24" width="23"><path d="M4 8h16v11H4z" stroke="#fff" stroke-linejoin="round" stroke-width="1.7"></path><path d="M4 8l1.6-3.5h12.8L20 8M9 12.5h6" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path><circle cx="17.6" cy="18.4" fill="#FFD9A8" r="3.6"></circle><path d="m16.2 18.4 1 1 1.9-2" stroke="#D9451F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path></svg>
+</span>
+</div>
+<div class="demo" id="demo">
+<span>演示状态：</span>
+<button class="on" data-s="pending">待审核</button>
+<button data-s="sendback">待寄回</button>
+<button data-s="verify">待签收</button>
+<button data-s="refund">待退款</button>
+<button data-s="done">已完成</button>
+<button data-s="rejected">已驳回</button>
+</div>
+<div class="pad">
+<div class="card">
+<div class="ctitle">处理进度<span>售后不改变订单主状态</span></div>
+<div class="tl" id="tl">
+<div class="tli done"><span class="tdot"></span><div class="tt"><b>提交售后申请</b><span>2026-11-13 09:12 · 部分退款 ¥8.00</span></div></div>
+<div class="tli now" id="n1"><span class="tdot"></span><div class="tt"><b id="n1t">商家审核</b><span id="n1s">等待商家处理，剩余 47:52:10</span></div></div>
+<div class="tli" id="n2"><span class="tdot"></span><div class="tt"><b id="n2t">寄回商品</b><span id="n2s">退货/换货需回填物流单号</span></div></div>
+<div class="tli" id="n3"><span class="tdot"></span><div class="tt"><b id="n3t">商家签收核验</b><span id="n3s">验货通过后进入退款/补发</span></div></div>
+<div class="tli" id="n4"><span class="tdot"></span><div class="tt"><b id="n4t">退款 / 补发</b><span id="n4s">渠道回调成功后才标记完成</span></div></div>
+<div class="tli" id="n5"><span class="tdot"></span><div class="tt"><b id="n5t">售后完成</b><span id="n5s">—</span></div></div>
+</div>
+</div>
+<div class="card">
+<div class="ctitle">工单信息</div>
+<div class="ir"><span>工单号</span><b id="iNo">AS202611130008</b></div>
+<div class="ir"><span>售后类型</span><b id="iType">部分退款</b></div>
+<div class="ir"><span>退款金额</span><b id="iAmt" style="color:#E23A2E;font-weight:700">¥8.00</b></div>
+<div class="ir"><span>申请时间</span><b id="iTime">2026-11-13 09:12:36</b></div>
+<div class="ir"><span>售后原因</span><b id="iReason">商品破损</b></div>
+<div class="ir"><span>关联订单</span><b><a class="link" href="order-detail.html" style="color:#EE4A2F">202611110026 ›</a></b></div>
+<div class="ir"><span>订单状态</span><b>已完成 · <span style="color:#C0532F">售后处理中</span></b></div>
+</div>
+<div class="card">
+<div class="ctitle">商品信息<span>仅对部分商品申请</span></div>
+<div class="gd">
+<span class="thumb mirror"><i></i></span>
+<div class="ii">
+<h3>304不锈钢餐具三件套 家用西餐刀叉勺礼盒</h3>
+<div class="tags"><span class="tg type">银灰镜面</span><span class="tg">三件套 ×1</span></div>
+<div class="pr"><span>实付 ¥25.80</span><span style="color:#C0532F;font-weight:600">本单 ¥8.00</span></div>
+</div>
+</div>
+</div>
+<div class="card" id="returnLogi">
+<div class="ctitle">寄回物流<span>待寄回 / 已寄回复用同一展示</span></div>
+<div class="logiwrap">
+<div class="lgrow">
+<span class="lgico">
+<svg fill="none" height="14" viewbox="0 0 24 24" width="14"><path d="M3.5 7.5h9v9h-9z" stroke="#C0532F" stroke-linejoin="round" stroke-width="1.7"></path><path d="M12.5 10.5h4l3 3v3h-7z" stroke="#C0532F" stroke-linejoin="round" stroke-width="1.7"></path><circle cx="7" cy="17.6" r="1.7" stroke="#C0532F" stroke-width="1.6"></circle><circle cx="16.5" cy="17.6" r="1.7" stroke="#C0532F" stroke-width="1.6"></circle></svg>
+</span>
+<div class="lgtx"><b>中通快递</b><span>寄回运单号 ZT7830114662098 · 包裹 1 / 1</span></div>
+<a class="lglink" href="logistics.html?from=aftersale">查看寄回物流</a>
+</div>
+<div class="deadline">
+<svg fill="none" height="11" viewbox="0 0 24 24" width="11"><circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.9"></circle><path d="M12 7.6V12l3 1.8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"></path></svg>
+<span>请于 <b>2026-11-18 23:59</b> 前寄回并回填单号，超时售后自动关闭（剩 <b id="cdReturn">5 天 14 小时</b>）</span>
+</div>
+<div class="lgops">
+<button onclick="showToast('运单号已复制：ZT7830114662098')" type="button">复制单号</button>
+<button onclick="focusShip()" type="button">修改单号</button>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="ctitle">凭证与描述<span>2 张</span></div>
+<div class="proofs">
+<div class="pf a"><span class="cap">商品破损</span></div>
+<div class="pf b"><span class="cap">外包装</span></div>
+</div>
+<div style="font-size:10.5px;color:#5C4F45;line-height:1.6;margin-top:9px">收到时礼盒一角凹陷，其中一把勺子表面有明显划痕，希望按 8 元补偿，不退回商品。</div>
+</div>
+<div class="card">
+<div class="ctitle">物流回填<span>退货 / 换货场景需填写</span></div>
+<div class="shipbox" id="shipbox">
+<div class="stip">请在 <b id="cd">1 天 06:48:20</b> 内寄回并回填单号，超时未寄回工单将自动关闭（商品已寄出请忽略提示）。</div>
+<div class="srow">
+<span class="k">物流公司</span>
+<div class="v">
+<select aria-label="物流公司" id="shipCo">
+<option disabled="" selected="" value="">请选择</option>
+<option>顺丰速运</option>
+<option>中通快递</option>
+<option>圆通速递</option>
+<option>京东物流</option>
+<option>邮政 EMS</option>
+</select>
+</div>
+</div>
+<div class="srow">
+<span class="k">物流单号</span>
+<div class="v"><input aria-label="物流单号" id="shipNo" placeholder="请输入物流单号" type="text"/></div>
+</div>
+<button class="sbtn" onclick="submitShip()" type="button">提交物流单号</button>
+</div>
+<div id="shiplog" style="font-size:10px;color:#A79C91;line-height:1.6">商家同意后将显示回填入口。</div>
+</div>
+<div class="card">
+<div class="ctitle">处理记录<span>商家留言 / 平台仲裁</span></div>
+<div class="log" id="log">
+<div class="lg buyer"><span class="av">我</span><div class="bb"><div class="n"><span>我</span><span>11-13 09:12</span></div><div class="c">已上传破损照片，申请部分退款 ¥8.00。</div></div></div>
+<div class="lg sys"><span class="av">平</span><div class="bb"><div class="n"><span>平台提示</span><span>11-13 09:12</span></div><div class="c">工单已提交至福聚贡翔演示店，商家 48 小时内未处理可申请平台介入仲裁。</div></div></div>
+</div>
+</div>
+<div class="note">售后工单独立于订单主状态：订单仍显示原状态，并在详情中附加「售后处理中」标记。同一订单可存在多张售后工单，退款以支付渠道回调成功为准。</div>
+</div>
+</div>
+<div class="dock" id="dock">
+<button class="gbtn" onclick="showToast('已撤销售后申请，工单关闭')" type="button">撤销申请</button>
+<a class="main" href="aftersale-apply.html">修改申请</a>
+</div>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast">演示提示</div>
+</div>
+<script>
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__tt);
+    window.__tt = setTimeout(function () { t.classList.remove('show'); }, 1800);
+  }
+
+  var STATES = {
+    pending: {
+      tag: '退款 · 商家审核中', title: '待商家审核',
+      note: '凭证已提交，商家将在 48 小时内处理；审核通过后按所选售后类型继续。',
+      heroClass: '', step: 1,
+      ship: false,
+      dock: '<button class="gbtn" type="button" onclick="showToast(\'已撤销售后申请，工单关闭\')">撤销申请</button><a class="main" href="aftersale-apply.html">修改申请</a>'
+    },
+    sendback: {
+      no: 'AS202611100031', amt: '¥128.00', type: '退货退款', reason: '与描述不符', time: '2026-11-10 10:26:11',
+      tag: '退货退款 · 待寄回', title: '待寄回商品',
+      note: '商家已同意退货退款，请在倒计时内寄回商品并回填物流单号，超时自动关闭工单。',
+      heroClass: 'amber', step: 2,
+      ship: true,
+      dock: '<a class="gbtn" href="chat-shop.html">联系商家</a><button class="main single" type="button" onclick="focusShip()">填写物流单号</button>'
+    },
+    verify: {
+      no: 'AS202611100031', amt: '¥128.00', type: '退货退款', reason: '与描述不符', time: '2026-11-10 10:26:11',
+      tag: '退货退款 · 核验中', title: '商家签收核验中',
+      note: '商品已签收，商家正在验货，预计 24 小时内完成；核验通过后进入退款。',
+      heroClass: 'amber', step: 3,
+      ship: false,
+      dock: '<a class="gbtn soft" href="chat-shop.html">联系商家</a><button class="main single" type="button" onclick="showToast(\'已提醒商家尽快核验\')">催一下</button>'
+    },
+    refund: {
+      no: 'AS202611100031', amt: '¥128.00', type: '退货退款', reason: '与描述不符', time: '2026-11-10 10:26:11',
+      tag: '退款处理中 · 待渠道回调', title: '退款处理中',
+      note: '商家已发起退款，微信支付渠道处理中；渠道回调成功后才标记售后完成，请耐心等待。',
+      heroClass: 'amber', step: 4,
+      ship: false,
+      dock: '<a class="gbtn" href="order-detail.html">查看订单</a><a class="main single" href="chat-service.html">联系客服</a>'
+    },
+    done: {
+      no: 'AS202611100031', amt: '¥128.00', type: '退货退款', reason: '与描述不符', time: '2026-11-10 10:26:11',
+      tag: '售后完成', title: '售后已完成',
+      note: '退款已退回微信零钱 / 原支付账户，工单关闭；如仍有问题可在售后期内重新提交。',
+      heroClass: 'gray', step: 5,
+      ship: false,
+      dock: '<a class="gbtn" href="aftersale-list.html">我的售后</a><a class="main single" href="aftersale-apply.html">再次申请</a>'
+    },
+    rejected: {
+      no: 'AS202611120016', amt: '¥25.80', type: '退货退款', reason: '质量问题', time: '2026-11-12 10:02:48',
+      tag: '已驳回', title: '申请已驳回',
+      note: '商家未通过本次申请：凭证无法证明质量问题。售后期内可重新提交或申请平台介入仲裁。',
+      heroClass: 'gray', step: 1,
+      ship: false,
+      dock: '<button class="gbtn soft" type="button" onclick="showToast(\'已申请平台介入，客服 24 小时内处理\')">申请平台介入</button><a class="main" href="aftersale-apply.html">重新申请</a>'
+    }
+  };
+
+  var STEP_TEXT = {
+    pending: ['等待商家处理，剩余 47:52:10', '退货/换货需回填物流单号', '验货通过后进入退款/补发', '渠道回调成功后才标记完成', '—'],
+    sendback: ['2026-11-12 17:20 · 商家同意退货退款', '请在 1 天 06:48 内回填物流单号', '验货通过后进入退款/补发', '渠道回调成功后才标记完成', '—'],
+    verify: ['2026-11-12 17:20 · 商家同意退货退款', '2026-11-12 18:40 · 顺丰 SF1428391220337', '商家验货中，预计 24 小时内完成', '验货通过后进入退款/补发', '—'],
+    refund: ['2026-11-12 17:20 · 商家同意退货退款', '2026-11-12 18:40 · 顺丰 SF1428391220337', '2026-11-12 20:15 · 商家已签收', '2026-11-13 08:26 · 已发起退款，待渠道回调', '渠道回调成功后自动完成'],
+    done: ['2026-11-12 17:20 · 商家同意退货退款', '2026-11-12 18:40 · 顺丰 SF1428391220337', '2026-11-12 20:15 · 商家已签收', '2026-11-13 08:26 · 退款已发起', '2026-11-13 09:05 · 退款成功'],
+    rejected: ['2026-11-12 11:10 · 商家驳回：凭证不足', '—', '—', '凭证不足，未进入退款', '—']
+  };
+
+  var LOGS = {
+    pending: '',
+    sendback: '<div class="lg seller"><span class="av">商</span><div class="bb"><div class="n"><span>福聚贡翔演示店</span><span>11-12 17:20</span></div><div class="c">已同意退货退款，请寄回商品并回填物流单号，签收核验后 1 个工作日内退款。</div></div></div>',
+    verify: '<div class="lg buyer"><span class="av">我</span><div class="bb"><div class="n"><span>我</span><span>11-12 18:40</span></div><div class="c">已寄回，顺丰速运 SF1428391220337。</div></div></div><div class="lg seller"><span class="av">商</span><div class="bb"><div class="n"><span>福聚贡翔演示店</span><span>11-12 20:15</span></div><div class="c">商品已签收，正在验收，预计 24 小时内完成。</div></div></div>',
+    refund: '<div class="lg buyer"><span class="av">我</span><div class="bb"><div class="n"><span>我</span><span>11-12 18:40</span></div><div class="c">已寄回，顺丰速运 SF1428391220337。</div></div></div><div class="lg seller"><span class="av">商</span><div class="bb"><div class="n"><span>福聚贡翔演示店</span><span>11-13 08:26</span></div><div class="c">验收通过，已发起退款 ¥128.00，等待微信支付渠道回调。</div></div></div>',
+    done: '<div class="lg seller"><span class="av">商</span><div class="bb"><div class="n"><span>福聚贡翔演示店</span><span>11-13 09:05</span></div><div class="c">退款成功，¥128.00 已原路退回，售后完成。</div></div></div>',
+    rejected: '<div class="lg seller"><span class="av">商</span><div class="bb"><div class="n"><span>福聚贡翔演示店</span><span>11-12 11:10</span></div><div class="c">照片无法看出划痕位置，且商品已签收 7 天，本次驳回；可在售后期内补充凭证重新申请。</div></div></div><div class="lg sys"><span class="av">平</span><div class="bb"><div class="n"><span>平台提示</span><span>11-12 11:10</span></div><div class="c">若对结果有异议，可在 3 日内申请平台介入仲裁。</div></div></div>'
+  };
+
+  function applyState(key) {
+    var s = STATES[key] || STATES.pending;
+    var stepKey = (key === 'rejected') ? 'pending' : key;
+    document.getElementById('hero').className = 'hero ' + s.heroClass;
+    document.getElementById('heroTag').textContent = s.tag;
+    document.getElementById('heroTitle').textContent = s.title;
+    document.getElementById('heroNote').textContent = s.note;
+    document.getElementById('dock').innerHTML = s.dock;
+    if (s.no) {
+      document.getElementById('iNo').textContent = s.no;
+      document.getElementById('heroNo').textContent = '工单号 ' + s.no + ' · ' + s.time + ' 提交';
+      document.getElementById('iTime').textContent = s.time;
+      document.getElementById('iType').textContent = s.type;
+      document.getElementById('iAmt').textContent = s.amt;
+      document.getElementById('iReason').textContent = s.reason;
+    }
+
+    var nodes = ['n1', 'n2', 'n3', 'n4', 'n5'];
+    nodes.forEach(function (id, idx) {
+      var el = document.getElementById(id);
+      el.classList.remove('done', 'now');
+      var order = idx + 1;
+      if (order < s.step) { el.classList.add('done'); }
+      else if (order === s.step) { el.classList.add(stepKey === 'done' ? 'done' : 'now'); }
+      if (stepKey === 'done' && order <= 5) { el.classList.add('done'); }
+      var sub = document.getElementById(id + 's');
+      if (sub && STEP_TEXT[stepKey]) { sub.textContent = STEP_TEXT[stepKey][idx]; }
+    });
+    document.getElementById('shipbox').classList.toggle('show', s.ship);
+    var rl = document.getElementById('returnLogi');
+    if (rl) {
+      var rlNo = (key === 'verify' || key === 'refund' || key === 'done') ? 'SF1428391220337' : 'ZT7830114662098';
+      rl.classList.toggle('hidden', key === 'pending' || key === 'rejected');
+      var rlTx = rl.querySelector('.lgtx span');
+      if (rlTx) { rlTx.textContent = '寄回运单号 ' + rlNo + ' · 包裹 1 / 1'; }
+    }
+
+    document.querySelectorAll('#log .lg.dyn').forEach(function (n) { n.remove(); });
+    if (LOGS[key]) {
+      var wrap = document.createElement('div');
+      wrap.setAttribute('data-x', '1');
+      wrap.innerHTML = LOGS[key];
+      while (wrap.firstElementChild) {
+        var el = wrap.firstElementChild;
+        el.classList.add('dyn');
+        document.getElementById('log').appendChild(el);
+      }
+    }
+    document.querySelectorAll('#demo button').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-s') === key);
+    });
+  }
+
+  function focusShip() {
+    document.getElementById('shipbox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function submitShip() {
+    var co = document.getElementById('shipCo').value;
+    var no = document.getElementById('shipNo').value.trim();
+    if (!co) { showToast('请选择物流公司'); return; }
+    if (no.length < 8) { showToast('请输入正确的物流单号'); return; }
+    document.getElementById('shipbox').classList.remove('show');
+    showToast('物流单号已提交，等待商家签收');
+    applyState('verify');
+    document.getElementById('shiplog').innerHTML = '已提交：' + co + ' · ' + no + '（2026-11-13 09:20）· 等待商家签收';
+  }
+
+  document.querySelectorAll('#demo button').forEach(function (b) {
+    b.addEventListener('click', function () { applyState(b.getAttribute('data-s')); });
+  });
+
+  applyState('pending');
+</script>
+</body>
+</html>

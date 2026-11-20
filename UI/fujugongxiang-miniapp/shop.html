@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 店铺首页</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.hidden{display:none!important}
+.pad{padding-left:14px;padding-right:14px}
+.topbar{flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.topbar h1{margin:0;font-size:16px;font-weight:700;letter-spacing:-.2px}
+.back,.rbtn{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.82);display:grid;place-items:center;box-shadow:0 3px 9px rgba(160,110,80,.08)}
+.cover{height:96px;border-radius:18px;position:relative;overflow:hidden;background:linear-gradient(135deg,#FFEFE8 0%,#FFE3D8 52%,#FFD6C7 100%);border:1px solid #FBDCCF;box-shadow:0 5px 16px rgba(232,70,45,.06)}
+.cover:before{content:"";position:absolute;width:170px;height:170px;border-radius:50%;right:-48px;top:-72px;background:rgba(251,110,78,.20)}
+.cover:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;left:-40px;bottom:-70px;background:rgba(251,110,78,.14)}
+.cover .kw{position:absolute;right:16px;bottom:48px;font-size:28px;font-weight:900;color:rgba(226,58,46,.13);font-family:"STKaiti","KaiTi",serif;line-height:1}
+.cover .covtxt{position:absolute;left:14px;top:22px;color:#B3411F;z-index:2}
+.cover .covtxt b{font-size:17px;font-weight:800;letter-spacing:1px;display:block}
+.cover .stamp{position:absolute;right:12px;top:12px;background:rgba(255,255,255,.8);border:1px solid #F8C6B7;border-radius:999px;padding:4px 9px;color:#EE4A2F;font-size:8.5px;font-weight:700;z-index:3}
+.shopcard{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:0 12px 11px;margin-top:-40px;position:relative;z-index:3}
+.shoprow{display:flex;align-items:flex-end;gap:9px}
+.logo{width:58px;height:58px;border-radius:16px;background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff;font-size:20px;font-weight:900;display:grid;place-items:center;border:3px solid #fff;box-shadow:0 4px 12px rgba(232,70,45,.2);flex:0 0 58px;margin-top:-12px}
+.sin{flex:1;min-width:0;padding-top:7px}
+.sin h2{margin:0;font-size:16px;font-weight:800;display:flex;align-items:center;gap:5px;letter-spacing:-.3px}
+.open{font-size:8px;color:#2C9C6A;background:#EAF7F0;border-radius:4px;padding:1px 5px;font-weight:600}
+.follow{height:28px;padding:0 12px;border-radius:999px;border:1px solid #F7A392;background:#FFF6F3;color:#EE4A2F;font-size:10.5px;font-weight:700;flex:0 0 auto}
+.follow.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;border-color:transparent;box-shadow:0 3px 8px rgba(232,70,45,.2)}
+.smeta{display:flex;align-items:center;gap:7px;font-size:9.5px;color:#9C8E83;margin-top:4px}
+.smeta b{color:#E23A2E}
+.addr{display:flex;align-items:center;gap:5px;margin-top:7px;background:#FFF9F6;border-radius:9px;padding:6px 8px;font-size:9.5px;color:#7B6D63}
+.addr span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.addr a{color:#EE4A2F;font-weight:700;white-space:nowrap}
+.cap{display:flex;gap:6px;margin:8px 0 0;height:19px}
+.cap span{font-size:8.5px;line-height:11px;color:#C1532F;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:999px;padding:3px 7px;flex:0 0 auto}
+.rp{display:flex;align-items:center;gap:9px;margin-top:10px;background:linear-gradient(100deg,#FFF3EE,#FFE9E2);border:1px solid #FAD3C6;border-radius:14px;padding:9px 10px}
+.rp .ic{width:32px;height:32px;border-radius:50%;background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff;font-size:15px;font-weight:900;display:grid;place-items:center;flex:0 0 32px}
+.rp b{display:block;font-size:11.5px;color:#8A3A1F}
+.rp span{display:block;font-size:9px;color:#B27C64;margin-top:1px}
+.rp .get{margin-left:auto;font-size:10px;color:#fff;background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-radius:999px;padding:5px 11px;font-weight:700}
+.stabs{display:flex;gap:6px;margin:12px 0 9px}
+.stab{flex:1;height:34px;border-radius:999px;background:#fff;border:1px solid #F5E9E2;font-size:12px;color:#6E6057;font-weight:600}
+.stab.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;border-color:transparent;font-weight:700;box-shadow:0 4px 12px rgba(232,70,45,.2)}
+.wf{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.pcard{display:block;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 16px rgba(196,110,72,.07)}
+.pimg{position:relative;overflow:hidden}
+.blob{position:absolute;display:block;border-radius:50%}
+.plabel{position:absolute;left:8px;bottom:36px;color:#fff;font-size:9.5px;font-weight:700;text-shadow:0 1px 5px rgba(60,20,10,.3);z-index:2}
+.pcorner{position:absolute;right:0;top:0;background:#E23127;color:#fff;font-size:8.5px;font-weight:700;padding:2px 6px;border-radius:0 0 0 7px;z-index:3}
+.pstrip{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(124,26,18,.9),rgba(108,20,14,.95));padding:3px 5px;display:flex;align-items:center;gap:4px;z-index:3}
+.pstrip .m{background:rgba(255,255,255,.14);color:#FFE1D8;font-size:9px;font-weight:800;padding:2px 4px;border-radius:4px}
+.pstrip .last{margin-left:auto;font-size:8px;color:#F7C5BA;text-align:right;line-height:1.2}
+.pstrip .last b{display:block;color:#fff;font-size:8.5px}
+.pbody{padding:8px 8px 9px}
+.pbody h3{margin:0;font-size:11.5px;line-height:1.4;height:32px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-weight:600}
+.pbody .sold{font-size:9px;color:#A99C92;margin:4px 0 1px}
+.pbody .price{font-size:18px;color:var(--brand);font-weight:800;letter-spacing:-.5px}
+.pbody .price small{font-size:9px}
+.coupons{display:flex;flex-direction:column;gap:7px}
+.cpn{display:flex;align-items:center;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 16px rgba(196,110,72,.07)}
+.cpn .amt{width:82px;background:linear-gradient(135deg,#FFF3EE,#FFE6DD);border-right:1px dashed #F7C7B8;color:#E23A2E;align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.cpn .amt b{font-size:21px;font-weight:800;line-height:1}
+.cpn .amt b small{font-size:9px}
+.cpn .amt span{font-size:8px;opacity:.88}
+.cpn .info{flex:1;padding:8px 10px}
+.cpn .info b{font-size:11px;display:block}
+.cpn .info span{font-size:8.5px;color:#A99C92;display:block;margin-top:2px}
+.cpn .get{margin-right:9px;font-size:9px;color:#fff;background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-radius:999px;padding:5px 10px;font-weight:700}
+.rev{background:#fff;border-radius:14px;padding:10px;box-shadow:0 6px 16px rgba(196,110,72,.07)}
+.rev .rh{display:flex;align-items:center;gap:5px;font-size:10px;color:#A99C92}
+.rev .rh b{color:#3E332B;font-size:10.5px}
+.rev .rh .st{margin-left:auto;color:#F27B4A;font-size:10px}
+.rev p{margin:5px 0 0;font-size:10.5px;line-height:1.55;color:#5C4F45}
+.dock{flex:0 0 62px;background:#fff;border-top:1px solid #F3EAE3;display:flex;align-items:center;gap:8px;padding:0 12px;box-shadow:0 -4px 14px rgba(120,80,60,.04)}
+.dock .dbtn{width:46px;flex:0 0 46px;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:8.5px;color:#7C6F66}
+.dock .main{flex:1;height:42px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:5px;box-shadow:0 5px 14px rgba(232,70,45,.24)}
+.toast{position:absolute;left:50%;bottom:80px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:50;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.homebar{height:16px;flex:0 0 16px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="topbar">
+<a aria-label="返回" class="back" href="nearby.html">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+<h1>店铺首页</h1>
+<button aria-label="分享" class="rbtn" onclick="showToast('店铺链接已复制')">
+<svg fill="none" height="15" viewbox="0 0 24 24" width="15"><path d="M20 5v6h-6M20 11a8 8 0 1 0-2 5.3" stroke="#4A3F37" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"></path></svg>
+</button>
+</div>
+<div class="scroll">
+<div class="pad">
+<div class="cover">
+<span class="stamp">同城好店 · 2.3km</span>
+<span class="kw">福</span>
+<div class="covtxt"><b>福聚贡翔 · 成都同城好物</b></div>
+</div>
+<div class="shopcard">
+<div class="shoprow">
+<div class="logo">福</div>
+<div class="sin">
+<h2>福聚贡翔演示店 <span class="open">营业中</span></h2>
+<div class="smeta"><span>评分 <b>4.9</b></span><span>已售 2.7万件</span><span>粉丝 2860</span></div>
+</div>
+<button class="follow" id="followBtn" onclick="toggleFollow()">☆ 关注</button>
+</div>
+<div class="addr">
+<svg fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="M12 21s6.5-6 6.5-11A6.5 6.5 0 0 0 5.5 10c0 5 6.5 11 6.5 11z" stroke="#BA7659" stroke-width="1.8"></path><circle cx="12" cy="10" fill="#BA7659" r="2.2"></circle></svg>
+<span>成都市青羊区宽窄巷子东侧 12 号</span>
+<a href="nearby.html">导航 ›</a>
+</div>
+<div class="cap"><span>坏果包赔</span><span>48h发货</span></div>
+</div>
+<div class="rp">
+<span class="ic">券</span>
+<div><b>店铺优惠券 · 满49减8</b><span>仅本店可用 · 领取后7天有效</span></div>
+<a class="get" href="coupons.html">去领取</a>
+</div>
+<div class="stabs">
+<button class="stab on" data-tab="goods" onclick="switchTab(this)">全部商品</button>
+<button class="stab" data-tab="coupon" onclick="switchTab(this)">店内红包</button>
+<button class="stab" data-tab="rev" onclick="switchTab(this)">买家评价</button>
+</div>
+<div id="panel-goods">
+<div class="wf">
+<a class="pcard" href="product-detail.html">
+<div class="pimg" style="height:132px;background:linear-gradient(150deg,#F6F7EC,#E2E7CC 48%,#C3CFA8)">
+<i class="blob" style="width:78px;height:78px;left:22px;top:26px;background:radial-gradient(circle at 34% 30%,#E2D4AC,#BFA57B 55%,#95794F)"></i>
+<i class="blob" style="width:48px;height:48px;left:80px;top:54px;background:radial-gradient(circle at 35% 30%,#DAE2B6,#A6BB7C 60%,#7D9459)"></i>
+<span class="pcorner">年货节</span>
+<span class="plabel">蒲江猕猴桃 · 5斤</span>
+<div class="pstrip"><span class="m">¥34.9</span><span class="last">已售<b>2.3万</b></span></div>
+</div>
+<div class="pbody"><h3>蒲江红心猕猴桃 5斤大果 现摘现发</h3><div class="sold">已售 2.3万件</div><div class="price"><small>¥</small>39.90</div></div>
+</a>
+<a class="pcard" href="product-detail.html">
+<div class="pimg" style="height:132px;background:linear-gradient(150deg,#FBF2E2,#F1D8B2 48%,#DCBA8C)">
+<i class="blob" style="width:72px;height:72px;left:24px;top:28px;background:radial-gradient(circle at 34% 28%,#F1DFB8,#DFBE8B 58%,#B08F60)"></i>
+<i class="blob" style="width:42px;height:42px;left:84px;top:56px;background:radial-gradient(circle at 35% 30%,#F6E8C8,#E4C9A0 62%,#B9986C)"></i>
+<span class="pcorner">包邮</span>
+<span class="plabel">金堂脐橙 · 10斤</span>
+<div class="pstrip"><span class="m">¥24.9</span><span class="last">已售<b>3.1万</b></span></div>
+</div>
+<div class="pbody"><h3>金堂脐橙 10斤装 酸甜爆汁</h3><div class="sold">已售 3.1万件</div><div class="price"><small>¥</small>29.90</div></div>
+</a>
+<a class="pcard" href="product-detail.html">
+<div class="pimg" style="height:126px;background:linear-gradient(150deg,#FAEDE6,#EBC3B1 48%,#C08D78)">
+<i class="blob" style="width:38px;height:92px;left:26px;top:22px;border-radius:20px;background:linear-gradient(160deg,#C2836A,#8F5842);transform:rotate(-18deg)"></i>
+<i class="blob" style="width:38px;height:92px;left:66px;top:26px;border-radius:20px;background:linear-gradient(160deg,#CC957C,#9A6449);transform:rotate(8deg)"></i>
+<i class="blob" style="width:36px;height:86px;left:104px;top:30px;border-radius:19px;background:linear-gradient(160deg,#B97D64,#7F4B36);transform:rotate(22deg)"></i>
+<span class="pcorner">热卖</span>
+<span class="plabel">川味腊味 · 礼盒</span>
+<div class="pstrip"><span class="m">¥49.9</span><span class="last">已售<b>9200</b></span></div>
+</div>
+<div class="pbody"><h3>川味手工腊肠腊肉礼盒 500g×2</h3><div class="sold">已售 9200件</div><div class="price"><small>¥</small>58.00</div></div>
+</a>
+<a class="pcard" href="product-detail.html">
+<div class="pimg" style="height:126px;background:linear-gradient(150deg,#F4F7EC,#D9E2CB 48%,#B0BEA0)">
+<i class="blob" style="width:58px;height:58px;left:20px;top:42px;background:radial-gradient(circle at 35% 30%,#BED0A4,#8FA974 60%,#6A8455)"></i>
+<i class="blob" style="width:36px;height:36px;left:82px;top:24px;background:radial-gradient(circle at 35% 30%,#E1EACB,#B0C591 65%,#8DA370)"></i>
+<span class="pcorner">春茶</span>
+<span class="plabel">竹叶青 · 明前</span>
+<div class="pstrip"><span class="m">¥108</span><span class="last">已售<b>6800</b></span></div>
+</div>
+<div class="pbody"><h3>竹叶青明前春茶 100g 成都伴手礼</h3><div class="sold">已售 6800件</div><div class="price"><small>¥</small>128.00</div></div>
+</a>
+</div>
+</div>
+<div class="hidden" id="panel-coupon">
+<div class="coupons">
+<div class="cpn">
+<div class="amt"><b><small>¥</small>8</b><span>满49可用</span></div>
+<div class="info"><b>店内红包 · 全场通用</b><span>领取后7天有效 · 仅本店下单可用</span></div>
+<button class="get" onclick="showToast('红包已放入券包')">领取</button>
+</div>
+<div class="cpn">
+<div class="amt"><b><small>¥</small>15</b><span>满99可用</span></div>
+<div class="info"><b>新客专享红包</b><span>限本店首单 · 与平台红包可叠加</span></div>
+<button class="get" onclick="showToast('红包已放入券包')">领取</button>
+</div>
+</div>
+<div style="height:8px"></div>
+</div>
+<div class="hidden" id="panel-rev">
+<div style="display:flex;flex-direction:column;gap:7px">
+<div class="rev"><div class="rh"><b>李**</b><span>5斤大果</span><span class="st">★★★★★</span></div><p>果子个头均匀，皮薄肉甜，冰镇后更好吃，回购第三次了。</p></div>
+<div class="rev"><div class="rh"><b>王**</b><span>10斤装</span><span class="st">★★★★★</span></div><p>物流很快，第二天就到成都了，包装扎实没有碰伤。</p></div>
+<div class="rev"><div class="rh"><b>陈**</b><span>5斤中果</span><span class="st">★★★★☆</span></div><p>酸甜适口，给家里老人买的，说比楼下水果店的新鲜。</p></div>
+</div>
+</div>
+<div style="height:12px"></div>
+</div>
+</div>
+<div class="dock">
+<button class="dbtn" onclick="showToast('店铺已收藏')">
+<svg fill="none" height="19" viewbox="0 0 24 24" width="19"><path d="M12 3.5l2.7 5.5 6 .9-4.3 4.2 1 6-5.4-2.9-5.4 2.9 1-6L3.3 9.9l6-.9z" stroke="#7C6F66" stroke-linejoin="round" stroke-width="1.7"></path></svg>
+      收藏
+    </button>
+<a class="dbtn" href="nearby.html">
+<svg fill="none" height="19" viewbox="0 0 24 24" width="19"><path d="M12 21s6.5-6 6.5-11A6.5 6.5 0 0 0 5.5 10c0 5 6.5 11 6.5 11z" stroke="#7C6F66" stroke-width="1.7"></path><circle cx="12" cy="10" r="2.2" stroke="#7C6F66" stroke-width="1.5"></circle></svg>
+      导航
+    </a>
+<a class="main" href="chat-shop.html">
+<svg fill="none" height="17" viewbox="0 0 24 24" width="17"><path d="M20.5 11.5A8.2 8.2 0 0 1 8 18.7L4 20l1.3-3.9A8.2 8.2 0 1 1 20.5 11.5z" stroke="#fff" stroke-linejoin="round" stroke-width="1.8"></path><circle cx="9" cy="11.5" fill="#fff" r="1"></circle><circle cx="12.5" cy="11.5" fill="#fff" r="1"></circle><circle cx="16" cy="11.5" fill="#fff" r="1"></circle></svg>
+      联系商家
+    </a>
+</div>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast">店铺链接已复制</div>
+</div>
+<script>
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1600);
+  }
+  function toggleFollow() {
+    const b = document.getElementById('followBtn');
+    b.classList.toggle('on');
+    b.textContent = b.classList.contains('on') ? '✓ 已关注' : '☆ 关注';
+    showToast(b.classList.contains('on') ? '已关注店铺' : '已取消关注');
+  }
+  function switchTab(el) {
+    document.querySelectorAll('.stab').forEach(function (b) { b.classList.remove('on'); });
+    el.classList.add('on');
+    const key = el.dataset.tab;
+    document.getElementById('panel-goods').classList.toggle('hidden', key !== 'goods');
+    document.getElementById('panel-coupon').classList.toggle('hidden', key !== 'coupon');
+    document.getElementById('panel-rev').classList.toggle('hidden', key !== 'rev');
+  }
+</script>
+</body>
+</html>

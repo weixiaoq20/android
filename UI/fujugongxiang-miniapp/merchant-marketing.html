@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 营销工具</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.hidden{display:none!important}
+.topbar{flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.topbar h1{margin:0;font-size:16px;font-weight:700;color:#231C18;letter-spacing:-.2px}
+.back{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;box-shadow:0 3px 9px rgba(150,90,70,.08)}
+.pad{padding:0 14px}
+.tabs{display:flex;gap:6px;padding:0 14px;overflow-x:auto;scrollbar-width:none;flex:0 0 auto}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;height:32px;padding:0 14px;border-radius:999px;background:#fff;border:1px solid #F3E7DF;font-size:11px;color:#5C5C5F;font-weight:700;box-shadow:0 4px 12px rgba(150,110,88,.05);white-space:nowrap}
+.tab.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;border-color:transparent;box-shadow:0 5px 14px rgba(232,70,45,.22)}
+.hero{margin-top:10px;border-radius:16px;background:linear-gradient(120deg,#FFE9E2,#FDE0D7);border:1px solid #FAD3C6;padding:11px 12px;display:flex;gap:9px;align-items:center}
+.hero .hi{width:34px;height:34px;border-radius:50%;background:linear-gradient(145deg,#FB7C5B,#F1503A 55%,#E23629);display:grid;place-items:center;flex:0 0 34px;box-shadow:0 5px 12px rgba(226,58,46,.22);color:#fff}
+.hero b{display:block;font-size:11.5px;color:#C22E1B}
+.hero span{display:block;font-size:8.5px;color:#B3411F;line-height:1.45;margin-top:2px}
+.card{background:#fff;border-radius:16px;box-shadow:0 8px 20px rgba(150,110,88,.07);padding:11px;margin-top:9px}
+.card h3{margin:0 0 8px;font-size:11px;font-weight:800;display:flex;align-items:center;gap:4px}
+.card h3 small{font-size:8px;color:#B2A69C;font-weight:400;margin-left:auto}
+.field{margin-bottom:8px}
+.field label{font-size:8.5px;color:#8E8076;display:block;margin-bottom:3px}
+.chips{display:flex;gap:5px}
+.chip{flex:1;height:30px;border-radius:9px;border:1px solid #F1E5DB;background:#FDFBF9;font-size:10px;color:#5C5C5F;font-weight:600}
+.chip.on{background:#FFEFEB;border-color:#F7A392;color:#EE4A2F}
+.inp{width:100%;height:34px;border-radius:9px;border:1px solid #F1E5DB;background:#FDFBF9;padding:0 9px;font-size:11px;font-family:inherit;outline:none}
+.inp:focus{border-color:#F7A392;background:#fff;box-shadow:0 0 0 3px rgba(251,110,78,.1)}
+.preview{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-radius:12px;padding:9px 10px;color:#fff;margin-top:2px;box-shadow:0 6px 14px rgba(232,70,45,.22)}
+.preview .pa{font-size:20px;font-weight:800;line-height:1;min-width:56px}
+.preview .pa small{font-size:9px}
+.preview .pt{flex:1;font-size:8.5px;line-height:1.4;opacity:.92}
+.preview .pg{background:rgba(255,255,255,.94);color:#EE4A2F;font-size:8.5px;font-weight:700;border-radius:999px;padding:4px 9px}
+.mkbtn{width:100%;height:40px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:12px;font-weight:700;margin-top:8px;box-shadow:0 6px 16px rgba(232,70,45,.26)}
+.mylist{display:flex;flex-direction:column;gap:7px;margin-top:8px}
+.coupon{display:flex;align-items:center;border:1px solid #FAD3C6;border-radius:12px;overflow:hidden}
+.coupon .amt{width:74px;align-self:stretch;background:linear-gradient(135deg,#FFE9E2,#FDDCD2);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#E23A2E;flex:0 0 74px}
+.coupon .amt b{font-size:19px;font-weight:800;line-height:1}
+.coupon .amt b small{font-size:8px}
+.coupon .amt span{font-size:7.5px;color:#C4603F;margin-top:2px}
+.coupon .ci{flex:1;padding:7px 8px;min-width:0}
+.coupon .ci b{font-size:9.5px;display:block}
+.coupon .ci span{font-size:7.8px;color:#A99C92;display:block;margin-top:2px}
+.coupon .cs{font-size:7px;border-radius:999px;padding:1px 6px;background:#EAF7F0;color:#2C9C6A;flex:0 0 auto;margin-right:4px}
+.coupon .cstop{font-size:8px;color:#EE4A2F;padding:5px 9px;flex:0 0 auto}
+.prodsel{display:flex;flex-direction:column;gap:5px}
+.psrow .cb{width:16px;height:16px;border-radius:5px;border:1.4px solid #DFD2C8;background:#fff;display:grid;place-items:center;flex:0 0 16px;color:transparent;font-size:10px;font-weight:800}
+.psrow.on .cb{background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-color:transparent;color:#fff}
+.psrow{display:flex;align-items:center;gap:8px;border:1px solid #F4E9E0;border-radius:12px;padding:7px}
+.psrow .pthumb{width:64px;height:64px;border-radius:10px;background:linear-gradient(140deg,#EAF0D8,#B8CE92);flex:0 0 64px}
+.psrow .pthumb.o{background:linear-gradient(140deg,#FBF0DC,#E9CB9C)}
+.psrow .pt{flex:1;min-width:0}
+.psrow .pt b{font-size:10px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.psrow .pt span{font-size:8px;color:#A99C92;display:block;margin-top:2px}
+.psrow .pp{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.psrow .pp .net{display:flex;align-items:center;gap:3px}
+.psrow .pp .net i{font-style:normal;font-size:7px;line-height:1;padding:2px 4px;border-radius:4px;background:#FFEFEB;color:#EE4A2F;white-space:nowrap}
+.psrow .pp .net b{font-size:16px;line-height:1;color:#E23A2E;font-weight:800}
+.psrow .pp .net b small{font-size:9px;font-weight:700;margin-right:1px}
+.psrow .pp s{font-size:12px;color:#9A9A9E;text-decoration:line-through}
+.psrow .pp .net i,.psrow .pp .net b{opacity:.55;transition:opacity .16s}
+.psrow.on .pp .net i,.psrow.on .pp .net b{opacity:1}
+.linkbox{background:#FFF6F3;border:1px dashed #F7A392;border-radius:11px;padding:9px;margin-top:8px;display:none}
+.linkbox.show{display:block}
+.linkbox .lt{font-size:8px;color:#A99C92}
+.linkbox .lu{display:flex;align-items:center;gap:6px;margin-top:4px}
+.linkbox .lu span{flex:1;font-size:9px;color:#C22E1B;word-break:break-all;line-height:1.4}
+.linkbox .lu button{font-size:8px;color:#fff;background:linear-gradient(135deg,#FB6E4E,#F03A2C);border-radius:999px;padding:4px 9px;font-weight:700}
+.remark{font-size:8px;color:#A99C92;line-height:1.5;margin-top:7px}
+.lrow{border:1px solid #F6EAE1;border-radius:11px;padding:8px 9px;margin-top:6px}
+.lrow .lh{display:flex;align-items:center;justify-content:space-between}
+.lrow .lh b{font-size:9.5px}
+.lrow .lh span{font-size:7.5px;color:#2C9C6A;background:#EAF7F0;border-radius:999px;padding:1px 6px}
+.lrow .ld{font-size:7.8px;color:#A99C92;margin-top:3px}
+.lrow .ln{display:flex;align-items:center;gap:10px;margin-top:5px;font-size:7.8px;color:#8E8076}
+.lrow .ln b{color:#E23A2E}
+.lrow .ln button{margin-left:auto;font-size:7.8px;color:#B2A69C}
+.toast{position:absolute;left:50%;bottom:40px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+.notice{display:flex;gap:7px;align-items:flex-start;background:#FFF6F3;border:1px solid #FBD9CD;border-radius:12px;padding:8px 9px;margin-top:8px}
+.notice svg{flex:0 0 14px;margin-top:1px}
+.notice p{margin:0;font-size:8.5px;color:#B3411F;line-height:1.55}
+.notice p b{color:#C22E1B}
+.filters{display:flex;gap:5px;margin-top:8px}
+.filter{flex:0 0 auto;height:26px;padding:0 10px;border-radius:999px;background:#fff;border:1px solid #F1E5DB;font-size:9px;color:#8E8076;font-weight:600}
+.filter.on{background:#FFEFEB;border-color:#F7A392;color:#EE4A2F}
+.cbtn{font-size:8px;font-weight:700;border-radius:999px;padding:4px 8px;border:1px solid #F7A392;color:#EE4A2F;background:#fff;flex:0 0 auto}
+.cbtns{display:flex;flex-direction:column;gap:4px;padding-right:8px;flex:0 0 auto}
+.cbtns .cstop{padding:0;font-size:8px;color:#A99C92}
+.seg{display:flex;gap:5px;flex-wrap:wrap}
+.seg .chip{flex:0 0 auto;padding:0 10px;height:26px;font-size:9px}
+.two{display:flex;gap:6px}
+.two .field{flex:1;min-width:0}
+.switchrow{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 0;border-top:1px dashed #F3E9E1}
+.switchrow:first-of-type{border-top:0}
+.switchrow .sl{font-size:9px;color:#5C5C5F;font-weight:600}
+.switchrow .sl small{display:block;font-size:7.5px;color:#B2A69C;font-weight:400;margin-top:1px}
+.sw{width:34px;height:19px;border-radius:999px;background:#EDE3DB;position:relative;transition:background .18s;flex:0 0 34px}
+.sw i{position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.18);transition:left .18s}
+.sw[data-on="1"]{background:linear-gradient(135deg,#FB6E4E,#F03A2C)}
+.sw[data-on="1"] i{left:17px}
+.skrow{display:flex;align-items:center;gap:9px;border:1px solid #F6EAE1;border-radius:12px;padding:8px;margin-top:6px}
+.skrow .sthumb{width:64px;height:64px;border-radius:10px;flex:0 0 64px;display:grid;place-items:center;color:#fff;font-size:9px;font-weight:800;letter-spacing:.5px}
+.skrow .sb{flex:1;min-width:0}
+.skrow .sb b{font-size:9.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.skrow .sprice{margin-top:3px;display:flex;align-items:baseline;gap:5px}
+.skrow .sprice b{font-size:13px;color:#E23A2E;font-weight:800;line-height:1}
+.skrow .sprice s{font-size:8px;color:#B2A69C}
+.skrow .sprice em{font-style:normal;font-size:7.5px;color:#A99C92;margin-left:auto}
+.skrow .stime{font-size:7.5px;color:#A99C92;margin-top:4px}
+.bar{height:5px;border-radius:3px;background:#F4E9E2;margin-top:5px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,#FB7C5B,#EC3A28)}
+.skrow .sst{display:flex;align-items:center;justify-content:space-between;margin-top:4px;font-size:7.5px;color:#B2A69C}
+.skrow .sst b{color:#8E8076}
+.stock3{display:flex;gap:6px;margin-top:6px}
+.stock3 div{flex:1;background:#FFF9F6;border:1px solid #F6EAE1;border-radius:10px;padding:7px 6px;text-align:center}
+.stock3 div span{display:block;font-size:7.5px;color:#A99C92}
+.stock3 div b{display:block;font-size:12.5px;color:#2A2420;font-weight:800;margin-top:2px}
+.stock3 div b.o{color:#EE4A2F}
+.rule{background:#FFFBF8;border:1px solid #F6EAE1;border-radius:12px;padding:9px;margin-top:7px}
+.rule p{margin:0 0 5px;font-size:8px;color:#7D6F65;line-height:1.6;display:flex;gap:5px}
+.rule p:last-child{margin-bottom:0}
+.rule p b{color:#2A2420}
+.level{display:flex;align-items:center;gap:5px;background:#FFF3EE;border-radius:10px;padding:7px 8px;margin-top:7px}
+.level .lv{flex:1;text-align:center}
+.level .lv span{display:block;font-size:7.5px;color:#B3411F}
+.level .lv b{display:block;font-size:10px;color:#C22E1B;margin-top:2px}
+.level svg{flex:0 0 14px}
+.sheet{position:absolute;inset:0;background:rgba(30,20,16,.42);display:none;align-items:flex-end;z-index:50}
+.sheet.show{display:flex}
+.sheet .panel{width:100%;max-height:86%;background:#fff;border-radius:20px 20px 0 0;display:flex;flex-direction:column;overflow:hidden;animation:up .22s ease}
+@keyframes up{from{transform:translateY(24px);opacity:.6}to{transform:translateY(0);opacity:1}}
+.sheet .sh{display:flex;align-items:center;justify-content:space-between;padding:12px 14px 8px;flex:0 0 auto}
+.sheet .sh b{font-size:12.5px;font-weight:800}
+.sheet .sh small{font-size:8px;color:#B2A69C;font-weight:400;margin-left:4px}
+.sheet .sh button{width:24px;height:24px;border-radius:50%;background:#F6F0EB;display:grid;place-items:center}
+.sheet .sbody{flex:1;min-height:0;overflow-y:auto;padding:0 14px 8px;scrollbar-width:none}
+.sheet .sbody::-webkit-scrollbar{display:none}
+.sheet .sfoot{flex:0 0 auto;padding:8px 14px 14px;border-top:1px solid #F6EFE9;background:#fff}
+.gtitle{font-size:9px;font-weight:800;color:#2A2420;margin:10px 0 6px;display:flex;align-items:center;gap:4px}
+.gtitle span{font-size:7.5px;color:#B2A69C;font-weight:400}
+/* ——— 店铺礼金 ——— */
+.gift-hero{border-radius:14px;background:linear-gradient(120deg,#FFEDE8,#FDE4DD);padding:10px 12px;display:flex;gap:10px;align-items:center;margin-top:10px}
+.gift-hero .gh{width:36px;height:36px;border-radius:11px;background:linear-gradient(145deg,#FB7658,#EE3D2B);display:grid;place-items:center;flex:0 0 36px;color:#fff;box-shadow:0 5px 12px rgba(226,58,46,.22)}
+.gift-hero .gt{flex:1;min-width:0}
+.gift-hero .gt b{display:block;font-size:14px;font-weight:800;color:#8E2417;line-height:1.3}
+.gift-hero .gt span{display:block;font-size:8.5px;color:#A85B49;line-height:1.5;margin-top:2px}
+.gift-note{display:flex;gap:6px;align-items:flex-start;margin-top:9px;padding:0 1px}
+.gift-note svg{flex:0 0 13px;margin-top:1px}
+.gift-note p{margin:0;font-size:8.3px;color:#9A6A5E;line-height:1.55}
+.gift-filters{display:flex;gap:7px;margin-top:10px}
+.gift-filters .gf{flex:0 0 auto;height:26px;padding:0 13px;border-radius:999px;background:#fff;border:1px solid #F3E4DC;font-size:9px;color:#7A6A61;font-weight:700;white-space:nowrap}
+.gift-filters .gf.on{background:linear-gradient(135deg,#FB6E4E,#EE3D2B);border-color:transparent;color:#fff;box-shadow:0 5px 12px rgba(232,70,45,.2)}
+.gcard{background:#fff;border-radius:16px;box-shadow:0 8px 20px rgba(150,110,88,.07);padding:11px;margin-top:9px}
+.gcard .ghead{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.gcard .ghead b{font-size:11.5px;font-weight:800;color:#2A2420;min-width:0}
+.gcard .ghead b small{font-weight:800;color:#EE4A2F}
+.gcard .gnew{margin-left:auto;flex:0 0 auto;font-size:8.5px;font-weight:800;color:#EE4A2F;background:#fff;border:1px solid #F5A392;border-radius:999px;padding:4px 9px;white-space:nowrap}
+.gl{display:flex;flex-direction:column;gap:7px}
+.glrow{display:flex;align-items:center;gap:8px;background:#FFFDFC;border:1px solid #F7EDE6;border-radius:12px;padding:8px}
+.glrow .gface{flex:0 0 58px;width:58px;height:64px;border-radius:10px;background:linear-gradient(145deg,#FFEDE8,#FDDCD3);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#E23A2E}
+.glrow .gface b{font-size:17px;font-weight:800;line-height:1;display:flex;align-items:baseline}
+.glrow .gface b small{font-size:9px;font-weight:800;margin-right:1px}
+.glrow .gface span{font-size:7.3px;font-weight:600;color:#C4603F;margin-top:4px}
+.glrow .gm{flex:1;min-width:0}
+.glrow .gm .gn{display:flex;align-items:center;gap:4px;min-width:0}
+.glrow .gm .gn b{font-size:9.5px;font-weight:800;color:#2A2420;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.glrow .gm .gn i{font-style:normal;flex:0 0 auto;font-size:7px;font-weight:700;border-radius:999px;padding:1px 5px;white-space:nowrap}
+.glrow .gm .gn i.run{background:#EAF7F0;color:#2C9C6A}
+.glrow .gm .gn i.wait{background:#FFF3E0;color:#C98A18}
+.glrow .gm .gn i.end{background:#F5EFE8;color:#8C7A6C}
+.glrow .gm .gl2,.glrow .gm .gl3{font-size:7.6px;color:#A99C92;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.glrow .grt{flex:0 0 auto;display:flex;align-items:center;gap:2px}
+.glrow .garrow{font-size:15px;line-height:1;color:#C9BDB4;font-weight:400}
+.glrow[data-s="end"] .gface{background:linear-gradient(145deg,#F6F1ED,#EFE6DF);color:#B0A399}
+.glrow[data-s="end"] .gface span{color:#B0A399}
+.gempty{display:none;text-align:center;padding:22px 0;font-size:9px;color:#B2A69C}
+.gempty.show{display:block}
+.gsform{display:flex;flex-direction:column}
+.gsrow{display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid #F7EEE8;min-width:0}
+.gsrow:last-child{border-bottom:0}
+.gsrow .gsl{flex:0 0 58px;font-size:9px;color:#3C332E;font-weight:600;display:flex;align-items:center;gap:2px;white-space:nowrap}
+.gsrow .gsl em{font-style:normal;color:#EE4A2F;font-weight:800;font-size:9px}
+.gsrow .gsc{flex:1;min-width:0;display:flex;align-items:center;gap:6px}
+.gsrow .gsc input{min-width:0;height:30px;border:1px solid #F0E4DC;background:#fff;border-radius:8px;font-size:9.5px;color:#2A2420;padding:0 8px;font-family:inherit;outline:none}
+.gsrow .gsc input:focus{border-color:#F7A392;box-shadow:0 0 0 3px rgba(251,110,78,.1)}
+.gswrap{position:relative;flex:1;min-width:0;display:flex}
+.gswrap input{width:100%}
+.gswrap .cnt{position:absolute;right:7px;top:50%;transform:translateY(-50%);font-size:7.5px;color:#B2A69C;pointer-events:none}
+.gsunit{flex:0 0 auto;font-size:8.8px;color:#7A6A61;white-space:nowrap}
+.gsrow .tinline{flex:0 0 auto;font-size:8.5px;color:#7A6A61;white-space:nowrap}
+.gsrow .tfill{flex:1;min-width:0}
+.gsradios{flex:1;min-width:0;display:flex;align-items:center;gap:7px;overflow:hidden}
+.gsradios label{display:flex;align-items:center;gap:3px;font-size:7.8px;color:#4A413C;white-space:nowrap;font-weight:400}
+.gsradios label input{flex:0 0 auto}
+.gsradios .rdot{width:11px;height:11px;border-radius:50%;border:1.4px solid #DDD0C7;display:grid;place-items:center;flex:0 0 11px}
+.gsradios em{font-style:normal;font-size:13px;color:#C9BDB4;flex:0 0 auto;margin-left:auto;padding-left:2px}
+.gasel{flex:1;min-width:0;height:30px;border:1px solid #F0E4DC;background:#fff;border-radius:8px;font-size:9.5px;color:#2A2420;padding:0 8px;font-family:inherit;outline:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,#B2A69C 50%),linear-gradient(135deg,#B2A69C 50%,transparent 50%);background-position:calc(100% - 12px) 13px,calc(100% - 8px) 13px;background-size:4px 4px,4px 4px;background-repeat:no-repeat}
+.gtimerow{flex:1;min-width:0;display:flex;align-items:center;gap:5px;border:1px solid #F0E4DC;border-radius:8px;height:30px;padding:0 8px;background:#fff}
+.gtimerow input{border:0;background:transparent;height:auto;padding:0;flex:1;min-width:0;font-size:9px;color:#2A2420}
+.gtimerow svg{flex:0 0 12px}
+.gtimerow em{font-style:normal;font-size:13px;color:#C9BDB4;flex:0 0 auto}
+.gpay{display:flex;align-items:center;gap:6px;background:#FFF1EC;border-radius:12px;padding:8px 9px;margin-top:10px}
+.gpay .pico{flex:0 0 16px;width:16px;height:16px;border-radius:50%;background:linear-gradient(145deg,#FB6E4E,#EE3D2B);display:grid;place-items:center}
+.gpay b{flex:0 0 auto;font-size:9px;color:#3C332E;font-weight:700;white-space:nowrap}
+.gpay .pswitch{display:flex;align-items:center;gap:2px;flex:0 0 auto}
+.gpay .pswitch span{font-size:7.5px;color:#C9BDB4;line-height:1}
+.gpay .pswitch span.on{color:#EE4A2F;font-weight:800}
+.gpay .pnote{flex:1;min-width:0;font-size:7.4px;color:#A99C92;line-height:1.4;text-align:right}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="topbar">
+<a aria-label="返回" class="back" href="merchant-workbench.html">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</a>
+<h1>营销工具</h1>
+<span style="width:30px"></span>
+</div>
+<div class="tabs">
+<button class="tab on" id="tabc" onclick="switchPanel('c')">店铺礼金</button>
+<button class="tab" id="tabs" onclick="switchPanel('s')">秒杀活动</button>
+<button class="tab" id="tabl" onclick="switchPanel('l')">一级分销</button>
+</div>
+<div class="scroll">
+<div class="pad">
+<div id="panel-c">
+<div class="gift-hero">
+<span class="gh"><svg fill="none" height="20" viewbox="0 0 24 24" width="20"><rect height="4" rx="1" stroke="#fff" stroke-width="1.7" width="17" x="3.5" y="8.5"></rect><path d="M5 12.5V20h14v-7.5" stroke="#fff" stroke-linejoin="round" stroke-width="1.7"></path><path d="M12 8.5V20" stroke="#fff" stroke-width="1.7"></path><path d="M12 8.5C12 8.5 10.8 3.5 8.4 3.5 6.6 3.5 5.8 5.2 6.4 6.4c.7 1.4 3.4 2.1 5.6 2.1Zm0 0c0 0 1.2-5 3.6-5 1.8 0 2.6 1.7 2 2.9-.7 1.4-3.4 2.1-5.6 2.1Z" stroke="#fff" stroke-linejoin="round" stroke-width="1.7"></path></svg></span>
+<div class="gt">
+<b>店铺礼金 · 营销设置</b>
+<span>下单自动抵扣、无需领取、可控满减、指定商品等规则设置。</span>
+</div>
+</div>
+<div class="gift-note">
+<svg fill="none" height="13" viewbox="0 0 24 24" width="13"><circle cx="12" cy="12" r="9" stroke="#DE8A72" stroke-width="1.8"></circle><path d="M12 7.5v5.5M12 16.2v.3" stroke="#DE8A72" stroke-linecap="round" stroke-width="1.9"></path></svg>
+<p>说明：礼金仅用于本店商品消费，不可提现、不可转让；可与平台优惠叠加，具体以结算页为准。</p>
+</div>
+<div class="gift-filters" id="giftFilters">
+<button class="gf on" data-f="run">进行中</button>
+<button class="gf" data-f="wait">未开始</button>
+<button class="gf" data-f="end">已结束</button>
+<button class="gf" data-f="all">全部</button>
+</div>
+<div class="gcard">
+<div class="ghead">
+<b>店铺礼金活动 <small>（3）</small></b>
+<a class="gnew" href="merchant-coupon-new.html">+ 新建礼金</a>
+</div>
+<div class="gl" id="giftList">
+<div class="glrow" data-s="run">
+<div class="gface"><b><small>¥</small>5</b><span>满39可用</span></div>
+<div class="gm">
+<div class="gn"><b>满减礼金 · 全店通用</b><i class="run">进行中</i></div>
+<div class="gl2">总量 200 张 ｜ 已用 64 张 ｜ 剩余 136 张</div>
+<div class="gl3">有效期 2026-11-01 至 2026-11-30</div>
+</div>
+<div class="grt"><button aria-label="开关" class="sw" data-on="1" onclick="toggleGift(this)"><i></i></button><span class="garrow">›</span></div>
+</div>
+<div class="glrow" data-s="run">
+<div class="gface"><b><small>¥</small>8.5</b><span>满59可用</span></div>
+<div class="gm">
+<div class="gn"><b>新客礼金 · 指定商品</b><i class="run">进行中</i></div>
+<div class="gl2">总量 400 张 ｜ 已用 92 张 ｜ 剩余 308 张</div>
+<div class="gl3">有效期 2026-11-10 至 2026-12-15</div>
+</div>
+<div class="grt"><button aria-label="开关" class="sw" data-on="1" onclick="toggleGift(this)"><i></i></button><span class="garrow">›</span></div>
+</div>
+<div class="glrow" data-s="wait">
+<div class="gface"><b><small>¥</small>10</b><span>满99可用</span></div>
+<div class="gm">
+<div class="gn"><b>会员礼金 · 全店通用</b><i class="wait">未开始</i></div>
+<div class="gl2">总量 300 张 ｜ 已用 0 张 ｜ 剩余 300 张</div>
+<div class="gl3">有效期 2026-11-20 至 2026-12-20</div>
+</div>
+<div class="grt"><button aria-label="开关" class="sw" data-on="0" onclick="toggleGift(this)"><i></i></button><span class="garrow">›</span></div>
+</div>
+<div class="gempty" id="giftEmpty">该状态下暂无礼金活动</div>
+</div>
+</div>
+<div class="gcard">
+<div class="ghead">
+<b>礼金活动设置</b>
+<span style="margin-left:auto;font-size:8px;color:#9A9AA0">活动开关</span>
+<button aria-label="活动开关" class="sw" data-on="1" onclick="toggleGift(this)" style="flex:0 0 34px"><i></i></button>
+</div>
+<div class="gsform">
+<div class="gsrow">
+<span class="gsl"><em>*</em>礼金名称</span>
+<div class="gsc">
+<div class="gswrap">
+<input maxlength="20" oninput="giftCount(this)" type="text" value="新客专享礼金"/>
+<span class="cnt">8/20</span>
+</div>
+</div>
+</div>
+<div class="gsrow">
+<span class="gsl"><em>*</em>优惠金额</span>
+<div class="gsc">
+<input style="flex:1;min-width:0" type="text" value="5.00"/>
+<span class="gsunit">元</span>
+</div>
+</div>
+<div class="gsrow">
+<span class="gsl"><em>*</em>使用门槛</span>
+<div class="gsc">
+<span class="tinline">订单满</span>
+<input class="tfill" type="text" value="39.00"/>
+<span class="gsunit">元可用</span>
+</div>
+</div>
+<div class="gsrow">
+<span class="gsl"><em>*</em>适用范围</span>
+<div class="gsradios">
+<label><input checked="" name="giftScope" type="radio"/>全店商品通用</label>
+<label><input name="giftScope" type="radio"/>指定商品分类</label>
+<label><input name="giftScope" type="radio"/>指定商品</label>
+<em>›</em>
+</div>
+</div>
+<div class="gsrow">
+<span class="gsl"><em>*</em>活动总量</span>
+<div class="gsc">
+<input style="flex:1;min-width:0" type="text" value="200"/>
+<span class="gsunit">张</span>
+</div>
+</div>
+<div class="gsrow">
+<span class="gsl"><em>*</em>每人限制</span>
+<div class="gsc">
+<select class="gasel">
+<option>每人限用1次</option>
+<option>每人限用2次</option>
+<option>每人限用3次</option>
+<option>不限次数</option>
+</select>
+</div>
+</div>
+<div class="gsrow">
+<span class="gsl"><em>*</em>开始时间</span>
+<div class="gsc">
+<div class="gtimerow">
+<input type="text" value="2026-11-01 00:00"/>
+<svg fill="none" height="12" viewbox="0 0 24 24" width="12"><rect height="15" rx="3" stroke="#B2A69C" stroke-width="1.7" width="17" x="3.5" y="5"></rect><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3" stroke="#B2A69C" stroke-linecap="round" stroke-width="1.7"></path></svg>
+<em>›</em>
+</div>
+</div>
+</div>
+<div class="gsrow">
+<span class="gsl"><em>*</em>结束时间</span>
+<div class="gsc">
+<div class="gtimerow">
+<input type="text" value="2026-11-30 23:59"/>
+<svg fill="none" height="12" viewbox="0 0 24 24" width="12"><rect height="15" rx="3" stroke="#B2A69C" stroke-width="1.7" width="17" x="3.5" y="5"></rect><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3" stroke="#B2A69C" stroke-linecap="round" stroke-width="1.7"></path></svg>
+<em>›</em>
+</div>
+</div>
+</div>
+</div>
+<div class="gpay">
+<span class="pico"><svg fill="none" height="9" viewbox="0 0 24 24" width="9"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z" fill="#fff"></path></svg></span>
+<b>抵扣方式</b>
+<span class="pswitch"><span class="on">自动抵扣</span><span>手动设置 ›</span></span>
+<span class="pnote">下单满足条件后，系统自动抵扣礼金。</span>
+</div>
+<button class="mkbtn" onclick="saveGift()">保存设置</button>
+</div>
+</div>
+<div class="hidden" id="panel-s">
+<div class="hero">
+<span class="hi" style="background:linear-gradient(145deg,#FF8A5C,#E22D1F);box-shadow:0 5px 12px rgba(226,45,31,.24)"><svg fill="none" height="17" viewbox="0 0 24 24" width="17"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z" stroke="#fff" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+<div><b>秒杀活动 · 限时爆量</b><span>指定商品、时段、库存与限购，作为流量入口带动高转化。</span></div>
+</div>
+<div class="card">
+<h3>秒杀活动 <small>1 场抢购中</small></h3>
+<div class="skrow">
+<div class="sthumb" style="background:linear-gradient(140deg,#E4EFC9,#93B45E)">猕猴桃</div>
+<div class="sb">
+<b>蒲江红心猕猴桃 5斤大果</b>
+<div class="sprice"><b>¥29.90</b><s>¥39.90</s><em>已售 186 / 300</em></div>
+<div class="bar"><i style="width:62%"></i></div>
+<div class="sst"><span>2026-11-09 10:00 ~ 12:00 · 每人限购 2 件</span><span class="pst">抢购中</span></div>
+</div>
+</div>
+<div class="skrow">
+<div class="sthumb" style="background:linear-gradient(140deg,#FBF0DC,#E9A44F)">脐橙</div>
+<div class="sb">
+<b>金堂脐橙 10斤装</b>
+<div class="sprice"><b>¥19.90</b><s>¥29.90</s><em>已售 0 / 200</em></div>
+<div class="bar"><i style="width:0%"></i></div>
+<div class="sst"><span>2026-11-10 20:00 ~ 22:00 · 每人限购 1 件</span><span class="pst w">未开始</span></div>
+</div>
+</div>
+<div class="skrow">
+<div class="sthumb" style="background:linear-gradient(140deg,#FFE0D5,#DE7A5D)">腊味</div>
+<div class="sb">
+<b>川味手工腊味礼盒</b>
+<div class="sprice"><b>¥49.00</b><s>¥58.00</s><em>已售 120 / 120</em></div>
+<div class="bar"><i style="width:100%"></i></div>
+<div class="sst"><span>2026-11-08 19:00 ~ 21:00 · 每人限购 1 件</span><span class="pst e">已结束</span></div>
+</div>
+</div>
+<a class="mkbtn" href="merchant-seckill-new.html" style="display:block;line-height:40px;text-align:center">新建秒杀活动</a>
+<div class="remark">秒杀为限时限量活动；成团拼单与秒杀同商品按互斥规则处理，秒杀订单适用原交易与售后规则。</div>
+</div>
+</div>
+<div class="hidden" id="panel-l">
+<div class="hero">
+<span class="hi" style="background:linear-gradient(145deg,#7FB6FF,#3E8BD6);box-shadow:0 4px 9px rgba(62,139,214,.18)"><svg fill="none" height="17" viewbox="0 0 24 24" width="17"><circle cx="9" cy="8" r="3" stroke="#fff" stroke-width="1.8"></circle><path d="M3.5 19c.6-3 2.8-4.6 5.5-4.6S14 16 14.5 19" stroke="#fff" stroke-linecap="round" stroke-width="1.8"></path><path d="M16 6.5a3 3 0 0 1 0 5.8M18 18.6c-.2-1.6-.8-2.8-1.8-3.6" stroke="#fff" stroke-linecap="round" stroke-width="1.8"></path></svg></span>
+<div><b>一级分销 · 分享拉新</b><span>用户生成邀请链接 / 海报，好友下单后按比例结算佣金，仅一级归因。</span></div>
+</div>
+<div class="card">
+<h3>分销商品与比例 <small>已选 <span id="selCount">2</span> 个</small></h3>
+<div class="prodsel" id="prodSel">
+<div class="psrow on" data-price="39.90" onclick="togglePs(this)">
+<span class="cb">✓</span><span class="pthumb"></span>
+<div class="pt"><b>蒲江红心猕猴桃 5斤大果</b><span>¥39.90 · 库存 3,200</span></div>
+<span class="pp"><span class="net"><i>实际到手</i><b><small>¥</small><span class="netv">36.71</span></b></span><s>¥39.90</s></span>
+</div>
+<div class="psrow on" data-price="29.90" onclick="togglePs(this)">
+<span class="cb">✓</span><span class="pthumb o"></span>
+<div class="pt"><b>金堂脐橙 10斤装</b><span>¥29.90 · 库存 860</span></div>
+<span class="pp"><span class="net"><i>实际到手</i><b><small>¥</small><span class="netv">27.51</span></b></span><s>¥29.90</s></span>
+</div>
+<div class="psrow" data-price="58.00" onclick="togglePs(this)">
+<span class="cb">✓</span><span class="pthumb" style="background:linear-gradient(140deg,#FFE0D5,#DE7A5D)"></span>
+<div class="pt"><b>川味手工腊味礼盒</b><span>¥58.00 · 库存 126</span></div>
+<span class="pp"><span class="net"><i>实际到手</i><b><small>¥</small><span class="netv">53.36</span></b></span><s>¥58.00</s></span>
+</div>
+<div class="psrow" data-price="128.00" onclick="togglePs(this)">
+<span class="cb">✓</span><span class="pthumb" style="background:linear-gradient(140deg,#EDF3E4,#BFD3AE)"></span>
+<div class="pt"><b>竹叶青明前春茶 100g</b><span>¥128.00 · 库存 58</span></div>
+<span class="pp"><span class="net"><i>实际到手</i><b><small>¥</small><span class="netv">117.76</span></b></span><s>¥128.00</s></span>
+</div>
+</div>
+<div class="field" style="margin-top:9px;margin-bottom:2px"><label>佣金比例（从商家货款中结算，仅结算一级）</label>
+<div class="chips" id="rateChips">
+<button class="chip" data-v="5">5%</button>
+<button class="chip on" data-v="8">8%</button>
+<button class="chip" data-v="10">10%</button>
+</div>
+</div>
+<a class="mkbtn" href="merchant-distribution-new.html" style="display:block;line-height:40px;text-align:center">新建分销活动</a>
+<button class="mkbtn" onclick="genLink()" style="background:#FFEFEB;color:#EE4A2F;border:1px solid #FBD9CD;box-shadow:none">生成邀请链接</button>
+<div class="linkbox" id="linkbox">
+<div class="lt">专属邀请链接 · 已选商品与佣金比例已写入</div>
+<div class="lu"><span id="linkText">https://fjgx.example/s/8K2M6Q</span><button onclick="copyLink()">复制</button></div>
+<div class="remark" style="margin-top:5px">好友通过链接下单并确认收货后，佣金结算至其上级（仅一级）的佣金钱包；退款订单佣金自动冲回。</div>
+</div>
+</div>
+<div class="card">
+<h3>一级分销规则 <small>仅一级归因</small></h3>
+<div class="rule">
+<p><svg fill="none" height="11" style="flex:0 0 11px;margin-top:2px" viewbox="0 0 24 24" width="11"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="#2C9C6A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path></svg><span><b>仅一级分销</b>，平台不做多级 / 团队计酬。</span></p>
+<p><svg fill="none" height="11" style="flex:0 0 11px;margin-top:2px" viewbox="0 0 24 24" width="11"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="#2C9C6A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path></svg><span><b>A 邀请 B</b>，B 下单 → A 获得佣金。</span></p>
+<p><svg fill="none" height="11" style="flex:0 0 11px;margin-top:2px" viewbox="0 0 24 24" width="11"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="#2C9C6A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path></svg><span><b>B 再邀请 C</b>，C 下单 → <b>只有 B 拿佣金</b>，A 不再获得 C 的佣金。</span></p>
+<p><svg fill="none" height="11" style="flex:0 0 11px;margin-top:2px" viewbox="0 0 24 24" width="11"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="#2C9C6A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path></svg><span>佣金先计为<b>预估</b>，订单完成确认收货后<b>到账</b>；退款 / 售后自动<b>冲回</b>。</span></p>
+</div>
+<div class="level">
+<div class="lv"><span>上级 A</span><b>第 1 级得佣</b></div>
+<svg fill="none" height="14" viewbox="0 0 24 24" width="14"><path d="M4 12h15m-5-5 5 5-5 5" stroke="#E9A78F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div class="lv"><span>被邀请人 B</span><b>下单</b></div>
+<svg fill="none" height="14" viewbox="0 0 24 24" width="14"><path d="M4 12h15m-5-5 5 5-5 5" stroke="#E9A78F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div class="lv"><span>再邀请 C</span><b>A 无佣金</b></div>
+</div>
+<div class="remark">佣金比例与参与商品范围随商品同步到商品详情；分销商品退款、取消订单时佣金同步冲回。</div>
+</div>
+<div class="card">
+<h3>店铺佣金支出 <small>2026-11 至今</small></h3>
+<div class="stock3">
+<div><span>全部</span><b>¥1,286.40</b></div>
+<div><span>预估</span><b class="o">¥248.60</b></div>
+<div><span>已到账</span><b>¥986.20</b></div>
+<div><span>已冲回</span><b>¥51.60</b></div>
+</div>
+<div class="remark">预估指已下单未确认收货；已到账指确认收货后结算完成；已冲回指退款 / 售后订单。</div>
+</div>
+<div class="card">
+<h3>我的邀请记录 <small>近 30 天</small></h3>
+<div class="lrow">
+<div class="lh"><b>秋冬水果组合 · 8%</b><span>推广中</span></div>
+<div class="ld">含 2 个商品 · 创建于 2026-10-28</div>
+<div class="ln">点击 <b>326</b> 次<span>成交 <b>18</b> 单</span><span>佣金 <b>¥42.60</b></span><button onclick="toast('链接已复制')">复制</button></div>
+</div>
+<div class="lrow">
+<div class="lh"><b>成都伴手礼 · 10%</b><span style="background:#F5EFE8;color:#8C7A6C">已停用</span></div>
+<div class="ld">含 3 个商品 · 创建于 2026-09-16</div>
+<div class="ln">点击 <b>1,208</b> 次<span>成交 <b>56</b> 单</span><span>佣金 <b>¥186.40</b></span><button onclick="toast('链接已复制')">复制</button></div>
+</div>
+<div class="remark">禁止将邀请链接用于站外广告投放；违规将暂停佣金结算，详见《平台运营规则》。</div>
+</div>
+</div>
+<div style="height:14px"></div>
+</div>
+</div>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast">已创建</div>
+</div>
+<script>
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1700);
+  }
+
+  function switchPanel(k) {
+    ['c', 's', 'l'].forEach(function (key) {
+      const tab = document.getElementById('tab' + key);
+      const panel = document.getElementById('panel-' + key);
+      if (tab) tab.classList.toggle('on', k === key);
+      if (panel) panel.classList.toggle('hidden', k !== key);
+    });
+  }
+
+  function bindChips(id, cb) {
+    const box = document.getElementById(id);
+    if (!box) return;
+    box.querySelectorAll('.chip').forEach(function (b) {
+      b.addEventListener('click', function () {
+        box.querySelectorAll('.chip').forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+        if (cb) cb(b);
+      });
+    });
+  }
+
+  function val(id) {
+    const el = document.querySelector('#' + id + ' .chip.on');
+    return el ? el.dataset.v : '';
+  }
+
+  /* ——— 店铺礼金 ——— */
+  function filterGifts(f) {
+    let visible = 0;
+    document.querySelectorAll('#giftList .glrow').forEach(function (row) {
+      const show = f === 'all' || row.dataset.s === f;
+      row.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    const empty = document.getElementById('giftEmpty');
+    if (empty) empty.classList.toggle('show', visible === 0);
+  }
+
+  document.querySelectorAll('#giftFilters .gf').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('#giftFilters .gf').forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on');
+      filterGifts(b.dataset.f);
+    });
+  });
+
+  function toggleGift(el) {
+    const btn = el.classList && el.classList.contains('sw') ? el : el.closest('.sw');
+    if (!btn) return;
+    const on = btn.dataset.on === '1';
+    btn.dataset.on = on ? '0' : '1';
+    toast(on ? '礼金开关已关闭' : '礼金开关已开启');
+  }
+
+  function giftCount(input) {
+    const cnt = input.parentNode.querySelector('.cnt');
+    if (cnt) cnt.textContent = input.value.length + '/20';
+  }
+
+  function saveGift() {
+    toast('礼金设置已保存');
+  }
+
+  filterGifts('run');
+
+  /* ——— 一级分销 ——— */
+
+  function togglePs(row) {
+    row.classList.toggle('on');
+    const n = document.querySelectorAll('#prodSel .psrow.on').length;
+    if (n > 6) {
+      row.classList.remove('on');
+      toast('最多选择 6 个商品');
+      return;
+    }
+    document.getElementById('selCount').textContent = document.querySelectorAll('#prodSel .psrow.on').length;
+  }
+
+  let rate = '8';
+
+  function refreshNet() {
+    const r = (parseFloat(rate) || 0) / 100;
+    document.querySelectorAll('#prodSel .psrow').forEach(function (row) {
+      const p = parseFloat(row.dataset.price) || 0;
+      const net = row.querySelector('.netv');
+      if (net) net.textContent = (p * (1 - r)).toFixed(2);
+    });
+  }
+
+  document.querySelectorAll('#rateChips .chip').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('#rateChips .chip').forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on');
+      rate = b.dataset.v;
+      refreshNet();
+    });
+  });
+
+  refreshNet();
+
+  function genLink() {
+    const n = document.querySelectorAll('#prodSel .psrow.on').length;
+    if (n === 0) { toast('请至少选择 1 个商品'); return; }
+    document.getElementById('linkbox').classList.add('show');
+    document.getElementById('linkText').textContent = 'https://fjgx.example/s/' + (rate === '8' ? '8K2M6Q' : (rate === '5' ? '5P9X2A' : '10R4T8'));
+    toast('邀请链接已生成（' + n + ' 个商品 · ' + rate + '% 一级佣金）');
+  }
+
+  function copyLink() {
+    const txt = document.getElementById('linkText').textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function () { toast('链接已复制，可分享到微信群'); }).catch(function () { toast('链接已复制（演示）'); });
+    } else {
+      toast('链接已复制（演示）');
+    }
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 我的订单</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#1C1C1E;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.navbar{flex:0 0 44px;display:flex;align-items:center;justify-content:center;position:relative}
+.navbar h1{margin:0;font-size:16px;font-weight:700;letter-spacing:-.2px}
+.navbar a{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:#2A2420}
+.price{color:var(--brand);font-weight:800}
+.price small{font-size:11px}
+.hidden{display:none!important}
+/* tabs */
+.tabs{flex:0 0 auto;display:flex;gap:6px;padding:0 12px 10px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:1 0 auto;font-size:12.5px;padding:6px 12px;border-radius:999px;color:#5E544C;background:#fff;white-space:nowrap;box-shadow:0 2px 7px rgba(150,110,88,.05)}
+.tabs button.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-weight:700;box-shadow:0 4px 12px rgba(232,70,45,.2)}
+.tabs a{flex:1 0 auto;font-size:12.5px;padding:6px 12px;border-radius:999px;color:#5E544C;background:#fff;white-space:nowrap;box-shadow:0 2px 7px rgba(150,110,88,.05);text-align:center}
+.pad{padding:0 12px 14px}
+/* 订单卡 */
+.oc{background:#fff;border-radius:16px;padding:12px 13px;margin-bottom:10px;box-shadow:var(--shadow)}
+.oc .top{display:flex;align-items:center;gap:6px;font-size:11.5px;color:#8A7C72;margin-bottom:10px}
+.oc .top b{color:#5E5249;font-weight:600;font-size:12px}
+.oc .top .st{margin-left:auto;color:#E23A2E;font-weight:700;font-size:11.5px}
+.oc .top .st.done{color:#9A8C82;font-weight:500}
+.gd{display:flex;gap:10px}
+.gd .th{width:64px;height:64px;border-radius:10px;flex:0 0 64px;position:relative;overflow:hidden}
+.gd .th i{position:absolute;width:46px;height:46px;border-radius:50%;left:9px;top:9px}
+.th.a{background:linear-gradient(150deg,#F7F7EC,#E1E5C8)}
+.th.a i{background:radial-gradient(circle at 34% 30%,#E3D5AE,#C0A57B 55%,#95794F 100%)}
+.th.b{background:linear-gradient(150deg,#FAEFE6,#EFCDB9)}
+.th.b i{border-radius:12px;background:radial-gradient(circle at 35% 25%,#C98164,#A15E47 65%,#7A4534 100%)}
+.th.c{background:linear-gradient(150deg,#FBF2E3,#EFD6B4)}
+.th.c i{background:radial-gradient(circle at 34% 28%,#F3DDB5,#E1B87F 58%,#BC8F5A 100%)}
+.gd .nf{flex:1;min-width:0}
+.gd h3{margin:0;font-size:12.5px;line-height:1.45;font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gd .sp{font-size:10px;color:#9A8A7E;background:#FFF8F5;border-radius:999px;padding:1px 6px;display:inline-block;margin-top:4px}
+.gd .pr{display:flex;align-items:flex-end;justify-content:space-between;margin-top:6px}
+.gd .pr .price{font-size:14px}
+.gd .pr .q{font-size:10.5px;color:#A79A91}
+.total{display:flex;align-items:center;justify-content:flex-end;gap:4px;font-size:11.5px;color:#5C5C5F;padding-top:10px;margin-top:10px;border-top:1px dashed #F1E8E2}
+.total b{color:#1C1C1E;font-size:14px;font-weight:800}
+.total b small{font-size:10px}
+.acts{display:flex;justify-content:flex-end;gap:7px;margin-top:9px}
+.acts a,.acts button{font-size:11.5px;padding:6px 13px;border-radius:999px;border:1px solid #EADCD2;color:#5C5C5F;background:#fff}
+.acts a.main,.acts button.main{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;border-color:transparent;font-weight:600;box-shadow:0 3px 8px rgba(232,70,45,.2)}
+.acts a.soft{background:#FFF3EE;color:#EE4A2F;border-color:#F7C7B8}
+/* 进度 */
+.steps{display:flex;align-items:center;gap:0;margin:10px 0 0;padding:9px 2px 0;border-top:1px dashed #F1E8E2}
+.steps .s{flex:1;text-align:center;font-size:9.5px;color:#B5A9A0;position:relative}
+.steps .s.done{color:#E23A2E;font-weight:600}
+.steps .s:before{content:"";display:block;width:6px;height:6px;border-radius:50%;background:#E4D8D0;margin:0 auto 4px}
+.steps .s.done:before{background:linear-gradient(135deg,#FB6E4E,#F03A2C)}
+.tipbar{display:flex;align-items:center;gap:6px;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:12px;padding:8px 10px;font-size:10.5px;color:#B3411F;margin-bottom:10px}
+.cdtip{display:flex;align-items:center;gap:5px;background:#FFF8F4;border:1px dashed #F6DCCD;border-radius:10px;padding:6px 9px;font-size:9.5px;color:#B4674B;margin-top:8px;line-height:1.45}
+.cdtip b{color:#E23A2E;font-variant-numeric:tabular-nums}
+.emptybox{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:46px 24px;text-align:center}
+.emptybox .epic{width:76px;height:76px;border-radius:24px;background:linear-gradient(150deg,#FFF0E7,#FBDCC9);display:grid;place-items:center;color:#EE4A2F}
+.emptybox b{font-size:12.5px;color:#5C4F45;margin-top:12px}
+.emptybox p{margin:5px 0 0;font-size:10px;color:#B3A69C;line-height:1.6}
+.toast{position:absolute;left:50%;bottom:40px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:50;white-space:nowrap;max-width:88%}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<div class="app">
+<div class="status"><span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="navbar">
+<a aria-label="返回" href="profile.html"><svg fill="none" height="21" viewbox="0 0 24 24" width="21"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"></path></svg></a>
+<h1>我的订单</h1>
+</div>
+<div class="tabs" id="tabs">
+<button class="on" data-f="all" onclick="filterOrders(this)">全部</button>
+<button data-f="unpaid" onclick="filterOrders(this)">待付款</button>
+<button data-f="toship" onclick="filterOrders(this)">待发货</button>
+<button data-f="torecv" onclick="filterOrders(this)">待收货</button>
+<button data-f="done" onclick="filterOrders(this)">已完成</button>
+<a href="aftersale-list.html" role="button">售后</a>
+</div>
+<div class="scroll">
+<div class="pad">
+<div class="tipbar">
+<svg fill="none" height="13" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="13"><path d="M3 6.5h11v10H3zM14 9.5h4l3 3v4h-7z"></path><circle cx="7" cy="18.5" r="1.6"></circle><circle cx="17.5" cy="18.5" r="1.6"></circle></svg>
+        担保交易 · 确认收货后平台自动分账给商家
+      </div>
+<div class="oc" data-st="toship">
+<div class="top">
+<svg fill="none" height="15" stroke="#B4674B" stroke-width="1.8" viewbox="0 0 24 24" width="15"><path d="M4 9.5 5.5 4h13L20 9.5M5 9.5V20h14V9.5"></path></svg>
+<b>福聚贡翔演示店</b><span class="st done">待发货</span>
+</div>
+<div class="gd">
+<span class="th a"><i></i></span>
+<div class="nf">
+<h3>蒲江红心猕猴桃 5斤大果 现摘现发 甜度18°</h3>
+<span class="sp">5斤大果 ×2</span>
+<div class="pr"><span class="price"><small>¥</small>39.90</span><a class="q" href="chat-shop.html">联系商家 ›</a></div>
+</div>
+</div>
+<div class="steps">
+<span class="s done">已付款</span><span class="s done">待发货</span><span class="s">待收货</span><span class="s">已完成</span>
+</div>
+<div class="total">实付款 <b><small>¥</small>71.80</b></div>
+<div class="acts">
+<a href="chat-shop.html">联系商家</a>
+<a class="main" href="order-detail.html?status=toship">查看订单</a>
+</div>
+</div>
+<div class="oc" data-st="toship">
+<div class="top">
+<svg fill="none" height="15" stroke="#B4674B" stroke-width="1.8" viewbox="0 0 24 24" width="15"><path d="M4 9.5 5.5 4h13L20 9.5M5 9.5V20h14V9.5"></path></svg>
+<b>郫都豆花坊</b><span class="st done">待发货</span>
+</div>
+<div class="gd">
+<span class="th b"><i></i></span>
+<div class="nf">
+<h3>郫县豆瓣酱 家常回锅肉专用 500g 瓶装</h3>
+<span class="sp">500g ×1</span>
+<div class="pr"><span class="price"><small>¥</small>18.60</span><a class="q" href="chat-shop.html">联系商家 ›</a></div>
+</div>
+</div>
+<div class="steps">
+<span class="s done">已付款</span><span class="s done">待发货</span><span class="s">待收货</span><span class="s">已完成</span>
+</div>
+<div class="cdtip">
+<svg fill="none" height="11" viewbox="0 0 24 24" width="11"><circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.9"></circle><path d="M12 7.6V12l3 1.8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"></path></svg>
+<span>商家承诺 24 小时内发货 · 预计 2026-11-14 前发出，支持分批发货</span>
+</div>
+<div class="total">实付款 <b><small>¥</small>18.60</b></div>
+<div class="acts">
+<a href="chat-shop.html">联系商家</a>
+<a class="main" href="javascript:;" onclick="showToast('商家正在打包，预计 2026-11-14 前发出，支持分批发货')">催发货</a>
+</div>
+</div>
+<div class="oc" data-st="unpaid" id="payCard">
+<div class="top">
+<svg fill="none" height="15" stroke="#B4674B" stroke-width="1.8" viewbox="0 0 24 24" width="15"><path d="M4 9.5 5.5 4h13L20 9.5M5 9.5V20h14V9.5"></path></svg>
+<b>郫都豆瓣老铺</b><span class="st">待付款</span>
+</div>
+<div class="gd">
+<span class="th b"><i></i></span>
+<div class="nf">
+<h3>郫县豆瓣酱 500g 三年陈酿 川菜灵魂</h3>
+<span class="sp">500g ×1</span>
+<div class="pr"><span class="price"><small>¥</small>12.80</span><a class="q" href="chat-shop.html">联系商家 ›</a></div>
+</div>
+</div>
+<div class="cdtip" id="payTip">
+<svg fill="none" height="11" viewbox="0 0 24 24" width="11"><circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.9"></circle><path d="M12 7.6V12l3 1.8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"></path></svg>
+<span>剩 <b id="cdPay">29 分 58 秒</b> 自动关闭订单，关单后释放库存、优惠券退回</span>
+</div>
+<div class="total">应付金额 <b><small>¥</small>12.80</b></div>
+<div class="acts">
+<a href="javascript:;" onclick="showToast('订单已取消，未付款订单已关闭')">取消订单</a>
+<a class="main" href="payment.html">去支付</a>
+</div>
+</div>
+<div class="oc" data-st="torecv" id="recvCard">
+<div class="top">
+<svg fill="none" height="15" stroke="#B4674B" stroke-width="1.8" viewbox="0 0 24 24" width="15"><path d="M4 9.5 5.5 4h13L20 9.5M5 9.5V20h14V9.5"></path></svg>
+<b>金堂鲜果直供</b><span class="st" id="st-jintang">待收货</span>
+</div>
+<div class="gd">
+<span class="th c"><i></i></span>
+<div class="nf">
+<h3>金堂脐橙 10斤装 果径75mm 酸甜爆汁</h3>
+<span class="sp">10斤装 ×1</span>
+<div class="pr"><span class="price"><small>¥</small>29.90</span><a class="q" href="chat-shop.html">联系商家 ›</a></div>
+</div>
+</div>
+<div class="steps">
+<span class="s done">已付款</span><span class="s done">已发货</span><span class="s done">运输中</span><span class="s">待收货</span>
+</div>
+<div class="cdtip" id="recvTip">
+<svg fill="none" height="11" viewbox="0 0 24 24" width="11"><circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.9"></circle><path d="M12 7.6V12l3 1.8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"></path></svg>
+<span>剩 <b id="cdRecvVal">6 天 12 小时</b> 自动确认收货，签收前可申请售后</span>
+</div>
+<div class="total">实付款 <b><small>¥</small>29.90</b></div>
+<div class="acts" id="recvActs">
+<a href="logistics.html?from=orders">查看物流</a>
+<a href="order-detail.html?status=shipped">订单详情</a>
+<a class="soft" href="javascript:;" onclick="confirmReceive(this)">确认收货</a>
+</div>
+</div>
+<div class="oc" data-st="done">
+<div class="top">
+<svg fill="none" height="15" stroke="#B4674B" stroke-width="1.8" viewbox="0 0 24 24" width="15"><path d="M4 9.5 5.5 4h13L20 9.5M5 9.5V20h14V9.5"></path></svg>
+<b>蜀锦非遗手作</b><span class="st done">已完成</span>
+</div>
+<div class="gd">
+<span class="th b"><i style="border-radius:50%;background:repeating-linear-gradient(45deg,#EBDCA8 0 6px,#C4A469 6px 12px)"></i></span>
+<div class="nf">
+<h3>蜀锦手作杯垫 4只装 成都非遗伴手礼</h3>
+<span class="sp">4只装 ×1</span>
+<div class="pr"><span class="price"><small>¥</small>45.00</span><a class="q" href="product-detail.html">再买一单 ›</a></div>
+</div>
+</div>
+<div class="total">实付款 <b><small>¥</small>45.00</b></div>
+<div class="cdtip">
+<svg fill="none" height="11" viewbox="0 0 24 24" width="11"><path d="M5 12.5 9 16.5 19 6.5" stroke="#2C7A5B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+<span>货款已分账给商家 · 2026-10-25 已完成，可申请电子发票</span>
+</div>
+<div class="acts">
+<a href="aftersale-apply.html">申请售后</a>
+<a class="soft" href="review.html">去评价</a>
+<a href="invoice.html">申请开票</a>
+</div>
+</div>
+<div class="emptybox hidden" id="emptyBox">
+<span class="epic">
+<svg fill="none" height="38" viewbox="0 0 24 24" width="38"><rect height="14" rx="3.5" stroke="currentColor" stroke-width="1.7" width="16" x="4" y="5.5"></rect><path d="M8 10h8M8 13.5h5" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"></path></svg>
+</span>
+<b>该状态下暂无订单</b>
+<p>切换其他状态，或返回首页继续逛逛</p>
+</div>
+<div style="height:6px"></div>
+</div>
+</div>
+<div class="toast" id="toast">提示</div>
+</div>
+<script>
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    if (!t) { return; }
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__ot);
+    window.__ot = setTimeout(function () { t.classList.remove('show'); }, 1800);
+  }
+
+  function confirmReceive(el) {
+    if (el.dataset.done === '1') {
+      showToast('该订单已确认收货');
+      return;
+    }
+    el.dataset.done = '1';
+    var card = el.closest('.oc');
+    if (card) { card.setAttribute('data-st', 'done'); }
+    var st = card ? card.querySelector('.st') : null;
+    if (st) {
+      st.textContent = '已完成';
+      st.classList.add('done');
+    }
+    var acts = card ? card.querySelector('.acts') : null;
+    if (acts) {
+      acts.innerHTML = '<a href="aftersale-apply.html">申请售后</a><a class="soft" href="review.html">去评价</a><a href="invoice.html">申请开票</a>';
+    }
+    showToast('已确认收货，订单已完成，可去评价或申请开票');
+  }
+
+  var PAY_LEFT = 29 * 60 + 58;
+  var RECV_LEFT = 6 * 86400 + 12 * 3600;
+
+  function renderCountdowns() {
+    var p = document.getElementById('cdPay');
+    if (p) {
+      if (PAY_LEFT > 0) {
+        var pm = Math.floor(PAY_LEFT / 60);
+        var ps = PAY_LEFT % 60;
+        p.textContent = pm + ' 分 ' + (ps < 10 ? '0' + ps : ps) + ' 秒';
+      } else {
+        p.textContent = '00 分 00 秒';
+      }
+    }
+    if (PAY_LEFT <= 0 && !window.__payClosed) {
+      window.__payClosed = true;
+      var payCard = document.getElementById('payCard');
+      if (payCard) {
+        payCard.setAttribute('data-st', 'closed');
+        var paySt = payCard.querySelector('.top .st');
+        if (paySt) { paySt.textContent = '已关闭'; paySt.classList.add('done'); }
+        var payTip = document.getElementById('payTip');
+        if (payTip) { payTip.innerHTML = '<span>超时未付款，订单已自动关闭，库存与优惠券已释放</span>'; }
+      }
+    }
+    var r = document.getElementById('cdRecvVal') || document.getElementById('cdRecv');
+    if (r) {
+      if (RECV_LEFT > 0) {
+        var d = Math.floor(RECV_LEFT / 86400);
+        var h = Math.floor((RECV_LEFT % 86400) / 3600);
+        var m = Math.floor((RECV_LEFT % 3600) / 60);
+        r.textContent = d > 0 ? (d + ' 天 ' + h + ' 小时') : (h + ' 小时 ' + m + ' 分');
+      } else {
+        r.textContent = '已自动确认';
+      }
+    }
+    if (RECV_LEFT <= 0 && !window.__recvDone) {
+      window.__recvDone = true;
+      var recvCard = document.getElementById('recvCard');
+      if (recvCard) {
+        recvCard.setAttribute('data-st', 'done');
+        var recvSt = document.getElementById('st-jintang');
+        if (recvSt) { recvSt.textContent = '已完成'; recvSt.classList.add('done'); }
+        var recvTip = document.getElementById('recvTip');
+        if (recvTip) {
+          recvTip.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M5 12.5 9 16.5 19 6.5" stroke="#2C7A5B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>已超时自动确认收货，货款已分账给商家，可去评价</span>';
+        }
+        var recvActs = document.getElementById('recvActs');
+        if (recvActs) {
+          recvActs.innerHTML = '<a href="aftersale-apply.html">申请售后</a><a class="soft" href="review.html">去评价</a><a href="invoice.html">申请开票</a>';
+        }
+      }
+    }
+  }
+
+  function filterOrders(btn) {
+    var f = btn.getAttribute('data-f');
+    document.querySelectorAll('#tabs button').forEach(function (x) { x.classList.remove('on'); });
+    btn.classList.add('on');
+    var cards = document.querySelectorAll('.oc');
+    var count = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var ok = f === 'all' || cards[i].getAttribute('data-st') === f;
+      cards[i].classList.toggle('hidden', !ok);
+      if (ok) { count++; }
+    }
+    document.getElementById('emptyBox').classList.toggle('hidden', count !== 0);
+  }
+
+  renderCountdowns();
+  setInterval(function () {
+    if (PAY_LEFT > 0) { PAY_LEFT--; }
+    if (RECV_LEFT > 0) { RECV_LEFT--; }
+    renderCountdowns();
+  }, 1000);
+</script>
+</body>
+</html>
