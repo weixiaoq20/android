@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>福聚贡翔 · 私域评论</title>
+<style>
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#2A2420;--ink2:#5C5C5F;--muted:#8A8A8E;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 6px 18px rgba(120,60,50,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+textarea{font-family:inherit}
+.app{width:100%;height:100%;max-width:393px;max-height:852px;min-height:0;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
+.status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
+.si{display:flex;align-items:center;gap:5px}
+.topbar{position:relative;flex:0 0 46px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.topbar h1{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;font-size:16px;font-weight:800;letter-spacing:-.3px;white-space:nowrap}
+.iconbtn{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;box-shadow:0 3px 9px rgba(160,110,80,.08);flex:0 0 30px}
+.scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;padding-bottom:14px;filter:blur(1.2px);opacity:.55;pointer-events:none}
+.scroll::-webkit-scrollbar{display:none}
+.card{background:#fff;border-radius:18px;border:1px solid #FBF1EA;box-shadow:var(--shadow);margin:10px 14px 0;padding:12px 13px;min-width:0}
+.chead{display:flex;align-items:center;gap:8px;min-width:0}
+.slogo{width:30px;height:30px;border-radius:9px;background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center;flex:0 0 30px}
+.cshop{flex:1;min-width:0}
+.cname{font-size:12.5px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.csub{margin-top:2px;font-size:9px;color:#A99C92}
+.cstate{flex:0 0 auto;font-size:11px;font-weight:700;color:#2C9C6A}
+.thumbs{display:flex;gap:6px;margin-top:10px}
+.th{width:52px;height:52px;border-radius:10px;background:#F5EFE9;display:grid;place-items:center}
+.th svg{width:36px;height:36px}
+.cnote{display:flex;align-items:center;gap:5px;margin-top:9px;background:#FBF9F7;border:1px solid #EDE6E0;border-radius:10px;padding:7px 9px;font-size:9.5px;color:#A79A91;line-height:1.4}
+.csum{display:flex;align-items:center;justify-content:space-between;margin-top:10px;font-size:10.5px;color:#91837A}
+.csum b{font-size:15px;font-weight:800;color:#E23A2E}
+.cops{display:flex;justify-content:flex-end;gap:7px;margin-top:10px;padding-top:10px;border-top:1px dashed #F5EAE2}
+.btn{height:31px;padding:0 12px;border-radius:999px;font-size:11.5px;font-weight:600;display:inline-flex;align-items:center;justify-content:center}
+.btn.ghost{background:#fff;border:1px solid #EFE3DA;color:#7A6A60}
+.btn.soft{background:#FFF6F3;border:1px solid #F7C7B8;color:#D0411F}
+.mask{position:absolute;inset:0;background:rgba(28,20,16,.42);z-index:30;backdrop-filter:blur(2px)}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:31;background:#fff;border-radius:22px 22px 0 0;box-shadow:0 -12px 36px rgba(80,40,20,.18);padding:10px 16px 14px;max-height:78%;display:flex;flex-direction:column;min-height:0}
+.sheet .handle{width:36px;height:4px;border-radius:999px;background:#E8DFD8;margin:0 auto 10px;flex:0 0 auto}
+.sheet .sh{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;flex:0 0 auto}
+.sheet .sh h2{margin:0;font-size:16px;font-weight:800;letter-spacing:-.3px}
+.sheet .sh .close{width:28px;height:28px;border-radius:50%;background:#F6F1ED;display:grid;place-items:center;color:#8A7C72}
+.badge-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:12px;flex:0 0 auto}
+.badge{font-size:9px;font-weight:700;border-radius:999px;padding:3px 8px;line-height:1.3}
+.badge.priv{color:#7B5CC8;background:#F3EEFB;border:1px solid #DFD2F5}
+.badge.tip{color:#B4674B;background:#FFF4EF;border:1px solid #FAD9C8}
+.sheet-body{flex:1 1 auto;min-height:0;overflow-y:auto;scrollbar-width:none}
+.sheet-body::-webkit-scrollbar{display:none}
+.shop-mini{display:flex;align-items:center;gap:9px;background:#FFFBF8;border:1px solid #F3E9E1;border-radius:14px;padding:10px;margin-bottom:12px}
+.shop-mini .logo{width:36px;height:36px;border-radius:11px;background:linear-gradient(140deg,#FE9E7E,#F2452E);color:#fff;font-size:13px;font-weight:800;display:grid;place-items:center;flex:0 0 36px}
+.shop-mini .si2{flex:1;min-width:0}
+.shop-mini .si2 b{display:block;font-size:12.5px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shop-mini .si2 span{display:block;font-size:9.5px;color:#A99C92;margin-top:3px}
+.goods-mini{display:flex;gap:6px;margin-bottom:14px}
+.goods-mini .g{width:48px;height:48px;border-radius:10px;background:#F5EFE9;display:grid;place-items:center;flex:0 0 48px}
+.goods-mini .g svg{width:32px;height:32px}
+.goods-mini .gmore{width:48px;height:48px;border-radius:10px;border:1px dashed #E8DFD8;display:grid;place-items:center;font-size:11px;color:#A99C92;font-weight:700}
+.rate-block{text-align:center;margin-bottom:14px}
+.rate-block p{margin:0;font-size:12px;font-weight:700;color:#3E332B}
+.stars{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px 0 6px}
+.star{width:30px;height:30px;display:grid;place-items:center}
+.star svg{width:28px;height:28px}
+.star .fill{display:none}
+.star.on .fill{display:block}
+.star.on .empty{display:none}
+.rtxt{font-size:11px;color:#B4674B;font-weight:600}
+.sec-lb{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sec-lb b{font-size:12.5px;font-weight:800;color:#2A2420}
+.sec-lb span{font-size:10px;color:#B2A69C}
+.ta-box{background:#FBF8F5;border:1px solid #F1E5DB;border-radius:14px;padding:11px 12px;margin-bottom:10px}
+.ta-box:focus-within{border-color:#F7A392;background:#fff;box-shadow:0 0 0 3px rgba(251,110,78,.1)}
+.ta-box textarea{width:100%;min-height:110px;border:0;background:transparent;resize:none;outline:none;font-size:13px;line-height:1.6;color:#2A2420;padding:0}
+.ta-box textarea::placeholder{color:#C4B7AC}
+.ta-foot{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.ta-foot .cnt{font-size:10px;color:#B2A69C;font-variant-numeric:tabular-nums}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.tag{font-size:11px;color:#7A6A60;background:#fff;border:1px solid #EFE3DA;border-radius:999px;padding:6px 11px;font-weight:500}
+.tag.on{color:#D0411F;border-color:#F7C7B8;background:#FFF4EF;font-weight:700}
+.priv-note{display:flex;align-items:flex-start;gap:6px;background:#F8F4FC;border:1px solid #E8DDF5;border-radius:12px;padding:9px 10px;font-size:10.5px;color:#6B5A8F;line-height:1.5;margin-bottom:4px}
+.priv-note i{flex:0 0 14px;width:14px;height:14px;border-radius:50%;background:#EDE4F8;color:#7B5CC8;display:grid;place-items:center;font-style:normal;font-size:9px;font-weight:800;margin-top:1px}
+.sheet-foot{flex:0 0 auto;padding-top:12px;display:flex;gap:8px}
+.sheet-foot .ghost{flex:0 0 96px;height:44px;border-radius:999px;border:1px solid #F0E1D6;background:#fff;color:#6E6057;font-size:13px;font-weight:700}
+.sheet-foot .main{flex:1;height:44px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:14px;font-weight:700;box-shadow:0 6px 16px rgba(232,70,45,.26)}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;z-index:32}
+.homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+.toast{position:absolute;left:50%;bottom:110px;transform:translate(-50%,10px);background:rgba(38,28,22,.9);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="status">
+<span>9:41</span>
+<div class="si">
+<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
+<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
+<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+</div>
+</div>
+<div class="topbar">
+<a aria-label="返回" class="iconbtn" href="wholesale-orders.html">
+<svg fill="none" height="16" viewBox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/></svg>
+</a>
+<h1>批发订单</h1>
+<span class="iconbtn" aria-hidden="true">
+<svg fill="none" height="14" viewBox="0 0 24 24" width="14"><circle cx="11" cy="11" r="6.5" stroke="#4A3F37" stroke-width="1.8"/><path d="m16 16 3.5 3.5" stroke="#4A3F37" stroke-linecap="round" stroke-width="1.8"/></svg>
+</span>
+</div>
+<div class="scroll" aria-hidden="true">
+<div class="card">
+<div class="chead">
+<span class="slogo">青</span>
+<div class="cshop">
+<div class="cname">青羊日用品批发</div>
+<div class="csub">微信担保 · 202610280012</div>
+</div>
+<span class="cstate">已完成</span>
+</div>
+<div class="thumbs">
+<span class="th"><svg fill="none" viewBox="0 0 60 60"><rect fill="#fff" height="21" rx="5" stroke="#5B7EA6" stroke-width="2.1" width="34" x="13" y="25"/><path d="M23 25v-4c0-3.4 4-3.4 4-6.2 0-2.6 3-3.4 4.6-.8 1.7 2.7 3.4 3 3.4 7v4" stroke="#5B7EA6" stroke-linejoin="round" stroke-width="2.1"/></svg></span>
+<span class="th"><svg fill="none" viewBox="0 0 60 60"><path d="M24 18h12v6l4 5v17a3 3 0 0 1-3 3H23a3 3 0 0 1-3-3V29l4-5z" fill="#fff" stroke="#4E8A63" stroke-linejoin="round" stroke-width="2.1"/><path d="M25 16h10" stroke="#4E8A63" stroke-linecap="round" stroke-width="3"/></svg></span>
+</div>
+<div class="cnote"><span>已确认收货 · 货款已分账给商家 · 可申请电子发票</span></div>
+<div class="csum"><span>共 12 件 · 2 种商品</span><span>实付 <b>¥198.00</b></span></div>
+<div class="cops">
+<span class="btn ghost">查看发票</span>
+<span class="btn soft">去评价</span>
+</div>
+</div>
+</div>
+
+<div class="mask" id="mask" onclick="goBack()"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+<div class="handle"></div>
+<div class="sh">
+<h2 id="sheetTitle">私域评论</h2>
+<button class="close" type="button" onclick="goBack()" aria-label="关闭">
+<svg fill="none" height="12" viewBox="0 0 24 24" width="12"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-linecap="round" stroke-width="2.2"/></svg>
+</button>
+</div>
+<div class="badge-row">
+<span class="badge priv">批发单 · 私域评论</span>
+<span class="badge tip">仅商家可见，不公开展示</span>
+</div>
+<div class="sheet-body">
+<div class="shop-mini">
+<span class="logo">青</span>
+<div class="si2">
+<b>青羊日用品批发</b>
+<span>订单 202610280012 · 实付 ¥198.00</span>
+</div>
+</div>
+<div class="goods-mini">
+<span class="g"><svg fill="none" viewBox="0 0 60 60"><rect fill="#fff" height="21" rx="5" stroke="#5B7EA6" stroke-width="2.1" width="34" x="13" y="25"/><path d="M23 25v-4c0-3.4 4-3.4 4-6.2 0-2.6 3-3.4 4.6-.8 1.7 2.7 3.4 3 3.4 7v4" stroke="#5B7EA6" stroke-linejoin="round" stroke-width="2.1"/></svg></span>
+<span class="g"><svg fill="none" viewBox="0 0 60 60"><path d="M24 18h12v6l4 5v17a3 3 0 0 1-3 3H23a3 3 0 0 1-3-3V29l4-5z" fill="#fff" stroke="#4E8A63" stroke-linejoin="round" stroke-width="2.1"/><path d="M25 16h10" stroke="#4E8A63" stroke-linecap="round" stroke-width="3"/></svg></span>
+<span class="gmore">2种</span>
+</div>
+<div class="rate-block">
+<p>本次合作满意度</p>
+<div class="stars" id="stars">
+<button class="star on" type="button" data-n="1" onclick="setStar(1)" aria-label="1星"><svg viewBox="0 0 24 24"><path class="empty" d="M12 3.6 14.4 9l5.8.5-4.4 3.8 1.3 5.6L12 16.2 6.9 18.9l1.3-5.6L3.8 9.5 9.6 9z" fill="none" stroke="#E8DFD8" stroke-width="1.4"/><path class="fill" d="M12 3.6 14.4 9l5.8.5-4.4 3.8 1.3 5.6L12 16.2 6.9 18.9l1.3-5.6L3.8 9.5 9.6 9z" fill="#F05A42"/></svg></button>
+<button class="star on" type="button" data-n="2" onclick="setStar(2)" aria-label="2星"><svg viewBox="0 0 24 24"><path class="empty" d="M12 3.6 14.4 9l5.8.5-4.4 3.8 1.3 5.6L12 16.2 6.9 18.9l1.3-5.6L3.8 9.5 9.6 9z" fill="none" stroke="#E8DFD8" stroke-width="1.4"/><path class="fill" d="M12 3.6 14.4 9l5.8.5-4.4 3.8 1.3 5.6L12 16.2 6.9 18.9l1.3-5.6L3.8 9.5 9.6 9z" fill="#F05A42"/></svg></button>
+<button class="star on" type="button" data-n="3" onclick="setStar(3)" aria-label="3星"><svg viewBox="0 0 24 24"><path class="empty" d="M12 3.6 14.4 9l5.8.5-4.4 3.8 1.3 5.6L12 16.2 6.9 18.9l1.3-5.6L3.8 9.5 9.6 9z" fill="none" stroke="#E8DFD8" stroke-width="1.4"/><path class="fill" d="M12 3.6 14.4 9l5.8.5-4.4 3.8 1.3 5.6L12 16.2 6.9 18.9l1.3-5.6L3.8 9.5 9.6 9z" fill="#F05A42"/></svg></button>
+<button class="star on" type="button" data-n="4" onclick="setStar(4)" aria-label="4星"><svg viewBox="0 0 24 24"><path class="empty" d="M12 3.6 14.4 9l5.8.5-4.4 3.8 1.3 5.6L12 16.2 6.9 18.9l1.3-5.6L3.8 9.5 9.6 9z" fill="none" stroke="#E8DFD8" stroke-width="1.4"/><path class="fill" d="M12 3.6 14.4 9l5.8.5-4.4 3.8 1.3 5.6L12 16.2 6.9 18.9l1.3-5.6L3.8 9.5 9.6 9z" fill="#F05A42"/></svg></button>
+<button class="star on" type="button" data-n="5" onclick="setStar(5)" aria-label="5星"><svg viewBox="0 0 24 24"><path class="empty" d="M12 3.6 14.4 9l5.8.5-4.4 3.8 1.3 5.6L12 16.2 6.9 18.9l1.3-5.6L3.8 9.5 9.6 9z" fill="none" stroke="#E8DFD8" stroke-width="1.4"/><path class="fill" d="M12 3.6 14.4 9l5.8.5-4.4 3.8 1.3 5.6L12 16.2 6.9 18.9l1.3-5.6L3.8 9.5 9.6 9z" fill="#F05A42"/></svg></button>
+</div>
+<div class="rtxt" id="rateTxt">非常满意</div>
+</div>
+<div class="sec-lb"><b>写给商家的话</b><span>私域留言</span></div>
+<div class="ta-box">
+<textarea id="comment" maxlength="200" placeholder="说说这次批发体验吧，例如货品品质、发货速度、打包完整性等…"></textarea>
+<div class="ta-foot"><span class="cnt"><span id="cnt">0</span>/200</span></div>
+</div>
+<div class="tags" id="tags">
+<button class="tag" type="button">货品新鲜</button>
+<button class="tag" type="button">发货快</button>
+<button class="tag" type="button">包装扎实</button>
+<button class="tag" type="button">沟通顺畅</button>
+<button class="tag" type="button">还会再订</button>
+</div>
+<div class="priv-note"><i>i</i><span>私域评论仅该批发商家可见，不会出现在公域商品评价中；可用于复购沟通与售后参考。</span></div>
+</div>
+<div class="sheet-foot">
+<button class="ghost" type="button" onclick="goBack()">取消</button>
+<button class="main" type="button" onclick="submitReview()">提交评论</button>
+</div>
+</div>
+<div class="homebar"><i></i></div>
+<div class="toast" id="toast">已提交</div>
+</div>
+<script>
+  var star = 5;
+  var labels = ['很不满意', '不太满意', '一般', '比较满意', '非常满意'];
+
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window.__rt);
+    window.__rt = setTimeout(function () { t.classList.remove('show'); }, 1600);
+  }
+
+  function goBack() {
+    window.location.href = 'wholesale-orders.html';
+  }
+
+  function setStar(n) {
+    star = n;
+    var nodes = document.querySelectorAll('#stars .star');
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].classList.toggle('on', i < n);
+    }
+    document.getElementById('rateTxt').textContent = labels[n - 1] || '';
+  }
+
+  document.getElementById('comment').addEventListener('input', function () {
+    document.getElementById('cnt').textContent = String(this.value.length);
+  });
+
+  document.getElementById('tags').addEventListener('click', function (e) {
+    var tag = e.target.closest('.tag');
+    if (!tag) return;
+    tag.classList.toggle('on');
+    var ta = document.getElementById('comment');
+    var word = tag.textContent.trim();
+    if (tag.classList.contains('on')) {
+      if (ta.value.indexOf(word) === -1) {
+        ta.value = (ta.value ? ta.value.replace(/\s*$/, '') + (ta.value ? '，' : '') : '') + word;
+      }
+    } else {
+      ta.value = ta.value.replace(new RegExp('，?' + word), '').replace(/^，/, '');
+    }
+    document.getElementById('cnt').textContent = String(ta.value.length);
+  });
+
+  function submitReview() {
+    var txt = (document.getElementById('comment').value || '').trim();
+    if (!txt) { showToast('请先填写评论内容'); return; }
+    showToast('私域评论已提交，仅商家可见');
+    setTimeout(goBack, 900);
+  }
+</script>
+</body>
+</html>
