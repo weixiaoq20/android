@@ -1,0 +1,3 @@
+from pathlib import Path
+p=Path('pc-admin.html'); s=p.read_text(encoding='utf-8'); a=s.index('<div class="bars">'); b=s.index('</div></div><div class="panel"><h3>待处理事项',a); bars='<div class="bars"><div class="bar" style="height:38%"><small>周一</small></div><div class="bar" style="height:58%"><small>周二</small></div><div class="bar" style="height:46%"><small>周三</small></div><div class="bar" style="height:75%"><small>周四</small></div><div class="bar" style="height:62%"><small>周五</small></div><div class="bar" style="height:88%"><small>周六</small></div><div class="bar" style="height:70%"><small>周日</small></div></div></div><div class="panel"><h3>待处理事项'
+s=s[:a]+bars+s[b+len('</div></div><div class="panel"><h3>待处理事项'):]; p.write_text(s,encoding='utf-8'); print('ok',len(s))

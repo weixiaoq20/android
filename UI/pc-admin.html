@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>福聚贡翔 · PC总后台</title>
+<style>
+:root{
+  --bg:#f4f6fa;--panel:#fff;--ink:#1f2937;--muted:#748094;--line:#e7ebf1;
+  --brand:#ef5b43;--brand-soft:#fff0ed;--blue:#3b82f6;--green:#10b981;--amber:#d97706;
+  --side:#172033;--side2:#26324a;--shadow:0 8px 24px #24324d0b
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei",Segoe UI,sans-serif;color:var(--ink);background:var(--bg);font-size:14px}
+.app{display:flex;min-height:100vh}
+.side{width:248px;background:var(--side);color:#d7deeb;padding:20px 12px;position:fixed;inset:0 auto 0 0;overflow:auto}
+.logo{font-size:20px;font-weight:800;color:#fff;padding:4px 12px 20px}
+.logo span{color:#ff8668}
+.group{margin:16px 10px 6px;color:#71809b;font-size:11px;letter-spacing:.04em}
+.nav{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:10px;cursor:pointer;margin:2px 0;color:#c7d0e0}
+.nav:hover,.nav.on{background:var(--side2);color:#fff}
+.nav.on{box-shadow:inset 3px 0 var(--brand)}
+.main{margin-left:248px;flex:1;min-width:0}
+.top{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:3}
+.crumb{font-size:17px;font-weight:700}
+.topright{display:flex;gap:14px;align-items:center;color:var(--muted)}
+.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#ffad7f,#ef4f3b);display:grid;place-items:center;color:#fff;font-weight:700}
+.content{padding:24px 28px 48px;max-width:1480px}
+.toolbar{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.toolbar h1{margin:0;font-size:22px}
+.sub{color:var(--muted);font-size:13px;margin-top:4px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+button,.btn{border:0;border-radius:8px;padding:9px 14px;cursor:pointer;font:inherit}
+.primary{background:var(--brand);color:#fff}
+.ghost{background:#fff;border:1px solid var(--line);color:#536174}
+.danger{background:#fff;border:1px solid #f3c4bc;color:#c2410c}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.card{padding:18px}
+.metric .label{color:var(--muted);font-size:12px}
+.metric .value{font-size:24px;font-weight:800;margin-top:6px}
+.metric .delta{font-size:12px;color:var(--green);margin-top:6px}
+.metric .delta.warn{color:var(--brand)}
+.grid{display:grid;grid-template-columns:1.35fr 1fr;gap:16px;margin-top:16px}
+.panel{padding:18px}
+.panel h3{margin:0 0 14px;font-size:15px}
+.panel + .panel,.mt{margin-top:16px}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+th{color:var(--muted);font-size:12px;font-weight:600;background:#fafbfc}
+td{font-size:13px}
+.tag{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:12px;background:var(--brand-soft);color:#d84d37;white-space:nowrap}
+.tag.green{background:#eafaf4;color:#0c9c71}
+.tag.blue{background:#eef5ff;color:#3b72c9}
+.tag.amber{background:#fff7e8;color:#b45309}
+.tag.gray{background:#f1f3f6;color:#64748b}
+.tag.purple{background:#f3eefe;color:#7c3aed}
+.search{border:1px solid var(--line);border-radius:8px;padding:9px 12px;min-width:180px}
+.section{display:none}.section.active{display:block}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.tabs button{background:#fff;border:1px solid var(--line);color:#68768a}
+.tabs button.on{background:var(--brand-soft);color:var(--brand);border-color:#ffc7bb}
+.hint{font-size:12px;color:var(--muted);margin:0 0 12px}
+.mono{font-variant-numeric:tabular-nums;font-family:ui-monospace,Consolas,monospace;font-size:12px}
+.row-actions{display:flex;gap:6px;flex-wrap:wrap}
+.cell-sub{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.bars{height:180px;display:flex;align-items:end;gap:10px;padding:8px 4px 18px}
+.bar{flex:1;background:linear-gradient(#ff9b79,var(--brand));border-radius:7px 7px 2px 2px;position:relative;min-height:16px}
+.bar small{position:absolute;bottom:-20px;width:100%;text-align:center;color:var(--muted);font-size:11px}
+.toast{position:fixed;right:28px;bottom:28px;background:#172033;color:#fff;padding:12px 16px;border-radius:8px;z-index:20;box-shadow:0 8px 20px #0003}
+.hidden{display:none!important}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:1100px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .grid,.split{grid-template-columns:1fr}
+}
+@media(max-width:900px){
+  .side{width:200px}.main{margin-left:200px}.content{padding:18px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="logo">福聚<span>贡翔</span></div>
+  <div class="group">总览</div>
+  <div class="nav on" data-page="overview">数据总览</div>
+  <div class="group">商城管理</div>
+  <div class="nav" data-page="users">用户管理</div>
+  <div class="nav" data-page="categories">类目管理</div>
+  <div class="nav" data-page="products">商品管理</div>
+  <div class="nav" data-page="orders">订单管理</div>
+  <div class="nav" data-page="after">售后与仲裁</div>
+  <div class="nav" data-page="marketing">营销中心</div>
+  <div class="group">业务中心</div>
+  <div class="nav" data-page="distribution">分销与钱包</div>
+  <div class="nav" data-page="wholesale">批发管理</div>
+  <div class="nav" data-page="finance">资金与分账</div>
+  <div class="nav" data-page="merchant">商家管理</div>
+  <div class="nav" data-page="content">内容审核</div>
+  <div class="nav" data-page="post-goods">动态带货审核</div>
+  <div class="nav" data-page="service">客服与消息</div>
+  <div class="group">系统</div>
+  <div class="nav" data-page="invoice">发票管理</div>
+  <div class="nav" data-page="settings">设置与服务</div>
+</aside>
+
+<main class="main">
+<header class="top">
+  <div class="crumb" id="crumb">数据总览</div>
+  <div class="topright">成都站 · 全局搜索<span>待办 19</span><div class="avatar">运</div></div>
+</header>
+
+<div class="content">
+
+<!-- 总览 -->
+<section id="overview" class="section active">
+  <div class="toolbar">
+    <div><h1>经营数据总览</h1><div class="sub">对齐小程序：零售 / 批发双轨 · 微信担保托管 · 确认收货后分账</div></div>
+    <div class="actions">
+      <button class="ghost" onclick="toast('已切换近 7 天')">近 7 天</button>
+      <button class="primary" onclick="toast('报表导出任务已创建')">导出报表</button>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="metric"><div class="label">今日成交额（托管入账）</div><div class="value">¥128,560</div><div class="delta">↑ 18.6% · 零售 ¥96,210 / 批发 ¥32,350</div></div></div>
+    <div class="card"><div class="metric"><div class="label">支付订单</div><div class="value">1,286</div><div class="delta">零售 1,142 · 批发 144</div></div></div>
+    <div class="card"><div class="metric"><div class="label">待结算托管余额</div><div class="value">¥486,920</div><div class="delta">确认收货后约 24h 分账</div></div></div>
+    <div class="card"><div class="metric"><div class="label">平台待办</div><div class="value">19</div><div class="delta warn">售后仲裁 3 · 入驻 6 · 提现 4 · 动态 6</div></div></div>
+  </div>
+  <div class="grid">
+    <div class="panel">
+      <h3>成交趋势</h3>
+      <div class="bars">
+        <div class="bar" style="height:38%"><small>一</small></div>
+        <div class="bar" style="height:58%"><small>二</small></div>
+        <div class="bar" style="height:46%"><small>三</small></div>
+        <div class="bar" style="height:75%"><small>四</small></div>
+        <div class="bar" style="height:62%"><small>五</small></div>
+        <div class="bar" style="height:88%"><small>六</small></div>
+        <div class="bar" style="height:70%"><small>日</small></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>待处理事项</h3>
+      <table>
+        <tr><td>售后仲裁介入</td><td><span class="tag">3</span></td><td><button class="ghost" onclick="go('after')">处理</button></td></tr>
+        <tr><td>商家入驻审核</td><td><span class="tag amber">6</span></td><td><button class="ghost" onclick="go('merchant')">审核</button></td></tr>
+        <tr><td>佣金提现审核</td><td><span class="tag blue">4</span></td><td><button class="ghost" onclick="go('distribution')">处理</button></td></tr>
+        <tr><td>内容审核（逛逛/零售评价）</td><td><span class="tag purple">7</span></td><td><button class="ghost" onclick="go('content')">审核</button></td></tr>
+        <tr><td>动态带货审核</td><td><span class="tag">5</span></td><td><button class="ghost" onclick="go('post-goods')">审核</button></td></tr>
+        <tr><td>批发选品单将过期</td><td><span class="tag gray">12</span></td><td><button class="ghost" onclick="go('wholesale')">查看</button></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 用户 -->
+<section id="users" class="section">
+  <div class="toolbar">
+    <div><h1>用户管理</h1><div class="sub">买家身份；可切换商家工作台 · 关联佣金钱包与分销归因</div></div>
+    <div class="actions"><button class="ghost" onclick="toast('已导出用户列表')">导出</button></div>
+  </div>
+  <div class="panel">
+    <div class="tabs">
+      <button class="on">全部 12,680</button>
+      <button>有分销关系</button>
+      <button>有可提现佣金</button>
+      <button>商家身份用户</button>
+      <input class="search" placeholder="昵称 / 手机号 / 用户 ID">
+    </div>
+    <table>
+      <tr><th>用户</th><th>手机号</th><th>角色</th><th>订单</th><th>消费</th><th>佣金可提现</th><th>状态</th><th>操作</th></tr>
+      <tr>
+        <td>张三<span class="cell-sub">UID 100286</span></td>
+        <td>138****6688</td>
+        <td><span class="tag blue">买家</span> <span class="tag green">商家</span></td>
+        <td>28</td><td>¥3,680</td><td>¥86.40</td>
+        <td><span class="tag green">正常</span></td>
+        <td class="row-actions"><button class="ghost" onclick="toast('用户详情：订单 / 券包 / 分销')">详情</button></td>
+      </tr>
+      <tr>
+        <td>李女士<span class="cell-sub">UID 100311</span></td>
+        <td>139****2408</td>
+        <td><span class="tag blue">买家</span></td>
+        <td>16</td><td>¥2,140</td><td>¥12.80</td>
+        <td><span class="tag green">正常</span></td>
+        <td class="row-actions"><button class="ghost">详情</button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- 类目 -->
+<section id="categories" class="section">
+  <div class="toolbar">
+    <div><h1>类目管理</h1><div class="sub">平台一二级类目 · 商家挂载仅选二级（对齐 merchant-category-pick）</div></div>
+    <div class="actions"><button class="primary" onclick="toast('新建一级类目')">+ 新建类目</button></div>
+  </div>
+  <div class="split">
+    <div class="panel">
+      <h3>一级类目</h3>
+      <table>
+        <tr><th>类目</th><th>二级数</th><th>服务费率</th><th>状态</th><th>操作</th></tr>
+        <tr><td>水果生鲜</td><td>12</td><td>2.0%</td><td><span class="tag green">启用</span></td><td><button class="ghost">编辑</button></td></tr>
+        <tr><td>干杂粮油</td><td>18</td><td>3.0%</td><td><span class="tag green">启用</span></td><td><button class="ghost">编辑</button></td></tr>
+        <tr><td>药材滋补</td><td>9</td><td>4.0%</td><td><span class="tag green">启用</span></td><td><button class="ghost">编辑</button></td></tr>
+        <tr><td>五金日用</td><td>15</td><td>3.5%</td><td><span class="tag green">启用</span></td><td><button class="ghost">编辑</button></td></tr>
+        <tr><td>酒店用品</td><td>7</td><td>5.0%</td><td><span class="tag amber">限新店</span></td><td><button class="ghost">编辑</button></td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <h3>二级类目 · 水果生鲜</h3>
+      <p class="hint">商家发布商品时只能选择二级；费率继承一级可覆盖。</p>
+      <table>
+        <tr><th>二级类目</th><th>挂载商品</th><th>状态</th><th>操作</th></tr>
+        <tr><td>猕猴桃</td><td>286</td><td><span class="tag green">启用</span></td><td><button class="ghost">编辑</button></td></tr>
+        <tr><td>柑橘橙柚</td><td>412</td><td><span class="tag green">启用</span></td><td><button class="ghost">编辑</button></td></tr>
+        <tr><td>叶菜</td><td>98</td><td><span class="tag gray">停用</span></td><td><button class="ghost">启用</button></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 商品 -->
+<section id="products" class="section">
+  <div class="toolbar">
+    <div><h1>商品管理</h1><div class="sub">SKU 双价：零售价 / 批发价 · 可开一级分销、拼单；平台可强制下架</div></div>
+    <div class="actions">
+      <button class="ghost" onclick="toast('批量稽核任务已创建')">批量稽核</button>
+      <button class="danger" onclick="toast('已对勾选商品强制下架')">强制下架</button>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="tabs">
+      <button class="on">全部 2,380</button>
+      <button>在售</button>
+      <button>仓库 / 草稿</button>
+      <button>售罄</button>
+      <button>开了批发价</button>
+      <button>开了拼单</button>
+      <button>开了分销</button>
+      <input class="search" placeholder="商品名 / 货号 / 店铺">
+    </div>
+    <table>
+      <tr><th>商品</th><th>店铺</th><th>平台类目</th><th>零售价</th><th>批发价</th><th>库存</th><th>营销</th><th>状态</th><th>操作</th></tr>
+      <tr>
+        <td>蒲江红心猕猴桃 5斤<span class="cell-sub">货号 FJ-KW-05</span></td>
+        <td>果乡旗舰店</td>
+        <td>水果生鲜 / 猕猴桃</td>
+        <td>¥39.90</td><td>¥28.00<span class="cell-sub">10 斤起</span></td>
+        <td>1,286</td>
+        <td><span class="tag purple">分销 12%</span> <span class="tag amber">拼单</span></td>
+        <td><span class="tag green">在售</span></td>
+        <td class="row-actions"><button class="ghost" onclick="toast('商品稽核：主图≤3 / SKU / 互斥规则')">稽核</button><button class="danger">下架</button></td>
+      </tr>
+      <tr>
+        <td>UGG 女士双面筒靴<span class="cell-sub">货号 BR-UGG-02</span></td>
+        <td>潮品优选</td>
+        <td>服饰鞋靴 / 女靴</td>
+        <td>¥788.00</td><td>—</td>
+        <td>68</td>
+        <td><span class="tag">秒杀场</span></td>
+        <td><span class="tag amber">库存预警</span></td>
+        <td class="row-actions"><button class="ghost">稽核</button><button class="danger">下架</button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- 订单 -->
+<section id="orders" class="section">
+  <div class="toolbar">
+    <div><h1>订单管理</h1><div class="sub">零售单 / 批发单分流 · 微信担保托管 · 支持分批发货多包裹</div></div>
+    <div class="actions"><button class="ghost" onclick="toast('已导出订单')">导出</button></div>
+  </div>
+  <div class="panel">
+    <div class="tabs">
+      <button class="on" data-filter="all">全部</button>
+      <button>零售单</button>
+      <button>批发单</button>
+      <button>待付款</button>
+      <button>待发货 34</button>
+      <button>待收货</button>
+      <button>售后中</button>
+      <button>已完成</button>
+      <button>已关闭</button>
+      <input class="search" placeholder="订单号 / 买家 / 店铺">
+    </div>
+    <p class="hint">状态机：待付款（超时关单释库存+退券）→ 待发货 → 待收货（可分包裹确认）→ 已完成（约 24h 分账）。售后中冻结分账。</p>
+    <table>
+      <tr><th>订单号</th><th>类型</th><th>买家</th><th>店铺</th><th>金额</th><th>支付 / 托管</th><th>配送</th><th>状态</th><th>操作</th></tr>
+      <tr>
+        <td class="mono">202611230026</td>
+        <td><span class="tag blue">零售</span></td>
+        <td>张三</td>
+        <td>果乡旗舰店</td>
+        <td>¥79.80</td>
+        <td>微信担保<span class="cell-sub">托管中</span></td>
+        <td>快递 · 1 包裹</td>
+        <td><span class="tag blue">待发货</span></td>
+        <td class="row-actions"><button class="ghost" onclick="toast('订单详情：包裹 / 券抵扣 / 分账')">详情</button></td>
+      </tr>
+      <tr>
+        <td class="mono">202611110031</td>
+        <td><span class="tag purple">批发</span></td>
+        <td>青羊日用采购</td>
+        <td>青羊日用品批发</td>
+        <td>¥1,280.00</td>
+        <td>微信担保<span class="cell-sub">托管中</span></td>
+        <td>同城配送</td>
+        <td><span class="tag blue">待发货</span><span class="cell-sub">发货前可改/取消</span></td>
+        <td class="row-actions"><button class="ghost" onclick="go('wholesale')">批发侧</button></td>
+      </tr>
+      <tr>
+        <td class="mono">202611220018</td>
+        <td><span class="tag blue">零售</span></td>
+        <td>王先生</td>
+        <td>果乡旗舰店</td>
+        <td>¥29.90</td>
+        <td>线下扫码<span class="cell-sub">不经托管</span></td>
+        <td>到店取货</td>
+        <td><span class="tag green">已完成</span></td>
+        <td class="row-actions"><button class="ghost">详情</button></td>
+      </tr>
+      <tr>
+        <td class="mono">202611180044</td>
+        <td><span class="tag blue">零售</span></td>
+        <td>周女士</td>
+        <td>潮品优选</td>
+        <td>¥409.00</td>
+        <td>微信担保<span class="cell-sub">分账冻结·售后</span></td>
+        <td>快递 · 2 包裹</td>
+        <td><span class="tag">售后处理中</span></td>
+        <td class="row-actions"><button class="ghost" onclick="go('after')">看售后</button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- 售后 -->
+<section id="after" class="section">
+  <div class="toolbar">
+    <div><h1>售后与仲裁</h1><div class="sub">对齐商家售后：待审核 → 待寄回 → 待签收核验 → 待退款 → 已完成；超时可平台介入</div></div>
+    <div class="actions"><button class="ghost" onclick="toast('售后规则：超时自动同意 / 坏果包赔')">售后规则</button></div>
+  </div>
+  <div class="cards" style="margin-bottom:16px">
+    <div class="card"><div class="metric"><div class="label">待审核</div><div class="value">2</div></div></div>
+    <div class="card"><div class="metric"><div class="label">待寄回 / 待签收</div><div class="value">2</div></div></div>
+    <div class="card"><div class="metric"><div class="label">待退款</div><div class="value">1</div></div></div>
+    <div class="card"><div class="metric"><div class="label">平台仲裁</div><div class="value">3</div><div class="delta warn">商家超时未处理</div></div></div>
+  </div>
+  <div class="panel">
+    <div class="tabs">
+      <button class="on">全部</button>
+      <button>待审核</button>
+      <button>待寄回</button>
+      <button>待签收</button>
+      <button>待退款</button>
+      <button>平台仲裁 3</button>
+      <button>已完成</button>
+      <button>坏果包赔</button>
+    </div>
+    <table>
+      <tr><th>售后单</th><th>关联订单</th><th>类型</th><th>用户 / 店铺</th><th>金额</th><th>状态</th><th>操作</th></tr>
+      <tr>
+        <td class="mono">AS20261123001</td>
+        <td class="mono">202611110026</td>
+        <td>退货退款</td>
+        <td>张三 · 果乡旗舰店</td>
+        <td>¥79.80</td>
+        <td><span class="tag">待审核</span></td>
+        <td class="row-actions"><button class="primary" onclick="toast('同意 / 驳回 / 补偿')">审核</button></td>
+      </tr>
+      <tr>
+        <td class="mono">AS20261121008</td>
+        <td class="mono">202611180044</td>
+        <td>仅退款 · 坏果包赔</td>
+        <td>周女士 · 潮品优选</td>
+        <td>¥60.00</td>
+        <td><span class="tag amber">平台仲裁</span><span class="cell-sub">商家超时 24h</span></td>
+        <td class="row-actions"><button class="primary" onclick="toast('仲裁：支持买家退款并解冻分账')">介入</button></td>
+      </tr>
+      <tr>
+        <td class="mono">AS20261119003</td>
+        <td class="mono">202611110008</td>
+        <td>批发售后沟通</td>
+        <td>青羊日用 · 青羊批发</td>
+        <td>—</td>
+        <td><span class="tag purple">沟通存档</span><span class="cell-sub">不影响主售后工单</span></td>
+        <td class="row-actions"><button class="ghost" onclick="toast('查看批发售后沟通记录')">查看</button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- 营销 -->
+<section id="marketing" class="section">
+  <div class="toolbar">
+    <div><h1>营销中心</h1><div class="sub">平台红包 vs 店铺礼金分治 · 秒杀与拼单互斥 · 满减/折扣/直降巡检</div></div>
+    <div class="actions"><button class="primary" onclick="toast('创建平台红包活动')">+ 平台红包</button></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="metric"><div class="label">平台红包进行中</div><div class="value">6</div><div class="delta">已发放 ¥86,420</div></div></div>
+    <div class="card"><div class="metric"><div class="label">店铺礼金活动</div><div class="value">28</div><div class="delta">不可跨店 · 不可提现</div></div></div>
+    <div class="card"><div class="metric"><div class="label">秒杀场次今日</div><div class="value">4</div><div class="delta">20:00 开场</div></div></div>
+    <div class="card"><div class="metric"><div class="label">拼单专场</div><div class="value">9</div><div class="delta">与秒杀互斥校验中</div></div></div>
+  </div>
+  <div class="panel mt">
+    <div class="tabs">
+      <button class="on">平台红包</button>
+      <button>店铺礼金监管</button>
+      <button>秒杀场次</button>
+      <button>拼单</button>
+      <button>促销（满减/折扣/直降）</button>
+    </div>
+    <table>
+      <tr><th>活动</th><th>类型</th><th>范围</th><th>规则</th><th>库存/总量</th><th>状态</th><th>操作</th></tr>
+      <tr>
+        <td>年货节平台红包</td>
+        <td><span class="tag">平台红包</span></td>
+        <td>全平台 / 指定类目</td>
+        <td>满 1400 减 280 · 满 2000 减 340</td>
+        <td>剩 12,860</td>
+        <td><span class="tag green">进行中</span></td>
+        <td class="row-actions"><button class="ghost">编辑</button><button class="ghost">核销明细</button></td>
+      </tr>
+      <tr>
+        <td>果乡新客礼金</td>
+        <td><span class="tag amber">店铺礼金</span></td>
+        <td>果乡旗舰店 · 全店</td>
+        <td>立减 12% · 新客 · 可与秒杀叠加关</td>
+        <td>剩 320</td>
+        <td><span class="tag green">进行中</span></td>
+        <td class="row-actions"><button class="ghost">巡检</button><button class="danger">停用</button></td>
+      </tr>
+      <tr>
+        <td>UGG 晚 8 点秒杀</td>
+        <td><span class="tag">秒杀</td></td>
+        <td>单品单场 · SKU</td>
+        <td>秒杀价 ¥414 · 限购 1 · 独立库存</td>
+        <td>独立库存 80</td>
+        <td><span class="tag blue">待开抢</span></td>
+        <td class="row-actions"><button class="ghost">查看</button><button class="ghost">互斥检查</button></td>
+      </tr>
+      <tr>
+        <td>小熊针织衫拼单</td>
+        <td><span class="tag purple">拼单</span></td>
+        <td>潮品优选</td>
+        <td>2 人成团 · 24h · 成团前不发货</td>
+        <td>—</td>
+        <td><span class="tag green">进行中</span></td>
+        <td class="row-actions"><button class="ghost">查看</button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- 分销与钱包 -->
+<section id="distribution" class="section">
+  <div class="toolbar">
+    <div><h1>分销与钱包</h1><div class="sub">仅一级归因 · 确认收货后到账 · 退款冲回 · 提现满 ¥1 / 手续费 ¥0.1 到微信零钱</div></div>
+    <div class="actions">
+      <button class="ghost" onclick="toast('佣金比例上下限：5%–20%')">比例参数</button>
+      <button class="primary" onclick="toast('打开提现批量审核')">审核提现</button>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="metric"><div class="label">累计已发佣金</div><div class="value">¥286,420</div></div></div>
+    <div class="card"><div class="metric"><div class="label">待入账（预估）</div><div class="value">¥18,260</div><div class="delta">确认收货后入账</div></div></div>
+    <div class="card"><div class="metric"><div class="label">可提现合计</div><div class="value">¥46,800</div></div></div>
+    <div class="card"><div class="metric"><div class="label">待审提现</div><div class="value">4</div><div class="delta warn">工作日 1–3 日到账</div></div></div>
+  </div>
+  <div class="panel mt">
+    <div class="tabs">
+      <button class="on">分销商品</button>
+      <button>佣金流水</button>
+      <button>提现审核 4</button>
+      <button>邀请关系</button>
+    </div>
+    <table>
+      <tr><th>类型</th><th>对象</th><th>关联</th><th>金额</th><th>状态</th><th>操作</th></tr>
+      <tr>
+        <td>分销商品</td>
+        <td>Teenie Weenie 小熊针织衫</td>
+        <td>潮品优选 · 比例 12%</td>
+        <td>一级佣金 ¥41.88</td>
+        <td><span class="tag green">推广中</span></td>
+        <td class="row-actions"><button class="ghost">查看</button><button class="ghost">校验上下限</button></td>
+      </tr>
+      <tr>
+        <td>佣金流水</td>
+        <td>张三 ← 好友陈小满</td>
+        <td>蒲江猕猴桃 5斤</td>
+        <td>+¥4.78</td>
+        <td><span class="tag amber">预估待入账</span></td>
+        <td class="row-actions"><button class="ghost">详情</button></td>
+      </tr>
+      <tr>
+        <td>佣金流水</td>
+        <td>李女士</td>
+        <td>订单退款冲回</td>
+        <td>-¥12.60</td>
+        <td><span class="tag">已冲回</span></td>
+        <td class="row-actions"><button class="ghost">详情</button></td>
+      </tr>
+      <tr>
+        <td>提现</td>
+        <td>张三 · 微信零钱</td>
+        <td>申请 11-23 14:20</td>
+        <td>¥86.40（扣 ¥0.1）</td>
+        <td><span class="tag blue">待审核</span></td>
+        <td class="row-actions"><button class="primary" onclick="toast('提现已通过，待打款')">通过</button><button class="danger">驳回</button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- 批发管理（平台视角） -->
+<section id="wholesale" class="section">
+  <div class="toolbar">
+    <div><h1>批发管理</h1><div class="sub">选品单（草稿，最长 10 天）→ 批发单（仅微信担保）· 发货前可改/取消 · 完成后私域评价</div></div>
+    <div class="actions"><button class="ghost" onclick="toast('清理逾期选品单任务已执行')">清理逾期选品单</button></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="metric"><div class="label">有效选品单</div><div class="value">128</div><div class="delta warn">12 张将在 48h 内过期</div></div></div>
+    <div class="card"><div class="metric"><div class="label">批发待付款</div><div class="value">36</div></div></div>
+    <div class="card"><div class="metric"><div class="label">批发待发货</div><div class="value">22</div><div class="delta">发货前允许改单</div></div></div>
+    <div class="card"><div class="metric"><div class="label">今日批发成交</div><div class="value">¥32,350</div></div></div>
+  </div>
+  <div class="panel mt">
+    <div class="tabs">
+      <button class="on">选品单</button>
+      <button>批发单 · 待付款</button>
+      <button>批发单 · 待发货</button>
+      <button>批发单 · 待收货</button>
+      <button>已完成</button>
+      <button>已取消</button>
+      <button>私域评价</button>
+      <input class="search" placeholder="选品单号 / 批发单号 / 采购商 / 店铺">
+    </div>
+    <table>
+      <tr><th>单号</th><th>形态</th><th>采购商</th><th>供货店铺</th><th>件数 / 金额</th><th>支付</th><th>状态</th><th>操作</th></tr>
+      <tr>
+        <td class="mono">PICK-1123-08</td>
+        <td><span class="tag gray">选品单</span></td>
+        <td>青羊日用采购</td>
+        <td>青羊日用品批发</td>
+        <td>18 件 · 估 ¥860</td>
+        <td>—</td>
+        <td><span class="tag amber">草稿</span><span class="cell-sub">剩 3 天自动清理</span></td>
+        <td class="row-actions"><button class="ghost">详情</button><button class="danger" onclick="toast('已清理该选品单')">清理</button></td>
+      </tr>
+      <tr>
+        <td class="mono">202611110026</td>
+        <td><span class="tag purple">批发单</span></td>
+        <td>青羊日用采购</td>
+        <td>青羊日用品批发</td>
+        <td>12 件 · ¥198.00</td>
+        <td>微信担保</td>
+        <td><span class="tag">待付款</span></td>
+        <td class="row-actions"><button class="ghost">详情</button></td>
+      </tr>
+      <tr>
+        <td class="mono">202611110031</td>
+        <td><span class="tag purple">批发单</span></td>
+        <td>锦江餐饮采购</td>
+        <td>蜀味冻货仓</td>
+        <td>40 件 · ¥1,280.00</td>
+        <td>微信担保 · 托管中</td>
+        <td><span class="tag blue">待发货</span><span class="cell-sub">可改单 / 取消</span></td>
+        <td class="row-actions"><button class="ghost">详情</button><button class="ghost" onclick="toast('平台备注：督促商家发货')">备注</button></td>
+      </tr>
+      <tr>
+        <td class="mono">202611110008</td>
+        <td><span class="tag purple">批发单</span></td>
+        <td>武侯商超</td>
+        <td>果乡旗舰店</td>
+        <td>60 件 · ¥2,160.00</td>
+        <td>微信担保 · 托管中</td>
+        <td><span class="tag blue">待收货</span><span class="cell-sub">售后沟通开启中</span></td>
+        <td class="row-actions"><button class="ghost">详情</button><button class="ghost" onclick="go('after')">售后沟通</button></td>
+      </tr>
+      <tr>
+        <td class="mono">202610280012</td>
+        <td><span class="tag purple">批发单</span></td>
+        <td>青羊日用采购</td>
+        <td>青羊日用品批发</td>
+        <td>12 件 · ¥198.00</td>
+        <td>已分账给商家</td>
+        <td><span class="tag green">已完成</span><span class="cell-sub">有私域评价</span></td>
+        <td class="row-actions"><button class="ghost" onclick="toast('私域评论仅商家可见，平台可屏蔽')">看评价</button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- 资金与分账 -->
+<section id="finance" class="section">
+  <div class="toolbar">
+    <div><h1>资金与分账</h1><div class="sub">付款入托管 → 确认收货后约 24h 分账 · 售后冻结 · 类目服务费 2%–5% · 线下扫码不经托管</div></div>
+    <div class="actions"><button class="ghost" onclick="toast('已导出资金流水')">导出流水</button></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="metric"><div class="label">托管在途</div><div class="value">¥486,920</div><div class="delta">待买家确认 / 待分账</div></div></div>
+    <div class="card"><div class="metric"><div class="label">今日已分账</div><div class="value">¥96,480</div><div class="delta">T+1 结算口径</div></div></div>
+    <div class="card"><div class="metric"><div class="label">售后冻结</div><div class="value">¥12,640</div><div class="delta warn">18 笔订单</div></div></div>
+    <div class="card"><div class="metric"><div class="label">今日服务费</div><div class="value">¥3,286</div><div class="delta">按类目 2%–5%</div></div></div>
+  </div>
+  <div class="panel mt">
+    <div class="tabs">
+      <button class="on">托管账本</button>
+      <button>分账记录</button>
+      <button>冻结 / 解冻</button>
+      <button>服务费明细</button>
+      <button>线下扫码备案款</button>
+      <input class="search" placeholder="订单号 / 商家 / 流水号">
+    </div>
+    <table>
+      <tr><th>流水号</th><th>关联订单</th><th>商家</th><th>类型</th><th>金额</th><th>服务费</th><th>状态</th><th>操作</th></tr>
+      <tr>
+        <td class="mono">ESC-1123-9001</td>
+        <td class="mono">202611230026</td>
+        <td>果乡旗舰店</td>
+        <td>零售入托管</td>
+        <td>¥79.80</td>
+        <td>预估 ¥1.60（2%）</td>
+        <td><span class="tag blue">托管中</span></td>
+        <td class="row-actions"><button class="ghost">详情</button></td>
+      </tr>
+      <tr>
+        <td class="mono">SET-1123-4412</td>
+        <td class="mono">202611200015</td>
+        <td>果乡旗舰店</td>
+        <td>确认收货分账</td>
+        <td>商家 +¥38.30</td>
+        <td>平台 ¥0.80</td>
+        <td><span class="tag green">已分账</span></td>
+        <td class="row-actions"><button class="ghost">凭证</button></td>
+      </tr>
+      <tr>
+        <td class="mono">FRZ-1122-0088</td>
+        <td class="mono">202611180044</td>
+        <td>潮品优选</td>
+        <td>售后冻结</td>
+        <td>¥409.00</td>
+        <td>—</td>
+        <td><span class="tag">冻结中</span></td>
+        <td class="row-actions"><button class="ghost" onclick="go('after')">关联售后</button></td>
+      </tr>
+      <tr>
+        <td class="mono">OFF-1122-0018</td>
+        <td class="mono">202611220018</td>
+        <td>果乡旗舰店</td>
+        <td>线下扫码</td>
+        <td>¥29.90</td>
+        <td>不经托管</td>
+        <td><span class="tag gray">仅备案</span></td>
+        <td class="row-actions"><button class="ghost">查看收款码备案</button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- 商家 -->
+<section id="merchant" class="section">
+  <div class="toolbar">
+    <div><h1>商家管理</h1><div class="sub">入驻三步：店铺信息 → 资质五件套 → 结算账户；默认同城配送约 5km · T+1</div></div>
+    <div class="actions">
+      <a class="ghost" href="pc-merchant.html" target="_blank" style="display:inline-flex;align-items:center;text-decoration:none">打开商家工作台 PC</a>
+      <button class="primary" onclick="toast('打开入驻审核队列')">审核入驻 6</button>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="tabs">
+      <button class="on">全部 286</button>
+      <button>待审核 6</button>
+      <button>正常营业</button>
+      <button>暂停接单</button>
+      <button>已停业</button>
+      <input class="search" placeholder="店铺名 / 联系人 / 手机">
+    </div>
+    <table>
+      <tr><th>店铺</th><th>负责人</th><th>类目</th><th>费率</th><th>结算账户</th><th>配送</th><th>状态</th><th>操作</th></tr>
+      <tr>
+        <td>果乡旗舰店<span class="cell-sub">认证店</span></td>
+        <td>李女士 · 139****2408</td>
+        <td>水果生鲜</td>
+        <td>2.0%</td>
+        <td>对私 · 尾号 6688</td>
+        <td>同城 5km · 快递</td>
+        <td><span class="tag green">正常营业</span></td>
+        <td class="row-actions">
+          <a class="ghost" href="pc-merchant.html" target="_blank" style="display:inline-flex;align-items:center;text-decoration:none;padding:9px 14px;border-radius:8px;border:1px solid var(--line)">商家工作台</a>
+          <button class="ghost" onclick="toast('资质 / 收款码 / 云打印 / 通知开关')">详情</button>
+        </td>
+      </tr>
+      <tr>
+        <td>福聚贡翔演示店<span class="cell-sub">引荐码 FJ-8821</span></td>
+        <td>王店长 · 138****1001</td>
+        <td>干杂粮油</td>
+        <td>3.0%</td>
+        <td>对公 · 待校验</td>
+        <td>同城 5km</td>
+        <td><span class="tag amber">待审核</span><span class="cell-sub">资质 5/5 已传</span></td>
+        <td class="row-actions">
+          <button class="primary" onclick="toast('通过：营业执照 / 身份证 / 门头 / 收款码 / 结算账户')">通过</button>
+          <button class="danger">驳回</button>
+        </td>
+      </tr>
+      <tr>
+        <td>青羊日用品批发</td>
+        <td>陈老板 · 137****5566</td>
+        <td>五金日用</td>
+        <td>3.5%</td>
+        <td>对私 · 尾号 8899</td>
+        <td>同城批量配送</td>
+        <td><span class="tag gray">暂停接单</span></td>
+        <td class="row-actions"><button class="ghost">详情</button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- 内容审核：逛逛（无带货）+ 零售公域评价 + 批发私域评价 -->
+<section id="content" class="section">
+  <div class="toolbar">
+    <div>
+      <h1>内容审核</h1>
+      <div class="sub">逛逛无带货动态 · 零售商品公域评价（对齐 review.html）· 批发单私域评价展示。挂商品的发逛逛请走「动态带货审核」。</div>
+    </div>
+  </div>
+  <div class="cards" style="margin-bottom:16px">
+    <div class="card"><div class="metric"><div class="label">待审逛逛</div><div class="value">3</div><div class="delta">未挂商品</div></div></div>
+    <div class="card"><div class="metric"><div class="label">零售评价待审</div><div class="value">4</div><div class="delta">公域商品评价</div></div></div>
+    <div class="card"><div class="metric"><div class="label">批发私域评价</div><div class="value">7</div><div class="delta">仅商家可见 · 可屏蔽</div></div></div>
+    <div class="card"><div class="metric"><div class="label">今日已处理</div><div class="value">16</div></div></div>
+  </div>
+  <div class="panel">
+    <div class="tabs" id="contentTabs">
+      <button class="on" data-ctab="guang">逛逛动态 3</button>
+      <button data-ctab="retail">零售商品评价 4</button>
+      <button data-ctab="wholesale-rv">批发私域评价 7</button>
+      <button data-ctab="done">已处理</button>
+    </div>
+
+    <div class="ctab-panel" data-ctab-panel="guang">
+      <p class="hint">未关联商品的个人/店铺动态；通过后展示在附近店并可流量扶持。</p>
+      <table>
+        <tr><th>内容</th><th>发布者</th><th>类型</th><th>关联店铺</th><th>提交时间</th><th>状态</th><th>操作</th></tr>
+        <tr>
+          <td>武侯街坊夜市探店心得…</td>
+          <td>陈小满</td>
+          <td><span class="tag gray">个人动态</span></td>
+          <td>—</td>
+          <td>11-23 16:02</td>
+          <td><span class="tag amber">待审</span></td>
+          <td class="row-actions"><button class="primary" onclick="toast('已通过，进入附近店展示')">通过</button><button class="danger">驳回</button></td>
+        </tr>
+        <tr>
+          <td>今日到店门头换新…</td>
+          <td>果乡旗舰店</td>
+          <td><span class="tag blue">店铺动态</span></td>
+          <td>果乡旗舰店</td>
+          <td>11-23 15:20</td>
+          <td><span class="tag amber">待审</span></td>
+          <td class="row-actions"><button class="primary" onclick="toast('已通过，进入流量扶持池')">通过</button><button class="danger">驳回</button></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="ctab-panel hidden" data-ctab-panel="retail">
+      <p class="hint">对齐 <b>发布评价</b>：综合分 + 描述相符 / 物流 / 服务 · 图≤9 · 文案≤500 · 可匿名 · 30 天内可追评。通过后展示在商品详情公域评价区。</p>
+      <table>
+        <tr><th>商品</th><th>订单</th><th>评价人</th><th>综合分</th><th>三项细项</th><th>内容 / 图</th><th>匿名</th><th>状态</th><th>操作</th></tr>
+        <tr>
+          <td>蜀锦非遗手作 · 熊猫纹样真丝方巾 45cm 礼盒装</td>
+          <td class="mono">202610180006<span class="cell-sub">已完成 · ¥45.00</span></td>
+          <td>张三</td>
+          <td><span class="tag">5.0</span><span class="cell-sub">非常满意</span></td>
+          <td>描述 5.0 · 物流 5.0 · 服务 5.0</td>
+          <td>做工精致，包装用心…<span class="cell-sub">图 2 张 · 标签：做工精致 / 包装用心</span></td>
+          <td><span class="tag gray">否</span></td>
+          <td><span class="tag amber">待审</span></td>
+          <td class="row-actions">
+            <button class="ghost" onclick="toast('预览公域评价卡片')">预览</button>
+            <button class="primary" onclick="toast('已通过，展示在商品评价')">通过</button>
+            <button class="danger">驳回</button>
+          </td>
+        </tr>
+        <tr>
+          <td>蒲江红心猕猴桃 5斤大果</td>
+          <td class="mono">202611110026<span class="cell-sub">已完成 · ¥79.80</span></td>
+          <td>李女士</td>
+          <td><span class="tag amber">4.0</span><span class="cell-sub">比较满意</span></td>
+          <td>描述 4.0 · 物流 5.0 · 服务 4.0</td>
+          <td>果子偏小，整体还行<span class="cell-sub">图 1 张</span></td>
+          <td><span class="tag green">匿名</span></td>
+          <td><span class="tag amber">待审</span></td>
+          <td class="row-actions"><button class="ghost">预览</button><button class="primary">通过</button><button class="danger">驳回</button></td>
+        </tr>
+        <tr>
+          <td>蜀锦非遗手作 · 熊猫纹样真丝方巾…</td>
+          <td class="mono">202610180006<span class="cell-sub">追评 · 评价后 7 天</span></td>
+          <td>张三</td>
+          <td>—</td>
+          <td>—</td>
+          <td>用了两周来追评：丝质顺滑不勾丝…<span class="cell-sub">追评无改星</span></td>
+          <td><span class="tag gray">否</span></td>
+          <td><span class="tag blue">追评待审</span></td>
+          <td class="row-actions"><button class="ghost">预览</button><button class="primary">通过</button><button class="danger">驳回</button></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="ctab-panel hidden" data-ctab-panel="wholesale-rv">
+      <p class="hint">对齐批发「私域评论」：仅该批发商家可见，不进公域商品评价；平台可巡检屏蔽。字段：合作满意度 + 私域留言 + 快捷标签。</p>
+      <table>
+        <tr><th>批发单</th><th>采购商</th><th>供货店铺</th><th>满意度</th><th>私域留言</th><th>标签</th><th>实付</th><th>状态</th><th>操作</th></tr>
+        <tr>
+          <td class="mono">202610280012</td>
+          <td>青羊日用采购</td>
+          <td>青羊日用品批发</td>
+          <td><span class="tag green">非常满意</span></td>
+          <td>货品新鲜，发货快，下次还订</td>
+          <td>货品新鲜 · 发货快 · 包装扎实</td>
+          <td>¥198.00 · 12 件</td>
+          <td><span class="tag purple">仅商家可见</span></td>
+          <td class="row-actions"><button class="ghost" onclick="toast('展示批发私域评价详情')">查看</button><button class="danger" onclick="toast('已屏蔽，商家端不再展示')">屏蔽</button></td>
+        </tr>
+        <tr>
+          <td class="mono">202611050019</td>
+          <td>锦江餐饮采购</td>
+          <td>蜀味冻货仓</td>
+          <td><span class="tag amber">一般</span></td>
+          <td>到货有两箱压损，沟通后补发了</td>
+          <td>沟通顺畅</td>
+          <td>¥2,160.00 · 60 件</td>
+          <td><span class="tag purple">仅商家可见</span></td>
+          <td class="row-actions"><button class="ghost">查看</button><button class="danger">屏蔽</button></td>
+        </tr>
+        <tr>
+          <td class="mono">202610220007</td>
+          <td>武侯商超</td>
+          <td>果乡旗舰店</td>
+          <td><span class="tag">不太满意</span></td>
+          <td>文案含站外联系方式嫌疑…</td>
+          <td>—</td>
+          <td>¥860.00</td>
+          <td><span class="tag">违规待处理</span></td>
+          <td class="row-actions"><button class="ghost">查看</button><button class="danger" onclick="toast('已屏蔽并记录违规')">屏蔽</button></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="ctab-panel hidden" data-ctab-panel="done">
+      <p class="hint">今日已通过 / 驳回 / 屏蔽的记录汇总。</p>
+      <table>
+        <tr><th>类型</th><th>摘要</th><th>处理结果</th><th>处理人</th><th>时间</th></tr>
+        <tr><td><span class="tag blue">零售评价</span></td><td>金堂脐橙 · 5.0 分</td><td><span class="tag green">已通过</span></td><td>运营-张</td><td>11-23 14:20</td></tr>
+        <tr><td><span class="tag purple">批发私域</span></td><td>202610150003 · 含外链</td><td><span class="tag">已屏蔽</span></td><td>运营-李</td><td>11-23 11:05</td></tr>
+        <tr><td><span class="tag gray">逛逛</span></td><td>春熙路街拍无商品</td><td><span class="tag green">已通过</span></td><td>运营-张</td><td>11-23 10:40</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 动态带货审核：发逛逛且关联商品 -->
+<section id="post-goods" class="section">
+  <div class="toolbar">
+    <div>
+      <h1>动态带货审核</h1>
+      <div class="sub">对齐发逛逛：个人动态关联商品（最多 6 个）后必须后台审核，通过才在附近店展示并可下单</div>
+    </div>
+    <div class="actions">
+      <button class="ghost" onclick="toast('规则：图≤9 / 视频≤1（60s·10MB）/ 文案≤1000 / 商品≤6')">发布规范</button>
+    </div>
+  </div>
+  <div class="cards" style="margin-bottom:16px">
+    <div class="card"><div class="metric"><div class="label">待审带货动态</div><div class="value">5</div><div class="delta warn">含挂商品的个人发布</div></div></div>
+    <div class="card"><div class="metric"><div class="label">今日已通过</div><div class="value">12</div></div></div>
+    <div class="card"><div class="metric"><div class="label">今日已驳回</div><div class="value">2</div></div></div>
+    <div class="card"><div class="metric"><div class="label">挂载商品合计</div><div class="value">18</div><div class="delta">待审队列内</div></div></div>
+  </div>
+  <div class="panel">
+    <div class="tabs">
+      <button class="on">待审核 5</button>
+      <button>已通过</button>
+      <button>已驳回</button>
+      <button>商品违规复审</button>
+      <input class="search" placeholder="发布者 / 店铺 / 商品名">
+    </div>
+    <p class="hint">审核重点：文案合规、图片/视频合规、关联店铺是否匹配、挂载商品是否在售且可下单、有无导流外链。</p>
+    <table>
+      <tr><th>动态摘要</th><th>发布者</th><th>关联店铺</th><th>挂载商品</th><th>位置</th><th>媒体</th><th>提交时间</th><th>状态</th><th>操作</th></tr>
+      <tr>
+        <td>分享今天逛到的成都好物：红心猕猴桃…</td>
+        <td>张三<span class="cell-sub">个人账号</span></td>
+        <td>福聚贡翔演示店</td>
+        <td>蒲江红心猕猴桃 5斤<span class="cell-sub">+2 件 · 共 3/6</span></td>
+        <td>成都 · 武侯区<span class="cell-sub">天府三街</span></td>
+        <td>图 2/9</td>
+        <td>11-23 17:40</td>
+        <td><span class="tag amber">待审</span></td>
+        <td class="row-actions">
+          <button class="ghost" onclick="toast('预览：文案 + 图视频 + 商品卡片')">预览</button>
+          <button class="primary" onclick="toast('已通过，附近店可展示并可下单')">通过</button>
+          <button class="danger" onclick="toast('已驳回并通知发布者')">驳回</button>
+        </td>
+      </tr>
+      <tr>
+        <td>街坊探店！豆瓣酱和腊味礼盒…</td>
+        <td>李女士<span class="cell-sub">个人账号</span></td>
+        <td>蜀味冻货仓</td>
+        <td>川味腊肉礼盒<span class="cell-sub">+1 件 · 共 2/6</span></td>
+        <td>成都 · 青羊区</td>
+        <td>图 4/9 · 视频 1</td>
+        <td>11-23 16:55</td>
+        <td><span class="tag amber">待审</span></td>
+        <td class="row-actions">
+          <button class="ghost">预览</button>
+          <button class="primary">通过</button>
+          <button class="danger">驳回</button>
+        </td>
+      </tr>
+      <tr>
+        <td>同款筒靴安利（含外链嫌疑）…</td>
+        <td>王先生<span class="cell-sub">个人账号</span></td>
+        <td>潮品优选</td>
+        <td>UGG 女士双面筒靴<span class="cell-sub">1/6</span></td>
+        <td>成都 · 高新区</td>
+        <td>图 1/9</td>
+        <td>11-23 14:12</td>
+        <td><span class="tag">商品违规复审</span></td>
+        <td class="row-actions">
+          <button class="ghost">预览</button>
+          <button class="danger" onclick="toast('驳回：疑似站外导流')">驳回</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- 客服 -->
+<section id="service" class="section">
+  <div class="toolbar">
+    <div><h1>客服与消息</h1><div class="sub">平台客服会话 · 订单/系统通知策略 · 投诉建议工单</div></div>
+    <div class="actions"><button class="primary" onclick="toast('客服排班面板')">客服排班</button></div>
+  </div>
+  <div class="grid">
+    <div class="panel">
+      <h3>会话列表</h3>
+      <table>
+        <tr><td>张三 · 订单咨询</td><td>今天能发货吗？</td><td><span class="tag">待回复</span></td><td><button class="ghost">接入</button></td></tr>
+        <tr><td>周女士 · 售后</td><td>坏果包赔怎么算</td><td><span class="tag amber">升级中</span></td><td><button class="ghost" onclick="go('after')">关联售后</button></td></tr>
+        <tr><td>系统 · 投诉建议</td><td>配送超时投诉</td><td><span class="tag blue">工单</span></td><td><button class="ghost">处理</button></td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <h3>客服指标</h3>
+      <div class="metric"><div class="value">96.8%</div><div class="label">满意度 · 平均响应 42 秒</div></div>
+      <p class="hint" style="margin-top:16px">通知策略：订单状态、售后进度、营销开抢提醒、商家订阅消息开关（平台可强制静默违规店）。</p>
+      <button class="ghost" onclick="toast('已打开通知策略')">配置通知策略</button>
+    </div>
+  </div>
+</section>
+
+<!-- 发票 -->
+<section id="invoice" class="section">
+  <div class="toolbar">
+    <div><h1>发票管理</h1><div class="sub">对齐 invoice.html：电子普票 / 专票申请、开具、驳回、下载</div></div>
+  </div>
+  <div class="panel">
+    <div class="tabs">
+      <button class="on">待开具 8</button>
+      <button>已开具</button>
+      <button>已驳回</button>
+      <input class="search" placeholder="订单号 / 抬头 / 税号">
+    </div>
+    <table>
+      <tr><th>申请单</th><th>订单</th><th>抬头 / 税号</th><th>类型</th><th>金额</th><th>状态</th><th>操作</th></tr>
+      <tr>
+        <td class="mono">INV-1123-01</td>
+        <td class="mono">202610280012</td>
+        <td>成都青羊日用商贸 · 9151****8821</td>
+        <td>电子专票</td>
+        <td>¥198.00</td>
+        <td><span class="tag amber">待开具</span></td>
+        <td class="row-actions"><button class="primary" onclick="toast('已开具并通知买家下载')">开具</button><button class="danger">驳回</button></td>
+      </tr>
+      <tr>
+        <td class="mono">INV-1122-18</td>
+        <td class="mono">202611200015</td>
+        <td>个人 · 张三</td>
+        <td>电子普票</td>
+        <td>¥39.10</td>
+        <td><span class="tag green">已开具</span></td>
+        <td class="row-actions"><button class="ghost">下载</button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- 设置 -->
+<section id="settings" class="section">
+  <div class="toolbar">
+    <div><h1>设置与服务</h1><div class="sub">城市站、规则中心、分销比例、配送与托管参数</div></div>
+  </div>
+  <div class="panel">
+    <table>
+      <tr><td>城市站</td><td>当前：成都站 · 默认同城配送半径 5km</td><td><button class="ghost" onclick="toast('城市站配置')">配置</button></td></tr>
+      <tr><td>规则与服务中心</td><td>售后规则、支付说明、配送说明、经营承诺（对齐 service.html）</td><td><button class="ghost">配置</button></td></tr>
+      <tr><td>分销参数</td><td>仅一级 · 比例上下限 · 到账节点（确认收货后）</td><td><button class="ghost" onclick="go('distribution')">管理</button></td></tr>
+      <tr><td>托管与分账</td><td>确认收货后约 24h 分账 · 售后冻结策略</td><td><button class="ghost" onclick="go('finance')">管理</button></td></tr>
+      <tr><td>选品单 TTL</td><td>默认 10 天自动清理</td><td><button class="ghost" onclick="go('wholesale')">管理</button></td></tr>
+      <tr><td>首页运营位</td><td>金刚位 / Banner / 推荐池 / 秒杀入口</td><td><button class="ghost" onclick="toast('运营位配置')">配置</button></td></tr>
+      <tr><td>权限与角色</td><td>管理员、运营、客服、财务、审计</td><td><button class="ghost">管理</button></td></tr>
+      <tr><td>消息通知</td><td>订单、售后、营销、系统公告</td><td><button class="ghost">配置</button></td></tr>
+    </table>
+  </div>
+</section>
+
+</div>
+</main>
+</div>
+
+<script>
+function toast(t){
+  const x=document.createElement('div');
+  x.className='toast';
+  x.textContent=t;
+  document.body.appendChild(x);
+  setTimeout(()=>x.remove(),1800);
+}
+function go(p){
+  const n=document.querySelector(`[data-page="${p}"]`);
+  if(n) n.click();
+}
+document.querySelectorAll('.nav').forEach(n=>{
+  n.onclick=()=>{
+    document.querySelectorAll('.nav').forEach(x=>x.classList.remove('on'));
+    n.classList.add('on');
+    document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+    document.getElementById(n.dataset.page).classList.add('active');
+    document.getElementById('crumb').textContent=n.textContent.trim();
+  };
+});
+document.querySelectorAll('.tabs').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      if(group.id==='contentTabs' && btn.dataset.ctab){
+        group.parentElement.querySelectorAll('[data-ctab-panel]').forEach(p=>{
+          p.classList.toggle('hidden', p.dataset.ctabPanel!==btn.dataset.ctab);
+        });
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>福聚贡翔 · PC商家工作台</title>
+<style>
+:root{
+  --bg:#f4f6fa;--panel:#fff;--ink:#1f2937;--muted:#748094;--line:#e7ebf1;
+  --brand:#e23a2e;--brand2:#fb6e4e;--soft:#fff0ed;--blue:#3b82f6;--green:#10b981;--amber:#d97706;
+  --side:#1a1520;--side2:#2a2233;--shadow:0 8px 24px #24324d0b
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei",Segoe UI,sans-serif;color:var(--ink);background:var(--bg);font-size:14px}
+a{color:inherit;text-decoration:none}
+button{font:inherit;border:0;cursor:pointer;background:none}
+.app{display:flex;min-height:100vh}
+.side{width:232px;background:var(--side);color:#d9d2e0;padding:18px 12px;position:fixed;inset:0 auto 0 0;overflow:auto}
+.logo{font-size:18px;font-weight:800;color:#fff;padding:4px 10px 8px}
+.logo span{color:#ff8668}
+.shop-mini{margin:8px 8px 16px;padding:12px;border-radius:12px;background:#2a2233;border:1px solid #3a3145}
+.shop-mini b{display:block;color:#fff;font-size:14px}
+.shop-mini span{display:block;color:#9ca3af;font-size:12px;margin-top:4px}
+.badge{display:inline-block;font-size:11px;padding:2px 6px;border-radius:4px;background:#eaf7f0;color:#2c9c6a;margin-left:6px}
+.group{margin:14px 10px 6px;color:#8b7f97;font-size:11px}
+.nav{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;cursor:pointer;margin:2px 0;color:#cfc5d8}
+.nav:hover,.nav.on{background:var(--side2);color:#fff}
+.nav.on{box-shadow:inset 3px 0 var(--brand)}
+.main{margin-left:232px;flex:1;min-width:0}
+.top{height:64px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:5}
+.crumb{font-size:17px;font-weight:700}
+.topright{display:flex;gap:12px;align-items:center;color:var(--muted)}
+.open-pill{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:13px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px #eaf7f0}
+.dot.off{background:#b2a69c;box-shadow:0 0 0 3px #f3efeb}
+.sw{width:40px;height:22px;border-radius:999px;background:#e9dfd8;position:relative;transition:.18s}
+.sw:after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;top:2px;left:2px;box-shadow:0 1px 3px #0003;transition:.18s}
+.sw.on{background:linear-gradient(135deg,var(--brand2),var(--brand))}
+.sw.on:after{left:20px}
+.content{padding:22px 24px 48px;max-width:1400px}
+.toolbar{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.toolbar h1{margin:0;font-size:22px}
+.sub{color:var(--muted);font-size:13px;margin-top:4px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn,.primary,.ghost,.danger{border-radius:8px;padding:9px 14px}
+.primary{background:var(--brand);color:#fff}
+.ghost{background:#fff;border:1px solid var(--line);color:#536174}
+.danger{background:#fff;border:1px solid #f3c4bc;color:#c2410c}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.card{padding:16px}
+.metric .label{color:var(--muted);font-size:12px}
+.metric .value{font-size:24px;font-weight:800;margin-top:6px;color:var(--brand)}
+.metric .value.blue{color:#3e8bd6}.metric .value.amber{color:#c58b2a}.metric .value.gray{color:#7c6f66}
+.metric .delta{font-size:12px;color:var(--muted);margin-top:6px}
+.panel{padding:16px;margin-top:14px}
+.panel h3{margin:0 0 12px;font-size:15px}
+.grid2{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.tabs button{padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:#fff;color:#68768a}
+.tabs button.on{background:var(--soft);color:var(--brand);border-color:#ffc7bb}
+.search{border:1px solid var(--line);border-radius:8px;padding:9px 12px;min-width:180px}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--line);vertical-align:middle;font-size:13px}
+th{color:var(--muted);font-size:12px;background:#fafbfc}
+.tag{display:inline-flex;padding:3px 8px;border-radius:999px;font-size:12px;background:var(--soft);color:#d84d37;white-space:nowrap}
+.tag.green{background:#eafaf4;color:#0c9c71}
+.tag.blue{background:#eef5ff;color:#3b72c9}
+.tag.amber{background:#fff7e8;color:#b45309}
+.tag.gray{background:#f1f3f6;color:#64748b}
+.tag.purple{background:#f3eefe;color:#7c3aed}
+.section{display:none}.section.active{display:block}
+.hidden{display:none!important}
+.hint{font-size:12px;color:var(--muted);margin:0 0 10px}
+.mono{font-family:ui-monospace,Consolas,monospace;font-size:12px}
+.cell-sub{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.row-actions{display:flex;gap:6px;flex-wrap:wrap}
+.bars{height:140px;display:flex;align-items:end;gap:8px;padding-bottom:18px}
+.bar{flex:1;background:linear-gradient(#ffb49c,#f0503a);border-radius:6px 6px 2px 2px;position:relative;min-height:12px}
+.bar small{position:absolute;bottom:-18px;left:0;right:0;text-align:center;color:var(--muted);font-size:11px}
+.todo{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.trow{display:flex;align-items:center;gap:12px;padding:12px;border-bottom:1px solid var(--line)}
+.trow:last-child{border-bottom:0}
+.av{width:36px;height:36px;border-radius:50%;background:linear-gradient(145deg,#fb7c5b,#ee3b2b);color:#fff;display:grid;place-items:center;font-weight:700;flex:0 0 36px}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tool{border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;cursor:pointer;background:#fff}
+.tool:hover{border-color:#ffc7bb;background:var(--soft)}
+.tool b{display:block;margin-top:8px;font-size:13px}
+.notice{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;margin-top:10px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12px;color:var(--muted)}
+.field input,.field select,.field textarea{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:inherit}
+.field textarea{min-height:88px;resize:vertical}
+.field.full{grid-column:1/-1}
+.chip-row{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#68768a;font-size:13px}
+.chip.on{background:var(--soft);color:var(--brand);border-color:#ffc7bb}
+.drawer-mask{position:fixed;inset:0;background:#0006;z-index:40;display:none}
+.drawer-mask.show{display:block}
+.drawer{position:fixed;top:0;right:0;width:min(560px,100%);height:100%;background:#fff;z-index:41;transform:translateX(100%);transition:.22s;box-shadow:-8px 0 30px #0002;display:flex;flex-direction:column}
+.drawer.show{transform:none}
+.drawer .dh{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.drawer .db{padding:16px 18px;overflow:auto;flex:1}
+.drawer .df{padding:12px 18px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end}
+.toast{position:fixed;right:24px;bottom:24px;background:#1a1520;color:#fff;padding:12px 16px;border-radius:8px;z-index:60;box-shadow:0 8px 20px #0003}
+.sku-row{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr auto;gap:8px;margin-bottom:8px;align-items:center}
+.stepper{display:flex;gap:8px;margin-bottom:14px}
+.step{flex:1;padding:10px;border-radius:10px;border:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px}
+.step.on{border-color:#ffc7bb;background:var(--soft);color:var(--brand);font-weight:700}
+.step.done{color:var(--green);border-color:#b7ebc8}
+@media(max-width:1100px){.cards,.tools{grid-template-columns:repeat(2,1fr)}.grid2,.form-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="logo">福聚<span>贡翔</span> · 商家</div>
+  <div class="shop-mini">
+    <b>福聚贡翔演示店 <span class="badge">已认证</span></b>
+    <span>青羊区宽窄巷子 · 同城配送 · 微信担保</span>
+  </div>
+  <div class="group">经营</div>
+  <div class="nav on" data-page="home">工作台</div>
+  <div class="nav" data-page="goods">商品管理</div>
+  <div class="nav" data-page="orders">订单管理</div>
+  <div class="nav" data-page="aftersale">售后处理</div>
+  <div class="group">增长</div>
+  <div class="nav" data-page="marketing">营销工具</div>
+  <div class="nav" data-page="picklink">选品链接</div>
+  <div class="group">店铺</div>
+  <div class="nav" data-page="qualify">入驻与资质</div>
+  <div class="nav" data-page="logic">移动端逻辑备忘</div>
+</aside>
+
+<main class="main">
+<header class="top">
+  <div class="crumb" id="crumb">工作台</div>
+  <div class="topright">
+    <div class="open-pill">
+      <i class="dot" id="openDot"></i>
+      <span id="openText">营业中 · 可接单</span>
+      <button class="sw on" id="openSw" onclick="toggleOpen()" aria-label="营业开关"></button>
+    </div>
+    <a class="ghost btn" href="fujugongxiang-miniapp/shop.html" target="_blank">预览店铺</a>
+    <a class="ghost btn" href="fujugongxiang-miniapp/profile.html" target="_blank">切换买家</a>
+  </div>
+</header>
+
+<div class="content">
+
+<!-- 工作台 -->
+<section id="home" class="section active">
+  <div class="toolbar">
+    <div><h1>商家工作台</h1><div class="sub">对齐移动端 merchant-workbench：营业开关 · 待办 · 通知 · 云打印 · 今日经营</div></div>
+  </div>
+  <div class="cards">
+    <div class="card" onclick="go('orders')" style="cursor:pointer"><div class="metric"><div class="label">待发货</div><div class="value">3 <small style="font-size:13px;color:var(--muted)">单</small></div><div class="delta">待处理</div></div></div>
+    <div class="card" onclick="go('orders')"><div class="metric"><div class="label">待结算</div><div class="value blue">5 <small style="font-size:13px;color:var(--muted)">单</small></div><div class="delta">托管中</div></div></div>
+    <div class="card" onclick="go('orders')"><div class="metric"><div class="label">已发货</div><div class="value amber">12 <small style="font-size:13px;color:var(--muted)">单</small></div><div class="delta">待收货</div></div></div>
+    <div class="card" onclick="go('aftersale')"><div class="metric"><div class="label">售后中</div><div class="value gray">1 <small style="font-size:13px;color:var(--muted)">单</small></div><div class="delta">需处理</div></div></div>
+  </div>
+  <div class="notice">
+    <div style="flex:1"><b>微信订单通知</b><div class="cell-sub">新订单、付款与售后提醒</div></div>
+    <button class="sw on" id="wxNotice" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'已开启微信订单通知':'已关闭微信订单通知')"></button>
+  </div>
+  <div class="notice">
+    <div style="flex:1"><b>云打印</b><div class="cell-sub">未启用 · 开启后新订单自动出小票</div></div>
+    <button class="ghost btn" onclick="toast('云打印绑定演示：请先连接打印机')">去启用</button>
+  </div>
+  <div class="grid2" style="margin-top:14px">
+    <div class="panel" style="margin-top:0">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <h3 style="margin:0">待处理订单</h3>
+        <button class="ghost btn" onclick="go('orders')">全部订单 ›</button>
+      </div>
+      <div class="todo">
+        <div class="trow">
+          <span class="av">张</span>
+          <div style="flex:1"><b>张三 <span class="tag">待发货</span></b><span class="cell-sub">202611060032 · ¥71.80 · 2分钟前 · 零售</span></div>
+          <button class="primary btn" onclick="openShip('202611060032','retail')">去发货</button>
+        </div>
+        <div class="trow">
+          <span class="av" style="background:#eaf2ff;color:#3e8bd6">李</span>
+          <div style="flex:1"><b>李女士 <span class="tag blue">待发货</span></b><span class="cell-sub">202611060028 · ¥129.80 · 18分钟前 · 零售</span></div>
+          <button class="primary btn" onclick="openShip('202611060028','retail')">去发货</button>
+        </div>
+        <div class="trow">
+          <span class="av" style="background:#f5efe8;color:#8c7a6c">王</span>
+          <div style="flex:1"><b>王先生 <span class="tag gray">售后中</span></b><span class="cell-sub">202611060019 · ¥58.00 · 1小时前</span></div>
+          <button class="ghost btn" onclick="go('aftersale')">去处理</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:0">
+      <h3>今日经营 · 2026-11-06</h3>
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px"><b>成交 ¥1,286.40</b><span class="hint" style="margin:0">较昨日 +18.6%</span></div>
+      <div class="bars">
+        <div class="bar" style="height:38%"><small>一</small></div>
+        <div class="bar" style="height:52%"><small>二</small></div>
+        <div class="bar" style="height:44%"><small>三</small></div>
+        <div class="bar" style="height:68%"><small>四</small></div>
+        <div class="bar" style="height:56%"><small>五</small></div>
+        <div class="bar" style="height:82%"><small>六</small></div>
+        <div class="bar" style="height:100%"><small>今</small></div>
+      </div>
+      <div class="tools" style="margin-top:18px">
+        <div class="tool" onclick="go('goods')"><span>▣</span><b>商品管理</b></div>
+        <div class="tool" onclick="go('marketing')"><span>◈</span><b>营销工具</b></div>
+        <div class="tool" onclick="go('picklink')"><span>◇</span><b>选品链接</b></div>
+        <div class="tool" onclick="go('qualify')"><span>♖</span><b>资质设置</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 商品 -->
+<section id="goods" class="section">
+  <div class="toolbar">
+    <div><h1>商品管理</h1><div class="sub">在售 / 仓库 / 售罄 · SKU 零售价+批发价 · 可开分销与拼单</div></div>
+    <div class="actions"><button class="primary" onclick="openGoodsEdit(true)">+ 新建商品</button></div>
+  </div>
+  <div class="panel" style="margin-top:0">
+    <div class="tabs" id="goodsTabs">
+      <button class="on" data-g="on">在售</button>
+      <button data-g="off">仓库 / 草稿</button>
+      <button data-g="sold">售罄</button>
+      <input class="search" id="goodsSearch" placeholder="搜索名称 / 货号" oninput="filterGoods()">
+    </div>
+    <table>
+      <thead><tr><th>商品</th><th>货号</th><th>零售价</th><th>批发价</th><th>库存</th><th>销量</th><th>营销</th><th>状态</th><th>操作</th></tr></thead>
+      <tbody id="goodsBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 订单 -->
+<section id="orders" class="section">
+  <div class="toolbar">
+    <div><h1>订单管理</h1><div class="sub">零售 / 批发 · 待发货可发货 · 已发货可更正运单/拦截/延长确认</div></div>
+    <div class="actions"><button class="ghost" onclick="toast('按时间/金额筛选（演示）')">筛选</button></div>
+  </div>
+  <div class="cards" style="margin-bottom:14px">
+    <div class="card"><div class="metric"><div class="label">今日单量</div><div class="value" style="color:var(--ink)">26</div></div></div>
+    <div class="card"><div class="metric"><div class="label">待处理</div><div class="value">3</div></div></div>
+    <div class="card"><div class="metric"><div class="label">托管金额</div><div class="value blue">¥3,860</div></div></div>
+    <div class="card"><div class="metric"><div class="label">售后中</div><div class="value gray">1</div></div></div>
+  </div>
+  <div class="panel" style="margin-top:0">
+    <div class="tabs" id="orderTabs">
+      <button class="on" data-o="all">全部</button>
+      <button data-o="ready">待发货</button>
+      <button data-o="ship">已发货</button>
+      <button data-o="after">售后中</button>
+    </div>
+    <table>
+      <thead><tr><th>订单号</th><th>类型</th><th>买家</th><th>商品</th><th>金额</th><th>地址</th><th>状态</th><th>操作</th></tr></thead>
+      <tbody id="orderBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 售后 -->
+<section id="aftersale" class="section">
+  <div class="toolbar">
+    <div><h1>售后处理</h1><div class="sub">待审核 → 待寄回 → 待签收核验 → 待退款 → 已完成 · 超时将自动同意</div></div>
+  </div>
+  <div class="cards" style="margin-bottom:14px">
+    <div class="card"><div class="metric"><div class="label">待审核</div><div class="value" id="asPending">2</div></div></div>
+    <div class="card"><div class="metric"><div class="label">待寄回</div><div class="value amber" id="asSend">1</div></div></div>
+    <div class="card"><div class="metric"><div class="label">待签收</div><div class="value blue" id="asVerify">1</div></div></div>
+    <div class="card"><div class="metric"><div class="label">待退款</div><div class="value" id="asRefund">1</div></div></div>
+  </div>
+  <div class="panel" style="margin-top:0">
+    <div class="tabs" id="afterTabs">
+      <button class="on" data-a="pending">待审核</button>
+      <button data-a="sendback">待寄回</button>
+      <button data-a="verify">待签收</button>
+      <button data-a="refund">待退款</button>
+      <button data-a="done">已完成</button>
+    </div>
+    <div id="afterBody"></div>
+  </div>
+</section>
+
+<!-- 营销 -->
+<section id="marketing" class="section">
+  <div class="toolbar">
+    <div><h1>营销工具</h1><div class="sub">店铺礼金 · 秒杀 · 一级分销 · 促销（满减/折扣/直降）</div></div>
+    <div class="actions">
+      <button class="primary" id="mktCreateBtn" onclick="openMarketingCreate()">+ 新建</button>
+    </div>
+  </div>
+  <div class="panel" style="margin-top:0">
+    <div class="tabs" id="mktTabs">
+      <button class="on" data-m="gift">店铺礼金</button>
+      <button data-m="seckill">限时秒杀</button>
+      <button data-m="dist">一级分销</button>
+      <button data-m="promo">促销活动</button>
+    </div>
+    <div id="mktBody"></div>
+  </div>
+</section>
+
+<!-- 选品链接 -->
+<section id="picklink" class="section">
+  <div class="toolbar">
+    <div><h1>选品链接</h1><div class="sub">生成店铺/商品选品链接与海报，供分销与复购分享</div></div>
+    <div class="actions"><button class="primary" onclick="toast('已复制店铺选品链接')">复制店铺链接</button></div>
+  </div>
+  <div class="panel" style="margin-top:0">
+    <p class="hint">选中商品（最多 6 个）后生成专属链接；佣金比例受平台上下限约束。</p>
+    <div class="chip-row" style="margin-bottom:12px">
+      <button class="chip on" onclick="chipOnly(this)">全部商品</button>
+      <button class="chip" onclick="chipOnly(this)">高佣金</button>
+      <button class="chip" onclick="chipOnly(this)">有批发价</button>
+    </div>
+    <table>
+      <tr><th>选择</th><th>商品</th><th>售价</th><th>建议佣金</th><th>操作</th></tr>
+      <tr><td><input type="checkbox" checked></td><td>蒲江红心猕猴桃 5斤</td><td>¥39.90</td><td>12%</td><td><button class="ghost btn" onclick="toast('已复制商品链接')">复制链接</button></td></tr>
+      <tr><td><input type="checkbox"></td><td>金堂脐橙 10斤</td><td>¥29.90</td><td>8%</td><td><button class="ghost btn" onclick="toast('已复制商品链接')">复制链接</button></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 资质 -->
+<section id="qualify" class="section">
+  <div class="toolbar">
+    <div><h1>入驻与资质</h1><div class="sub">三步：店铺信息 → 资质五件套 → 结算账户 · T+1 · 服务费 2%–5%</div></div>
+  </div>
+  <div class="panel" style="margin-top:0">
+    <div class="stepper">
+      <div class="step done" data-step-ind="1">1 店铺信息</div>
+      <div class="step on" data-step-ind="2">2 资质上传</div>
+      <div class="step" data-step-ind="3">3 结算账户</div>
+    </div>
+    <div id="qualifyStep1" class="hidden">
+      <div class="form-grid">
+        <div class="field"><label>店铺名称 *</label><input value="福聚贡翔演示店"></div>
+        <div class="field"><label>联系人 *</label><input value="王店长"></div>
+        <div class="field"><label>手机号 *</label><input value="13800001001"></div>
+        <div class="field"><label>店铺类目</label>
+          <div class="chip-row"><button class="chip on" onclick="chipOnly(this)">水果生鲜</button><button class="chip" onclick="chipOnly(this)">干杂粮油</button><button class="chip" onclick="chipOnly(this)">五金日用</button></div>
+        </div>
+        <div class="field full"><label>详细地址 *</label><input value="成都市青羊区宽窄巷子"></div>
+        <div class="field"><label>引荐码</label><input placeholder="选填"></div>
+        <div class="field"><label>同城配送</label><input value="默认 5 公里，可调整"></div>
+        <div class="field full"><label>简介</label><textarea>产地直发 · 坏果包赔 · 微信担保支付</textarea></div>
+      </div>
+      <div class="actions" style="margin-top:14px"><button class="primary" onclick="setQualifyStep(2)">下一步</button></div>
+    </div>
+    <div id="qualifyStep2">
+      <p class="hint">5 项必传：营业执照、身份证正反、门头照、微信收款码。JPG/PNG ≤5MB。</p>
+      <div class="tools">
+        <div class="tool" onclick="toast('已标记：营业执照上传完成')"><b>营业执照</b><span class="cell-sub">已上传</span></div>
+        <div class="tool" onclick="toast('已标记：身份证人像面')"><b>身份证正面</b><span class="cell-sub">已上传</span></div>
+        <div class="tool" onclick="toast('已标记：身份证国徽面')"><b>身份证反面</b><span class="cell-sub">已上传</span></div>
+        <div class="tool" onclick="toast('已标记：门头照')"><b>门头照</b><span class="cell-sub">已上传</span></div>
+        <div class="tool" onclick="toast('已标记：收款码')"><b>微信收款码</b><span class="cell-sub">已上传 · 线下扫码不经托管</span></div>
+      </div>
+      <div class="actions" style="margin-top:14px">
+        <button class="ghost" onclick="setQualifyStep(1)">上一步</button>
+        <button class="primary" onclick="setQualifyStep(3)">下一步</button>
+      </div>
+    </div>
+    <div id="qualifyStep3" class="hidden">
+      <div class="chip-row" style="margin-bottom:12px">
+        <button class="chip on" id="accPrivate" onclick="setAccType(false)">对私账户</button>
+        <button class="chip" id="accPublic" onclick="setAccType(true)">对公账户</button>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>户名 *</label><input id="accName" value="王店长"></div>
+        <div class="field"><label>开户行 *</label><input value="中国工商银行成都分行"></div>
+        <div class="field full"><label>账号 *</label><input value="6222 **** **** 6688"></div>
+      </div>
+      <p class="hint">结算周期 T+1；平台服务费按类目 2%–5%；线下扫码款不经平台托管。</p>
+      <label style="display:flex;gap:8px;align-items:center;margin:10px 0"><input type="checkbox" id="agree" checked> 已阅读并同意商家服务协议</label>
+      <div class="actions">
+        <button class="ghost" onclick="setQualifyStep(2)">上一步</button>
+        <button class="primary" onclick="submitQualify()">提交审核</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 移动端逻辑备忘：保存工作台代码逻辑说明 -->
+<section id="logic" class="section">
+  <div class="toolbar">
+    <div><h1>移动端逻辑备忘</h1><div class="sub">从 fujugongxiang-miniapp/merchant-*.html 抽出，供 PC 实现对照；源码仍在小程序目录保留</div></div>
+    <div class="actions"><a class="ghost btn" href="fujugongxiang-miniapp/merchant-workbench.html" target="_blank">打开移动端工作台</a></div>
+  </div>
+  <div class="panel" style="margin-top:0">
+    <h3>页面对照</h3>
+    <table>
+      <tr><th>PC 模块</th><th>移动端源文件</th><th>核心逻辑</th></tr>
+      <tr><td>工作台</td><td>merchant-workbench.html</td><td>toggleOpen 营业文案+圆点；微信通知 sw；云打印 toast；待办跳转发货/售后</td></tr>
+      <tr><td>商品</td><td>merchant-goods.html / goods-edit / category-pick</td><td>tab∩搜索筛选；上下架；编辑校验；SKU 至少 1；类目 sessionStorage 回写；拼单折叠</td></tr>
+      <tr><td>订单</td><td>merchant-orders / order-detail</td><td>状态 filter；发货同城/快递双模式；批发售后沟通；已发货运单更正/拦截/延时</td></tr>
+      <tr><td>售后</td><td>merchant-aftersale.html</td><td>pending→sendback→verify→refund→done；同意/驳回/签收退款；refreshCounts</td></tr>
+      <tr><td>营销</td><td>marketing + coupon/seckill/distribution/promotion-new</td><td>三 Tab + 促销；礼金开关与筛选；分销多选≤6；秒杀单品单场；满减≤3 档</td></tr>
+      <tr><td>资质</td><td>merchant-apply.html</td><td>三步 validateStep；5 资质必传；对公/对私；提交成功弹窗</td></tr>
+    </table>
+    <h3 style="margin-top:18px">状态机速查</h3>
+    <pre style="background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:12px;line-height:1.6;color:#334155">营业：on=营业中·可接单 / off=休息中·暂停接单
+商品：on | off | sold
+订单：ready(待发货) | ship(已发货) | after(售后中)
+发货：city(骑手*) | express(公司*+单号*) → 通知买家
+售后：pending → sendback → verify → refund → done
+礼金：进行中/未开始/已结束；可与秒杀/促销叠加开关
+秒杀：与拼单互斥；独立库存；限购
+分销：仅一级；确认收货后到账；退款冲回
+入驻：step1店铺 → step2资质5项 → step3结算；T+1；费率2%–5%</pre>
+  </div>
+</section>
+
+</div>
+</main>
+</div>
+
+<!-- 发货抽屉 -->
+<div class="drawer-mask" id="mask" onclick="closeDrawer()"></div>
+<div class="drawer" id="shipDrawer">
+  <div class="dh"><b id="shipTitle">订单发货</b><button class="ghost btn" onclick="closeDrawer()">关闭</button></div>
+  <div class="db">
+    <p class="hint" id="shipMeta">订单 · 零售</p>
+    <div class="chip-row" style="margin-bottom:12px">
+      <button class="chip on" id="shipCity" onclick="setShipMode('city')">同城配送</button>
+      <button class="chip" id="shipExpress" onclick="setShipMode('express')">快递发货</button>
+    </div>
+    <div id="shipCityForm" class="form-grid">
+      <div class="field"><label>配送员 *</label><input id="rider" placeholder="选择或填写配送员"></div>
+      <div class="field"><label>电话</label><input placeholder="配送员电话"></div>
+      <div class="field full"><label>预计送达</label><input placeholder="例如 今日 18:00 前"></div>
+    </div>
+    <div id="shipExpressForm" class="form-grid hidden">
+      <div class="field"><label>快递公司 *</label>
+        <select id="expressCo"><option value="">请选择</option><option>顺丰速运</option><option>中通快递</option><option>圆通速递</option><option>韵达快递</option></select>
+      </div>
+      <div class="field"><label>运单号 *</label><input id="expressNo" placeholder="可扫码录入"></div>
+      <div class="field full"><label>预计送达</label><input placeholder="例如 1–2 天"></div>
+    </div>
+    <div class="notice" style="margin-top:14px">
+      <div style="flex:1"><b>通知买家</b><div class="cell-sub">发货后推送微信提醒</div></div>
+      <button class="sw on" id="notifyBuyer" onclick="this.classList.toggle('on')"></button>
+    </div>
+    <div id="wholeChat" class="hidden" style="margin-top:14px">
+      <h3>批发售后沟通</h3>
+      <p class="hint">仅批发单、发货至确认收货期间可见</p>
+      <textarea placeholder="回复买家售后沟通…" style="width:100%;min-height:80px;border:1px solid var(--line);border-radius:8px;padding:10px"></textarea>
+    </div>
+  </div>
+  <div class="df">
+    <button class="ghost" onclick="closeDrawer()">取消</button>
+    <button class="primary" onclick="submitShip()">确认发货</button>
+  </div>
+</div>
+
+<!-- 商品编辑抽屉 -->
+<div class="drawer" id="goodsDrawer">
+  <div class="dh"><b id="goodsEditTitle">新建商品</b><button class="ghost btn" onclick="closeDrawer()">关闭</button></div>
+  <div class="db">
+    <div class="form-grid">
+      <div class="field full"><label>商品名称 *</label><input id="gName" placeholder="请输入商品名称"></div>
+      <div class="field"><label>单价 *</label><input id="gPrice" type="number" placeholder="零售参考价"></div>
+      <div class="field"><label>总库存 *</label><input id="gStock" type="number" placeholder="库存数量"></div>
+      <div class="field full"><label>平台二级类目 *</label>
+        <div style="display:flex;gap:8px">
+          <input id="gCat" readonly placeholder="点击选择类目" style="flex:1" onclick="pickCategory()">
+          <button class="ghost btn" onclick="pickCategory()">选择</button>
+        </div>
+      </div>
+      <div class="field full"><label>详情</label><textarea id="gDesc" placeholder="商品详情描述"></textarea></div>
+    </div>
+    <h3 style="margin:16px 0 8px">SKU（至少 1 行）</h3>
+    <div id="skuList"></div>
+    <button class="ghost btn" onclick="addSku()">+ 添加规格</button>
+    <h3 style="margin:16px 0 8px">销售与营销</h3>
+    <div class="notice"><div style="flex:1"><b>直接上架</b></div><button class="sw on" id="gOnShelf" onclick="this.classList.toggle('on')"></button></div>
+    <div class="notice"><div style="flex:1"><b>一级分销</b><div class="cell-sub">确认收货后到账，退款冲回</div></div><button class="sw" id="gDist" onclick="this.classList.toggle('on');document.getElementById('distRateWrap').classList.toggle('hidden',!this.classList.contains('on'))"></button></div>
+    <div class="field hidden" id="distRateWrap" style="margin-top:10px"><label>佣金比例 %</label><input id="gDistRate" type="number" value="10"></div>
+    <div class="notice" style="margin-top:10px"><div style="flex:1"><b>拼单</b><div class="cell-sub">与秒杀互斥；成团前托管不发货</div></div><button class="sw" id="gPin" onclick="this.classList.toggle('on');document.getElementById('pinWrap').classList.toggle('hidden',!this.classList.contains('on'))"></button></div>
+    <div id="pinWrap" class="form-grid hidden" style="margin-top:10px">
+      <div class="field"><label>成团人数 *</label><input type="number" value="2"></div>
+      <div class="field"><label>开团时效（小时）*</label><input type="number" value="24"></div>
+    </div>
+  </div>
+  <div class="df">
+    <button class="ghost" onclick="toast('已存草稿');closeDrawer()">存草稿</button>
+    <button class="primary" onclick="saveGoods()">保存商品</button>
+  </div>
+</div>
+
+<!-- 营销新建抽屉 -->
+<div class="drawer" id="mktDrawer">
+  <div class="dh"><b id="mktDrawerTitle">新建活动</b><button class="ghost btn" onclick="closeDrawer()">关闭</button></div>
+  <div class="db" id="mktDrawerBody"></div>
+  <div class="df">
+    <button class="ghost" onclick="closeDrawer()">取消</button>
+    <button class="primary" onclick="toast('活动已保存（演示）');closeDrawer()">发布</button>
+  </div>
+</div>
+
+<script>
+const goodsData=[
+  {name:'蒲江红心猕猴桃 5斤',sku:'FJ-KW-05',price:'¥39.90',wprice:'¥28.00',stock:1286,sales:3150,mkt:'分销 12% · 拼单',status:'on'},
+  {name:'金堂脐橙 10斤',sku:'FJ-OR-10',price:'¥29.90',wprice:'¥22.00',stock:8620,sales:1280,mkt:'礼金可叠加',status:'on'},
+  {name:'川味腊肉礼盒',sku:'FJ-RH-01',price:'¥88.00',wprice:'—',stock:0,sales:420,mkt:'—',status:'sold'},
+  {name:'新品试卖·春茶',sku:'FJ-TEA-02',price:'¥128.00',wprice:'—',stock:200,sales:0,mkt:'草稿',status:'off'}
+];
+const orderData=[
+  {no:'202611060032',type:'零售',buyer:'张三',goods:'红心猕猴桃 ×2',amount:'¥71.80',addr:'青羊区宽窄巷子',status:'ready',s:'ready'},
+  {no:'202611060028',type:'零售',buyer:'李女士',goods:'腊肉礼盒 ×1',amount:'¥129.80',addr:'武侯区天府三街',status:'ready',s:'ready'},
+  {no:'202611110031',type:'批发',buyer:'锦江餐饮采购',goods:'冻货组合 ×40',amount:'¥1,280.00',addr:'同城配送',status:'ready',s:'ready'},
+  {no:'202611050008',type:'零售',buyer:'周女士',goods:'真丝方巾 ×1',amount:'¥45.00',addr:'高新区',status:'ship',s:'ship'},
+  {no:'202611060019',type:'零售',buyer:'王先生',goods:'脐橙 ×2',amount:'¥58.00',addr:'金牛区',status:'after',s:'after'}
+];
+let afterData=[
+  {id:'AS01',user:'张三',type:'退货退款',reason:'描述不符',amount:'¥79.80',st:'pending'},
+  {id:'AS02',user:'陈女士',type:'仅退款',reason:'缺货',amount:'¥29.90',st:'pending'},
+  {id:'AS03',user:'李女士',type:'退货退款',reason:'坏果包赔',amount:'¥39.90',st:'sendback'},
+  {id:'AS04',user:'周女士',type:'换货',reason:'尺码问题',amount:'—',st:'verify'},
+  {id:'AS05',user:'王先生',type:'部分退款',reason:'少发',amount:'¥20.00',st:'refund'},
+  {id:'AS06',user:'赵先生',type:'仅退款',reason:'不想要了',amount:'¥45.00',st:'done'}
+];
+let goodsFilter='on', orderFilter='all', afterFilter='pending', mktFilter='gift', shipMode='city', shipNo='', shipType='retail';
+
+function toast(t){const x=document.createElement('div');x.className='toast';x.textContent=t;document.body.appendChild(x);setTimeout(()=>x.remove(),1800)}
+function go(p){const n=document.querySelector(`[data-page="${p}"]`);if(n)n.click()}
+function chipOnly(el){el.parentElement.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));el.classList.add('on')}
+
+function toggleOpen(){
+  const sw=document.getElementById('openSw');
+  sw.classList.toggle('on');
+  const on=sw.classList.contains('on');
+  document.getElementById('openDot').classList.toggle('off',!on);
+  document.getElementById('openText').textContent=on?'营业中 · 可接单':'休息中 · 暂停接单';
+  toast(on?'已开始营业，可接单':'已休息，暂停接单');
+}
+
+document.querySelectorAll('.nav').forEach(n=>{
+  n.onclick=()=>{
+    document.querySelectorAll('.nav').forEach(x=>x.classList.remove('on'));
+    n.classList.add('on');
+    document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+    document.getElementById(n.dataset.page).classList.add('active');
+    document.getElementById('crumb').textContent=n.textContent.trim();
+  };
+});
+
+/* 商品 */
+function renderGoods(){
+  const q=(document.getElementById('goodsSearch').value||'').trim();
+  const rows=goodsData.filter(g=>g.status===goodsFilter && (!q || g.name.includes(q) || g.sku.includes(q)));
+  document.getElementById('goodsBody').innerHTML=rows.map(g=>`<tr>
+    <td>${g.name}</td><td class="mono">${g.sku}</td><td>${g.price}</td><td>${g.wprice}</td><td>${g.stock}</td><td>${g.sales}</td>
+    <td>${g.mkt}</td><td><span class="tag ${g.status==='on'?'green':g.status==='sold'?'amber':'gray'}">${g.status==='on'?'在售':g.status==='sold'?'售罄':'仓库'}</span></td>
+    <td class="row-actions">
+      <button class="ghost btn" onclick="openGoodsEdit(false,'${g.name}')">编辑</button>
+      <button class="ghost btn" onclick="toast('${g.status==='on'?'已下架':'已上架'}')">${g.status==='on'?'下架':'上架'}</button>
+    </td></tr>`).join('')||'<tr><td colspan="9" style="text-align:center;color:#748094;padding:28px">暂无商品</td></tr>';
+}
+document.querySelectorAll('#goodsTabs button[data-g]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#goodsTabs button[data-g]').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');goodsFilter=b.dataset.g;renderGoods();
+});
+function filterGoods(){renderGoods()}
+
+function openGoodsEdit(isNew,name){
+  document.getElementById('goodsEditTitle').textContent=isNew?'新建商品':'编辑商品';
+  document.getElementById('gName').value=name||'';
+  document.getElementById('gPrice').value='';
+  document.getElementById('gStock').value='';
+  document.getElementById('gCat').value='';
+  document.getElementById('skuList').innerHTML='';
+  addSku();
+  showDrawer('goodsDrawer');
+}
+function addSku(){
+  const row=document.createElement('div');
+  row.className='sku-row';
+  row.innerHTML=`<input placeholder="规格名 *"><input type="number" placeholder="零售价 *"><input type="number" placeholder="库存 *"><input type="number" placeholder="批发价(选)"><button class="ghost btn" onclick="this.parentElement.remove()">删</button>`;
+  document.getElementById('skuList').appendChild(row);
+}
+function pickCategory(){
+  const cat=prompt('输入平台二级类目（演示）','水果生鲜 / 猕猴桃');
+  if(cat) document.getElementById('gCat').value=cat;
+}
+function saveGoods(){
+  const name=document.getElementById('gName').value.trim();
+  const cat=document.getElementById('gCat').value.trim();
+  const price=document.getElementById('gPrice').value;
+  const stock=document.getElementById('gStock').value;
+  if(!name||!cat||!price||!stock){toast('请完善名称 / 类目 / 单价 / 库存');return}
+  const skus=[...document.querySelectorAll('#skuList .sku-row')];
+  if(!skus.length){toast('至少保留 1 个 SKU');return}
+  toast(document.getElementById('gOnShelf').classList.contains('on')?'商品已上架保存':'商品已保存为仓库');
+  closeDrawer();
+}
+
+/* 订单 */
+function renderOrders(){
+  const rows=orderData.filter(o=>orderFilter==='all'||o.s===orderFilter);
+  document.getElementById('orderBody').innerHTML=rows.map(o=>{
+    const st=o.s==='ready'?'<span class="tag blue">待发货</span>':o.s==='ship'?'<span class="tag green">已发货</span>':'<span class="tag">售后中</span>';
+    let acts='';
+    if(o.s==='ready') acts=`<button class="primary btn" onclick="openShip('${o.no}','${o.type==='批发'?'whole':'retail'}')">去发货</button><button class="ghost btn" onclick="toast('已拨打买家电话')">联系买家</button>`;
+    else if(o.s==='ship') acts=`<button class="ghost btn" onclick="toast('更正运单')">更正运单</button><button class="ghost btn" onclick="toast('已申请拦截包裹')">拦截</button><button class="ghost btn" onclick="toast('已延长自动确认时效')">延长确认</button>`;
+    else acts=`<button class="ghost btn" onclick="go('aftersale')">处理售后</button>`;
+    return `<tr><td class="mono">${o.no}</td><td><span class="tag ${o.type==='批发'?'purple':'blue'}">${o.type}</span></td><td>${o.buyer}</td><td>${o.goods}</td><td>${o.amount}</td><td>${o.addr}</td><td>${st}</td><td class="row-actions">${acts}</td></tr>`;
+  }).join('')||'<tr><td colspan="8" style="text-align:center;color:#748094;padding:28px">暂无订单</td></tr>';
+}
+document.querySelectorAll('#orderTabs button[data-o]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#orderTabs button[data-o]').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');orderFilter=b.dataset.o;renderOrders();
+});
+
+function openShip(no,type){
+  shipNo=no;shipType=type;
+  document.getElementById('shipTitle').textContent='发货 · '+no;
+  document.getElementById('shipMeta').textContent=(type==='whole'?'批发单':'零售单')+' · 微信担保托管';
+  document.getElementById('wholeChat').classList.toggle('hidden',type!=='whole');
+  setShipMode('city');
+  showDrawer('shipDrawer');
+}
+function setShipMode(m){
+  shipMode=m;
+  document.getElementById('shipCity').classList.toggle('on',m==='city');
+  document.getElementById('shipExpress').classList.toggle('on',m==='express');
+  document.getElementById('shipCityForm').classList.toggle('hidden',m!=='city');
+  document.getElementById('shipExpressForm').classList.toggle('hidden',m!=='express');
+}
+function submitShip(){
+  if(shipMode==='city' && !document.getElementById('rider').value.trim()){toast('请填写配送员');return}
+  if(shipMode==='express'){
+    if(!document.getElementById('expressCo').value){toast('请选择快递公司');return}
+    if(!document.getElementById('expressNo').value.trim()){toast('请填写运单号');return}
+  }
+  const o=orderData.find(x=>x.no===shipNo);
+  if(o){o.s='ship';o.status='ship'}
+  toast(document.getElementById('notifyBuyer').classList.contains('on')?'已发货并通知买家':'已发货');
+  closeDrawer();renderOrders();
+}
+
+/* 售后 */
+function renderAfter(){
+  const map={pending:'待审核',sendback:'待寄回',verify:'待签收',refund:'待退款',done:'已完成'};
+  const rows=afterData.filter(a=>a.st===afterFilter);
+  document.getElementById('afterBody').innerHTML=rows.map(a=>{
+    let acts='';
+    if(a.st==='pending') acts=`<button class="primary btn" onclick="afterAct('${a.id}','agree')">同意</button><button class="danger btn" onclick="afterAct('${a.id}','reject')">驳回</button><button class="ghost btn" onclick="toast('联系买家')">联系</button>`;
+    else if(a.st==='sendback') acts=`<button class="ghost btn" onclick="toast('等待买家寄回')">查看进度</button>`;
+    else if(a.st==='verify') acts=`<button class="primary btn" onclick="afterAct('${a.id}','sign')">确认收货并退款</button>`;
+    else if(a.st==='refund') acts=`<button class="primary btn" onclick="afterAct('${a.id}','refund')">立即退款</button>`;
+    else acts=`<button class="ghost btn" onclick="toast('已完成')">查看</button>`;
+    return `<div class="trow"><div style="flex:1"><b>${a.user} <span class="tag">${a.type}</span> <span class="tag amber">${map[a.st]}</span></b><span class="cell-sub">${a.id} · ${a.reason} · ${a.amount}</span></div><div class="row-actions">${acts}</div></div>`;
+  }).join('')||'<div style="padding:28px;text-align:center;color:#748094">该状态下暂无售后单</div>';
+  document.getElementById('asPending').textContent=afterData.filter(a=>a.st==='pending').length;
+  document.getElementById('asSend').textContent=afterData.filter(a=>a.st==='sendback').length;
+  document.getElementById('asVerify').textContent=afterData.filter(a=>a.st==='verify').length;
+  document.getElementById('asRefund').textContent=afterData.filter(a=>a.st==='refund').length;
+}
+document.querySelectorAll('#afterTabs button[data-a]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#afterTabs button[data-a]').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');afterFilter=b.dataset.a;renderAfter();
+});
+function afterAct(id,act){
+  const a=afterData.find(x=>x.id===id);if(!a)return;
+  if(act==='agree'){a.st=a.type.includes('仅退款')?'refund':'sendback';toast('已同意')}
+  else if(act==='reject'){a.st='done';toast('已驳回')}
+  else if(act==='sign'){a.st='refund';toast('已签收，进入退款')}
+  else if(act==='refund'){a.st='done';toast('退款已完成')}
+  renderAfter();
+}
+
+/* 营销 */
+function renderMkt(){
+  const body=document.getElementById('mktBody');
+  if(mktFilter==='gift'){
+    body.innerHTML=`<p class="hint">满减 / 折扣 / 立减 · 领取条件 · 可与秒杀/促销叠加开关</p>
+    <table><tr><th>名称</th><th>规则</th><th>范围</th><th>状态</th><th>开关</th><th>操作</th></tr>
+    <tr><td>新客礼金</td><td>立减 12% · 门槛 ¥0</td><td>全店</td><td><span class="tag green">进行中</span></td>
+    <td><button class="sw on" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'礼金已开启':'礼金已关闭')"></button></td>
+    <td><button class="ghost btn" onclick="toast('编辑礼金')">编辑</button></td></tr>
+    <tr><td>满减券</td><td>满 100 减 20</td><td>指定商品</td><td><span class="tag amber">未开始</span></td>
+    <td><button class="sw" onclick="this.classList.toggle('on')"></button></td>
+    <td><button class="ghost btn">编辑</button></td></tr></table>`;
+  }else if(mktFilter==='seckill'){
+    body.innerHTML=`<p class="hint">单品单场 · 独立库存 · 限购 · 与拼单互斥</p>
+    <table><tr><th>场次</th><th>商品/SKU</th><th>秒杀价</th><th>时段</th><th>库存进度</th><th>状态</th><th>操作</th></tr>
+    <tr><td>晚 8 点场</td><td>真丝方巾 / 礼盒装</td><td>¥39.00</td><td>20:00–22:00</td><td>32/80</td><td><span class="tag blue">待开抢</span></td>
+    <td><button class="ghost btn">编辑</button></td></tr></table>`;
+  }else if(mktFilter==='dist'){
+    body.innerHTML=`<p class="hint">仅一级归因 · 比例受平台上下限 · 确认收货后到账</p>
+    <table><tr><th>活动</th><th>佣金</th><th>商品范围</th><th>有效期</th><th>操作</th></tr>
+    <tr><td>店内一级分销</td><td>10%</td><td>指定 3 件</td><td>长期</td>
+    <td class="row-actions"><button class="ghost btn" onclick="toast('已复制分销链接')">复制链接</button><button class="ghost btn" onclick="toast('海报已生成')">海报</button></td></tr></table>`;
+  }else{
+    body.innerHTML=`<p class="hint">满减最多 3 档 / 限时折扣 / 单品直降</p>
+    <table><tr><th>活动</th><th>类型</th><th>规则</th><th>状态</th><th>操作</th></tr>
+    <tr><td>年货满减</td><td>满减</td><td>满100减10 / 满200减25</td><td><span class="tag green">进行中</span></td>
+    <td><button class="ghost btn">编辑</button></td></tr>
+    <tr><td>周末折扣</td><td>限时折扣</td><td>全店 9 折</td><td><span class="tag amber">未开始</span></td>
+    <td><button class="ghost btn">编辑</button></td></tr></table>`;
+  }
+}
+document.querySelectorAll('#mktTabs button[data-m]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#mktTabs button[data-m]').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');mktFilter=b.dataset.m;renderMkt();
+});
+function openMarketingCreate(){
+  const titles={gift:'新建店铺礼金',seckill:'新建秒杀场次',dist:'新建分销活动',promo:'新建促销'};
+  document.getElementById('mktDrawerTitle').textContent=titles[mktFilter];
+  let html='';
+  if(mktFilter==='gift') html=`<div class="form-grid">
+    <div class="field full"><label>名称 *</label><input placeholder="礼金名称"></div>
+    <div class="field full"><label>类型 *</label><div class="chip-row"><button class="chip on" onclick="chipOnly(this)">满减</button><button class="chip" onclick="chipOnly(this)">折扣</button><button class="chip" onclick="chipOnly(this)">立减</button></div></div>
+    <div class="field"><label>面额 *</label><input type="number"></div><div class="field"><label>门槛 *</label><input type="number"></div>
+    <div class="field"><label>总量 *</label><input type="number"></div><div class="field"><label>每人限领 *</label><input type="number" value="1"></div>
+    <div class="field"><label>开始日期 *</label><input type="date"></div><div class="field"><label>结束日期 *</label><input type="date"></div>
+  </div>`;
+  else if(mktFilter==='seckill') html=`<div class="form-grid">
+    <div class="field full"><label>商品 *</label><input placeholder="选择商品"></div>
+    <div class="field"><label>SKU *</label><input></div><div class="field"><label>秒杀价 *</label><input type="number"></div>
+    <div class="field"><label>独立库存 *</label><input type="number"></div><div class="field"><label>限购 *</label><input type="number" value="1"></div>
+    <div class="field"><label>开始 *</label><input type="datetime-local"></div><div class="field"><label>结束 *</label><input type="datetime-local"></div>
+  </div><p class="hint">与拼单互斥；可开启开抢提醒与库存进度条。</p>`;
+  else if(mktFilter==='dist') html=`<div class="form-grid">
+    <div class="field full"><label>活动名称 *</label><input></div>
+    <div class="field"><label>佣金比例 % *</label><input type="number" value="10"></div>
+    <div class="field"><label>有效期</label><div class="chip-row"><button class="chip on" onclick="chipOnly(this)">长期</button><button class="chip" onclick="chipOnly(this)">自定义</button></div></div>
+    <div class="field full"><label>商品范围</label><div class="chip-row"><button class="chip on" onclick="chipOnly(this)">全部</button><button class="chip" onclick="chipOnly(this)">指定（≤6）</button></div></div>
+  </div>`;
+  else html=`<div class="form-grid">
+    <div class="field full"><label>类型 *</label><div class="chip-row"><button class="chip on" onclick="chipOnly(this)">满减(≤3档)</button><button class="chip" onclick="chipOnly(this)">限时折扣</button><button class="chip" onclick="chipOnly(this)">单品直降</button></div></div>
+    <div class="field full"><label>活动名称 *</label><input></div>
+    <div class="field"><label>开始 *</label><input type="date"></div><div class="field"><label>结束 *</label><input type="date"></div>
+  </div>`;
+  document.getElementById('mktDrawerBody').innerHTML=html;
+  showDrawer('mktDrawer');
+}
+
+/* 资质 */
+function setQualifyStep(n){
+  [1,2,3].forEach(i=>{
+    document.getElementById('qualifyStep'+i).classList.toggle('hidden',i!==n);
+    const ind=document.querySelector(`[data-step-ind="${i}"]`);
+    ind.classList.remove('on','done');
+    if(i<n) ind.classList.add('done');
+    else if(i===n) ind.classList.add('on');
+  });
+}
+function setAccType(isPublic){
+  document.getElementById('accPrivate').classList.toggle('on',!isPublic);
+  document.getElementById('accPublic').classList.toggle('on',isPublic);
+  document.getElementById('accName').value=isPublic?'成都福聚贡翔商贸有限公司':'王店长';
+}
+function submitQualify(){
+  if(!document.getElementById('agree').checked){toast('请先勾选协议');return}
+  toast('已提交入驻审核');
+}
+
+/* 抽屉 */
+function showDrawer(id){
+  document.getElementById('mask').classList.add('show');
+  document.querySelectorAll('.drawer').forEach(d=>d.classList.remove('show'));
+  document.getElementById(id).classList.add('show');
+}
+function closeDrawer(){
+  document.getElementById('mask').classList.remove('show');
+  document.querySelectorAll('.drawer').forEach(d=>d.classList.remove('show'));
+}
+
+renderGoods();renderOrders();renderAfter();renderMkt();
+</script>
+</body>
+</html>
