@@ -119,6 +119,46 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 .homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
 .toast{position:absolute;left:50%;bottom:52px;transform:translate(-50%,10px);background:rgba(38,28,22,.9);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap;width:max-content;max-width:calc(100% - 32px);text-align:center;overflow:hidden;text-overflow:ellipsis}
 .toast.show{opacity:1;transform:translate(-50%,0)}
+/* 列表内售后沟通（仅待收货批发单） */
+.asch-box{margin-top:10px;padding-top:10px;border-top:1px dashed #F5EAE2}
+.asch-hd{display:flex;align-items:center;gap:5px;flex-wrap:wrap;min-width:0}
+.asch-hd b{font-size:11.5px;font-weight:800;color:#2A2420}
+.asch-tag{font-size:8px;font-weight:700;color:#2C9C6A;background:#EAF7F0;border:1px solid #CDEBDF;border-radius:999px;padding:2px 6px;line-height:1.3;white-space:nowrap}
+.asch-range{margin-left:auto;font-size:8.5px;color:#A99C92;white-space:nowrap}
+.asch-tip{display:flex;align-items:center;gap:5px;margin-top:7px;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:9px;padding:6px 8px;font-size:9.5px;color:#B3411F;line-height:1.4}
+.asch-tip i{flex:0 0 13px;width:13px;height:13px;border-radius:50%;background:#FFE8DF;color:#EE4A2F;display:grid;place-items:center;font-style:normal;font-size:8px;font-weight:800}
+.asch-list{margin-top:9px;display:flex;flex-direction:column;gap:10px}
+.asch-msg{display:flex;gap:7px;align-items:flex-start}
+.asch-av{width:26px;height:26px;border-radius:50%;flex:0 0 26px;display:grid;place-items:center;font-size:10px;font-weight:800;color:#fff;background:linear-gradient(145deg,#FB7C5B,#EE3B2B)}
+.asch-av.shop{background:linear-gradient(145deg,#F5A26E,#E86A3A)}
+.asch-body{flex:1;min-width:0}
+.asch-bubble{background:#FFF6F3;border:1px solid #FADFD3;border-radius:11px;padding:8px 9px;font-size:11px;color:#3E332B;line-height:1.5}
+.asch-msg.shop .asch-bubble{background:#fff;border-color:#F0E5DD}
+.asch-media{display:flex;gap:5px;margin-top:6px;flex-wrap:wrap}
+.asch-media .mm{width:48px;height:48px;border-radius:8px;position:relative;overflow:hidden;flex:0 0 48px;background:#F3E9E1}
+.asch-media .mm.img1{background:radial-gradient(circle at 40% 35%,#E8C48A 0 18%,transparent 19%),linear-gradient(145deg,#F3E2C8,#C9A06A 55%,#8F6A3A)}
+.asch-media .mm.vid{background:linear-gradient(145deg,#4A3F37,#2A2420)}
+.asch-media .mm .play{position:absolute;inset:0;display:grid;place-items:center}
+.asch-media .mm .dur{position:absolute;right:3px;bottom:2px;font-size:7.5px;color:#fff;background:rgba(0,0,0,.45);border-radius:3px;padding:0 3px;line-height:1.4}
+.asch-time{margin-top:3px;font-size:8.5px;color:#B2A69C}
+.asch-compose{margin-top:10px;padding-top:9px;border-top:1px dashed #F3E9E1}
+.asch-inp{width:100%;min-height:52px;border-radius:11px;border:1px solid #F1E5DB;background:#FDFBF9;padding:8px 10px;font-size:11.5px;color:#2A2420;outline:none;resize:none;font-family:inherit;line-height:1.45}
+.asch-inp:focus{border-color:#F7A392;background:#fff}
+.asch-inp::placeholder{color:#C4B7AC}
+.asch-uprow{display:flex;align-items:center;gap:7px;margin-top:7px}
+.asch-up{height:28px;padding:0 9px;border-radius:999px;border:1px dashed #F2C3AE;background:#FFF8F5;color:#EE4A2F;font-size:10.5px;font-weight:700;display:inline-flex;align-items:center;gap:2px}
+.asch-uphint{font-size:9.5px;color:#A99C92}
+.asch-files{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.asch-file{width:48px;height:48px;border-radius:8px;position:relative;overflow:hidden;flex:0 0 48px;background:#F3E9E1}
+.asch-file.f1{background:radial-gradient(circle at 40% 35%,#E8C48A 0 18%,transparent 19%),linear-gradient(145deg,#F3E2C8,#C9A06A 55%,#8F6A3A)}
+.asch-file.f2{background:radial-gradient(circle at 55% 40%,#D4B07A 0 20%,transparent 21%),linear-gradient(150deg,#EAD7B4,#B8925A)}
+.asch-file.f3{background:linear-gradient(145deg,#5A4F47,#2E2824)}
+.asch-file .x{position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:9px;line-height:14px;text-align:center}
+.asch-file .play{position:absolute;inset:0;display:grid;place-items:center}
+.asch-file .dur{position:absolute;right:3px;bottom:2px;font-size:7.5px;color:#fff;background:rgba(0,0,0,.45);border-radius:3px;padding:0 3px;line-height:1.4}
+.asch-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px}
+.asch-foot .hint{font-size:9px;color:#B2A69C;line-height:1.35;min-width:0}
+.asch-send{flex:0 0 auto;height:32px;padding:0 14px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:11.5px;font-weight:700;box-shadow:0 4px 10px rgba(232,70,45,.2)}
 </style>
 </head>
 <body>
@@ -148,7 +188,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 <div class="scroll">
 <div class="seg">
 <button class="on" data-view="draft" onclick="switchView('draft')" type="button">选品单 <span class="n">3</span></button>
-<button data-view="wholesale" onclick="switchView('wholesale')" type="button">批发单 <span class="n">2</span></button>
+<button data-view="wholesale" onclick="switchView('wholesale')" type="button">批发单 <span class="n">5</span></button>
 </div>
 <div class="seghint" id="segHint">
 <svg fill="none" height="11" viewbox="0 0 24 24" width="11"><circle cx="12" cy="12" r="9" stroke="#C39A82" stroke-width="1.8"></circle><path d="M12 8h.01M12 11v5" stroke="#C39A82" stroke-linecap="round" stroke-width="1.9"></path></svg>
@@ -240,6 +280,61 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 </div>
 </div>
 </article>
+<!-- 批发单：待付款 -->
+<article class="ocard card" data-href="wholesale-order-detail-pending.html" data-status="unpaid" data-view="wholesale">
+<div class="chead">
+<span class="slogo">青</span>
+<div class="cshop">
+<div class="cname">青羊日用品批发</div>
+<div class="csub"><span class="pay online">微信担保</span><span class="ono">202611110026</span></div>
+</div>
+<span class="cstate wait">待付款</span>
+</div>
+<div class="thumbs">
+<span class="th a"><svg fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" fill="#fff" opacity=".5" r="23"></circle><path d="M23 16v11a4.6 4.6 0 0 0 9.2 0V16" stroke="#8A4B2A" stroke-linecap="round" stroke-width="2.4"></path><path d="M27.6 16v27" stroke="#8A4B2A" stroke-linecap="round" stroke-width="2.4"></path><path d="M39 16c3 4 2 9-1 12v15" stroke="#8A4B2A" stroke-linecap="round" stroke-width="2.4"></path></svg></span>
+<span class="th b"><svg fill="none" viewbox="0 0 60 60"><rect fill="#fff" height="21" rx="5" stroke="#5B7EA6" stroke-width="2.1" width="34" x="13" y="25"></rect><path d="M23 25v-4c0-3.4 4-3.4 4-6.2 0-2.6 3-3.4 4.6-.8 1.7 2.7 3.4 3 3.4 7v4" stroke="#5B7EA6" stroke-linejoin="round" stroke-width="2.1"></path><path d="M20 33h20" stroke="#9BB6D2" stroke-width="2"></path></svg></span>
+<span class="th c"><svg fill="none" viewbox="0 0 60 60"><path d="M24 18h12v6l4 5v17a3 3 0 0 1-3 3H23a3 3 0 0 1-3-3V29l4-5z" fill="#fff" stroke="#4E8A63" stroke-linejoin="round" stroke-width="2.1"></path><path d="M25 16h10" stroke="#4E8A63" stroke-linecap="round" stroke-width="3"></path><path d="M27 33h6M27 38h6" stroke="#8FC3A3" stroke-width="2"></path></svg></span>
+<span class="th more">+1</span>
+</div>
+<div class="csum"><span>共 22 件 · 4 种商品</span><span class="amt">应付<b><small>¥</small>347.40</b></span></div>
+<div class="cnote muted">
+<svg fill="none" height="11" viewbox="0 0 24 24" width="11"><circle cx="12" cy="12" r="9" stroke="#A79A91" stroke-width="1.8"></circle><path d="M8.5 12h7" stroke="#A79A91" stroke-linecap="round" stroke-width="1.9"></path></svg>
+<span>商品 351.40 + 运费 16.00 − 红包 20.00 = 347.40</span>
+</div>
+<div class="cnote">
+<svg fill="none" height="11" viewbox="0 0 24 24" width="11"><circle cx="12" cy="12" r="8.6" stroke="#B4674B" stroke-width="1.9"></circle><path d="M12 7.6V12l3 1.8" stroke="#B4674B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"></path></svg>
+<span>剩 <b id="cdPay">28 分 17 秒</b> 自动关闭订单，关单后释放库存、优惠券退回</span>
+</div>
+<div class="cops">
+<button class="btn ghost" onclick="act(event,'cancel')" type="button">取消订单</button>
+<button class="btn main" onclick="act(event,'pay')" type="button">去支付</button>
+</div>
+</article>
+<!-- 批发单：待发货 -->
+<article class="ocard card" data-href="wholesale-order-detail-online.html" data-status="toship" data-view="wholesale">
+<div class="chead">
+<span class="slogo">青</span>
+<div class="cshop">
+<div class="cname">青羊日用品批发</div>
+<div class="csub"><span class="pay online">微信担保</span><span class="ono">202611110031</span></div>
+</div>
+<span class="cstate send">待发货</span>
+</div>
+<div class="thumbs">
+<span class="th a"><svg fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" fill="#fff" opacity=".5" r="23"></circle><path d="M23 16v11a4.6 4.6 0 0 0 9.2 0V16" stroke="#8A4B2A" stroke-linecap="round" stroke-width="2.4"></path><path d="M27.6 16v27" stroke="#8A4B2A" stroke-linecap="round" stroke-width="2.4"></path><path d="M39 16c3 4 2 9-1 12v15" stroke="#8A4B2A" stroke-linecap="round" stroke-width="2.4"></path></svg></span>
+<span class="th b"><svg fill="none" viewbox="0 0 60 60"><rect fill="#fff" height="21" rx="5" stroke="#5B7EA6" stroke-width="2.1" width="34" x="13" y="25"></rect><path d="M23 25v-4c0-3.4 4-3.4 4-6.2 0-2.6 3-3.4 4.6-.8 1.7 2.7 3.4 3 3.4 7v4" stroke="#5B7EA6" stroke-linejoin="round" stroke-width="2.1"></path><path d="M20 33h20" stroke="#9BB6D2" stroke-width="2"></path></svg></span>
+<span class="th c"><svg fill="none" viewbox="0 0 60 60"><path d="M24 18h12v6l4 5v17a3 3 0 0 1-3 3H23a3 3 0 0 1-3-3V29l4-5z" fill="#fff" stroke="#4E8A63" stroke-linejoin="round" stroke-width="2.1"></path><path d="M25 16h10" stroke="#4E8A63" stroke-linecap="round" stroke-width="3"></path><path d="M27 33h6M27 38h6" stroke="#8FC3A3" stroke-width="2"></path></svg></span>
+</div>
+<div class="cnote">
+<svg fill="none" height="11" viewbox="0 0 24 24" width="11"><circle cx="12" cy="12" r="8.6" stroke="#B4674B" stroke-width="1.9"></circle><path d="M12 7.6V12l3 1.8" stroke="#B4674B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"></path></svg>
+<span>商家备货中 · 发货前可修改或取消订单</span>
+</div>
+<div class="csum"><span>共 26 件 · 3 种商品</span><span class="amt">实付<b><small>¥</small>401.60</b></span></div>
+<div class="cops">
+<button class="btn ghost" onclick="act(event,'cancel')" type="button">取消订单</button>
+<button class="btn soft" onclick="act(event,'edit')" type="button">修改订单</button>
+</div>
+</article>
 <article class="ocard card" data-href="wholesale-order-detail-shipped.html" data-status="torecv" data-view="wholesale">
 <div class="chead">
 <span class="slogo green">青</span>
@@ -260,8 +355,54 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 <span>剩 <b>6 天 12 小时</b> 自动确认收货 · 包裹 1 派送中 / 包裹 2 运输中</span>
 </div>
 <div class="csum"><span>共 18 件 · 4 种商品</span><span class="amt">实付<b><small>¥</small>286.60</b></span></div>
+<div class="asch-box" onclick="event.stopPropagation()">
+<div class="asch-hd">
+<b>售后沟通</b>
+<span class="asch-tag">仅批发单 · 收货前可沟通</span>
+<span class="asch-range">发货后至收货成功期间</span>
+</div>
+<div class="asch-tip"><i>i</i><span>收货成功后将结束沟通</span></div>
+<div class="asch-list" id="listAsChat">
+<div class="asch-msg">
+<span class="asch-av">张</span>
+<div class="asch-body">
+<div class="asch-bubble">
+收到货后发现有 2 件商品破损，请协助处理。
+<div class="asch-media">
+<span class="mm img1"></span>
+<span class="mm vid"><span class="play"><svg fill="none" height="16" viewBox="0 0 24 24" width="16"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.25)"/><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg></span><span class="dur">0:12</span></span>
+</div>
+</div>
+<div class="asch-time">2026-11-06 17:05</div>
+</div>
+</div>
+<div class="asch-msg shop">
+<span class="asch-av shop">商</span>
+<div class="asch-body">
+<div class="asch-bubble">您好，请补充破损商品的清晰照片，我们会尽快处理。</div>
+<div class="asch-time">2026-11-06 17:18</div>
+</div>
+</div>
+</div>
+<div class="asch-compose">
+<textarea class="asch-inp" id="listAsInput" maxlength="200" placeholder="请输入留言内容" onclick="event.stopPropagation()"></textarea>
+<div class="asch-uprow">
+<button class="asch-up" type="button" id="listAsUp">+ 图片/视频</button>
+<span class="asch-uphint">最多上传 6 个文件</span>
+</div>
+<div class="asch-files" id="listAsFiles">
+<span class="asch-file f1"><button class="x" type="button" aria-label="删除">×</button></span>
+<span class="asch-file f2"><button class="x" type="button" aria-label="删除">×</button></span>
+<span class="asch-file f3"><button class="x" type="button" aria-label="删除">×</button><span class="play"><svg fill="none" height="14" viewBox="0 0 24 24" width="14"><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg></span><span class="dur">0:08</span></span>
+</div>
+<div class="asch-foot">
+<span class="hint">图片/视频最多 6 个，支持 JPG、PNG、MP4</span>
+<button class="asch-send" type="button" id="listAsSend">提交留言</button>
+</div>
+</div>
+</div>
 <div class="cops">
-<a class="btn ghost" href="logistics.html?from=wholesale">查看物流</a>
+<a class="btn ghost" href="logistics.html?from=wholesale" onclick="event.stopPropagation()">查看物流</a>
 <button class="btn main" onclick="act(event,'confirm')" type="button">确认收货</button>
 </div>
 </article>
@@ -287,6 +428,26 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 <a class="btn ghost" href="invoice.html">查看发票</a>
 <a class="btn soft" href="review.html">去评价</a>
 </div>
+</article>
+<!-- 批发单：已取消 -->
+<article class="ocard card" data-href="wholesale-order-detail-online.html" data-status="cancelled" data-view="wholesale">
+<div class="chead">
+<span class="slogo">青</span>
+<div class="cshop">
+<div class="cname">青羊日用品批发</div>
+<div class="csub"><span class="pay online">微信担保</span><span class="ono">202611090017</span></div>
+</div>
+<span class="cstate off">已取消</span>
+</div>
+<div class="thumbs">
+<span class="th i"><svg fill="none" viewbox="0 0 60 60"><path d="M21 20h18l-2.4 24a4 4 0 0 1-4 3.6H27.4a4 4 0 0 1-4-3.6z" fill="#fff" stroke="#B07E5A" stroke-linejoin="round" stroke-width="2.1"></path><ellipse cx="30" cy="20" fill="#F6E7DA" rx="9" ry="3" stroke="#B07E5A" stroke-width="2"></ellipse></svg></span>
+<span class="th i"><svg fill="none" viewbox="0 0 60 60"><path d="M17 26h26l-3 16a5 5 0 0 1-5 4H25a5 5 0 0 1-5-4z" fill="#fff" stroke="#B07E5A" stroke-width="2.1"></path><ellipse cx="30" cy="26" fill="#F6E7DA" rx="13" ry="3.4" stroke="#B07E5A" stroke-width="2"></ellipse></svg></span>
+</div>
+<div class="cnote muted">
+<svg fill="none" height="11" viewbox="0 0 24 24" width="11"><circle cx="12" cy="12" r="9" stroke="#A79A91" stroke-width="1.8"></circle><path d="M8.5 12h7" stroke="#A79A91" stroke-linecap="round" stroke-width="1.9"></path></svg>
+<span>订单已取消，未支付任何费用</span>
+</div>
+<div class="csum"><span>共 10 件 · 2 种商品</span><span class="amt" style="color:#A79A91">合计<b style="color:#A79A91"><small>¥</small>236.00</b></span></div>
 </article>
 <div class="empty hidden" id="emptyState">
 <span class="pic">
@@ -371,13 +532,77 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
     document.querySelector('.scroll').scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  var listAsFileCount = 3;
+  function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+  function nowStamp() {
+    var d = new Date();
+    return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()) + ' ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+  }
+  function bindListAsChat() {
+    var up = document.getElementById('listAsUp');
+    var files = document.getElementById('listAsFiles');
+    var send = document.getElementById('listAsSend');
+    var input = document.getElementById('listAsInput');
+    var list = document.getElementById('listAsChat');
+    if (!up || !files || !send || !input || !list) return;
+    files.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var x = e.target.closest('.x');
+      if (!x) return;
+      var item = x.closest('.asch-file');
+      if (item) { item.remove(); listAsFileCount = Math.max(0, listAsFileCount - 1); }
+    });
+    up.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (listAsFileCount >= 6) { showToast('最多上传 6 个图片/视频'); return; }
+      var kinds = ['f1', 'f2', 'f3'];
+      var kind = kinds[listAsFileCount % 3];
+      var el = document.createElement('span');
+      el.className = 'asch-file ' + kind;
+      el.innerHTML = kind === 'f3'
+        ? '<button class="x" type="button" aria-label="删除">×</button><span class="play"><svg fill="none" height="14" viewBox="0 0 24 24" width="14"><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg></span><span class="dur">0:0' + ((listAsFileCount % 5) + 3) + '</span>'
+        : '<button class="x" type="button" aria-label="删除">×</button>';
+      files.appendChild(el);
+      listAsFileCount += 1;
+      showToast('已添加演示附件（' + listAsFileCount + '/6）');
+    });
+    send.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var txt = (input.value || '').trim();
+      if (!txt && listAsFileCount === 0) { showToast('请输入留言或添加图片/视频'); return; }
+      var mediaHtml = '';
+      if (listAsFileCount > 0) {
+        mediaHtml = '<div class="asch-media">';
+        Array.prototype.forEach.call(files.querySelectorAll('.asch-file'), function (f) {
+          if (f.classList.contains('f3')) {
+            mediaHtml += '<span class="mm vid"><span class="play"><svg fill="none" height="16" viewBox="0 0 24 24" width="16"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.25)"/><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg></span><span class="dur">0:08</span></span>';
+          } else {
+            mediaHtml += '<span class="mm img1"></span>';
+          }
+        });
+        mediaHtml += '</div>';
+      }
+      var msg = document.createElement('div');
+      msg.className = 'asch-msg';
+      msg.innerHTML = '<span class="asch-av">张</span><div class="asch-body"><div class="asch-bubble">' +
+        (txt ? txt.replace(/</g, '&lt;') : '（附件）') + mediaHtml +
+        '</div><div class="asch-time">' + nowStamp() + '</div></div>';
+      list.appendChild(msg);
+      input.value = '';
+      files.innerHTML = '';
+      listAsFileCount = 0;
+      showToast('留言已提交');
+    });
+  }
+
   (function () {
     bindChips(document.getElementById('draftFilters'));
     bindChips(document.getElementById('filters'));
+    bindListAsChat();
     var cards = document.querySelectorAll('.ocard');
     for (var k = 0; k < cards.length; k++) {
       cards[k].addEventListener('click', function (e) {
-        if (e.target.closest('button, a')) return;
+        if (e.target.closest('button, a, .asch-box, textarea')) return;
         var href = this.getAttribute('data-href');
         if (!href) return;
         window.location.href = href;
@@ -405,10 +630,28 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
         if (st) { st.className = 'cstate done'; st.textContent = '已完成'; }
         var note = card.querySelector('.cnote span');
         if (note) { note.textContent = '已确认收货 · 货款已分账给商家 · 可申请电子发票'; }
+        var asBox = card.querySelector('.asch-box');
+        if (asBox) asBox.style.display = 'none';
       }
-      showToast('已确认收货，货款已分账，可去评价或申请开票');
+      showToast('已确认收货，货款已分账；售后沟通已结束');
     }
   }
+
+  (function () {
+    var left = 28 * 60 + 17;
+    var el = document.getElementById('cdPay');
+    if (!el) return;
+    function render() {
+      var m = Math.floor(left / 60);
+      var s = left % 60;
+      el.textContent = m + ' 分 ' + (s < 10 ? '0' + s : s) + ' 秒';
+    }
+    render();
+    setInterval(function () {
+      if (left > 0) left--;
+      render();
+    }, 1000);
+  })();
 
   (function () {
     var tip = document.querySelector('.tip');

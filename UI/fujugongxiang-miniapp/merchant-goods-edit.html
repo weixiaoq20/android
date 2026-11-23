@@ -44,6 +44,12 @@ html.w-full.h-full{overflow:hidden}
 .chips{display:flex;gap:6px}
 .chip{flex:1;height:32px;border-radius:999px;border:1px solid #F1E5DB;background:#FDFBF9;font-size:10.5px;color:#5C5C5F;font-weight:600;white-space:nowrap;transition:all .16s;padding:0 4px}
 .chip.on{background:#FFEFEB;border-color:#F7A392;color:#EE4A2F}
+.catpick{width:100%;height:38px;border-radius:10px;border:1px solid #F1E5DB;background:#FDFBF9;padding:0 10px;display:flex;align-items:center;gap:8px;text-align:left}
+.catpick:active{background:#FFF8F5}
+.catpick .cval{flex:1;min-width:0;font-size:12px;color:#C4B7AC;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.catpick .cval.on{color:#2A2420;font-weight:600}
+.catpick .carr{flex:0 0 12px;color:#C9BDB5}
+.catpick.err{border-color:#EE4A2F;background:#FFF5F2;box-shadow:0 0 0 3px rgba(238,74,47,.12)}
 .imgs{display:flex;gap:7px;align-items:stretch}
 .imgc,.slot,.up{flex:0 0 calc((100% - 21px)/4);width:calc((100% - 21px)/4);aspect-ratio:1/1;border-radius:11px;position:relative;overflow:hidden}
 .imgc.kiwi{background:radial-gradient(circle at 38% 32%,#D9C08A 0 17%,transparent 18%),radial-gradient(circle at 66% 62%,#7E9B4A 0 26%,transparent 27%),linear-gradient(140deg,#EAF0D8,#C2D59B 55%,#8FAF68)}
@@ -141,14 +147,13 @@ html.w-full.h-full{overflow:hidden}
 </div>
 </div>
 <div class="field">
-<label>商品类目<span class="req">*</span></label>
-<div class="chips" id="gCat">
-<button class="chip on" data-v="水果">水果</button>
-<button class="chip" data-v="蔬菜">蔬菜</button>
-<button class="chip" data-v="干杂">干杂</button>
-<button class="chip" data-v="食品">食品</button>
-<button class="chip" data-v="药材">药材</button>
-</div>
+<label>商品类目<span class="req">*</span><span class="lab-note">平台一二级类目 · 仅选二级</span></label>
+<a class="catpick" id="gCatPick" href="merchant-category-pick.html">
+<span class="cval" id="gCatVal">请选择二级类目</span>
+<svg class="carr" fill="none" height="12" viewBox="0 0 24 24" width="12"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+</a>
+<input type="hidden" id="gCatKey" value=""/>
+<input type="hidden" id="gCatName" value=""/>
 </div>
 <div class="field">
 <label>主图<span class="lab-note">最多 3 张 · 首图为主图</span></label>
@@ -403,6 +408,12 @@ html.w-full.h-full{overflow:hidden}
       return;
     }
 
+    const catName = document.getElementById('gCatName').value.trim();
+    if (!catName) {
+      fail(document.getElementById('gCatPick'), '请选择商品二级类目');
+      return;
+    }
+
     const price = priceEl.value.trim();
     if (!/^\d+(\.\d{1,2})?$/.test(price) || Number(price) <= 0) {
       fail(priceEl, '请填写有效的商品单价');
@@ -438,8 +449,26 @@ html.w-full.h-full{overflow:hidden}
     setTimeout(function () { location.href = 'merchant-goods.html'; }, 900);
   }
 
-  bindChips('gCat');
   bindChips('gStatus');
+
+  function applyPickedCategory(picked) {
+    if (!picked || !picked.name) return;
+    document.getElementById('gCatKey').value = picked.key || '';
+    document.getElementById('gCatName').value = picked.name || '';
+    var val = document.getElementById('gCatVal');
+    val.textContent = picked.level1 ? (picked.level1 + ' · ' + picked.name) : picked.name;
+    val.classList.add('on');
+    document.getElementById('gCatPick').classList.remove('err');
+  }
+
+  function syncCatPickHref() {
+    var qs = location.search || '';
+    var from = 'merchant-goods-edit.html' + qs;
+    var key = document.getElementById('gCatKey').value;
+    var href = 'merchant-category-pick.html?from=' + encodeURIComponent(from);
+    if (key) href += '&key=' + encodeURIComponent(key);
+    document.getElementById('gCatPick').setAttribute('href', href);
+  }
 
   (function init() {
     const p = new URLSearchParams(location.search);
@@ -456,25 +485,31 @@ html.w-full.h-full{overflow:hidden}
       document.getElementById('skuList').innerHTML = skuRowHtml();
       document.getElementById('mainImgs').innerHTML = slotHtml() + slotHtml() + slotHtml() + upHtml();
       selectChip('gStatus', 'online');
-      return;
+    } else {
+      title.textContent = '编辑商品';
+      document.title = '福聚贡翔 · 编辑商品';
+
+      const name = p.get('name');
+      const price = p.get('price');
+      const stock = p.get('stock');
+      if (name) document.getElementById('gName').value = name;
+      if (price) document.getElementById('gPrice').value = price;
+      if (stock) document.getElementById('gStock').value = stock;
+      document.getElementById('gDetail').value = '蒲江红心猕猴桃，果园现摘，5 斤大果单果 90-110g，顺丰冷链 48 小时内发货。';
+      applyPickedCategory({ key: 'cat_017_001', name: '水果', level1: '生鲜' });
+
+      const st = p.get('status');
+      if (st === 'off' || st === 'sold') {
+        document.getElementById('onSw').dataset.on = '0';
+        selectChip('gStatus', st === 'sold' ? 'draft' : 'off');
+      }
     }
 
-    title.textContent = '编辑商品';
-    document.title = '福聚贡翔 · 编辑商品';
-
-    const name = p.get('name');
-    const price = p.get('price');
-    const stock = p.get('stock');
-    if (name) document.getElementById('gName').value = name;
-    if (price) document.getElementById('gPrice').value = price;
-    if (stock) document.getElementById('gStock').value = stock;
-    document.getElementById('gDetail').value = '蒲江红心猕猴桃，果园现摘，5 斤大果单果 90-110g，顺丰冷链 48 小时内发货。';
-
-    const st = p.get('status');
-    if (st === 'off' || st === 'sold') {
-      document.getElementById('onSw').dataset.on = '0';
-      selectChip('gStatus', st === 'sold' ? 'draft' : 'off');
-    }
+    try {
+      var picked = JSON.parse(sessionStorage.getItem('pickedCategory') || 'null');
+      if (picked && picked.name) applyPickedCategory(picked);
+    } catch (e) {}
+    syncCatPickHref();
   })();
 </script>
 </body>

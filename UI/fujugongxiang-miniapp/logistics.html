@@ -89,6 +89,48 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 .homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
 .toast{position:absolute;left:50%;bottom:92px;transform:translate(-50%,10px);background:rgba(38,28,22,.9);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap;width:max-content;max-width:calc(100% - 32px);text-align:center;overflow:hidden;text-overflow:ellipsis}
 .toast.show{opacity:1;transform:translate(-50%,0)}
+.hidden{display:none!important}
+/* 售后沟通（批发 · 发货后至确认收货） */
+.asch{padding:2px 0}
+.asch-hd{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
+.asch-hd b{font-size:12.5px;font-weight:800;color:#2A2420}
+.asch-tag{font-size:8.5px;font-weight:700;color:#2C9C6A;background:#EAF7F0;border:1px solid #CDEBDF;border-radius:999px;padding:2px 7px;line-height:1.3;white-space:nowrap}
+.asch-range{margin-left:auto;font-size:9px;color:#A99C92;white-space:nowrap}
+.asch-tip{display:flex;align-items:center;gap:5px;margin-top:8px;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:10px;padding:7px 9px;font-size:10px;color:#B3411F;line-height:1.4}
+.asch-tip i{flex:0 0 14px;width:14px;height:14px;border-radius:50%;background:#FFE8DF;color:#EE4A2F;display:grid;place-items:center;font-style:normal;font-size:9px;font-weight:800}
+.asch-list{margin-top:10px;display:flex;flex-direction:column;gap:12px}
+.asch-msg{display:flex;gap:8px;align-items:flex-start}
+.asch-av{width:30px;height:30px;border-radius:50%;flex:0 0 30px;display:grid;place-items:center;font-size:11px;font-weight:800;color:#fff;background:linear-gradient(145deg,#FB7C5B,#EE3B2B);box-shadow:0 3px 8px rgba(226,58,46,.18)}
+.asch-av.shop{background:linear-gradient(145deg,#F5A26E,#E86A3A)}
+.asch-body{flex:1;min-width:0}
+.asch-bubble{background:#FFF6F3;border:1px solid #FADFD3;border-radius:12px;padding:9px 10px;font-size:11.5px;color:#3E332B;line-height:1.55}
+.asch-msg.shop .asch-bubble{background:#fff;border-color:#F0E5DD}
+.asch-media{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.asch-media .mm{width:56px;height:56px;border-radius:9px;position:relative;overflow:hidden;flex:0 0 56px;background:#F3E9E1}
+.asch-media .mm.img1{background:radial-gradient(circle at 40% 35%,#E8C48A 0 18%,transparent 19%),linear-gradient(145deg,#F3E2C8,#C9A06A 55%,#8F6A3A)}
+.asch-media .mm.img2{background:radial-gradient(circle at 55% 40%,#D4B07A 0 20%,transparent 21%),linear-gradient(150deg,#EAD7B4,#B8925A)}
+.asch-media .mm.vid{background:linear-gradient(145deg,#4A3F37,#2A2420)}
+.asch-media .mm .play{position:absolute;inset:0;display:grid;place-items:center}
+.asch-media .mm .dur{position:absolute;right:4px;bottom:3px;font-size:8px;color:#fff;background:rgba(0,0,0,.45);border-radius:4px;padding:0 4px;line-height:1.5}
+.asch-time{margin-top:4px;font-size:9px;color:#B2A69C}
+.asch-compose{margin-top:12px;padding-top:10px;border-top:1px dashed #F3E9E1}
+.asch-inp{width:100%;min-height:64px;border-radius:12px;border:1px solid #F1E5DB;background:#FDFBF9;padding:9px 11px;font-size:12px;color:#2A2420;outline:none;resize:none;font-family:inherit;line-height:1.5}
+.asch-inp:focus{border-color:#F7A392;background:#fff;box-shadow:0 0 0 3px rgba(251,110,78,.1)}
+.asch-inp::placeholder{color:#C4B7AC}
+.asch-uprow{display:flex;align-items:center;gap:8px;margin-top:8px}
+.asch-up{height:30px;padding:0 10px;border-radius:999px;border:1px dashed #F2C3AE;background:#FFF8F5;color:#EE4A2F;font-size:11px;font-weight:700;display:inline-flex;align-items:center;gap:3px}
+.asch-uphint{font-size:10px;color:#A99C92}
+.asch-files{display:flex;gap:7px;margin-top:8px;flex-wrap:wrap}
+.asch-file{width:56px;height:56px;border-radius:9px;position:relative;overflow:hidden;flex:0 0 56px;background:#F3E9E1}
+.asch-file.f1{background:radial-gradient(circle at 40% 35%,#E8C48A 0 18%,transparent 19%),linear-gradient(145deg,#F3E2C8,#C9A06A 55%,#8F6A3A)}
+.asch-file.f2{background:radial-gradient(circle at 55% 40%,#D4B07A 0 20%,transparent 21%),linear-gradient(150deg,#EAD7B4,#B8925A)}
+.asch-file.f3{background:linear-gradient(145deg,#5A4F47,#2E2824)}
+.asch-file .x{position:absolute;top:3px;right:3px;width:16px;height:16px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:10px;line-height:16px;text-align:center}
+.asch-file .play{position:absolute;inset:0;display:grid;place-items:center}
+.asch-file .dur{position:absolute;right:4px;bottom:3px;font-size:8px;color:#fff;background:rgba(0,0,0,.45);border-radius:4px;padding:0 4px;line-height:1.5}
+.asch-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
+.asch-foot .hint{font-size:9.5px;color:#B2A69C;line-height:1.4;min-width:0}
+.asch-send{flex:0 0 auto;height:36px;padding:0 16px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:12.5px;font-weight:700;box-shadow:0 5px 12px rgba(232,70,45,.22)}
 </style>
 </head>
 <body>
@@ -209,6 +251,55 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 <div class="ir"><span class="k">收货地址</span><span class="v">四川省成都市青羊区少城街道长顺上街 18 号 3 栋 2 单元 601</span></div>
 <div class="ir"><span class="k">发货时间</span><span class="v">2026-11-12 16:34</span></div>
 </div>
+<!-- 售后沟通：仅批发订单 · 发货后至确认收货 -->
+<div class="card hidden" id="asChatCard">
+<div class="asch">
+<div class="asch-hd">
+<b>售后沟通</b>
+<span class="asch-tag">仅批发单 · 收货前可沟通</span>
+<span class="asch-range">发货后至收货成功期间</span>
+</div>
+<div class="asch-tip"><i>i</i><span>收货成功后将结束沟通</span></div>
+<div class="asch-list" id="asChatList">
+<div class="asch-msg">
+<span class="asch-av">张</span>
+<div class="asch-body">
+<div class="asch-bubble">
+收到货后发现有 2 件商品破损，请协助处理。
+<div class="asch-media">
+<span class="mm img1" aria-label="破损照片"></span>
+<span class="mm vid" aria-label="破损视频"><span class="play"><svg fill="none" height="18" viewBox="0 0 24 24" width="18"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.25)"/><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg></span><span class="dur">0:12</span></span>
+</div>
+</div>
+<div class="asch-time">2026-11-06 17:05</div>
+</div>
+</div>
+<div class="asch-msg shop">
+<span class="asch-av shop">商</span>
+<div class="asch-body">
+<div class="asch-bubble">您好，请补充破损商品的清晰照片，我们会尽快处理。</div>
+<div class="asch-time">2026-11-06 17:18</div>
+</div>
+</div>
+</div>
+<div class="asch-compose">
+<textarea class="asch-inp" id="asInput" maxlength="200" placeholder="请输入留言内容"></textarea>
+<div class="asch-uprow">
+<button class="asch-up" type="button" id="asUpBtn">+ 图片/视频</button>
+<span class="asch-uphint">最多上传 6 个文件</span>
+</div>
+<div class="asch-files" id="asFiles">
+<span class="asch-file f1"><button class="x" type="button" aria-label="删除">×</button></span>
+<span class="asch-file f2"><button class="x" type="button" aria-label="删除">×</button></span>
+<span class="asch-file f3"><button class="x" type="button" aria-label="删除">×</button><span class="play"><svg fill="none" height="16" viewBox="0 0 24 24" width="16"><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg></span><span class="dur">0:08</span></span>
+</div>
+<div class="asch-foot">
+<span class="hint">图片/视频最多 6 个，支持 JPG、PNG、MP4</span>
+<button class="asch-send" type="button" id="asSendBtn">提交留言</button>
+</div>
+</div>
+</div>
+</div>
 <div class="acts">
 <button class="ghost" onclick="showToast('正在拨打顺丰客服 95338（演示环境不发起真实通话）')" type="button">
 <svg fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="M6.5 3.5h3l1.4 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.4v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"></path></svg>
@@ -257,9 +348,79 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   var FROM_WHITELIST = {
     orders: { back: 'orders.html', btn: '返回我的订单', scene: '商城订单 · 配送中' },
     merchant: { back: 'merchant-order-detail.html', btn: '返回订单处理', scene: '商家视角 · 已发货' },
-    wholesale: { back: 'wholesale-order-detail-online.html', btn: '返回订单详情', scene: '批发订单 · 平台担保配送' },
+    wholesale: { back: 'wholesale-order-detail-shipped.html', btn: '返回订单详情', scene: '批发订单 · 待收货' },
     aftersale: { back: 'aftersale-detail.html', btn: '返回售后详情', scene: '售后寄回 · 物流跟踪' }
   };
+
+  var asFileCount = 3;
+
+  function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+  function nowStamp() {
+    var d = new Date();
+    return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()) + ' ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+  }
+
+  function bindAsChat() {
+    var up = document.getElementById('asUpBtn');
+    var files = document.getElementById('asFiles');
+    var send = document.getElementById('asSendBtn');
+    var input = document.getElementById('asInput');
+    var list = document.getElementById('asChatList');
+    if (!up || !files || !send || !input || !list) return;
+
+    files.addEventListener('click', function (e) {
+      var x = e.target.closest('.x');
+      if (!x) return;
+      var item = x.closest('.asch-file');
+      if (item) { item.remove(); asFileCount = Math.max(0, asFileCount - 1); }
+    });
+
+    up.addEventListener('click', function () {
+      if (asFileCount >= 6) { showToast('最多上传 6 个图片/视频'); return; }
+      var kinds = ['f1', 'f2', 'f3'];
+      var kind = kinds[asFileCount % 3];
+      var el = document.createElement('span');
+      el.className = 'asch-file ' + kind;
+      if (kind === 'f3') {
+        el.innerHTML = '<button class="x" type="button" aria-label="删除">×</button><span class="play"><svg fill="none" height="16" viewBox="0 0 24 24" width="16"><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg></span><span class="dur">0:0' + ((asFileCount % 5) + 3) + '</span>';
+      } else {
+        el.innerHTML = '<button class="x" type="button" aria-label="删除">×</button>';
+      }
+      files.appendChild(el);
+      asFileCount += 1;
+      showToast('已添加演示附件（' + asFileCount + '/6）');
+    });
+
+    send.addEventListener('click', function () {
+      var txt = (input.value || '').trim();
+      if (!txt && asFileCount === 0) { showToast('请输入留言或添加图片/视频'); return; }
+      var mediaHtml = '';
+      if (asFileCount > 0) {
+        mediaHtml = '<div class="asch-media">';
+        Array.prototype.forEach.call(files.querySelectorAll('.asch-file'), function (f) {
+          if (f.classList.contains('f3')) {
+            mediaHtml += '<span class="mm vid"><span class="play"><svg fill="none" height="18" viewBox="0 0 24 24" width="18"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.25)"/><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg></span><span class="dur">0:08</span></span>';
+          } else if (f.classList.contains('f2')) {
+            mediaHtml += '<span class="mm img2"></span>';
+          } else {
+            mediaHtml += '<span class="mm img1"></span>';
+          }
+        });
+        mediaHtml += '</div>';
+      }
+      var msg = document.createElement('div');
+      msg.className = 'asch-msg';
+      msg.innerHTML = '<span class="asch-av">张</span><div class="asch-body"><div class="asch-bubble">' +
+        (txt ? txt.replace(/</g, '&lt;') : '（附件）') + mediaHtml +
+        '</div><div class="asch-time">' + nowStamp() + '</div></div>';
+      list.appendChild(msg);
+      input.value = '';
+      files.innerHTML = '';
+      asFileCount = 0;
+      showToast('留言已提交');
+      msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
 
   (function () {
     var from = null;
@@ -270,6 +431,11 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
     ob.setAttribute('href', cfg.back);
     ob.textContent = cfg.btn;
     document.getElementById('sceneText').textContent = cfg.scene;
+    if (from === 'wholesale') {
+      var card = document.getElementById('asChatCard');
+      if (card) card.classList.remove('hidden');
+      bindAsChat();
+    }
   })();
 </script>
 </body>

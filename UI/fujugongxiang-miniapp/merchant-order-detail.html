@@ -27,7 +27,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 .hero:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-36px;top:-58px;background:rgba(255,255,255,.14)}
 .hero:after{content:"";position:absolute;width:84px;height:84px;border-radius:50%;right:46px;bottom:-56px;background:rgba(255,255,255,.08)}
 .hero .st{display:inline-flex;align-items:center;gap:4px;font-size:8px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:3px 8px}
-.hero h2{margin:7px 0 0;font-size:19px;font-weight:800;letter-spacing:-.4px}
+.hero h2{margin:7px 0 0;font-size:19px;font-weight:800;letter-spacing:-.4px;display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}
 .hero p{margin:4px 0 0;font-size:9.5px;opacity:.9;line-height:1.5}
 .hero .no{margin-top:8px;font-size:8.5px;opacity:.78}
 .hero .amt{position:absolute;right:15px;bottom:13px;font-size:20px;font-weight:800;letter-spacing:-.5px;z-index:2}
@@ -78,18 +78,60 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 .dock .main{flex:1;height:40px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(232,70,45,.26)}
 .dock .main.done{background:#F3EDE8;color:#9C8E83;box-shadow:none}
 .mask{position:absolute;inset:0;background:rgba(30,20,15,.45);z-index:40;backdrop-filter:blur(1px)}
-.sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:20px 20px 0 0;z-index:41;padding:14px 16px 12px;max-height:76%;overflow-y:auto;scrollbar-width:none;box-shadow:0 -10px 30px rgba(80,40,20,.15)}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:20px 20px 0 0;z-index:41;padding:14px 16px 12px;max-height:82%;overflow-y:auto;scrollbar-width:none;box-shadow:0 -10px 30px rgba(80,40,20,.15)}
 .sheet::-webkit-scrollbar{display:none}
 .sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .sh h2{margin:0;font-size:14px;font-weight:800}
 .sh button{font-size:11px;color:#A99C92}
-.field{margin-bottom:8px}
-.field label{font-size:9px;color:#8E8076;display:block;margin-bottom:3px}
-.field input{width:100%;height:35px;border-radius:10px;border:1px solid #F1E5DB;background:#FFFBF8;padding:0 10px;font-size:11px;font-family:inherit;outline:none}
-.field input:focus{border-color:#F7A392;background:#fff;box-shadow:0 0 0 3px rgba(251,110,78,.1)}
-.seg{display:flex;gap:6px;margin-bottom:9px}
-.seg button{flex:1;height:34px;border-radius:10px;border:1px solid #F1E5DB;background:#FFFBF8;font-size:10px;color:#7C6F66;font-weight:600}
-.seg button.on{background:#FFEFEB;border-color:#F7A392;color:#EE4A2F}
+.ship-goods{display:flex;gap:9px;align-items:center;background:#FFFBF8;border:1px solid #F3E9E1;border-radius:12px;padding:9px;margin-bottom:12px}
+.ship-goods .sg-thumb{width:44px;height:44px;border-radius:9px;flex:0 0 44px;background:linear-gradient(140deg,#EAF0D8,#C2D59B 55%,#8FAF68);position:relative;overflow:hidden}
+.ship-goods .sg-thumb .blob{position:absolute;border-radius:50%;display:block}
+.ship-goods .sg-info{flex:1;min-width:0}
+.ship-goods .sg-info b{display:block;font-size:11px;font-weight:700;color:#2A2420;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ship-goods .sg-info span{display:block;font-size:9px;color:#A99C92;margin-top:3px}
+.ship-goods .sg-meta{flex:0 0 auto;text-align:right}
+.ship-goods .sg-meta .pr{font-size:12px;font-weight:800;color:#E23A2E}
+.ship-goods .sg-meta .qty{font-size:9px;color:#A99C92;margin-top:2px}
+.ship-otype{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:700;border-radius:999px;padding:2px 8px;margin-bottom:10px}
+.ship-otype.retail{color:#3E7BB6;background:#EEF5FC;border:1px solid #D0E3F5}
+.ship-otype.whole{color:#7B5CC8;background:#F3EEFB;border:1px solid #DFD2F5}
+.ship-sec{font-size:11px;font-weight:800;color:#2A2420;margin:0 0 8px}
+.smethod{display:flex;gap:8px;margin-bottom:12px}
+.smethod .sm{flex:1;position:relative;border:1.5px solid #F0E5DD;background:#FFFBF8;border-radius:14px;padding:11px 10px;text-align:left;min-width:0}
+.smethod .sm.on{border-color:#F05A42;background:#FFF7F4;box-shadow:0 0 0 1px rgba(240,90,66,.12)}
+.smethod .sm .sm-ic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;margin-bottom:7px}
+.smethod .sm.local .sm-ic{background:#FFF0E6}
+.smethod .sm.express .sm-ic{background:#EEF4FB}
+.smethod .sm b{display:block;font-size:12px;font-weight:800;color:#2A2420}
+.smethod .sm span{display:block;font-size:9px;color:#A99C92;margin-top:3px;line-height:1.35}
+.smethod .sm .ck{position:absolute;top:8px;right:8px;width:16px;height:16px;border-radius:50%;border:1.5px solid #E8DCD3;background:#fff;display:none;place-items:center}
+.smethod .sm.on .ck{display:grid;border-color:#F05A42;background:#F05A42}
+.ship-panel{margin-bottom:4px}
+.ship-panel.hidden{display:none!important}
+.srow{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:42px;padding:0 2px;border-bottom:1px solid #F5EBE4}
+.srow:last-child{border-bottom:0}
+.srow .sk{flex:0 0 auto;font-size:12px;color:#3E332B;font-weight:600}
+.srow .sv{flex:1;min-width:0;display:flex;align-items:center;justify-content:flex-end;gap:4px;font-size:12px;color:#A99C92;text-align:right}
+.srow .sv.has{color:#2A2420;font-weight:600}
+.srow .sv input{flex:1;min-width:0;height:36px;border:0;background:transparent;outline:none;font-size:12px;font-family:inherit;color:#2A2420;text-align:right}
+.srow .sv input::placeholder{color:#C4B7AC;font-weight:400}
+.srow .scan{flex:0 0 28px;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;color:#EE4A2F;background:#FFF6F3}
+.sbox{background:#FFFBF8;border:1px solid #F3E9E1;border-radius:12px;padding:2px 10px;margin-bottom:10px}
+.snotify{display:flex;align-items:center;gap:10px;background:#FFFBF8;border:1px solid #F3E9E1;border-radius:12px;padding:10px 12px;margin:10px 0 12px}
+.snotify .ni{flex:1;min-width:0}
+.snotify .ni b{display:block;font-size:12px;font-weight:700;color:#2A2420}
+.snotify .ni span{display:block;font-size:9.5px;color:#A99C92;margin-top:3px;line-height:1.4}
+.switch{position:relative;width:42px;height:24px;border-radius:999px;background:#E8DFD8;flex:0 0 42px;transition:background .2s}
+.switch.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C)}
+.switch i{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.12);transition:transform .2s}
+.switch.on i{transform:translateX(18px)}
+#pMask{z-index:49}
+.picker{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:20px 20px 0 0;z-index:50;padding:14px 16px 18px;box-shadow:0 -10px 30px rgba(80,40,20,.18);max-height:55%;overflow-y:auto}
+.picker h3{margin:0 0 10px;font-size:14px;font-weight:800;text-align:center}
+.picker .pi{display:flex;align-items:center;justify-content:space-between;height:44px;border-bottom:1px solid #F5EBE4;font-size:13px;color:#3E332B;font-weight:600}
+.picker .pi:last-child{border-bottom:0}
+.picker .pi.on{color:#EE4A2F}
+.picker .pcancel{margin-top:10px;height:40px;border-radius:999px;background:#F5F0EC;color:#6E6057;font-size:13px;font-weight:700;width:100%}
 .shipnote{font-size:8.5px;color:#A99C92;line-height:1.5;margin:2px 0 9px}
 .logi{min-width:0}
 .lg-row{display:flex;align-items:center;gap:8px;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:12px;padding:8px 9px;min-width:0}
@@ -109,6 +151,48 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
 .homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
+/* 售后沟通（仅批发 · 已发货至确认收货） */
+.asch{padding:12px}
+.asch-hd{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
+.asch-hd b{font-size:12.5px;font-weight:800;color:#2A2420}
+.asch-tag{font-size:8.5px;font-weight:700;color:#2C9C6A;background:#EAF7F0;border:1px solid #CDEBDF;border-radius:999px;padding:2px 7px;line-height:1.3;white-space:nowrap}
+.asch-range{margin-left:auto;font-size:9px;color:#A99C92;white-space:nowrap}
+.asch-tip{display:flex;align-items:center;gap:5px;margin-top:8px;background:#FFF6F3;border:1px solid #FAD3C6;border-radius:10px;padding:7px 9px;font-size:10px;color:#B3411F;line-height:1.4}
+.asch-tip i{flex:0 0 14px;width:14px;height:14px;border-radius:50%;background:#FFE8DF;color:#EE4A2F;display:grid;place-items:center;font-style:normal;font-size:9px;font-weight:800}
+.asch-list{margin-top:10px;display:flex;flex-direction:column;gap:12px}
+.asch-msg{display:flex;gap:8px;align-items:flex-start}
+.asch-av{width:30px;height:30px;border-radius:50%;flex:0 0 30px;display:grid;place-items:center;font-size:11px;font-weight:800;color:#fff;background:linear-gradient(145deg,#FB7C5B,#EE3B2B);box-shadow:0 3px 8px rgba(226,58,46,.18)}
+.asch-av.shop{background:linear-gradient(145deg,#F5A26E,#E86A3A)}
+.asch-body{flex:1;min-width:0}
+.asch-bubble{background:#FFF6F3;border:1px solid #FADFD3;border-radius:12px;padding:9px 10px;font-size:11.5px;color:#3E332B;line-height:1.55}
+.asch-msg.me .asch-bubble{background:#fff;border-color:#F0E5DD}
+.asch-media{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.asch-media .mm{width:56px;height:56px;border-radius:9px;position:relative;overflow:hidden;flex:0 0 56px;background:#F3E9E1}
+.asch-media .mm.img1{background:radial-gradient(circle at 40% 35%,#E8C48A 0 18%,transparent 19%),linear-gradient(145deg,#F3E2C8,#C9A06A 55%,#8F6A3A)}
+.asch-media .mm.img2{background:radial-gradient(circle at 55% 40%,#D4B07A 0 20%,transparent 21%),linear-gradient(150deg,#EAD7B4,#B8925A)}
+.asch-media .mm.vid{background:linear-gradient(145deg,#4A3F37,#2A2420)}
+.asch-media .mm .play{position:absolute;inset:0;display:grid;place-items:center}
+.asch-media .mm .dur{position:absolute;right:4px;bottom:3px;font-size:8px;color:#fff;background:rgba(0,0,0,.45);border-radius:4px;padding:0 4px;line-height:1.5}
+.asch-time{margin-top:4px;font-size:9px;color:#B2A69C}
+.asch-compose{margin-top:12px;padding-top:10px;border-top:1px dashed #F3E9E1}
+.asch-inp{width:100%;min-height:64px;border-radius:12px;border:1px solid #F1E5DB;background:#FDFBF9;padding:9px 11px;font-size:12px;color:#2A2420;outline:none;resize:none;font-family:inherit;line-height:1.5}
+.asch-inp:focus{border-color:#F7A392;background:#fff;box-shadow:0 0 0 3px rgba(251,110,78,.1)}
+.asch-inp::placeholder{color:#C4B7AC}
+.asch-uprow{display:flex;align-items:center;gap:8px;margin-top:8px}
+.asch-up{height:30px;padding:0 10px;border-radius:999px;border:1px dashed #F2C3AE;background:#FFF8F5;color:#EE4A2F;font-size:11px;font-weight:700;display:inline-flex;align-items:center;gap:3px}
+.asch-uphint{font-size:10px;color:#A99C92}
+.asch-files{display:flex;gap:7px;margin-top:8px;flex-wrap:wrap}
+.asch-file{width:56px;height:56px;border-radius:9px;position:relative;overflow:hidden;flex:0 0 56px;background:#F3E9E1}
+.asch-file.f1{background:radial-gradient(circle at 40% 35%,#E8C48A 0 18%,transparent 19%),linear-gradient(145deg,#F3E2C8,#C9A06A 55%,#8F6A3A)}
+.asch-file.f2{background:radial-gradient(circle at 55% 40%,#D4B07A 0 20%,transparent 21%),linear-gradient(150deg,#EAD7B4,#B8925A)}
+.asch-file.f3{background:linear-gradient(145deg,#5A4F47,#2E2824)}
+.asch-file .x{position:absolute;top:3px;right:3px;width:16px;height:16px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:10px;line-height:16px;text-align:center}
+.asch-file .play{position:absolute;inset:0;display:grid;place-items:center}
+.asch-file .dur{position:absolute;right:4px;bottom:3px;font-size:8px;color:#fff;background:rgba(0,0,0,.45);border-radius:4px;padding:0 4px;line-height:1.5}
+.asch-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
+.asch-foot .hint{font-size:9.5px;color:#B2A69C;line-height:1.4;min-width:0}
+.asch-send{flex:0 0 auto;height:36px;padding:0 16px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:12.5px;font-weight:700;box-shadow:0 5px 12px rgba(232,70,45,.22)}
+.hero .otype{font-size:8px;font-weight:700;background:rgba(255,255,255,.92);color:#D0411F;border-radius:999px;padding:3px 8px;line-height:1.2}
 </style>
 </head>
 <body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
@@ -133,7 +217,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 <div class="scroll">
 <div class="hero">
 <span class="st" id="heroTag">微信担保 · 货款已托管</span>
-<h2 id="heroStatus">待发货</h2>
+<h2><span id="heroStatus">待发货</span><span class="otype hidden" id="heroOtype">批发订单</span></h2>
 <p id="heroNote">买家已通过微信担保支付，货款由平台托管，请及时安排发货。</p>
 <div class="no">订单号 202611060032 · 2026-11-06 14:48</div>
 <div class="amt"><small>¥</small>71.80</div>
@@ -212,33 +296,167 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 <div class="tli now" id="tlNow"><span class="tdot"></span><div class="tt"><b>待商家发货</b><span>建议 2 小时内完成发货</span></div></div>
 <div class="tli" id="tlShip"><span class="tdot"></span><div class="tt"><b>买家确认收货</b><span>确认后 24 小时内结算货款</span></div></div>
 </div>
+<!-- 售后沟通：仅批发单，且已发货→确认收货期间 -->
+<div class="card hidden" id="asChatCard">
+<div class="asch">
+<div class="asch-hd">
+<b>售后沟通</b>
+<span class="asch-tag">仅批发单 · 收货前可沟通</span>
+<span class="asch-range">发货后至收货成功期间</span>
+</div>
+<div class="asch-tip"><i>i</i><span>收货成功后将结束沟通</span></div>
+<div class="asch-list" id="asChatList">
+<div class="asch-msg">
+<span class="asch-av">张</span>
+<div class="asch-body">
+<div class="asch-bubble">
+收到货后发现有 2 件商品破损，请协助处理。
+<div class="asch-media">
+<span class="mm img1" aria-label="破损照片"></span>
+<span class="mm vid" aria-label="破损视频"><span class="play"><svg fill="none" height="18" viewBox="0 0 24 24" width="18"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.25)"/><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg></span><span class="dur">0:12</span></span>
+</div>
+</div>
+<div class="asch-time">2026-11-06 17:05</div>
+</div>
+</div>
+<div class="asch-msg me">
+<span class="asch-av shop">商</span>
+<div class="asch-body">
+<div class="asch-bubble">您好，请补充破损商品的清晰照片，我们会尽快处理。</div>
+<div class="asch-time">2026-11-06 17:18</div>
+</div>
+</div>
+</div>
+<div class="asch-compose">
+<textarea class="asch-inp" id="asInput" maxlength="200" placeholder="请输入留言内容"></textarea>
+<div class="asch-uprow">
+<button class="asch-up" type="button" id="asUpBtn">+ 图片/视频</button>
+<span class="asch-uphint">最多上传 6 个文件</span>
+</div>
+<div class="asch-files" id="asFiles">
+<span class="asch-file f1"><button class="x" type="button" aria-label="删除">×</button></span>
+<span class="asch-file f2"><button class="x" type="button" aria-label="删除">×</button></span>
+<span class="asch-file f3"><button class="x" type="button" aria-label="删除">×</button><span class="play"><svg fill="none" height="16" viewBox="0 0 24 24" width="16"><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg></span><span class="dur">0:08</span></span>
+</div>
+<div class="asch-foot">
+<span class="hint">图片/视频最多 6 个，支持 JPG、PNG、MP4</span>
+<button class="asch-send" type="button" id="asSendBtn">提交留言</button>
+</div>
+</div>
+</div>
+</div>
 <div style="height:12px"></div>
 </div>
 </div>
 <div class="dock">
-<a class="gbtn" href="chat-shop.html">
+<a class="gbtn" href="chat-shop.html" id="dockChat">
 <svg fill="none" height="13" viewbox="0 0 24 24" width="13"><path d="M20.5 11.5A8.2 8.2 0 0 1 8 18.7L4 20l1.3-3.9A8.2 8.2 0 1 1 20.5 11.5z" stroke="#7C6F66" stroke-width="1.8"></path></svg>
-      联系买家
-    </a>
-<button class="gbtn" onclick="toast('小票已发送至云打印（演示）')">打印小票</button>
+<span id="dockChatTxt">联系买家</span>
+</a>
+<button class="gbtn" id="dockPrint" onclick="toast('小票已发送至云打印（演示）')">打印小票</button>
 <button class="main" id="mainBtn" onclick="handleMain()">立即发货</button>
 </div>
 <div class="homebar"><i></i></div>
 <div class="mask hidden" id="sMask" onclick="closeShip()"></div>
 <div class="sheet hidden" id="sSheet">
-<div class="sh"><h2>订单发货</h2><button onclick="closeShip()">取消</button></div>
-<div class="seg"><button class="on" id="m1" onclick="pickShip('同城配送')">同城配送</button><button id="m2" onclick="pickShip('快递发货')">快递发货</button></div>
-<div class="field"><label>配送员 / 快递公司</label><input id="fCarrier" placeholder="如：顺丰速运" value="福聚贡翔同城配送"/></div>
-<div class="field"><label>运单号 / 联系电话（选填）</label><input id="fNo" placeholder="同城可填配送员电话"/></div>
-<div class="field"><label>预计送达</label><input id="fEta" placeholder="如：今天 18:00 前" value="今天 18:00 前"/></div>
-<div class="shipnote">发货后将通知买家，同城配送由商家自送；快递需填写运单号，便于买家查看物流。如需分批发货，可再次进入发货并生成包裹 2。</div>
-<button class="save" onclick="doShip()">确认发货</button>
+<div class="sh"><h2>订单发货</h2><button type="button" onclick="closeShip()">取消</button></div>
+<div class="ship-goods">
+<span class="sg-thumb"><i class="blob" style="width:28px;height:28px;left:8px;top:8px;background:radial-gradient(circle at 34% 30%,#C6D98B,#7E9B4A 58%,#4F6A2A)"></i><i class="blob" style="width:16px;height:16px;left:24px;top:22px;background:radial-gradient(circle at 35% 30%,#D9C08A,#A47F45 62%,#6E5127)"></i></span>
+<div class="sg-info">
+<b>蒲江红心猕猴桃 5斤大果 现摘现发</b>
+<span>5斤大果 · 现货</span>
+</div>
+<div class="sg-meta"><div class="pr">¥39.90</div><div class="qty">×2</div></div>
+</div>
+<span class="ship-otype retail" id="shipOtype">零售订单</span>
+<div class="ship-sec">发货方式</div>
+<div class="smethod">
+<button class="sm local on" type="button" id="m1" onclick="pickShip('同城配送')">
+<span class="sm-ic">
+<svg fill="none" height="18" viewBox="0 0 24 24" width="18"><path d="M4 15.5h9.5V8H8.2L4 11.2v4.3z" stroke="#E86A2A" stroke-linejoin="round" stroke-width="1.6"/><path d="M13.5 11h3.2l2.3 2.4V15.5H13.5z" stroke="#E86A2A" stroke-linejoin="round" stroke-width="1.6"/><circle cx="7.2" cy="17.2" r="1.5" stroke="#E86A2A" stroke-width="1.5"/><circle cx="16.2" cy="17.2" r="1.5" stroke="#E86A2A" stroke-width="1.5"/><path d="M5 8.5c1.2-2.2 2.8-3.5 5-3.5" stroke="#E86A2A" stroke-linecap="round" stroke-width="1.5"/></svg>
+</span>
+<b>同城配送</b>
+<span>本地同城，快速送达</span>
+<span class="ck"><svg fill="none" height="9" viewBox="0 0 24 24" width="9"><path d="m5 12 5 5 9-9" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg></span>
+</button>
+<button class="sm express" type="button" id="m2" onclick="pickShip('快递邮寄')">
+<span class="sm-ic">
+<svg fill="none" height="18" viewBox="0 0 24 24" width="18"><path d="M3.5 8h10v9.5h-10z" stroke="#3E7BB6" stroke-linejoin="round" stroke-width="1.6"/><path d="M13.5 10.5h3.5l3 3v4H13.5z" stroke="#3E7BB6" stroke-linejoin="round" stroke-width="1.6"/><circle cx="7" cy="18.2" r="1.5" stroke="#3E7BB6" stroke-width="1.5"/><circle cx="16.5" cy="18.2" r="1.5" stroke="#3E7BB6" stroke-width="1.5"/></svg>
+</span>
+<b>快递邮寄</b>
+<span>全国发货，快递到家</span>
+<span class="ck"><svg fill="none" height="9" viewBox="0 0 24 24" width="9"><path d="m5 12 5 5 9-9" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg></span>
+</button>
+</div>
+<!-- 同城配送信息 -->
+<div class="ship-panel" id="panelLocal">
+<div class="ship-sec">配送信息</div>
+<div class="sbox">
+<button class="srow" type="button" onclick="openPicker('rider')">
+<span class="sk">配送员</span>
+<span class="sv" id="fRiderTxt">请选择配送员<svg fill="none" height="12" viewBox="0 0 24 24" width="12"><path d="m9 6 6 6-6 6" stroke="#C4B7AC" stroke-linecap="round" stroke-width="2"/></svg></span>
+</button>
+<div class="srow">
+<span class="sk">联系电话</span>
+<span class="sv"><input id="fRiderPhone" placeholder="选填配送员电话" value=""/></span>
+</div>
+<button class="srow" type="button" onclick="openPicker('etaLocal')">
+<span class="sk">预计送达</span>
+<span class="sv has" id="fEtaLocalTxt">今天 18:00 前<svg fill="none" height="12" viewBox="0 0 24 24" width="12"><path d="m9 6 6 6-6 6" stroke="#C4B7AC" stroke-linecap="round" stroke-width="2"/></svg></span>
+</button>
+</div>
+</div>
+<!-- 快递邮寄信息 -->
+<div class="ship-panel hidden" id="panelExpress">
+<div class="ship-sec">快递信息</div>
+<div class="sbox">
+<button class="srow" type="button" onclick="openPicker('carrier')">
+<span class="sk">快递公司</span>
+<span class="sv" id="fCarrierTxt">请选择快递公司<svg fill="none" height="12" viewBox="0 0 24 24" width="12"><path d="m9 6 6 6-6 6" stroke="#C4B7AC" stroke-linecap="round" stroke-width="2"/></svg></span>
+</button>
+<div class="srow">
+<span class="sk">快递单号</span>
+<span class="sv"><input id="fNo" placeholder="请输入快递单号" value=""/><button class="scan" type="button" onclick="scanWaybill()" aria-label="扫码"><svg fill="none" height="15" viewBox="0 0 24 24" width="15"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/><path d="M7 9h2v6H7zM11 9h1.2v6H11zM13.5 9H15v6h-1.5zM16.5 9H18v6h-1.5z" fill="currentColor"/></svg></button></span>
+</div>
+<button class="srow" type="button" onclick="openPicker('etaExpress')">
+<span class="sk">预计送达</span>
+<span class="sv has" id="fEtaExpressTxt">预计 48 小时内<svg fill="none" height="12" viewBox="0 0 24 24" width="12"><path d="m9 6 6 6-6 6" stroke="#C4B7AC" stroke-linecap="round" stroke-width="2"/></svg></span>
+</button>
+</div>
+</div>
+<div class="snotify">
+<div class="ni"><b>通知买家发货</b><span>开启后会发送发货通知给买家</span></div>
+<button class="switch on" type="button" id="notifySwitch" onclick="toggleNotify()" aria-label="通知开关"><i></i></button>
+</div>
+<div class="shipnote" id="shipNote">同城配送由商家安排骑手送达；零售 / 批发订单均可使用。确认后将通知买家。</div>
+<button class="save" type="button" onclick="doShip()">确认发货</button>
+</div>
+<div class="mask hidden" id="pMask" onclick="closePicker()"></div>
+<div class="picker hidden" id="picker">
+<h3 id="pickerTitle">请选择</h3>
+<div id="pickerList"></div>
+<button class="pcancel" type="button" onclick="closePicker()">取消</button>
 </div>
 <div class="toast" id="toast">已更新</div>
 </div>
 <script>
-  let state = 'ready';
-  let shipMethod = '同城配送';
+  var qs = new URLSearchParams(location.search);
+  var orderType = qs.get('type') === 'whole' ? 'whole' : 'retail';
+  var state = qs.get('status') === 'shipped' ? 'shipped' : 'ready';
+  var shipMethod = '同城配送';
+  var shipNotify = true;
+  var shipRider = '';
+  var shipCarrier = '';
+  var shipEtaLocal = '今天 18:00 前';
+  var shipEtaExpress = '预计 48 小时内';
+  var pickerKind = '';
+  var asFileCount = 3;
+  var PICKERS = {
+    rider: { title: '选择配送员', list: ['王师傅 138****2210', '李师傅 139****8806', '陈师傅 136****5531', '自配送（店员）'] },
+    carrier: { title: '选择快递公司', list: ['顺丰速运', '中通快递', '圆通速递', '韵达快递', '申通快递', '京东物流', '邮政快递包裹'] },
+    etaLocal: { title: '预计送达', list: ['今天 18:00 前', '今天 20:00 前', '明天 12:00 前', '明天 18:00 前'] },
+    etaExpress: { title: '预计送达', list: ['预计 24 小时内', '预计 48 小时内', '预计 3 天内', '预计 5 天内'] }
+  };
 
   function toast(msg) {
     const t = document.getElementById('toast');
@@ -248,62 +466,191 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
     window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1700);
   }
 
+  function syncAsChat() {
+    var card = document.getElementById('asChatCard');
+    if (!card) return;
+    var show = orderType === 'whole' && state === 'shipped';
+    card.classList.toggle('hidden', !show);
+  }
+
+  function syncDockShipped() {
+    var btn = document.getElementById('mainBtn');
+    var print = document.getElementById('dockPrint');
+    var chatTxt = document.getElementById('dockChatTxt');
+    if (orderType === 'whole' && state === 'shipped') {
+      if (chatTxt) chatTxt.textContent = '联系顾客';
+      if (print) print.classList.add('hidden');
+      btn.textContent = '处理售后';
+      btn.classList.remove('done');
+      btn.onclick = function () {
+        var card = document.getElementById('asChatCard');
+        if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        toast('可在售后沟通中回复顾客');
+      };
+    } else if (state === 'shipped') {
+      if (chatTxt) chatTxt.textContent = '联系买家';
+      if (print) print.classList.remove('hidden');
+      btn.textContent = '已发货 · 等待收货';
+      btn.classList.add('done');
+      btn.onclick = handleMain;
+    } else {
+      if (chatTxt) chatTxt.textContent = '联系买家';
+      if (print) print.classList.remove('hidden');
+      btn.textContent = '立即发货';
+      btn.classList.remove('done');
+      btn.onclick = handleMain;
+    }
+  }
+
+  function applyShippedUI(opt) {
+    opt = opt || {};
+    var carrier = opt.carrier || '福聚贡翔同城配送';
+    var no = opt.no || '';
+    var eta = opt.eta || '今天 18:00 前';
+    var method = opt.method || shipMethod;
+    var shipCard = document.getElementById('shipCard');
+    if (shipCard) {
+      shipCard.classList.remove('hidden');
+      document.getElementById('lgCarrier').textContent = method === '同城配送' ? ('同城配送 · ' + carrier) : (carrier + ' · 快递邮寄');
+      document.getElementById('lgNote').textContent = (method === '同城配送' ? ('联系电话 ' + (no || '未填写')) : ('运单号 ' + (no || '待补充'))) + ' · 包裹 1 / 1 · ' + eta;
+    }
+    document.getElementById('heroTag').textContent = '已发货 · 等待买家收货';
+    document.getElementById('heroStatus').textContent = '已发货 · 待收货';
+    document.getElementById('heroNote').textContent = method + ' · ' + carrier + (no ? ' · ' + no : '') + ' · ' + eta;
+    var ship = document.getElementById('tlShip');
+    if (ship) {
+      var now = document.getElementById('tlNow');
+      if (now) {
+        now.classList.remove('now');
+        now.classList.add('done');
+        now.querySelector('.tt b').textContent = '商家已发货';
+        now.querySelector('.tt span').textContent = (opt.justNow ? '刚刚 · ' : '2026-11-06 16:20 · ') + method + ' ' + carrier;
+      }
+      ship.classList.add('now');
+      ship.querySelector('.tt b').textContent = '待买家确认收货';
+      ship.querySelector('.tt span').textContent = '买家确认后 24 小时内结算货款';
+    }
+    var fundCard = document.getElementById('fundCard');
+    if (fundCard) fundCard.classList.remove('hidden');
+    var fw = document.getElementById('fundWay');
+    var fs = document.getElementById('fundState');
+    if (fw) fw.textContent = '微信担保支付（平台托管）';
+    if (fs) fs.textContent = '已发货 · 货款待结算，买家确认收货后分账';
+    syncAsChat();
+    syncDockShipped();
+  }
+
   function openShip() {
+    closePicker();
     document.getElementById('sMask').classList.remove('hidden');
     document.getElementById('sSheet').classList.remove('hidden');
+    pickShip(shipMethod);
   }
   function closeShip() {
+    closePicker();
     document.getElementById('sMask').classList.add('hidden');
     document.getElementById('sSheet').classList.add('hidden');
   }
   function pickShip(m) {
     shipMethod = m;
-    document.getElementById('m1').classList.toggle('on', m === '同城配送');
-    document.getElementById('m2').classList.toggle('on', m === '快递发货');
-    document.getElementById('fCarrier').value = m === '同城配送' ? '福聚贡翔同城配送' : '顺丰速运';
-    document.getElementById('fEta').value = m === '同城配送' ? '今天 18:00 前' : '预计 48 小时内';
+    var isLocal = m === '同城配送';
+    document.getElementById('m1').classList.toggle('on', isLocal);
+    document.getElementById('m2').classList.toggle('on', !isLocal);
+    document.getElementById('panelLocal').classList.toggle('hidden', !isLocal);
+    document.getElementById('panelExpress').classList.toggle('hidden', isLocal);
+    var note = document.getElementById('shipNote');
+    if (note) {
+      note.textContent = isLocal
+        ? '同城配送由商家安排骑手送达；零售 / 批发订单均可使用。确认后将通知买家。'
+        : '快递邮寄需选择快递公司并填写运单号，便于买家查看物流；零售 / 批发订单均可使用。如需分批发货，可再次进入发货生成包裹 2。';
+    }
+  }
+  function toggleNotify() {
+    shipNotify = !shipNotify;
+    document.getElementById('notifySwitch').classList.toggle('on', shipNotify);
+  }
+  function setSvText(id, text, has) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.classList.toggle('has', !!has && !!text);
+    el.innerHTML = (text || '请选择') + '<svg fill="none" height="12" viewBox="0 0 24 24" width="12"><path d="m9 6 6 6-6 6" stroke="#C4B7AC" stroke-linecap="round" stroke-width="2"/></svg>';
+  }
+  function openPicker(kind) {
+    pickerKind = kind;
+    var cfg = PICKERS[kind];
+    if (!cfg) return;
+    document.getElementById('pickerTitle').textContent = cfg.title;
+    var list = document.getElementById('pickerList');
+    var cur = kind === 'rider' ? shipRider : (kind === 'carrier' ? shipCarrier : (kind === 'etaLocal' ? shipEtaLocal : shipEtaExpress));
+    list.innerHTML = cfg.list.map(function (name) {
+      return '<button class="pi' + (name === cur ? ' on' : '') + '" type="button" onclick="choosePicker(\'' + name.replace(/'/g, "\\'") + '\')">' + name + (name === cur ? ' ✓' : '') + '</button>';
+    }).join('');
+    document.getElementById('pMask').classList.remove('hidden');
+    document.getElementById('picker').classList.remove('hidden');
+  }
+  function closePicker() {
+    document.getElementById('pMask').classList.add('hidden');
+    document.getElementById('picker').classList.add('hidden');
+    pickerKind = '';
+  }
+  function choosePicker(name) {
+    if (pickerKind === 'rider') {
+      shipRider = name;
+      setSvText('fRiderTxt', name, true);
+      var phoneMap = {
+        '王师傅 138****2210': '13822102210',
+        '李师傅 139****8806': '13988068806',
+        '陈师傅 136****5531': '13655315531'
+      };
+      document.getElementById('fRiderPhone').value = phoneMap[name] || '';
+    } else if (pickerKind === 'carrier') {
+      shipCarrier = name;
+      setSvText('fCarrierTxt', name, true);
+    } else if (pickerKind === 'etaLocal') {
+      shipEtaLocal = name;
+      setSvText('fEtaLocalTxt', name, true);
+    } else if (pickerKind === 'etaExpress') {
+      shipEtaExpress = name;
+      setSvText('fEtaExpressTxt', name, true);
+    }
+    closePicker();
+  }
+  function scanWaybill() {
+    var demos = ['SF1428391220337', 'ZT7830114662098', 'YT8866123456789'];
+    document.getElementById('fNo').value = demos[Math.floor(Math.random() * demos.length)];
+    toast('已扫码识别运单号（演示）');
   }
 
   function doShip() {
     if (state !== 'ready') { closeShip(); return; }
-    const carrier = document.getElementById('fCarrier').value.trim();
-    const no = document.getElementById('fNo').value.trim();
-    if (!carrier) { toast('请填写配送员或快递公司'); return; }
-    if (shipMethod === '快递发货' && !no) { toast('快递发货请填写运单号'); return; }
+    var carrier = '';
+    var no = '';
+    var eta = '';
+    if (shipMethod === '同城配送') {
+      if (!shipRider) { toast('请选择配送员'); return; }
+      carrier = shipRider.split(' ')[0] || shipRider;
+      no = (document.getElementById('fRiderPhone').value || '').trim();
+      eta = shipEtaLocal;
+    } else {
+      if (!shipCarrier) { toast('请选择快递公司'); return; }
+      no = (document.getElementById('fNo').value || '').trim();
+      if (!no) { toast('请填写快递单号'); return; }
+      carrier = shipCarrier;
+      eta = shipEtaExpress;
+    }
     state = 'shipped';
     closeShip();
-    const shipCard = document.getElementById('shipCard');
-    if (shipCard) {
-      shipCard.classList.remove('hidden');
-      document.getElementById('lgCarrier').textContent = shipMethod === '同城配送' ? carrier : carrier + ' · 快递';
-      document.getElementById('lgNote').textContent = '运单号 ' + (no || '待补充') + ' · 包裹 1 / 1 · ' + document.getElementById('fEta').value;
-    }
-    document.getElementById('heroTag').textContent = '已发货 · 等待买家收货';
-    document.getElementById('heroStatus').textContent = '已发货';
-    document.getElementById('heroNote').textContent = shipMethod + ' · ' + carrier + (no ? ' · ' + no : '') + ' · ' + document.getElementById('fEta').value;
-    const btn = document.getElementById('mainBtn');
-    btn.textContent = '已发货 · 等待收货';
-    btn.classList.add('done');
-    const ship = document.getElementById('tlShip');
-    if (ship) {
-      const now = document.getElementById('tlNow');
-      if (now) {
-        now.classList.remove('now');
-        now.classList.add('done');
-        now.querySelector('.tt b').textContent = '商家已发货';
-        now.querySelector('.tt span').textContent = '刚刚 · ' + shipMethod + ' ' + carrier;
-      }
-      ship.classList.remove('now');
-      ship.classList.add('now');
-      ship.querySelector('.tt b').textContent = '待买家确认收货';
-      ship.querySelector('.tt span').textContent = '买家确认后 24 小时内结算货款';
-    }
-    document.getElementById('fundCard').classList.remove('hidden');
-    var fw = document.getElementById('fundWay');
-    var fs = document.getElementById('fundState');
-    if (fw) { fw.textContent = '微信担保支付（平台托管）'; }
-    if (fs) { fs.textContent = '已发货 · 货款待结算，买家确认收货后分账'; }
-    toast('发货成功，已通知买家；买家确认收货后货款自动结算');
+    applyShippedUI({
+      carrier: carrier,
+      no: no,
+      eta: eta,
+      method: shipMethod,
+      justNow: true
+    });
+    var tip = shipNotify ? '发货成功，已通知买家' : '发货成功（未发送通知）';
+    if (orderType === 'whole') tip += '；批发单可在收货前与顾客售后沟通';
+    else tip += '；买家确认收货后货款自动结算';
+    toast(tip);
   }
 
   function handleMain() {
@@ -325,6 +672,104 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
     if (state === 'shipped') { toast('已发货订单不支持手动关单，请先处理售后'); return; }
     toast('已手动关闭订单，释放库存并原路退款（演示）');
   }
+
+  function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+  function nowStamp() {
+    var d = new Date();
+    return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()) + ' ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+  }
+
+  function bindAsChat() {
+    var up = document.getElementById('asUpBtn');
+    var files = document.getElementById('asFiles');
+    var send = document.getElementById('asSendBtn');
+    var input = document.getElementById('asInput');
+    var list = document.getElementById('asChatList');
+    if (!up || !files || !send || !input || !list) return;
+
+    files.addEventListener('click', function (e) {
+      var x = e.target.closest('.x');
+      if (!x) return;
+      var item = x.closest('.asch-file');
+      if (item) { item.remove(); asFileCount = Math.max(0, asFileCount - 1); }
+    });
+
+    up.addEventListener('click', function () {
+      if (asFileCount >= 6) { toast('最多上传 6 个图片/视频'); return; }
+      var kinds = ['f1', 'f2', 'f3'];
+      var kind = kinds[asFileCount % 3];
+      var el = document.createElement('span');
+      el.className = 'asch-file ' + kind;
+      if (kind === 'f3') {
+        el.innerHTML = '<button class="x" type="button" aria-label="删除">×</button><span class="play"><svg fill="none" height="16" viewBox="0 0 24 24" width="16"><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg></span><span class="dur">0:0' + ((asFileCount % 5) + 3) + '</span>';
+      } else {
+        el.innerHTML = '<button class="x" type="button" aria-label="删除">×</button>';
+      }
+      files.appendChild(el);
+      asFileCount += 1;
+      toast('已添加演示附件（' + asFileCount + '/6）');
+    });
+
+    send.addEventListener('click', function () {
+      var txt = (input.value || '').trim();
+      if (!txt && asFileCount === 0) { toast('请输入留言或添加图片/视频'); return; }
+      var mediaHtml = '';
+      if (asFileCount > 0) {
+        mediaHtml = '<div class="asch-media">';
+        Array.prototype.forEach.call(files.querySelectorAll('.asch-file'), function (f) {
+          if (f.classList.contains('f3')) {
+            mediaHtml += '<span class="mm vid"><span class="play"><svg fill="none" height="18" viewBox="0 0 24 24" width="18"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.25)"/><path d="M10 8.5v7l6-3.5z" fill="#fff"/></svg></span><span class="dur">0:08</span></span>';
+          } else if (f.classList.contains('f2')) {
+            mediaHtml += '<span class="mm img2"></span>';
+          } else {
+            mediaHtml += '<span class="mm img1"></span>';
+          }
+        });
+        mediaHtml += '</div>';
+      }
+      var msg = document.createElement('div');
+      msg.className = 'asch-msg me';
+      msg.innerHTML = '<span class="asch-av shop">商</span><div class="asch-body"><div class="asch-bubble">' +
+        (txt ? txt.replace(/</g, '&lt;') : '（附件）') + mediaHtml +
+        '</div><div class="asch-time">' + nowStamp() + '</div></div>';
+      list.appendChild(msg);
+      input.value = '';
+      files.innerHTML = '';
+      asFileCount = 0;
+      toast('留言已提交');
+      msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
+
+  (function init() {
+    var so = document.getElementById('shipOtype');
+    if (so) {
+      if (orderType === 'whole') {
+        so.className = 'ship-otype whole';
+        so.textContent = '批发订单';
+      } else {
+        so.className = 'ship-otype retail';
+        so.textContent = '零售订单';
+      }
+    }
+    if (orderType === 'whole') {
+      var ot = document.getElementById('heroOtype');
+      if (ot) ot.classList.remove('hidden');
+    }
+    if (state === 'shipped') {
+      applyShippedUI({
+        carrier: orderType === 'whole' ? '顺丰速运' : '王师傅',
+        no: orderType === 'whole' ? 'SF1234567890' : '138****2210',
+        eta: orderType === 'whole' ? '预计 48 小时内' : '今天 18:00 前',
+        method: orderType === 'whole' ? '快递邮寄' : '同城配送'
+      });
+      shipMethod = orderType === 'whole' ? '快递邮寄' : '同城配送';
+    } else {
+      syncAsChat();
+      syncDockShipped();
+    }
+    bindAsChat();
+  })();
 </script>
 </body>
 </html>

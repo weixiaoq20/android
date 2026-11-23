@@ -29,14 +29,17 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 .summary b{color:#E23A2E}
 .pad{padding:0 14px}
 .ocard{background:#fff;border-radius:16px;box-shadow:0 8px 20px rgba(196,110,72,.07);margin-top:9px;overflow:hidden}
-.ohead{display:flex;align-items:center;gap:5px;padding:9px 11px;border-bottom:1px solid #F8F2ED}
-.ohead .buyer{font-size:10px;font-weight:700}
-.ohead .bt{font-size:8px;color:#A99C92}
-.ohead .no{margin-left:auto;font-size:8px;color:#B2A69C}
-.st{font-size:8px;font-weight:700;border-radius:999px;padding:1.5px 7px;background:#FFEFEB;color:#EE4A2F;flex:0 0 auto}
-.st.blue{background:#EDF3FC;color:#4E7CC0}
-.st.green{background:#EAF7F0;color:#2C9C6A}
-.st.gray{background:#F4F2EF;color:#8C8378}
+.ohead{display:flex;align-items:center;gap:5px;padding:9px 11px;border-bottom:1px solid #F8F2ED;min-width:0}
+.ohead .buyer{font-size:10px;font-weight:700;flex:0 0 auto}
+.ohead .bt{font-size:8px;color:#A99C92;flex:0 0 auto}
+.ohead .no{margin-left:auto;font-size:8px;color:#B2A69C;flex:0 0 auto;white-space:nowrap}
+.otype{font-size:8px;font-weight:700;border-radius:4px;padding:1px 5px;line-height:1.4;flex:0 0 auto;letter-spacing:-.1px}
+.otype.retail{color:#3E7BB6;background:#EDF3FC;border:1px solid #D4E3F6}
+.otype.whole{color:#7B5CC8;background:#F3EEFB;border:1px solid #DFD2F5}
+.st{font-size:8px;font-weight:700;border-radius:999px;padding:1.5px 7px;flex:0 0 auto;white-space:nowrap}
+.st.wait{background:#FFF4E6;color:#E8721F;border:1px solid #FADDB8}
+.st.green{background:#EAF7F0;color:#2C9C6A;border:1px solid #CDEBDF}
+.st.gray{background:#F4F2EF;color:#8C8378;border:1px solid #E8E2DC}
 .obody{display:flex;gap:8px;padding:9px 11px}
 .thumb{width:52px;height:52px;border-radius:9px;flex:0 0 52px;position:relative;overflow:hidden;background:linear-gradient(140deg,#EAF0D8,#C2D59B 55%,#8FAF68)}
 .thumb .blob{position:absolute;border-radius:50%;display:block}
@@ -90,29 +93,38 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 <div class="scroll">
 <div class="summary">今日共 <b>26</b> 单 · 待处理 <b>9</b> 单 · 微信担保托管 <b>¥1,286.40</b></div>
 <div class="pad">
-<div class="ocard" data-s="ready">
-<div class="ohead"><span class="buyer">张三</span><span class="bt">138****6688</span><span class="st blue">待发货</span><span class="no">202611060032</span></div>
+<div class="ocard" data-s="ready" data-t="retail">
+<div class="ohead"><span class="buyer">张三</span><span class="bt">138****6688</span><span class="otype retail">零售</span><span class="st wait">待发货</span><span class="no">202611060032</span></div>
 <div class="obody">
 <div class="thumb"><i class="blob" style="width:34px;height:34px;left:9px;top:9px;background:radial-gradient(circle at 34% 30%,#D9C08A,#A47F45 58%,#6E5127)"></i><i class="blob" style="width:22px;height:22px;left:27px;top:24px;background:radial-gradient(circle at 35% 30%,#C6D98B,#7E9B4A 62%,#4F6A2A)"></i></div>
-<div class="oi"><h3>蒲江红心猕猴桃 5斤大果 现摘现发</h3><div class="meta">2 件 · 微信担保 · 14:48 下单</div><div class="row"><span class="p">¥71.80<small>待结算</small></span><span style="font-size:8px;color:#EE4A2F">2 分钟前</span></div></div>
+<div class="oi"><h3>蒲江红心猕猴桃 5斤大果 现摘现发</h3><div class="meta">2 件 · 零售单 · 微信担保 · 14:48 下单</div><div class="row"><span class="p">¥71.80<small>待结算</small></span><span style="font-size:8px;color:#EE4A2F">2 分钟前</span></div></div>
 </div>
 <div class="oaddr">青羊区少城街道长顺上街 18 号 3 栋 2 单元 601</div>
 <div class="ofoot"><span class="m">货款已托管，请尽快发货</span><a class="gbtn" href="chat-shop.html">联系买家</a><a class="pbtn" href="merchant-order-detail.html">去发货</a></div>
 </div>
-<div class="ocard" data-s="ready">
-<div class="ohead"><span class="buyer">李女士</span><span class="bt">139****2408</span><span class="st blue">待发货</span><span class="no">202611060028</span></div>
+<div class="ocard" data-s="ready" data-t="whole">
+<div class="ohead"><span class="buyer">李女士</span><span class="bt">139****2408</span><span class="otype whole">批发</span><span class="st wait">待发货</span><span class="no">202611060028</span></div>
 <div class="obody">
 <div class="thumb orange"><i class="blob" style="width:32px;height:32px;left:10px;top:10px;background:radial-gradient(circle at 34% 28%,#FFD98D,#FF9F2E 58%,#C96A12)"></i><i class="blob" style="width:20px;height:20px;left:28px;top:26px;background:radial-gradient(circle at 35% 30%,#FFE0A0,#FFAB3D 62%,#C4741C)"></i></div>
-<div class="oi"><h3>金堂脐橙 10斤装 酸甜爆汁 产地直发</h3><div class="meta">1 件 · 微信担保 · 14:30 下单</div><div class="row"><span class="p">¥129.80<small>待结算</small></span><span style="font-size:8px;color:#3E8BD6">18 分钟前</span></div></div>
+<div class="oi"><h3>金堂脐橙 10斤装 酸甜爆汁 产地直发</h3><div class="meta">1 件 · 批发单 · 微信担保 · 14:30 下单</div><div class="row"><span class="p">¥129.80<small>待结算</small></span><span style="font-size:8px;color:#3E8BD6">18 分钟前</span></div></div>
 </div>
 <div class="oaddr">武侯区天府三街 288 号 2 栋 3 单元 1201</div>
-<div class="ofoot"><span class="m">建议 2 小时内发货</span><a class="gbtn" href="chat-shop.html">联系买家</a><a class="pbtn" href="merchant-order-detail.html">去发货</a></div>
+<div class="ofoot"><span class="m">建议 2 小时内发货</span><a class="gbtn" href="chat-shop.html">联系买家</a><a class="pbtn" href="merchant-order-detail.html?type=whole">去发货</a></div>
 </div>
-<div class="ocard" data-s="ship">
-<div class="ohead"><span class="buyer">王先生</span><span class="bt">136****9152</span><span class="st green">已发货</span><span class="no">202611060019</span></div>
+<div class="ocard" data-s="ship" data-t="whole">
+<div class="ohead"><span class="buyer">张先生</span><span class="bt">138****6688</span><span class="otype whole">批发</span><span class="st green">已发货</span><span class="no">202611060032</span></div>
+<div class="obody">
+<div class="thumb"><i class="blob" style="width:34px;height:34px;left:9px;top:9px;background:radial-gradient(circle at 34% 30%,#C6D98B,#7E9B4A 58%,#4F6A2A)"></i><i class="blob" style="width:22px;height:22px;left:27px;top:24px;background:radial-gradient(circle at 35% 30%,#D9C08A,#A47F45 62%,#6E5127)"></i></div>
+<div class="oi"><h3>5斤大果现榨现发 蒲江猕猴桃</h3><div class="meta">2 件 · 批发单 · 快递运输中 · 可售后沟通</div><div class="row"><span class="p">¥79.80<small>待结算</small></span><span style="font-size:8px;color:#2C9C6A">40 分钟前</span></div></div>
+</div>
+<div class="oaddr">青羊区少城街道长顺上街 18 号 3 栋 2 单元 601</div>
+<div class="ofoot"><span class="m">收货前可售后沟通</span><a class="gbtn" href="chat-shop.html">联系顾客</a><a class="pbtn" href="merchant-order-detail.html?type=whole&amp;status=shipped">查看沟通</a></div>
+</div>
+<div class="ocard" data-s="ship" data-t="retail">
+<div class="ohead"><span class="buyer">王先生</span><span class="bt">136****9152</span><span class="otype retail">零售</span><span class="st green">已发货</span><span class="no">202611060019</span></div>
 <div class="obody">
 <div class="thumb red"><i class="blob" style="width:24px;height:44px;left:8px;top:6px;border-radius:12px;background:linear-gradient(160deg,#B95037,#6E2214);transform:rotate(-18deg)"></i><i class="blob" style="width:24px;height:44px;left:26px;top:8px;border-radius:12px;background:linear-gradient(160deg,#C46146,#7C2A1A);transform:rotate(8deg)"></i></div>
-<div class="oi"><h3>川味手工腊肠腊肉礼盒 500g×2</h3><div class="meta">1 件 · 同城配送 · 骑手已取货</div><div class="row"><span class="p">¥58.00<small>实收</small></span><span style="font-size:8px;color:#2C9C6A">1 小时前</span></div></div>
+<div class="oi"><h3>川味手工腊肠腊肉礼盒 500g×2</h3><div class="meta">1 件 · 零售单 · 同城配送 · 骑手已取货</div><div class="row"><span class="p">¥58.00<small>实收</small></span><span style="font-size:8px;color:#2C9C6A">1 小时前</span></div></div>
 </div>
 <div class="oaddr">都江堰市玉堂街道青城桥社区 6 组 22 号</div>
 <div class="ofoot"><span class="m">配送员：王师傅 138****2210</span><a class="gbtn" href="chat-shop.html">联系买家</a><a class="pbtn" href="logistics.html?from=merchant">查看物流</a></div>
@@ -123,11 +135,11 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 <button onclick="toast('订单备注已添加（演示）')" type="button">订单备注</button>
 </div>
 </div>
-<div class="ocard" data-s="after">
-<div class="ohead"><span class="buyer">陈女士</span><span class="bt">135****7731</span><span class="st gray">售后中</span><span class="no">202611060011</span></div>
+<div class="ocard" data-s="after" data-t="retail">
+<div class="ohead"><span class="buyer">陈女士</span><span class="bt">135****7731</span><span class="otype retail">零售</span><span class="st gray">售后中</span><span class="no">202611060011</span></div>
 <div class="obody">
 <div class="thumb"><i class="blob" style="width:34px;height:34px;left:9px;top:9px;background:radial-gradient(circle at 34% 30%,#D9C08A,#A47F45 58%,#6E5127)"></i><i class="blob" style="width:22px;height:22px;left:27px;top:24px;background:radial-gradient(circle at 35% 30%,#C6D98B,#7E9B4A 62%,#4F6A2A)"></i></div>
-<div class="oi"><h3>蒲江红心猕猴桃 5斤中果 现摘现发</h3><div class="meta">1 件 · 申请售后：2 个坏果</div><div class="row"><span class="p">¥39.90<small>实付</small></span><span style="font-size:8px;color:#B2A69C">昨天 18:20</span></div></div>
+<div class="oi"><h3>蒲江红心猕猴桃 5斤中果 现摘现发</h3><div class="meta">1 件 · 零售单 · 申请售后：2 个坏果</div><div class="row"><span class="p">¥39.90<small>实付</small></span><span style="font-size:8px;color:#B2A69C">昨天 18:20</span></div></div>
 </div>
 <div class="oaddr">锦江区春熙路街道红星路三段 1 号</div>
 <div class="ofoot"><span class="m">买家已上传坏果照片</span><button class="gbtn" onclick="toast('已同意售后：补偿 ¥8.00')">同意补偿</button><a class="pbtn" href="merchant-aftersale.html">处理售后</a></div>
