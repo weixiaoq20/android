@@ -134,14 +134,8 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 </div>
 <div class="cap"><span>坏果包赔</span><span>48h发货</span></div>
 </div>
-<div class="rp">
-<span class="ic">券</span>
-<div><b>店铺优惠券 · 满49减8</b><span>仅本店可用 · 领取后7天有效</span></div>
-<a class="get" href="coupons.html">去领取</a>
-</div>
 <div class="stabs">
 <button class="stab on" data-tab="goods" onclick="switchTab(this)">全部商品</button>
-<button class="stab" data-tab="coupon" onclick="switchTab(this)">店内红包</button>
 <button class="stab" data-tab="rev" onclick="switchTab(this)">买家评价</button>
 </div>
 <div id="panel-goods">
@@ -189,21 +183,6 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 </a>
 </div>
 </div>
-<div class="hidden" id="panel-coupon">
-<div class="coupons">
-<div class="cpn">
-<div class="amt"><b><small>¥</small>8</b><span>满49可用</span></div>
-<div class="info"><b>店内红包 · 全场通用</b><span>领取后7天有效 · 仅本店下单可用</span></div>
-<button class="get" onclick="showToast('红包已放入券包')">领取</button>
-</div>
-<div class="cpn">
-<div class="amt"><b><small>¥</small>15</b><span>满99可用</span></div>
-<div class="info"><b>新客专享红包</b><span>限本店首单 · 与平台红包可叠加</span></div>
-<button class="get" onclick="showToast('红包已放入券包')">领取</button>
-</div>
-</div>
-<div style="height:8px"></div>
-</div>
 <div class="hidden" id="panel-rev">
 <div style="display:flex;flex-direction:column;gap:7px">
 <div class="rev"><div class="rh"><b>李**</b><span>5斤大果</span><span class="st">★★★★★</span></div><p>果子个头均匀，皮薄肉甜，冰镇后更好吃，回购第三次了。</p></div>
@@ -250,7 +229,6 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
     el.classList.add('on');
     const key = el.dataset.tab;
     document.getElementById('panel-goods').classList.toggle('hidden', key !== 'goods');
-    document.getElementById('panel-coupon').classList.toggle('hidden', key !== 'coupon');
     document.getElementById('panel-rev').classList.toggle('hidden', key !== 'rev');
   }
 </script>
