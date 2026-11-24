@@ -96,7 +96,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 </div>
 </div>
 <div class="topbar">
-<a aria-label="返回" class="back" href="profile.html">
+<a aria-label="返回" class="back" href="javascript:void(0)" id="backBtn" onclick="goBack()">
 <svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
 </a>
 <h1>商家入驻</h1>
@@ -118,15 +118,6 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 <div class="frow">
 <div class="field"><label>联系人</label><input id="fContact" placeholder="真实姓名" value="王小满"/></div>
 <div class="field"><label>手机号</label><input id="fPhone" inputmode="numeric" placeholder="11 位手机号" value="13800006721"/></div>
-</div>
-<div class="field"><label>店铺类目</label>
-<div class="chips" id="catChips">
-<button class="chip on">水果生鲜</button>
-<button class="chip">干杂食品</button>
-<button class="chip">药材</button>
-<button class="chip">五金</button>
-<button class="chip">酒店用品</button>
-</div>
 </div>
 <div class="mapbox" id="mapbox" onclick="pickLoc(event)">
 <span class="blk" style="width:58px;height:28px;left:8px;top:8px"></span>
@@ -154,7 +145,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 </div>
 <div class="hidden" id="step-2">
 <div class="card">
-<h3>资质与收款 <small>5 项必传</small></h3>
+<h3>资质上传 <small>4 项必传</small></h3>
 <div class="uploads">
 <button class="upload wide" onclick="upload(this)">
 <span class="uic">+</span><span class="ut">营业执照</span><span class="us">点击上传 · 需在有效期内</span>
@@ -168,9 +159,6 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 <button class="upload" onclick="upload(this)">
 <span class="uic">+</span><span class="ut">门店门头照</span><span class="us">含门头与招牌</span>
 </button>
-<button class="upload" onclick="upload(this)">
-<span class="uic">+</span><span class="ut">微信收款码</span><span class="us">用于线下扫码</span>
-</button>
 </div>
 <div class="rule" style="margin-top:9px"><b>图片要求：</b>JPG / PNG，单张不超过 5MB；证件需清晰可辨、四角完整、无遮挡。营业执照主体需与结算账户一致，否则需补充授权书。</div>
 </div>
@@ -178,7 +166,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 <h3>经营承诺 <small>入驻必读</small></h3>
 <div style="font-size:8.5px;color:#8E8076;line-height:1.7">
             1. 所售商品来源合法，不销售假冒伪劣与过期商品；<br/>
-            2. 线下扫码收款后按约定时效发货，48 小时内上传发货信息；<br/>
+            2. 收到订单后按约定时效发货，48 小时内上传发货信息；<br/>
             3. 售后 24 小时内响应，坏果包赔按平台规则执行；<br/>
             4. 遵守《福聚贡翔平台运营规则》与《商家服务协议》。
           </div>
@@ -196,13 +184,13 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 <div class="field"><label>户名</label><input id="fAcctName" placeholder="与证件一致" value="王小满"/></div>
 <div class="field"><label>开户行</label><input id="fBank" placeholder="支行名称" value="中国建设银行 成都青羊支行"/></div>
 <div class="field"><label>银行账号</label><input id="fAcctNo" inputmode="numeric" placeholder="银行卡号" value="6217 0000 0000 8888"/></div>
-<div class="rule">结算周期 T+1，平台服务费按类目 2%–5% 收取；线下扫码款项直接进入微信商户账户，不经过平台托管。</div>
+<div class="rule">结算周期 T+1，平台服务费按类目 2%–5% 收取；订单款项由微信担保支付托管，买家确认收货后自动分账。</div>
 </div>
 <div class="card">
 <h3>协议与提交 <small>预计 1–3 个工作日</small></h3>
 <div class="agree">
 <button aria-label="同意协议" class="cb on" id="agreeCb" onclick="this.classList.toggle('on')">✓</button>
-<span>我已阅读并同意 <a href="chat-service.html">《平台运营规则》</a>、<a href="chat-service.html">《商家服务协议》</a> 与 <a href="chat-service.html">《隐私政策》</a>，承诺所提交资料真实有效。</span>
+<span>我已阅读并同意 <a href="https://www.baidu.com" target="_blank" rel="noopener">《平台运营规则》</a>、<a href="https://www.baidu.com" target="_blank" rel="noopener">《商家服务协议》</a> 与 <a href="https://www.baidu.com" target="_blank" rel="noopener">《隐私政策》</a>，承诺所提交资料真实有效。</span>
 </div>
 <div class="rule" style="margin-top:8px">提交后可在「我的 · 商家中心」查看审核进度；审核期间可继续以买家身份使用全部功能。</div>
 </div>
@@ -222,12 +210,20 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 </div>
 <h3>入驻申请已提交</h3>
 <p>资料已进入审核队列，预计 1–3 个工作日完成。审核结果将通过微信服务通知与站内消息告知。</p>
-<div class="mbtns"><a class="g" href="profile.html">返回我的</a><a class="p" href="merchant-workbench.html">进入工作台</a></div>
+<div class="mbtns"><a class="g" href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/profile.html?render_html=true">返回我的</a><a class="p" href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/merchant-workbench.html?render_html=true">进入工作台</a></div>
 </div>
 <div class="toast" id="toast">请完善信息</div>
 </div>
 <script>
   let step = 1;
+
+  function goBack() {
+    if (window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+    location.href = 'profile.html';
+  }
 
   function toast(msg) {
     const t = document.getElementById('toast');
@@ -237,12 +233,6 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
     window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1700);
   }
 
-  document.querySelectorAll('#catChips .chip').forEach(function (b) {
-    b.addEventListener('click', function () {
-      document.querySelectorAll('#catChips .chip').forEach(function (x) { x.classList.remove('on'); });
-      b.classList.add('on');
-    });
-  });
   document.querySelectorAll('#acctChips .chip').forEach(function (b) {
     b.addEventListener('click', function () {
       document.querySelectorAll('#acctChips .chip').forEach(function (x) { x.classList.remove('on'); });
