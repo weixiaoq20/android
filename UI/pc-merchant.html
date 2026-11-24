@@ -91,6 +91,8 @@ th{color:var(--muted);font-size:12px;background:#fafbfc}
 .field{display:flex;flex-direction:column;gap:6px}
 .field label{font-size:12px;color:var(--muted)}
 .field input,.field select,.field textarea{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:inherit}
+.field input[type="datetime-local"]{min-height:40px;cursor:pointer}
+.field input[type="datetime-local"]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.7}
 .field textarea{min-height:88px;resize:vertical}
 .field.full{grid-column:1/-1}
 .chip-row{display:flex;gap:8px;flex-wrap:wrap}
@@ -109,6 +111,29 @@ th{color:var(--muted);font-size:12px;background:#fafbfc}
 .step{flex:1;padding:10px;border-radius:10px;border:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px}
 .step.on{border-color:#ffc7bb;background:var(--soft);color:var(--brand);font-weight:700}
 .step.done{color:var(--green);border-color:#b7ebc8}
+/* 店铺礼金设置（对齐 merchant-coupon-new） */
+.req{color:var(--brand);font-weight:800;margin-right:2px}
+.field input.err,.field select.err{border-color:var(--brand);background:#fff5f2}
+.namewrap{position:relative}
+.namewrap input{width:100%;padding-right:52px}
+.namewrap .cnt{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--muted);pointer-events:none}
+.unit-row{display:flex;align-items:center;gap:8px}
+.unit-row input{flex:1}
+.unit-row .unit,.unit-row .prefix{color:var(--muted);font-size:13px;white-space:nowrap}
+.scope-radios{display:flex;flex-direction:column;gap:10px}
+.scope-radios label{display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer}
+.scope-radios input{accent-color:var(--brand)}
+.pickbox{margin-top:8px;padding:10px 12px;background:#fffbf8;border:1px dashed #f2c3ae;border-radius:10px;font-size:13px;color:#b4674b}
+.pickbox button{color:var(--brand);font-weight:700;margin-left:8px}
+.paybox{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:4px;background:#fff8f5;border:1px solid #fad9cd;border-radius:12px;padding:12px}
+.paybox > b{font-size:13px}
+.pswitch{display:inline-flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px;gap:2px}
+.pswitch span{font-size:12px;padding:6px 12px;border-radius:999px;color:#8a7c72;font-weight:600;cursor:pointer}
+.pswitch span.on{background:linear-gradient(135deg,var(--brand2),var(--brand));color:#fff}
+.pnote{flex:1 1 100%;font-size:12px;color:#b4674b;line-height:1.45;margin:0}
+.coupon-notice{display:flex;gap:8px;align-items:flex-start;background:#fff6f3;border:1px solid #fbd9cd;border-radius:12px;padding:10px 12px;margin-bottom:14px;font-size:12px;color:#b3411f;line-height:1.55}
+.coupon-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.coupon-head b{font-size:15px}
 @media(max-width:1100px){.cards,.tools{grid-template-columns:repeat(2,1fr)}.grid2,.form-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -397,7 +422,7 @@ th{color:var(--muted);font-size:12px;background:#fafbfc}
       <tr><td>商品</td><td>merchant-goods.html / goods-edit / category-pick</td><td>tab∩搜索筛选；上下架；编辑校验；SKU 至少 1；类目 sessionStorage 回写；拼单折叠</td></tr>
       <tr><td>订单</td><td>merchant-orders / order-detail</td><td>状态 filter；发货同城/快递双模式；批发售后沟通；已发货运单更正/拦截/延时</td></tr>
       <tr><td>售后</td><td>merchant-aftersale.html</td><td>pending→sendback→verify→refund→done；同意/驳回/签收退款；refreshCounts</td></tr>
-      <tr><td>营销</td><td>marketing + coupon/seckill/distribution/promotion-new</td><td>三 Tab + 促销；礼金开关与筛选；分销多选≤6；秒杀单品单场；满减≤3 档</td></tr>
+      <tr><td>营销 / 礼金</td><td>merchant-marketing + merchant-coupon-new</td><td>礼金设置已完整迁入 PC：开关、名称20字、金额/门槛校验、范围三选、总量/限次、时段、仅自动抵扣</td></tr>
       <tr><td>资质</td><td>merchant-apply.html</td><td>三步 validateStep；5 资质必传；对公/对私；提交成功弹窗</td></tr>
     </table>
     <h3 style="margin-top:18px">状态机速查</h3>
@@ -491,12 +516,12 @@ th{color:var(--muted);font-size:12px;background:#fafbfc}
 </div>
 
 <!-- 营销新建抽屉 -->
-<div class="drawer" id="mktDrawer">
+<div class="drawer" id="mktDrawer" style="width:min(640px,100%)">
   <div class="dh"><b id="mktDrawerTitle">新建活动</b><button class="ghost btn" onclick="closeDrawer()">关闭</button></div>
   <div class="db" id="mktDrawerBody"></div>
   <div class="df">
     <button class="ghost" onclick="closeDrawer()">取消</button>
-    <button class="primary" onclick="toast('活动已保存（演示）');closeDrawer()">发布</button>
+    <button class="primary" id="mktSaveBtn" onclick="saveMarketing()">发布</button>
   </div>
 </div>
 
@@ -522,6 +547,12 @@ let afterData=[
   {id:'AS05',user:'王先生',type:'部分退款',reason:'少发',amount:'¥20.00',st:'refund'},
   {id:'AS06',user:'赵先生',type:'仅退款',reason:'不想要了',amount:'¥45.00',st:'done'}
 ];
+/* 店铺礼金数据 · 字段对齐 merchant-coupon-new.html */
+let giftData=[
+  {id:'G1',name:'新客专享礼金',value:'5.00',thr:'39.00',scope:'all',scopeText:'全店商品通用',total:'200',per:'每人限用1次',start:'2026-11-01 00:00',end:'2026-11-30 23:59',pay:'auto',on:true,status:'进行中'},
+  {id:'G2',name:'满减礼金',value:'20.00',thr:'100.00',scope:'goods',scopeText:'指定商品',total:'100',per:'每人限用2次',start:'2026-12-01 00:00',end:'2026-12-31 23:59',pay:'auto',on:false,status:'未开始'}
+];
+let editingGiftId=null;
 let goodsFilter='on', orderFilter='all', afterFilter='pending', mktFilter='gift', shipMode='city', shipNo='', shipType='retail';
 
 function toast(t){const x=document.createElement('div');x.className='toast';x.textContent=t;document.body.appendChild(x);setTimeout(()=>x.remove(),1800)}
@@ -676,14 +707,19 @@ function afterAct(id,act){
 function renderMkt(){
   const body=document.getElementById('mktBody');
   if(mktFilter==='gift'){
-    body.innerHTML=`<p class="hint">满减 / 折扣 / 立减 · 领取条件 · 可与秒杀/促销叠加开关</p>
-    <table><tr><th>名称</th><th>规则</th><th>范围</th><th>状态</th><th>开关</th><th>操作</th></tr>
-    <tr><td>新客礼金</td><td>立减 12% · 门槛 ¥0</td><td>全店</td><td><span class="tag green">进行中</span></td>
-    <td><button class="sw on" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'礼金已开启':'礼金已关闭')"></button></td>
-    <td><button class="ghost btn" onclick="toast('编辑礼金')">编辑</button></td></tr>
-    <tr><td>满减券</td><td>满 100 减 20</td><td>指定商品</td><td><span class="tag amber">未开始</span></td>
-    <td><button class="sw" onclick="this.classList.toggle('on')"></button></td>
-    <td><button class="ghost btn">编辑</button></td></tr></table>`;
+    body.innerHTML=`<p class="hint">对齐移动端「礼金活动设置」：本店消费可用 · 不可提现/转让 · 可与平台优惠叠加</p>
+    <table><tr><th>礼金名称</th><th>优惠 / 门槛</th><th>范围</th><th>总量 / 限次</th><th>有效期</th><th>抵扣</th><th>状态</th><th>开关</th><th>操作</th></tr>
+    ${giftData.map(g=>`<tr>
+      <td>${g.name}</td>
+      <td>减 ¥${g.value}<span class="cell-sub">满 ¥${g.thr} 可用</span></td>
+      <td>${g.scopeText||scopeLabel(g.scope)}</td>
+      <td>${g.total} 张<span class="cell-sub">${g.per}</span></td>
+      <td>${g.start}<span class="cell-sub">至 ${g.end}</span></td>
+      <td>自动抵扣</td>
+      <td><span class="tag ${g.status==='进行中'?'green':g.status==='未开始'?'amber':'gray'}">${g.status}</span></td>
+      <td><button class="sw ${g.on?'on':''}" onclick="toggleGiftOn('${g.id}',this)"></button></td>
+      <td class="row-actions"><button class="ghost btn" onclick="openCouponEditor('${g.id}')">编辑设置</button></td>
+    </tr>`).join('')}</table>`;
   }else if(mktFilter==='seckill'){
     body.innerHTML=`<p class="hint">单品单场 · 独立库存 · 限购 · 与拼单互斥</p>
     <table><tr><th>场次</th><th>商品/SKU</th><th>秒杀价</th><th>时段</th><th>库存进度</th><th>状态</th><th>操作</th></tr>
@@ -707,18 +743,22 @@ document.querySelectorAll('#mktTabs button[data-m]').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('#mktTabs button[data-m]').forEach(x=>x.classList.remove('on'));
   b.classList.add('on');mktFilter=b.dataset.m;renderMkt();
 });
+
+function scopeLabel(v){return v==='cat'?'指定商品分类':v==='goods'?'指定商品':'全店商品通用'}
+function toggleGiftOn(id,el){
+  const g=giftData.find(x=>x.id===id);if(!g)return;
+  el.classList.toggle('on');
+  g.on=el.classList.contains('on');
+  toast(g.on?'活动已开启':'活动已关闭');
+}
+
 function openMarketingCreate(){
-  const titles={gift:'新建店铺礼金',seckill:'新建秒杀场次',dist:'新建分销活动',promo:'新建促销'};
-  document.getElementById('mktDrawerTitle').textContent=titles[mktFilter];
+  if(mktFilter==='gift'){openCouponEditor(null);return}
+  const titles={seckill:'新建秒杀场次',dist:'新建分销活动',promo:'新建促销'};
+  document.getElementById('mktDrawerTitle').textContent=titles[mktFilter]||'新建活动';
+  document.getElementById('mktSaveBtn').textContent='发布';
   let html='';
-  if(mktFilter==='gift') html=`<div class="form-grid">
-    <div class="field full"><label>名称 *</label><input placeholder="礼金名称"></div>
-    <div class="field full"><label>类型 *</label><div class="chip-row"><button class="chip on" onclick="chipOnly(this)">满减</button><button class="chip" onclick="chipOnly(this)">折扣</button><button class="chip" onclick="chipOnly(this)">立减</button></div></div>
-    <div class="field"><label>面额 *</label><input type="number"></div><div class="field"><label>门槛 *</label><input type="number"></div>
-    <div class="field"><label>总量 *</label><input type="number"></div><div class="field"><label>每人限领 *</label><input type="number" value="1"></div>
-    <div class="field"><label>开始日期 *</label><input type="date"></div><div class="field"><label>结束日期 *</label><input type="date"></div>
-  </div>`;
-  else if(mktFilter==='seckill') html=`<div class="form-grid">
+  if(mktFilter==='seckill') html=`<div class="form-grid">
     <div class="field full"><label>商品 *</label><input placeholder="选择商品"></div>
     <div class="field"><label>SKU *</label><input></div><div class="field"><label>秒杀价 *</label><input type="number"></div>
     <div class="field"><label>独立库存 *</label><input type="number"></div><div class="field"><label>限购 *</label><input type="number" value="1"></div>
@@ -737,6 +777,134 @@ function openMarketingCreate(){
   </div>`;
   document.getElementById('mktDrawerBody').innerHTML=html;
   showDrawer('mktDrawer');
+}
+
+function saveMarketing(){
+  if(mktFilter==='gift'){saveCouponSettings();return}
+  toast('活动已保存（演示）');
+  closeDrawer();
+}
+
+/* ===== 店铺礼金设置 · 完整搬自 merchant-coupon-new.html ===== */
+function openCouponEditor(id){
+  editingGiftId=id;
+  const g=id?giftData.find(x=>x.id===id):null;
+  document.getElementById('mktDrawerTitle').textContent=g?'编辑礼金活动':'礼金活动设置';
+  document.getElementById('mktSaveBtn').textContent='保存设置';
+  const name=g?g.name:'新客专享礼金';
+  const value=g?g.value:'5.00';
+  const thr=g?g.thr:'39.00';
+  const total=g?g.total:'200';
+  const per=g?g.per:'每人限用1次';
+  const start=g?g.start:'2026-11-01 00:00';
+  const end=g?g.end:'2026-11-30 23:59';
+  const scope=g?g.scope:'all';
+  const on=g?g.on:true;
+  document.getElementById('mktDrawerBody').innerHTML=`
+    <div class="coupon-notice">礼金仅用于本店商品消费，不可提现、不可转让；可与平台优惠叠加，具体以结算页为准。</div>
+    <div class="coupon-head">
+      <b>礼金活动设置</b>
+      <div style="display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px">活动开关
+        <button class="sw ${on?'on':''}" id="cpActSw" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'活动已开启':'活动已关闭')"></button>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="field full"><label><span class="req">*</span>礼金名称</label>
+        <div class="namewrap"><input id="cpName" maxlength="20" value="${esc(name)}" oninput="onCpName(this)"/><span class="cnt" id="nameCnt">${[...name].length}/20</span></div>
+      </div>
+      <div class="field"><label><span class="req">*</span>优惠金额</label>
+        <div class="unit-row"><input id="cpValue" value="${esc(value)}" inputmode="decimal"/><span class="unit">元</span></div>
+      </div>
+      <div class="field"><label><span class="req">*</span>使用门槛</label>
+        <div class="unit-row"><span class="prefix">订单满</span><input id="cpThr" value="${esc(thr)}" inputmode="decimal"/><span class="unit">元可用</span></div>
+      </div>
+      <div class="field full"><label><span class="req">*</span>适用范围</label>
+        <div class="scope-radios" id="scopeRadios">
+          <label><input type="radio" name="giftScope" value="all" ${scope==='all'?'checked':''} onchange="onCpScope()"/>全店商品通用</label>
+          <label><input type="radio" name="giftScope" value="cat" ${scope==='cat'?'checked':''} onchange="onCpScope()"/>指定商品分类</label>
+          <label><input type="radio" name="giftScope" value="goods" ${scope==='goods'?'checked':''} onchange="onCpScope()"/>指定商品</label>
+        </div>
+        <div class="pickbox ${scope==='all'?'hidden':''}" id="scopePick">
+          <span id="scopePickText">${scope==='cat'?'已选：水果生鲜分类':scope==='goods'?'已选：蒲江猕猴桃 等':'请选择'}</span>
+          <button type="button" onclick="toast(document.querySelector('input[name=giftScope]:checked').value==='cat'?'打开分类选择器（演示）':'打开商品选择器（演示）')">去选择</button>
+        </div>
+      </div>
+      <div class="field"><label><span class="req">*</span>活动总量</label>
+        <div class="unit-row"><input id="cpTotal" value="${esc(total)}" inputmode="numeric"/><span class="unit">张</span></div>
+      </div>
+      <div class="field"><label><span class="req">*</span>每人限制</label>
+        <select id="cpPer">
+          <option ${per==='每人限用1次'?'selected':''}>每人限用1次</option>
+          <option ${per==='每人限用2次'?'selected':''}>每人限用2次</option>
+          <option ${per==='每人限用3次'?'selected':''}>每人限用3次</option>
+          <option ${per==='不限次数'?'selected':''}>不限次数</option>
+        </select>
+      </div>
+      <div class="field"><label><span class="req">*</span>开始时间</label><input id="cpStart" type="datetime-local" value="${esc(toLocalDT(start))}" onclick="openDTPicker(this)"/></div>
+      <div class="field"><label><span class="req">*</span>结束时间</label><input id="cpEnd" type="datetime-local" value="${esc(toLocalDT(end))}" onclick="openDTPicker(this)"/></div>
+      <div class="field full">
+        <div class="paybox">
+          <b>抵扣方式</b>
+          <span class="pswitch" id="paySwitch">
+            <span class="on" data-v="auto">自动抵扣</span>
+          </span>
+          <p class="pnote" id="payNote">下单满足条件后，系统自动抵扣礼金。</p>
+        </div>
+      </div>
+    </div>`;
+  document.querySelectorAll('#mktDrawerBody input').forEach(el=>{
+    el.addEventListener('input',()=>el.classList.remove('err'));
+  });
+  showDrawer('mktDrawer');
+}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+function toLocalDT(s){if(!s)return'';return String(s).trim().replace(' ','T').replace(/\//g,'-').slice(0,16)}
+function fromLocalDT(s){if(!s)return'';return String(s).replace('T',' ').slice(0,16)}
+function openDTPicker(el){if(!el)return;el.focus();if(typeof el.showPicker==='function'){try{el.showPicker()}catch(e){}}}
+function onCpName(el){document.getElementById('nameCnt').textContent=[...el.value].length+'/20'}
+function onCpScope(){
+  const v=(document.querySelector('input[name="giftScope"]:checked')||{}).value;
+  const box=document.getElementById('scopePick');
+  const txt=document.getElementById('scopePickText');
+  box.classList.toggle('hidden',v==='all');
+  if(v==='cat'){txt.textContent='请选择商品分类';toast('可指定商品分类')}
+  if(v==='goods'){txt.textContent='请选择指定商品';toast('可指定商品')}
+}
+function markCpErr(el,msg){el.classList.add('err');el.focus();toast(msg)}
+function saveCouponSettings(){
+  const name=document.getElementById('cpName');
+  const value=document.getElementById('cpValue');
+  const thr=document.getElementById('cpThr');
+  const total=document.getElementById('cpTotal');
+  const start=document.getElementById('cpStart');
+  const end=document.getElementById('cpEnd');
+  if(!name.value.trim()){markCpErr(name,'请填写礼金名称');return}
+  if(!/^\d+(\.\d+)?$/.test(value.value.trim())||Number(value.value)<=0){markCpErr(value,'请填写有效优惠金额');return}
+  if(!/^\d+(\.\d+)?$/.test(thr.value.trim())){markCpErr(thr,'请填写使用门槛');return}
+  if(Number(value.value)>=Number(thr.value)&&Number(thr.value)>0){markCpErr(value,'优惠金额需小于使用门槛');return}
+  if(!/^\d+$/.test(total.value.trim())||Number(total.value)<=0){markCpErr(total,'请填写有效活动总量');return}
+  if(!start.value.trim()){markCpErr(start,'请选择开始时间');return}
+  if(!end.value.trim()){markCpErr(end,'请选择结束时间');return}
+  if(new Date(start.value).getTime()>=new Date(end.value).getTime()){markCpErr(end,'结束时间须晚于开始时间');return}
+  const scope=(document.querySelector('input[name="giftScope"]:checked')||{}).value||'all';
+  const on=document.getElementById('cpActSw').classList.contains('on');
+  const payload={
+    name:name.value.trim(),value:value.value.trim(),thr:thr.value.trim(),
+    scope,scopeText:scopeLabel(scope),total:total.value.trim(),
+    per:document.getElementById('cpPer').value,start:fromLocalDT(start.value),end:fromLocalDT(end.value),
+    pay:'auto',on,status:on?'进行中':'未开始'
+  };
+  if(editingGiftId){
+    const i=giftData.findIndex(x=>x.id===editingGiftId);
+    if(i>=0) giftData[i]={...giftData[i],...payload};
+  }else{
+    giftData.unshift({id:'G'+Date.now(),...payload});
+  }
+  toast('礼金活动设置已保存');
+  closeDrawer();
+  mktFilter='gift';
+  document.querySelectorAll('#mktTabs button[data-m]').forEach(b=>b.classList.toggle('on',b.dataset.m==='gift'));
+  renderMkt();
 }
 
 /* 资质 */

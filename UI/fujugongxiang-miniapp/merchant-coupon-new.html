@@ -1,308 +1,326 @@
 <!DOCTYPE html>
-
-<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>福聚贡翔 · 新建礼品金</title>
-<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<title>福聚贡翔 · 礼金活动设置</title>
 <style>
-:root{--brand:#E23A2E;--brand2:#EE4A2F;--ink:#2A2420;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 8px 20px rgba(150,110,88,.07)}
+:root{--brand:#E23A2E;--brand2:#FB6E4E;--ink:#2A2420;--ink2:#5C5C5F;--muted:#9A9AA0;--line:#F1E9E3;--soft:#FFF6F3;--shadow:0 8px 20px rgba(150,110,88,.07)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#EBE4DE;display:flex;align-items:center;justify-content:center}
 a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
-input{font-family:inherit}
-html.w-full.h-full{overflow:hidden}
+button,input,select{font-family:inherit}
+button{cursor:pointer;border:0;background:none;color:inherit}
+input,select{outline:none}
 .app{width:100%;height:100%;max-width:393px;max-height:852px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,#FCE4E1 0%,#FBE9E4 16%,#FDF7F4 34%,#FFFDFC 48%,#FFFDFC 100%);position:relative}
 .status{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:.2px;color:#1B1B1D}
 .si{display:flex;align-items:center;gap:5px}
 .topbar{flex:0 0 46px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
 .topbar h1{margin:0;font-size:16px;font-weight:700;color:#231C18;letter-spacing:-.2px}
 .back{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;box-shadow:0 3px 9px rgba(150,90,70,.08)}
-.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;padding:0 14px 12px}
 .scroll::-webkit-scrollbar{display:none}
-.pad{padding:0 14px}
 .notice{display:flex;gap:7px;align-items:flex-start;background:#FFF6F3;border:1px solid #FBD9CD;border-radius:12px;padding:9px 10px;margin-top:8px}
 .notice svg{flex:0 0 14px;margin-top:1px}
-.notice p{margin:0;font-size:9.5px;color:#B3411F;line-height:1.6}
-.notice p b{color:#C22E1B}
-.card{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:13px 12px;margin-top:10px}
-.card h3{margin:0 0 9px;font-size:11.5px;font-weight:800;color:#2A2420;display:flex;align-items:center;gap:4px}
-.card h3 small{font-size:8px;color:#B2A69C;font-weight:400;margin-left:auto}
-.req{color:#EE4A2F;margin-left:2px}
-.field{margin-bottom:9px}
-.field:last-child{margin-bottom:0}
-.field label{font-size:9px;color:#8E8076;display:block;margin-bottom:4px}
-.inp{width:100%;height:38px;border-radius:10px;border:1px solid #F1E5DB;background:#FDFBF9;padding:0 10px;font-size:12px;color:#2A2420;outline:none;transition:border-color .16s,box-shadow .16s,background .16s}
-.inp::placeholder{color:#C4B7AC}
-.inp:focus{border-color:#F7A392;background:#fff;box-shadow:0 0 0 3px rgba(251,110,78,.1)}
-.inp.err{border-color:#EE4A2F;background:#FFF5F2;box-shadow:0 0 0 3px rgba(238,74,47,.12)}
-.two{display:flex;gap:8px}
-.two .field{flex:1;min-width:0}
-.chips{display:flex;gap:6px}
-.chip{flex:1;height:32px;border-radius:999px;border:1px solid #F1E5DB;background:#FDFBF9;font-size:10.5px;color:#5C5C5F;font-weight:600;white-space:nowrap;transition:all .16s}
-.chip.on{background:#FFEFEB;border-color:#F7A392;color:#EE4A2F}
-.seg{display:flex;gap:6px;flex-wrap:wrap}
-.seg .chip{flex:0 0 auto;padding:0 11px}
-.seg.err{outline:1px solid #F7A392;outline-offset:2px;border-radius:999px;background:#FFF5F2}
-.switchrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px dashed #F3E9E1}
-.switchrow:first-of-type{border-top:0}
-.switchrow .sl{font-size:10px;color:#5C5C5F;font-weight:600;line-height:1.45}
-.switchrow .sl small{display:block;font-size:8.5px;color:#B2A69C;font-weight:400;margin-top:2px}
-.sw{width:36px;height:20px;border-radius:999px;background:#EDE3DB;position:relative;transition:background .18s;flex:0 0 36px}
-.sw i{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.18);transition:left .18s}
+.notice p{margin:0;font-size:10px;color:#B3411F;line-height:1.55}
+.card{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:14px 13px;margin-top:10px}
+.chead{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.chead b{font-size:14px;font-weight:800;color:#2A2420}
+.chead .swlab{margin-left:auto;font-size:11px;color:#9A9AA0}
+.sw{width:40px;height:22px;border-radius:999px;background:#EDE3DB;position:relative;transition:background .18s;flex:0 0 40px}
+.sw i{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.18);transition:left .18s}
 .sw[data-on="1"]{background:linear-gradient(135deg,#FB6E4E,#F03A2C)}
-.sw[data-on="1"] i{left:18px}
-.remark{font-size:8.5px;color:#A99C92;line-height:1.55;margin-top:6px}
-.picked{display:flex;align-items:center;gap:8px;margin-top:9px;border:1px solid #F4E9E0;border-radius:11px;padding:8px}
-.picked .th{width:36px;height:36px;border-radius:8px;background:linear-gradient(140deg,#EAF0D8,#B8CE92);flex:0 0 36px}
-.picked .pm{flex:1;min-width:0}
-.picked .pm b{font-size:9.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.picked .pm span{font-size:8px;color:#A99C92;display:block;margin-top:2px}
-.picked .padd{font-size:9px;font-weight:700;color:#EE4A2F;border:1px solid #F7A392;background:#fff;border-radius:999px;padding:4px 10px;flex:0 0 auto}
-.addbtn{width:100%;height:34px;border-radius:10px;border:1px dashed #F7A392;background:#FFF8F5;color:#EE4A2F;font-size:10px;font-weight:700;margin-top:8px}
-.foot{flex:0 0 auto;padding:10px 14px 12px;background:linear-gradient(180deg,rgba(255,253,252,0),#FFFDFC 30%);display:flex;flex-direction:column;gap:7px}
-.mainbtn{width:100%;height:44px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:13px;font-weight:700;box-shadow:0 8px 18px rgba(232,70,45,.26)}
-.draftbtn{width:100%;height:38px;border-radius:999px;background:#FFEFEB;color:#EE4A2F;font-size:11.5px;font-weight:700;border:1px solid #FBD9CD}
-.homebar{height:18px;flex:0 0 18px;background:#FFFDFC;display:flex;align-items:center;justify-content:center}
+.sw[data-on="1"] i{left:20px}
+.row{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #F7EEE8;min-width:0}
+.row:last-child{border-bottom:0}
+.lab{flex:0 0 72px;font-size:12px;color:#3C332E;font-weight:600;display:flex;align-items:center;gap:2px;white-space:nowrap}
+.lab em{font-style:normal;color:#EE4A2F;font-weight:800}
+.ctrl{flex:1;min-width:0;display:flex;align-items:center;gap:6px}
+.ctrl input[type="text"],.ctrl input[type="datetime-local"],.ctrl select{min-width:0;flex:1;height:36px;border:1px solid #F0E4DC;background:#fff;border-radius:10px;font-size:13px;color:#2A2420;padding:0 11px}
+.ctrl input:focus,.ctrl select:focus{border-color:#F7A392;box-shadow:0 0 0 3px rgba(251,110,78,.1)}
+.ctrl input.err{border-color:#EE4A2F;background:#FFF5F2}
+.timerow{cursor:pointer}
+.timerow input[type="datetime-local"]{flex:1;min-width:0;height:100%;border:0;background:transparent;font-size:13px;color:#2A2420;padding:0;min-width:0}
+.timerow input[type="datetime-local"]::-webkit-calendar-picker-indicator{opacity:.55;cursor:pointer;width:18px;height:18px}
+.namewrap{position:relative;flex:1;min-width:0}
+.namewrap input{width:100%;padding-right:46px}
+.namewrap .cnt{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:11px;color:#B2A69C;font-variant-numeric:tabular-nums;pointer-events:none}
+.unit{flex:0 0 auto;font-size:12px;color:#7A6A61;white-space:nowrap}
+.prefix{flex:0 0 auto;font-size:12px;color:#7A6A61;white-space:nowrap}
+.radios{flex:1;min-width:0;display:flex;flex-direction:column;gap:9px}
+.radios label{display:flex;align-items:center;gap:7px;font-size:12px;color:#3E332B;font-weight:500}
+.radios input{accent-color:#EE4A2F;width:15px;height:15px}
+.radios .more{margin-left:auto;color:#C9BDB4;font-size:16px;line-height:1;padding-left:6px}
+.timerow{flex:1;min-width:0;display:flex;align-items:center;gap:6px;height:36px;border:1px solid #F0E4DC;background:#fff;border-radius:10px;padding:0 10px}
+.timerow:focus-within{border-color:#F7A392;box-shadow:0 0 0 3px rgba(251,110,78,.1)}
+.timerow input{flex:1;min-width:0;height:100%;border:0;background:transparent;font-size:13px;color:#2A2420;padding:0}
+.timerow svg{flex:0 0 auto}
+.timerow em{font-style:normal;color:#C9BDB4;font-size:15px}
+.paybox{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px;background:#FFF8F5;border:1px solid #FAD9CD;border-radius:12px;padding:11px 12px}
+.paybox .pico{width:18px;height:18px;border-radius:6px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);display:grid;place-items:center;flex:0 0 18px}
+.paybox > b{font-size:12px;font-weight:800;color:#2A2420}
+.pswitch{display:inline-flex;align-items:center;background:#fff;border:1px solid #F1E5DB;border-radius:999px;padding:2px;gap:2px}
+.pswitch span{font-size:11px;padding:5px 10px;border-radius:999px;color:#8A7C72;font-weight:600;cursor:pointer}
+.pswitch span.on{background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff}
+.pnote{flex:1 1 100%;font-size:10.5px;color:#B4674B;line-height:1.45;margin:0}
+.foot{flex:0 0 auto;padding:10px 14px 12px;background:#fff;border-top:1px solid #F3EBE5;box-shadow:0 -6px 18px rgba(150,110,88,.05)}
+.mainbtn{width:100%;height:46px;border-radius:999px;background:linear-gradient(135deg,#FB6E4E,#F03A2C);color:#fff;font-size:15px;font-weight:700;box-shadow:0 8px 18px rgba(232,70,45,.26)}
+.homebar{height:18px;flex:0 0 18px;background:#fff;display:flex;align-items:center;justify-content:center}
 .homebar i{width:134px;height:5px;border-radius:3px;background:#1D1D1F;display:block}
-.toast{position:absolute;left:50%;bottom:96px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap}
+.toast{position:absolute;left:50%;bottom:96px;transform:translate(-50%,10px);background:rgba(38,28,22,.88);color:#fff;font-size:11px;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:all .22s;z-index:60;white-space:nowrap;max-width:calc(100% - 32px)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .hidden{display:none!important}
+.pickbox{margin-top:4px;padding:8px 10px;background:#FFFBF8;border:1px dashed #F2C3AE;border-radius:10px;font-size:11px;color:#B4674B}
+.pickbox button{color:#EE4A2F;font-weight:700;margin-left:6px}
 </style>
 </head>
-<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center">
+<body>
 <div class="app">
 <div class="status">
 <span>9:41</span>
 <div class="si">
-<svg fill="#2A211B" height="11" viewbox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"></rect><rect height="6" rx="1" width="3" x="4.5" y="5"></rect><rect height="8.5" rx="1" width="3" x="9" y="2.5"></rect><rect height="11" rx="1" width="3" x="13.5" y="0"></rect></svg>
-<svg fill="#2A211B" height="11" viewbox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"></path></svg>
-<svg height="11" viewbox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"></rect><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"></rect><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"></rect></svg>
+<svg fill="#2A211B" height="11" viewBox="0 0 17 11" width="17"><rect height="4" rx="1" width="3" x="0" y="7"/><rect height="6" rx="1" width="3" x="4.5" y="5"/><rect height="8.5" rx="1" width="3" x="9" y="2.5"/><rect height="11" rx="1" width="3" x="13.5" y="0"/></svg>
+<svg fill="#2A211B" height="11" viewBox="0 0 15 11" width="15"><path d="M7.5 10.2 5.4 7.9a3.1 3.1 0 0 1 4.2 0zM2.6 5.1 1 3.4a9.4 9.4 0 0 1 13 0l-1.6 1.7a7 7 0 0 0-9.8 0z"/></svg>
+<svg height="11" viewBox="0 0 24 11" width="24"><rect fill="none" height="10" rx="3" stroke="#2A211B" stroke-opacity=".5" width="20" x=".5" y=".5"/><rect fill="#2A211B" height="7" rx="1.6" width="16" x="2" y="2"/><rect fill="#2A211B" height="4" opacity=".6" rx=".7" width="1.5" x="22" y="3.5"/></svg>
 </div>
 </div>
 <div class="topbar">
 <a aria-label="返回营销工具" class="back" href="merchant-marketing.html">
-<svg fill="none" height="16" viewbox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+<svg fill="none" height="16" viewBox="0 0 24 24" width="16"><path d="m15 5-7 7 7 7" stroke="#2A2420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/></svg>
 </a>
-<h1>新建礼品金</h1>
+<h1>礼金活动设置</h1>
 <span style="width:30px"></span>
 </div>
 <div class="scroll">
-<div class="pad">
 <div class="notice">
-<svg fill="none" height="14" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="9" stroke="#EE4A2F" stroke-width="1.8"></circle><path d="M12 7.5v5.5M12 16.2v.3" stroke="#EE4A2F" stroke-linecap="round" stroke-width="1.9"></path></svg>
-<p><b>本店礼品金仅限本店下单抵扣</b>：不可提现、不可转入账户余额、不可跨店使用；不使用则过期作废，无任何余额或现金返还。</p>
+<svg fill="none" height="14" viewBox="0 0 24 24" width="14"><circle cx="12" cy="12" r="9" stroke="#EE4A2F" stroke-width="1.8"/><path d="M12 7.5v5.5M12 16.2v.3" stroke="#EE4A2F" stroke-linecap="round" stroke-width="1.9"/></svg>
+<p>礼金仅用于本店商品消费，不可提现、不可转让；可与平台优惠叠加，具体以结算页为准。</p>
 </div>
 <div class="card">
-<h3>金基本信息 <small>本店专用</small></h3>
-<div class="field">
-<label>金名称<span class="req">*</span></label>
-<input class="inp" id="cpName" maxlength="30" placeholder="如：秋冬水果季满减金"/>
+<div class="chead">
+<b>礼金活动设置</b>
+<span class="swlab">活动开关</span>
+<button aria-label="活动开关" class="sw" data-on="1" id="actSw" onclick="toggleSw(this)" type="button"><i></i></button>
 </div>
-<div class="field">
-<label>金类型<span class="req">*</span></label>
-<div class="chips" id="cpType">
-<button class="chip on" data-v="满减金">满减金</button>
-<button class="chip" data-v="折扣金">折扣金</button>
-<button class="chip" data-v="立减金">立减金</button>
-</div>
-</div>
-<div class="two">
-<div class="field">
-<label id="cpValLab">面额（元）<span class="req">*</span></label>
-<input class="inp" id="cpValue" inputmode="decimal" placeholder="如：20"/>
-</div>
-<div class="field">
-<label>使用门槛（元）<span class="req">*</span></label>
-<input class="inp" id="cpThr" inputmode="decimal" placeholder="如：99，无门槛填 0"/>
-</div>
-</div>
-<div class="two">
-<div class="field">
-<label>发放总量<span class="req">*</span></label>
-<input class="inp" id="cpTotal" inputmode="numeric" placeholder="如：300"/>
-</div>
-<div class="field">
-<label>每人限领<span class="req">*</span></label>
-<input class="inp" id="cpPer" inputmode="numeric" value="1"/>
+
+<div class="row">
+<span class="lab"><em>*</em>礼金名称</span>
+<div class="ctrl">
+<div class="namewrap">
+<input id="cpName" maxlength="20" type="text" value="新客专享礼金" oninput="onName(this)"/>
+<span class="cnt" id="nameCnt">8/20</span>
 </div>
 </div>
 </div>
-<div class="card">
-<h3>有效期 <small>必填</small></h3>
-<div class="two">
-<div class="field">
-<label>开始日期<span class="req">*</span></label>
-<input class="inp" id="cpStart" type="date" value="2026-11-10"/>
-</div>
-<div class="field">
-<label>结束日期<span class="req">*</span></label>
-<input class="inp" id="cpEnd" type="date" value="2026-12-10"/>
+
+<div class="row">
+<span class="lab"><em>*</em>优惠金额</span>
+<div class="ctrl">
+<input id="cpValue" inputmode="decimal" type="text" value="5.00"/>
+<span class="unit">元</span>
 </div>
 </div>
-<div class="remark">有效期按自然日计算，到期未使用的礼品金自动作废，不补发、不折算余额。</div>
-</div>
-<div class="card">
-<h3>领取条件 <small>可多选</small></h3>
-<div class="field">
-<div class="seg" id="cpCond">
-<button class="chip" data-v="老用户" onclick="toggleMulti(this)">老用户</button>
-<button class="chip on" data-v="新用户" onclick="toggleMulti(this)">新用户</button>
-<button class="chip" data-v="转发本店链接" onclick="toggleMulti(this)">转发本店链接</button>
-<button class="chip" data-v="好评" onclick="toggleMulti(this)">好评</button>
+
+<div class="row">
+<span class="lab"><em>*</em>使用门槛</span>
+<div class="ctrl">
+<span class="prefix">订单满</span>
+<input id="cpThr" inputmode="decimal" type="text" value="39.00"/>
+<span class="unit">元可用</span>
 </div>
 </div>
-<div class="remark">老用户：本店有过已完成订单；新用户：首次在本店领取礼品金下单；转发本店链接：由分享链接进入并完成有效转发；好评：在本店完成订单并给出好评。可组合多选，满足任一项即可领取。</div>
+
+<div class="row" style="align-items:flex-start">
+<span class="lab" style="padding-top:2px"><em>*</em>适用范围</span>
+<div class="ctrl" style="flex-direction:column;align-items:stretch">
+<div class="radios" id="scopeRadios">
+<label><input checked name="giftScope" type="radio" value="all" onchange="onScope()"/>全店商品通用</label>
+<label><input name="giftScope" type="radio" value="cat" onchange="onScope()"/>指定商品分类<span class="more">›</span></label>
+<label><input name="giftScope" type="radio" value="goods" onchange="onScope()"/>指定商品<span class="more">›</span></label>
 </div>
-<div class="card">
-<h3>叠加规则 <small>商家可配置</small></h3>
-<div class="switchrow">
-<div class="sl">可与秒杀叠加<small>叠加时先算秒杀价，再判断礼品金门槛</small></div>
-<button aria-label="可与秒杀叠加" class="sw" data-on="0" onclick="toggleSw(this)"><i></i></button>
-</div>
-<div class="switchrow">
-<div class="sl">可与商品促销叠加<small>满减、限时折扣、单品直降同效</small></div>
-<button aria-label="可与商品促销叠加" class="sw" data-on="1" onclick="toggleSw(this)"><i></i></button>
-</div>
-<div class="remark">叠加时按优惠后金额再计算礼品金门槛；互斥时同一商品仅生效优惠力度最大的活动。</div>
-</div>
-<div class="card">
-<h3>适用范围 <small>默认全部商品</small></h3>
-<div class="field">
-<div class="chips" id="cpScope">
-<button class="chip on" data-v="all">全部商品</button>
-<button class="chip" data-v="pick">指定商品</button>
+<div class="pickbox hidden" id="scopePick">
+已选：水果生鲜 / 蒲江猕猴桃 等
+<button type="button" onclick="toast('打开选择器（演示）')">去选择</button>
 </div>
 </div>
-<div class="hidden" id="cpPick">
-<div class="picked">
-<span class="th"></span>
-<div class="pm"><b>蒲江红心猕猴桃 5斤大果</b><span>¥39.90 · 库存 3,200</span></div>
-<button class="padd" onclick="toast('已打开商品选择器')">更换</button>
 </div>
-<button class="addbtn" onclick="toast('已打开商品选择器')">+ 添加指定商品</button>
-<div class="remark">已选 <b id="cpPickNum" style="color:#EE4A2F">1</b> 个商品，礼品金只对这些商品生效。</div>
+
+<div class="row">
+<span class="lab"><em>*</em>活动总量</span>
+<div class="ctrl">
+<input id="cpTotal" inputmode="numeric" type="text" value="200"/>
+<span class="unit">张</span>
 </div>
 </div>
-<div style="height:12px"></div>
+
+<div class="row">
+<span class="lab"><em>*</em>每人限制</span>
+<div class="ctrl">
+<select id="cpPer">
+<option selected>每人限用1次</option>
+<option>每人限用2次</option>
+<option>每人限用3次</option>
+<option>不限次数</option>
+</select>
+</div>
+</div>
+
+<div class="row">
+<span class="lab"><em>*</em>开始时间</span>
+<div class="ctrl">
+<div class="timerow" onclick="openDT('cpStart')">
+<input id="cpStart" type="datetime-local" value="2026-11-01T00:00"/>
+<svg fill="none" height="13" viewBox="0 0 24 24" width="13"><rect height="15" rx="3" stroke="#B2A69C" stroke-width="1.7" width="17" x="3.5" y="5"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3" stroke="#B2A69C" stroke-linecap="round" stroke-width="1.7"/></svg>
+<em>›</em>
+</div>
+</div>
+</div>
+
+<div class="row">
+<span class="lab"><em>*</em>结束时间</span>
+<div class="ctrl">
+<div class="timerow" onclick="openDT('cpEnd')">
+<input id="cpEnd" type="datetime-local" value="2026-11-30T23:59"/>
+<svg fill="none" height="13" viewBox="0 0 24 24" width="13"><rect height="15" rx="3" stroke="#B2A69C" stroke-width="1.7" width="17" x="3.5" y="5"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3" stroke="#B2A69C" stroke-linecap="round" stroke-width="1.7"/></svg>
+<em>›</em>
+</div>
+</div>
+</div>
+
+<div class="paybox">
+<span class="pico"><svg fill="none" height="10" viewBox="0 0 24 24" width="10"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z" fill="#fff"/></svg></span>
+<b>抵扣方式</b>
+<span class="pswitch" id="paySwitch">
+<span class="on" data-v="auto">自动抵扣</span>
+</span>
+<p class="pnote" id="payNote">下单满足条件后，系统自动抵扣礼金。</p>
+</div>
 </div>
 </div>
 <div class="foot">
-<button class="mainbtn" id="cpSubmit">创建礼品金</button>
-<button class="draftbtn" id="cpDraft">存为草稿</button>
+<button class="mainbtn" type="button" onclick="saveSettings()">保存设置</button>
 </div>
 <div class="homebar"><i></i></div>
-<div class="toast" id="toast">已创建</div>
+<div class="toast" id="toast">已保存</div>
 </div>
 <script>
   function toast(msg) {
-    const t = document.getElementById('toast');
+    var t = document.getElementById('toast');
     t.textContent = msg;
     t.classList.add('show');
-    clearTimeout(window.__toastTimer);
-    window.__toastTimer = setTimeout(function () { t.classList.remove('show'); }, 1700);
+    clearTimeout(window.__tt);
+    window.__tt = setTimeout(function () { t.classList.remove('show'); }, 1700);
   }
 
   function toggleSw(el) {
     el.dataset.on = el.dataset.on === '1' ? '0' : '1';
+    toast(el.dataset.on === '1' ? '活动已开启' : '活动已关闭');
   }
 
-  function toggleMulti(el) {
-    el.classList.toggle('on');
-    const box = document.getElementById('cpCond');
-    if (box.querySelector('.chip.on')) box.classList.remove('err');
+  function onName(el) {
+    document.getElementById('nameCnt').textContent = el.value.length + '/20';
   }
 
-  function bindChips(id, cb) {
-    const box = document.getElementById(id);
-    if (!box) return;
-    box.querySelectorAll('.chip').forEach(function (b) {
-      b.addEventListener('click', function () {
-        box.querySelectorAll('.chip').forEach(function (x) { x.classList.remove('on'); });
-        b.classList.add('on');
-        if (cb) cb(b);
-      });
-    });
+  function onScope() {
+    var v = (document.querySelector('input[name="giftScope"]:checked') || {}).value;
+    var box = document.getElementById('scopePick');
+    box.classList.toggle('hidden', v === 'all');
+    if (v === 'cat') box.firstChild.textContent = '请选择商品分类 ';
+    if (v === 'goods') box.firstChild.textContent = '请选择指定商品 ';
+    if (v !== 'all') toast(v === 'cat' ? '可指定商品分类' : '可指定商品');
   }
 
-  bindChips('cpType', function (b) {
-    const lab = document.getElementById('cpValLab');
-    const inp = document.getElementById('cpValue');
-    if (b.dataset.v === '折扣金') {
-      lab.innerHTML = '折扣（如 8.5）<span class="req">*</span>';
-      inp.placeholder = '如：8.5';
-    } else {
-      lab.innerHTML = '面额（元）<span class="req">*</span>';
-      inp.placeholder = '如：20';
+  function toLocalDT(s) {
+    if (!s) return '';
+    return String(s).trim().replace(' ', 'T').replace(/\//g, '-').slice(0, 16);
+  }
+
+  function openDT(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.focus();
+    if (typeof el.showPicker === 'function') {
+      try { el.showPicker(); } catch (e) {}
     }
-  });
-
-  bindChips('cpScope', function (b) {
-    document.getElementById('cpPick').classList.toggle('hidden', b.dataset.v !== 'pick');
-  });
+  }
 
   function markErr(el, msg) {
     el.classList.add('err');
     el.focus();
-    if (el.select) { try { el.select(); } catch (e) {} }
     toast(msg);
   }
 
-  document.querySelectorAll('.inp').forEach(function (el) {
+  document.querySelectorAll('.ctrl input').forEach(function (el) {
     el.addEventListener('input', function () { el.classList.remove('err'); });
   });
 
-  function validate() {
-    const name = document.getElementById('cpName');
-    const value = document.getElementById('cpValue');
-    const thr = document.getElementById('cpThr');
-    const total = document.getElementById('cpTotal');
-    const per = document.getElementById('cpPer');
-    const start = document.getElementById('cpStart');
-    const end = document.getElementById('cpEnd');
-    const type = (document.querySelector('#cpType .chip.on') || {}).dataset?.v || '满减金';
+  function saveSettings() {
+    var name = document.getElementById('cpName');
+    var value = document.getElementById('cpValue');
+    var thr = document.getElementById('cpThr');
+    var total = document.getElementById('cpTotal');
+    var start = document.getElementById('cpStart');
+    var end = document.getElementById('cpEnd');
 
-    if (!name.value.trim()) { markErr(name, '请填写礼品金名称'); return null; }
-    if (!value.value.trim()) { markErr(value, type === '折扣金' ? '请填写折扣' : '请填写面额'); return null; }
-    if (!/^\d+(\.\d+)?$/.test(value.value.trim())) { markErr(value, '面额只能填写数字'); return null; }
-    if (type === '折扣金' && (Number(value.value) <= 0 || Number(value.value) >= 10)) {
-      markErr(value, '折扣需大于 0 且小于 10，如 8.5');
-      return null;
+    if (!name.value.trim()) { markErr(name, '请填写礼金名称'); return; }
+    if (!/^\d+(\.\d+)?$/.test(value.value.trim()) || Number(value.value) <= 0) {
+      markErr(value, '请填写有效优惠金额'); return;
     }
-    if (!thr.value.trim()) { markErr(thr, '请填写使用门槛，无门槛填 0'); return null; }
-    if (!/^\d+(\.\d+)?$/.test(thr.value.trim())) { markErr(thr, '门槛只能填写数字'); return null; }
-    if (Number(thr.value) > 0 && type === '满减金' && Number(value.value) >= Number(thr.value)) {
-      markErr(value, '满减金面额需小于使用门槛');
-      return null;
+    if (!/^\d+(\.\d+)?$/.test(thr.value.trim())) {
+      markErr(thr, '请填写使用门槛'); return;
     }
-    if (!/^\d+$/.test(total.value.trim()) || Number(total.value) <= 0) { markErr(total, '请填写有效的发放总量'); return null; }
-    if (!/^\d+$/.test(per.value.trim()) || Number(per.value) <= 0) { markErr(per, '每人限领至少 1 份'); return null; }
-    if (!start.value) { markErr(start, '请选择有效期开始日期'); return null; }
-    if (!end.value) { markErr(end, '请选择有效期结束日期'); return null; }
-    if (end.value < start.value) { markErr(end, '结束日期不能早于开始日期'); return null; }
-    const condBox = document.getElementById('cpCond');
-    if (!condBox.querySelector('.chip.on')) {
-      condBox.classList.add('err');
-      condBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      toast('请至少选择一项领取条件');
-      return null;
+    if (Number(value.value) >= Number(thr.value) && Number(thr.value) > 0) {
+      markErr(value, '优惠金额需小于使用门槛'); return;
     }
-    condBox.classList.remove('err');
-    return true;
+    if (!/^\d+$/.test(total.value.trim()) || Number(total.value) <= 0) {
+      markErr(total, '请填写有效活动总量'); return;
+    }
+    if (!start.value.trim()) { markErr(start, '请选择开始时间'); return; }
+    if (!end.value.trim()) { markErr(end, '请选择结束时间'); return; }
+    if (new Date(start.value).getTime() >= new Date(end.value).getTime()) {
+      markErr(end, '结束时间须晚于开始时间'); return;
+    }
+
+    toast('礼金活动设置已保存');
+    setTimeout(function () { location.href = 'merchant-marketing.html'; }, 900);
   }
 
-  document.getElementById('cpSubmit').addEventListener('click', function () {
-    if (!validate()) return;
-    toast('礼品金已创建');
-    setTimeout(function () { location.href = 'merchant-marketing.html'; }, 900);
-  });
+  (function initEdit() {
+    var qs;
+    try { qs = new URLSearchParams(location.search); } catch (e) { return; }
+    if (qs.get('edit') !== '1' && !qs.get('name')) return;
 
-  document.getElementById('cpDraft').addEventListener('click', function () {
-    toast('已存为草稿');
-  });
+    var title = document.querySelector('.topbar h1');
+    if (title && qs.get('edit') === '1') title.textContent = '编辑礼金活动';
+
+    var name = qs.get('name');
+    if (name) {
+      var nameEl = document.getElementById('cpName');
+      nameEl.value = name;
+      onName(nameEl);
+    }
+    if (qs.get('value')) document.getElementById('cpValue').value = qs.get('value');
+    if (qs.get('thr')) document.getElementById('cpThr').value = qs.get('thr');
+    if (qs.get('total')) document.getElementById('cpTotal').value = qs.get('total');
+    if (qs.get('start')) document.getElementById('cpStart').value = toLocalDT(qs.get('start'));
+    if (qs.get('end')) document.getElementById('cpEnd').value = toLocalDT(qs.get('end'));
+
+    var scope = qs.get('scope') || 'all';
+    var radio = document.querySelector('input[name="giftScope"][value="' + scope + '"]');
+    if (radio) {
+      radio.checked = true;
+      var box = document.getElementById('scopePick');
+      box.classList.toggle('hidden', scope === 'all');
+      if (scope === 'cat') box.firstChild.textContent = '已选：水果生鲜分类 ';
+      if (scope === 'goods') box.firstChild.textContent = '已选：蒲江猕猴桃 等 ';
+    }
+
+    var on = qs.get('on');
+    if (on === '0' || on === '1') {
+      document.getElementById('actSw').dataset.on = on;
+    }
+  })();
 </script>
 </body>
 </html>

@@ -159,7 +159,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 <div class="ptags"><i>坏果包赔</i><i>产地直发</i><i>今日下单明日达</i></div>
 </div>
 <div class="skmob" id="seckillModule">
-<a class="skm-hd" href="#reviews" id="skmHead">
+<a class="skm-hd" href="seckill.html" id="skmHead">
 <b>限时秒杀</b><span class="dv"></span>
 <em>134人评价"正品"，同类畅销第1名</em>
 <svg fill="none" height="12" viewbox="0 0 24 24" width="12"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
@@ -196,12 +196,12 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 </div>
 </div>
 <div class="plays">
-<a class="play" href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/group-buy.html?render_html=true">
+<a class="play" href="group-buy.html">
 <span class="ic"><svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="8.6" r="2.4"></circle><path d="M3.5 19c0-3.1 2.5-5 5.5-5s5.5 1.9 5.5 5M16.5 14.4c2.4.2 4 1.9 4 4.6"></path></svg></span>
 <span><b>2人拼单 ¥34.9</b><span>已拼 1,268 件</span></span>
 <span class="go"><svg fill="none" height="13" viewbox="0 0 24 24" width="13"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></span>
 </a>
-<a class="play" href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/seckill.html?render_html=true">
+<a class="play" href="seckill.html">
 <span class="ic"><svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><circle cx="12" cy="13" r="7.4"></circle><path d="M12 9.5V13l2.4 1.6M9 3h6"></path></svg></span>
 <span><b>20:00 秒杀</b><span>低至 5 折</span></span>
 <span class="go"><svg fill="none" height="13" viewbox="0 0 24 24" width="13"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></span>
@@ -223,6 +223,16 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 </div>
 </div>
 <div class="block">
+<div class="dhead"><h2>商品详情</h2></div>
+<div class="dimg"><span>蒲江猕猴桃果园实拍</span></div>
+<ul class="dlist">
+<li>产地：四川成都蒲江县，海拔 600m 山地果园</li>
+<li>规格：5 斤装，单果 90-110g，约 24-28 个</li>
+<li>口感：红心果肉，甜度 18° 以上，酸甜适口</li>
+<li>发货：下单后 48 小时内顺丰冷链发出</li>
+</ul>
+</div>
+<div class="block">
 <div class="bhead" id="reviews"><h2>评价 (1.8万)</h2><a href="https://modao.cc/agent-py/workspace/6aed49c399eb72f55912b309/fujugongxiang-miniapp.html/product-detail.html?from=product-detail.html&amp;render_html=true">好评率 98% <svg fill="none" height="11" viewbox="0 0 24 24" width="11"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></a></div>
 <div class="rev">
 <span class="ava">李</span>
@@ -232,16 +242,6 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 <span class="ava">王</span>
 <div><div class="stars">★★★★★</div><div class="txt">物流很快，第二天就到成都了，包装扎实没有碰伤。</div><div class="meta">王** · 4天前 · 5斤中果</div></div>
 </div>
-</div>
-<div class="block">
-<div class="dhead"><h2>商品详情</h2></div>
-<div class="dimg"><span>蒲江猕猴桃果园实拍</span></div>
-<ul class="dlist">
-<li>产地：四川成都蒲江县，海拔 600m 山地果园</li>
-<li>规格：5 斤装，单果 90-110g，约 24-28 个</li>
-<li>口感：红心果肉，甜度 18° 以上，酸甜适口</li>
-<li>发货：下单后 48 小时内顺丰冷链发出</li>
-</ul>
 </div>
 <div style="height:12px"></div>
 </div>
@@ -322,19 +322,9 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
     /* 限时秒杀 · 拼团动态 */
     var skmob = document.getElementById('seckillModule');
     if (skmob) {
-      var skmHead = document.getElementById('skmHead');
-      if (skmHead) {
-        skmHead.addEventListener('click', function (e) {
-          var target = document.getElementById('reviews');
-          if (!target) return;
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          if (history.replaceState) history.replaceState(null, '', '#reviews');
-        });
-      }
       var skmJoin = skmob.querySelectorAll('.skm-op .join');
       for (var j = 0; j < skmJoin.length; j++) {
-        skmJoin[j].addEventListener('click', goPin);
+        skmJoin[j].addEventListener('click', function () { location.href = 'seckill.html'; });
       }
 
       var cdNodes = skmob.querySelectorAll('.cdown');

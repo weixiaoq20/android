@@ -174,7 +174,8 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 .gcard .ghead b small{font-weight:800;color:#EE4A2F}
 .gcard .gnew{margin-left:auto;flex:0 0 auto;font-size:8.5px;font-weight:800;color:#EE4A2F;background:#fff;border:1px solid #F5A392;border-radius:999px;padding:4px 9px;white-space:nowrap}
 .gl{display:flex;flex-direction:column;gap:7px}
-.glrow{display:flex;align-items:center;gap:8px;background:#FFFDFC;border:1px solid #F7EDE6;border-radius:12px;padding:8px}
+.glrow{display:flex;align-items:center;gap:8px;background:#FFFDFC;border:1px solid #F7EDE6;border-radius:12px;padding:8px;cursor:pointer}
+.glrow+.glrow{margin-top:7px}
 .glrow .gface{flex:0 0 58px;width:58px;height:64px;border-radius:10px;background:linear-gradient(145deg,#FFEDE8,#FDDCD3);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#E23A2E}
 .glrow .gface b{font-size:17px;font-weight:800;line-height:1;display:flex;align-items:baseline}
 .glrow .gface b small{font-size:9px;font-weight:800;margin-right:1px}
@@ -274,123 +275,45 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
 <a class="gnew" href="merchant-coupon-new.html">+ 新建礼金</a>
 </div>
 <div class="gl" id="giftList">
-<div class="glrow" data-s="run">
+<div class="glrow" data-s="run" data-href="merchant-coupon-new.html?edit=1&amp;name=%E6%BB%A1%E5%87%8F%E7%A4%BC%E9%87%91&amp;value=5.00&amp;thr=39.00&amp;total=200&amp;scope=all&amp;start=2026-11-01%2000%3A00&amp;end=2026-11-30%2023%3A59&amp;on=1" onclick="openGift(event,this)">
 <div class="gface"><b><small>¥</small>5</b><span>满39可用</span></div>
 <div class="gm">
 <div class="gn"><b>满减礼金 · 全店通用</b><i class="run">进行中</i></div>
 <div class="gl2">总量 200 张 ｜ 已用 64 张 ｜ 剩余 136 张</div>
 <div class="gl3">有效期 2026-11-01 至 2026-11-30</div>
 </div>
-<div class="grt"><button aria-label="开关" class="sw" data-on="1" onclick="toggleGift(this)"><i></i></button><span class="garrow">›</span></div>
+<div class="grt"><button aria-label="开关" class="sw" data-on="1" onclick="toggleGift(event,this)" type="button"><i></i></button><span class="garrow">›</span></div>
 </div>
-<div class="glrow" data-s="run">
+<div class="glrow" data-s="run" data-href="merchant-coupon-new.html?edit=1&amp;name=%E6%96%B0%E5%AE%A2%E7%A4%BC%E9%87%91&amp;value=8.50&amp;thr=59.00&amp;total=400&amp;scope=goods&amp;start=2026-11-10%2000%3A00&amp;end=2026-12-15%2023%3A59&amp;on=1" onclick="openGift(event,this)">
 <div class="gface"><b><small>¥</small>8.5</b><span>满59可用</span></div>
 <div class="gm">
 <div class="gn"><b>新客礼金 · 指定商品</b><i class="run">进行中</i></div>
 <div class="gl2">总量 400 张 ｜ 已用 92 张 ｜ 剩余 308 张</div>
 <div class="gl3">有效期 2026-11-10 至 2026-12-15</div>
 </div>
-<div class="grt"><button aria-label="开关" class="sw" data-on="1" onclick="toggleGift(this)"><i></i></button><span class="garrow">›</span></div>
+<div class="grt"><button aria-label="开关" class="sw" data-on="1" onclick="toggleGift(event,this)" type="button"><i></i></button><span class="garrow">›</span></div>
 </div>
-<div class="glrow" data-s="wait">
+<div class="glrow" data-s="wait" data-href="merchant-coupon-new.html?edit=1&amp;name=%E4%BC%9A%E5%91%98%E7%A4%BC%E9%87%91&amp;value=10.00&amp;thr=99.00&amp;total=300&amp;scope=all&amp;start=2026-11-20%2000%3A00&amp;end=2026-12-20%2023%3A59&amp;on=0" onclick="openGift(event,this)">
 <div class="gface"><b><small>¥</small>10</b><span>满99可用</span></div>
 <div class="gm">
 <div class="gn"><b>会员礼金 · 全店通用</b><i class="wait">未开始</i></div>
 <div class="gl2">总量 300 张 ｜ 已用 0 张 ｜ 剩余 300 张</div>
 <div class="gl3">有效期 2026-11-20 至 2026-12-20</div>
 </div>
-<div class="grt"><button aria-label="开关" class="sw" data-on="0" onclick="toggleGift(this)"><i></i></button><span class="garrow">›</span></div>
+<div class="grt"><button aria-label="开关" class="sw" data-on="0" onclick="toggleGift(event,this)" type="button"><i></i></button><span class="garrow">›</span></div>
 </div>
 <div class="gempty" id="giftEmpty">该状态下暂无礼金活动</div>
 </div>
 </div>
-<div class="gcard">
+<a class="gcard" href="merchant-coupon-new.html" style="display:block">
 <div class="ghead">
 <b>礼金活动设置</b>
-<span style="margin-left:auto;font-size:8px;color:#9A9AA0">活动开关</span>
-<button aria-label="活动开关" class="sw" data-on="1" onclick="toggleGift(this)" style="flex:0 0 34px"><i></i></button>
+<span style="margin-left:auto;font-size:9px;color:#EE4A2F;font-weight:700">去设置 ›</span>
 </div>
-<div class="gsform">
-<div class="gsrow">
-<span class="gsl"><em>*</em>礼金名称</span>
-<div class="gsc">
-<div class="gswrap">
-<input maxlength="20" oninput="giftCount(this)" type="text" value="新客专享礼金"/>
-<span class="cnt">8/20</span>
+<div style="padding:2px 0 4px;font-size:10.5px;color:#A99C92;line-height:1.55">
+配置礼金名称、优惠金额、门槛、适用范围、总量与有效期；新建或编辑后在此页保存。
 </div>
-</div>
-</div>
-<div class="gsrow">
-<span class="gsl"><em>*</em>优惠金额</span>
-<div class="gsc">
-<input style="flex:1;min-width:0" type="text" value="5.00"/>
-<span class="gsunit">元</span>
-</div>
-</div>
-<div class="gsrow">
-<span class="gsl"><em>*</em>使用门槛</span>
-<div class="gsc">
-<span class="tinline">订单满</span>
-<input class="tfill" type="text" value="39.00"/>
-<span class="gsunit">元可用</span>
-</div>
-</div>
-<div class="gsrow">
-<span class="gsl"><em>*</em>适用范围</span>
-<div class="gsradios">
-<label><input checked="" name="giftScope" type="radio"/>全店商品通用</label>
-<label><input name="giftScope" type="radio"/>指定商品分类</label>
-<label><input name="giftScope" type="radio"/>指定商品</label>
-<em>›</em>
-</div>
-</div>
-<div class="gsrow">
-<span class="gsl"><em>*</em>活动总量</span>
-<div class="gsc">
-<input style="flex:1;min-width:0" type="text" value="200"/>
-<span class="gsunit">张</span>
-</div>
-</div>
-<div class="gsrow">
-<span class="gsl"><em>*</em>每人限制</span>
-<div class="gsc">
-<select class="gasel">
-<option>每人限用1次</option>
-<option>每人限用2次</option>
-<option>每人限用3次</option>
-<option>不限次数</option>
-</select>
-</div>
-</div>
-<div class="gsrow">
-<span class="gsl"><em>*</em>开始时间</span>
-<div class="gsc">
-<div class="gtimerow">
-<input type="text" value="2026-11-01 00:00"/>
-<svg fill="none" height="12" viewbox="0 0 24 24" width="12"><rect height="15" rx="3" stroke="#B2A69C" stroke-width="1.7" width="17" x="3.5" y="5"></rect><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3" stroke="#B2A69C" stroke-linecap="round" stroke-width="1.7"></path></svg>
-<em>›</em>
-</div>
-</div>
-</div>
-<div class="gsrow">
-<span class="gsl"><em>*</em>结束时间</span>
-<div class="gsc">
-<div class="gtimerow">
-<input type="text" value="2026-11-30 23:59"/>
-<svg fill="none" height="12" viewbox="0 0 24 24" width="12"><rect height="15" rx="3" stroke="#B2A69C" stroke-width="1.7" width="17" x="3.5" y="5"></rect><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3" stroke="#B2A69C" stroke-linecap="round" stroke-width="1.7"></path></svg>
-<em>›</em>
-</div>
-</div>
-</div>
-</div>
-<div class="gpay">
-<span class="pico"><svg fill="none" height="9" viewbox="0 0 24 24" width="9"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z" fill="#fff"></path></svg></span>
-<b>抵扣方式</b>
-<span class="pswitch"><span class="on">自动抵扣</span><span>手动设置 ›</span></span>
-<span class="pnote">下单满足条件后，系统自动抵扣礼金。</span>
-</div>
-<button class="mkbtn" onclick="saveGift()">保存设置</button>
-</div>
+</a>
 </div>
 <div class="hidden" id="panel-s">
 <div class="hero">
@@ -577,21 +500,19 @@ button{font-family:inherit;cursor:pointer;border:0;background:none}
     });
   });
 
-  function toggleGift(el) {
-    const btn = el.classList && el.classList.contains('sw') ? el : el.closest('.sw');
+  function toggleGift(e, el) {
+    if (e) e.stopPropagation();
+    const btn = el && el.classList && el.classList.contains('sw') ? el : (el && el.closest ? el.closest('.sw') : null);
     if (!btn) return;
     const on = btn.dataset.on === '1';
     btn.dataset.on = on ? '0' : '1';
     toast(on ? '礼金开关已关闭' : '礼金开关已开启');
   }
 
-  function giftCount(input) {
-    const cnt = input.parentNode.querySelector('.cnt');
-    if (cnt) cnt.textContent = input.value.length + '/20';
-  }
-
-  function saveGift() {
-    toast('礼金设置已保存');
+  function openGift(e, row) {
+    if (e.target.closest('.sw')) return;
+    const href = row.getAttribute('data-href');
+    if (href) location.href = href;
   }
 
   filterGifts('run');
