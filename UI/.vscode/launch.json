@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "运行：打开小程序首页",
+      "type": "chrome",
+      "request": "launch",
+      "file": "${workspaceFolder}/fujugongxiang-miniapp/home.html"
+    },
+    {
+      "name": "运行：商品详情",
+      "type": "chrome",
+      "request": "launch",
+      "file": "${workspaceFolder}/fujugongxiang-miniapp/product-detail.html"
+    },
+    {
+      "name": "运行：PC商家工作台",
+      "type": "chrome",
+      "request": "launch",
+      "file": "${workspaceFolder}/pc-merchant.html"
+    }
+  ]
+}

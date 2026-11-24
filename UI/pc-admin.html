@@ -70,6 +70,45 @@ td{font-size:13px}
 .toast{position:fixed;right:28px;bottom:28px;background:#172033;color:#fff;padding:12px 16px;border-radius:8px;z-index:20;box-shadow:0 8px 20px #0003}
 .hidden{display:none!important}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.drawer-mask{position:fixed;inset:0;background:#0006;z-index:40;display:none}
+.drawer-mask.show{display:block}
+.drawer{position:fixed;top:0;right:0;width:min(640px,100%);height:100%;background:#fff;z-index:41;transform:translateX(100%);transition:.22s;box-shadow:-8px 0 30px #0002;display:flex;flex-direction:column}
+.drawer.show{transform:none}
+.drawer .dh{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.drawer .db{padding:16px 18px;overflow:auto;flex:1}
+.drawer .df{padding:12px 18px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:12px;color:var(--muted)}
+.field label .req{color:var(--brand);font-weight:800;margin-right:2px}
+.field input,.field select,.field textarea{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:inherit}
+.field input.err,.field select.err{border-color:var(--brand);background:#fff5f2}
+.field input[type="datetime-local"]{min-height:40px;cursor:pointer}
+.unit-row{display:flex;align-items:center;gap:8px}
+.unit-row input{flex:1}
+.unit-row .unit,.unit-row .prefix{color:var(--muted);font-size:13px;white-space:nowrap}
+.namewrap{position:relative}
+.namewrap input{width:100%;padding-right:52px}
+.namewrap .cnt{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--muted);pointer-events:none}
+.scope-radios{display:flex;flex-direction:column;gap:10px}
+.scope-radios label{display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer}
+.scope-radios input{accent-color:var(--brand)}
+.pickbox{margin-top:8px;padding:10px 12px;background:#fffbf8;border:1px dashed #f2c3ae;border-radius:10px;font-size:13px;color:#b4674b}
+.pickbox button{color:var(--brand);font-weight:700;margin-left:8px;background:none;border:0;cursor:pointer;font:inherit}
+.coupon-notice{display:flex;gap:8px;align-items:flex-start;background:#fff6f3;border:1px solid #fbd9cd;border-radius:12px;padding:10px 12px;margin-bottom:14px;font-size:12px;color:#b3411f;line-height:1.55}
+.coupon-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.coupon-head b{font-size:15px}
+.sw{width:40px;height:22px;border-radius:999px;background:#e9dfd8;position:relative;transition:.18s;border:0;cursor:pointer;padding:0;flex:0 0 40px}
+.sw:after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;top:2px;left:2px;box-shadow:0 1px 3px #0003;transition:.18s}
+.sw.on{background:linear-gradient(135deg,var(--brand2),var(--brand))}
+.sw.on:after{left:20px}
+.paybox{display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:#fff8f5;border:1px solid #fad9cd;border-radius:12px;padding:12px}
+.paybox > b{font-size:13px}
+.pswitch{display:inline-flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px}
+.pswitch span{font-size:12px;padding:6px 12px;border-radius:999px;color:#fff;font-weight:600;background:linear-gradient(135deg,var(--brand2),var(--brand))}
+.pnote{flex:1 1 100%;font-size:12px;color:#b4674b;line-height:1.45;margin:0}
+@media(max-width:1100px){.form-grid{grid-template-columns:1fr}}
 @media(max-width:1100px){
   .cards{grid-template-columns:repeat(2,1fr)}
   .grid,.split{grid-template-columns:1fr}
@@ -398,33 +437,66 @@ td{font-size:13px}
 <section id="marketing" class="section">
   <div class="toolbar">
     <div><h1>营销中心</h1><div class="sub">平台红包 vs 店铺礼金分治 · 秒杀与拼单互斥 · 满减/折扣/直降巡检</div></div>
-    <div class="actions"><button class="primary" onclick="toast('创建平台红包活动')">+ 平台红包</button></div>
+    <div class="actions"><button class="primary" onclick="openPlatformCoupon()">+ 平台红包</button></div>
   </div>
   <div class="cards">
-    <div class="card"><div class="metric"><div class="label">平台红包进行中</div><div class="value">6</div><div class="delta">已发放 ¥86,420</div></div></div>
+    <div class="card"><div class="metric"><div class="label">平台红包进行中</div><div class="value" id="pcCount">4</div><div class="delta">对齐移动端平台红包活动</div></div></div>
     <div class="card"><div class="metric"><div class="label">店铺礼金活动</div><div class="value">28</div><div class="delta">不可跨店 · 不可提现</div></div></div>
     <div class="card"><div class="metric"><div class="label">秒杀场次今日</div><div class="value">4</div><div class="delta">20:00 开场</div></div></div>
     <div class="card"><div class="metric"><div class="label">拼单专场</div><div class="value">9</div><div class="delta">与秒杀互斥校验中</div></div></div>
   </div>
   <div class="panel mt">
-    <div class="tabs">
-      <button class="on">平台红包</button>
-      <button>店铺礼金监管</button>
-      <button>秒杀场次</button>
-      <button>拼单</button>
-      <button>促销（满减/折扣/直降）</button>
+    <div class="tabs" id="mktTabs">
+      <button class="on" data-mtab="platform">平台红包</button>
+      <button data-mtab="gift">店铺礼金监管</button>
+      <button data-mtab="seckill">秒杀场次</button>
+      <button data-mtab="group">拼单</button>
+      <button data-mtab="promo">促销（满减/折扣/直降）</button>
     </div>
-    <table>
-      <tr><th>活动</th><th>类型</th><th>范围</th><th>规则</th><th>库存/总量</th><th>状态</th><th>操作</th></tr>
+    <p class="hint">平台红包：需普通用户主动领取后使用，结算自动匹配门槛；可与店铺礼金叠加。范围：全平台 / 指定店铺 / 指定类目 / 指定商品。</p>
+    <table id="platformCouponTable">
+      <thead><tr><th>活动</th><th>类型</th><th>范围</th><th>规则</th><th>库存/总量</th><th>状态</th><th>操作</th></tr></thead>
+      <tbody id="platformCouponBody">
       <tr>
-        <td>年货节平台红包</td>
+        <td>满299减20元<span class="cell-sub">有效期至 12-31</span></td>
         <td><span class="tag">平台红包</span></td>
-        <td>全平台 / 指定类目</td>
-        <td>满 1400 减 280 · 满 2000 减 340</td>
-        <td>剩 12,860</td>
+        <td>全平台商品</td>
+        <td>满 299 减 20</td>
+        <td>剩 3,520</td>
+        <td><span class="tag green">进行中</span></td>
+        <td class="row-actions"><button class="ghost" onclick="toast('编辑平台红包')">编辑</button><button class="ghost" onclick="toast('核销明细')">核销明细</button></td>
+      </tr>
+      <tr>
+        <td>满199减12元<span class="cell-sub">有效期至 12-31</span></td>
+        <td><span class="tag">平台红包</span></td>
+        <td>指定店铺</td>
+        <td>满 199 减 12</td>
+        <td>剩 1,860</td>
         <td><span class="tag green">进行中</span></td>
         <td class="row-actions"><button class="ghost">编辑</button><button class="ghost">核销明细</button></td>
       </tr>
+      <tr>
+        <td>满99减5元<span class="cell-sub">有效期至 12-25</span></td>
+        <td><span class="tag">平台红包</span></td>
+        <td>指定类目</td>
+        <td>满 99 减 5</td>
+        <td>剩 5,120</td>
+        <td><span class="tag green">进行中</span></td>
+        <td class="row-actions"><button class="ghost">编辑</button><button class="ghost">核销明细</button></td>
+      </tr>
+      <tr>
+        <td>满299减20元 · 指定商品<span class="cell-sub">有效期至 12-25</span></td>
+        <td><span class="tag">平台红包</span></td>
+        <td>指定商品</td>
+        <td>满 299 减 20</td>
+        <td>剩 2,408</td>
+        <td><span class="tag green">进行中</span></td>
+        <td class="row-actions"><button class="ghost">编辑</button><button class="ghost">核销明细</button></td>
+      </tr>
+      </tbody>
+    </table>
+    <table id="mktOtherTable" class="hidden" style="margin-top:0">
+      <tr><th>活动</th><th>类型</th><th>范围</th><th>规则</th><th>库存/总量</th><th>状态</th><th>操作</th></tr>
       <tr>
         <td>果乡新客礼金</td>
         <td><span class="tag amber">店铺礼金</span></td>
@@ -1024,6 +1096,16 @@ td{font-size:13px}
 </main>
 </div>
 
+<div class="drawer-mask" id="pcMask" onclick="closePlatformCoupon()"></div>
+<div class="drawer" id="pcDrawer">
+  <div class="dh"><b id="pcDrawerTitle">新建平台红包</b><button class="ghost" onclick="closePlatformCoupon()">关闭</button></div>
+  <div class="db" id="pcDrawerBody"></div>
+  <div class="df">
+    <button class="ghost" onclick="closePlatformCoupon()">取消</button>
+    <button class="primary" onclick="savePlatformCoupon()">保存并发布</button>
+  </div>
+</div>
+
 <script>
 function toast(t){
   const x=document.createElement('div');
@@ -1055,9 +1137,125 @@ document.querySelectorAll('.tabs').forEach(group=>{
           p.classList.toggle('hidden', p.dataset.ctabPanel!==btn.dataset.ctab);
         });
       }
+      if(group.id==='mktTabs' && btn.dataset.mtab){
+        const isPlatform=btn.dataset.mtab==='platform';
+        document.getElementById('platformCouponTable').classList.toggle('hidden',!isPlatform);
+        document.getElementById('mktOtherTable').classList.toggle('hidden',isPlatform);
+      }
     });
   });
 });
+
+/* ===== 新建平台红包 · 对齐 platform-coupons + 礼金设置表单 ===== */
+const scopeMap={all:'全平台商品',shop:'指定店铺',cat:'指定类目',goods:'指定商品'};
+function openPlatformCoupon(){
+  document.getElementById('pcDrawerTitle').textContent='新建平台红包';
+  document.getElementById('pcDrawerBody').innerHTML=`
+    <div class="coupon-notice">平台红包需普通用户先领取后再使用；领取后在结算时自动匹配门槛抵扣，可与店铺礼金叠加，每笔订单限用一张。</div>
+    <div class="coupon-head">
+      <b>平台红包设置</b>
+      <div style="display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px">活动开关
+        <button type="button" class="sw on" id="pcActSw" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'活动已开启':'活动已关闭')"></button>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="field full"><label><span class="req">*</span>红包名称</label>
+        <div class="namewrap"><input id="pcName" maxlength="20" value="满299减20元" oninput="document.getElementById('pcNameCnt').textContent=[...this.value].length+'/20'"/><span class="cnt" id="pcNameCnt">7/20</span></div>
+      </div>
+      <div class="field"><label><span class="req">*</span>优惠金额</label>
+        <div class="unit-row"><input id="pcValue" value="20" inputmode="decimal"/><span class="unit">元</span></div>
+      </div>
+      <div class="field"><label><span class="req">*</span>使用门槛</label>
+        <div class="unit-row"><span class="prefix">订单满</span><input id="pcThr" value="299" inputmode="decimal"/><span class="unit">元可用</span></div>
+      </div>
+      <div class="field full"><label><span class="req">*</span>适用范围</label>
+        <div class="scope-radios">
+          <label><input type="radio" name="pcScope" value="all" checked onchange="onPcScope()"/>全平台商品</label>
+          <label><input type="radio" name="pcScope" value="shop" onchange="onPcScope()"/>指定店铺</label>
+          <label><input type="radio" name="pcScope" value="cat" onchange="onPcScope()"/>指定类目</label>
+          <label><input type="radio" name="pcScope" value="goods" onchange="onPcScope()"/>指定商品</label>
+        </div>
+        <div class="pickbox hidden" id="pcScopePick">
+          <span id="pcScopePickText">请选择</span>
+          <button type="button" onclick="toast('打开范围选择器（演示）')">去选择</button>
+        </div>
+      </div>
+      <div class="field"><label><span class="req">*</span>活动总量</label>
+        <div class="unit-row"><input id="pcTotal" value="3520" inputmode="numeric"/><span class="unit">张</span></div>
+      </div>
+      <div class="field"><label><span class="req">*</span>每人限制</label>
+        <select id="pcPer">
+          <option selected>每人限领1次</option>
+          <option>每人限领2次</option>
+          <option>每人限领3次</option>
+          <option>不限次数</option>
+        </select>
+      </div>
+      <div class="field"><label><span class="req">*</span>开始时间</label><input id="pcStart" type="datetime-local" value="2026-11-01T00:00" onclick="openPcDT(this)"/></div>
+      <div class="field"><label><span class="req">*</span>结束时间</label><input id="pcEnd" type="datetime-local" value="2026-12-31T23:59" onclick="openPcDT(this)"/></div>
+      <div class="field full"><label>使用规则说明</label>
+        <textarea id="pcRule" placeholder="选填，展示在移动端「使用规则」">平台红包需用户主动领取后方可使用；领取后结算时按门槛自动匹配。指定范围红包仅限对应店铺/类目/商品，逾期失效，数量以剩余为准。</textarea>
+      </div>
+    </div>`;
+  document.querySelectorAll('#pcDrawerBody input').forEach(el=>{
+    el.addEventListener('input',()=>el.classList.remove('err'));
+  });
+  document.getElementById('pcMask').classList.add('show');
+  document.getElementById('pcDrawer').classList.add('show');
+}
+function closePlatformCoupon(){
+  document.getElementById('pcMask').classList.remove('show');
+  document.getElementById('pcDrawer').classList.remove('show');
+}
+function openPcDT(el){if(!el)return;el.focus();if(typeof el.showPicker==='function'){try{el.showPicker()}catch(e){}}}
+function onPcScope(){
+  const v=(document.querySelector('input[name="pcScope"]:checked')||{}).value;
+  const box=document.getElementById('pcScopePick');
+  const txt=document.getElementById('pcScopePickText');
+  box.classList.toggle('hidden',v==='all');
+  if(v==='shop'){txt.textContent='请选择指定店铺';toast('可指定店铺')}
+  if(v==='cat'){txt.textContent='请选择指定类目';toast('可指定类目')}
+  if(v==='goods'){txt.textContent='请选择指定商品';toast('可指定商品')}
+}
+function markPcErr(el,msg){el.classList.add('err');el.focus();toast(msg)}
+function savePlatformCoupon(){
+  const name=document.getElementById('pcName');
+  const value=document.getElementById('pcValue');
+  const thr=document.getElementById('pcThr');
+  const total=document.getElementById('pcTotal');
+  const start=document.getElementById('pcStart');
+  const end=document.getElementById('pcEnd');
+  if(!name.value.trim()){markPcErr(name,'请填写红包名称');return}
+  if(!/^\d+(\.\d+)?$/.test(value.value.trim())||Number(value.value)<=0){markPcErr(value,'请填写有效优惠金额');return}
+  if(!/^\d+(\.\d+)?$/.test(thr.value.trim())||Number(thr.value)<0){markPcErr(thr,'请填写使用门槛');return}
+  if(Number(value.value)>=Number(thr.value)&&Number(thr.value)>0){markPcErr(value,'优惠金额需小于使用门槛');return}
+  if(!/^\d+$/.test(total.value.trim())||Number(total.value)<=0){markPcErr(total,'请填写有效活动总量');return}
+  if(!start.value){markPcErr(start,'请选择开始时间');return}
+  if(!end.value){markPcErr(end,'请选择结束时间');return}
+  if(new Date(start.value).getTime()>=new Date(end.value).getTime()){markPcErr(end,'结束时间须晚于开始时间');return}
+  const scope=(document.querySelector('input[name="pcScope"]:checked')||{}).value||'all';
+  const on=document.getElementById('pcActSw').classList.contains('on');
+  const endFmt=end.value?(end.value.slice(5,7)+'-'+end.value.slice(8,10)):'';
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td>${name.value.trim()}<span class="cell-sub">有效期至 ${endFmt}</span></td>
+    <td><span class="tag">平台红包</span></td>
+    <td>${scopeMap[scope]||'全平台商品'}</td>
+    <td>满 ${thr.value.trim()} 减 ${value.value.trim()}</td>
+    <td>剩 ${Number(total.value).toLocaleString()}</td>
+    <td><span class="tag ${on?'green':'amber'}">${on?'进行中':'未开始'}</span></td>
+    <td class="row-actions"><button class="ghost">编辑</button><button class="ghost">核销明细</button></td>`;
+  document.getElementById('platformCouponBody').prepend(tr);
+  const cnt=document.getElementById('pcCount');
+  cnt.textContent=String(Number(cnt.textContent||0)+1);
+  // 切回平台红包 Tab
+  document.querySelectorAll('#mktTabs button').forEach(b=>{
+    b.classList.toggle('on',b.dataset.mtab==='platform');
+  });
+  document.getElementById('platformCouponTable').classList.remove('hidden');
+  document.getElementById('mktOtherTable').classList.add('hidden');
+  toast('平台红包已保存并发布');
+  closePlatformCoupon();
+}
 </script>
 </body>
 </html>
