@@ -1,4 +1,4 @@
 {
-  "task.allowAutomaticTasks": "on",
+  "task.allowAutomaticTasks": "off",
   "task.autoDetect": "on"
 }
